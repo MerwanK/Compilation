@@ -7,6 +7,7 @@
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.xtext.example.mydsl.myDsl.Model
 
 /**
  * Generates code from your model files on save.
@@ -16,15 +17,21 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 class MyDslGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
+		for(e: resource.allContents.toIterable.filter(Model)){
+			fsa.generateFile('pp.whpp',e.compile); 
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+		}
 	}
+	
+	
+  def compile(Model e) ''' 
+    
+    '''
 }
+/* 
 
-/*
 package org.example.domainmodel.generator
 
 import org.eclipse.emf.ecore.resource.Resource
