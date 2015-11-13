@@ -1,0 +1,96 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+/*Merwan Kaf et Maxime Servais */
+
+Model:
+	programme = Programme;
+
+/* Syntaxe des programmes */	
+/* Integre def dans fuction pour interpretation du noeud
+ * identificateur LC
+ * Donner des noms (command etc)
+ */
+	
+Programme :
+	(Fonction CR*)*;
+
+Fonction :
+	"fonction" LC SYM ':' LC "read" LC Input '%' Commandes '%' "write" LC Output;
+	
+Input :
+	VAR (','VAR)*;
+
+Output :
+	VAR (','VAR)*;
+	
+/* Syntaxe des commandes */	
+
+Commandes :
+	Commande(';'Commande)*;
+
+Commande :
+	"nop" |
+	(Vars ":=" Exprs)|
+	(("while"|"for") LC Expr LC "do" LC Commandes LC "od")|
+	("if" LC Expr LC "then" LC Commandes LC ("else" LC Commandes LC)? "fi")|
+	("foreach" LC Expr LC "in" LC Expr LC "do" LC Commandes LC "od");
+
+Vars :
+	VAR (','VAR)*;
+
+/* EXPRESSIONS SIMPLE ET EXPRESSIONS LOGIQUES */
+	 
+Exprs : 
+	Expr (','Expr)*;
+
+Expr : 
+	ExprAnd|ExprSimple;
+	
+ExprSimple :
+	"nil"| 
+	VAR| 
+	SYM| 
+	(PARAG "cons" LExpr PARAD)|
+	(PARAG "list" LExpr PARAD)|
+	(PARAG "hd" LC Expr PARAD)|
+	(PARAG "tl" LC Expr PARAD)|
+	(PARAG SYM LExpr PARAD);
+
+LExpr :
+	(LC Expr)+;
+	
+ExprAnd :
+	ExprOr (LC "and" LC ExprOr)*;
+	
+ExprOr : 
+	ExprNot (LC "or" LC ExprNot)*;
+			
+ExprNot : 
+	("not" LC)? ExprEq;
+
+ExprEq : 
+	ExprSimple "=?" ExprSimple | PARAG Expr PARAD;
+
+/* UNITES LEXICALES */	
+
+/* Comme nous n'utilisons pas Ponctuation nous le laissons en commentaire
+Ponctuation :
+	PONCT|PARAG|PARAD;	
+	terminal PONCT : (','|';'|':');
+*/
+	
+LC :
+	(SP|CR|TAB|LF)?;
+
+	terminal VAR : ('A'..'Z')('a'..'z'|'A'..'Z'|'0'..'9')*CONF;
+	terminal SYM : ('a'..'z')('a'..'z'|'A'..'Z'|'0'..'9')*CONF;
+	terminal CONF : (('-'|'+'|'.'|'/'|'_'|'&'|"->")('a'..'z'|'A'..'Z'|'0'..'9')+)*('?'|'!');
+	terminal PARAG : '(';
+	terminal PARAD : ')';
+	terminal SP : ' ';
+	terminal CR : '\n';
+	terminal TAB :'\t';
+	terminal LF : '\r';
+	
