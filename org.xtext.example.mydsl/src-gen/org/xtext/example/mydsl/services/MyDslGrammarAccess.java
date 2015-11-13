@@ -260,8 +260,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOdKeyword_4_12 = (Keyword)cGroup_4.eContents().get(12);
 		
 		//Commande:
-		//	"nop" | Vars ":=" Exprs | ("while" | "for") LC Expr LC "do" LC Commandes LC "od" | "if" LC Expr LC "then" LC
-		//	Commandes LC ("else" LC Commandes LC)? "fi" | "foreach" LC Expr LC "in" LC Expr LC "do" LC Commandes LC "od";
+		//	"nop" | Vars ":=" Exprs | ("while" | "for") LC Expr LC "do" LC Commandes LC "od" | "if" LC Expr LC "then" LC Commandes
+		//	LC ("else" LC Commandes LC)? "fi" | "foreach" LC Expr LC "in" LC Expr LC "do" LC Commandes LC "od";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"nop" | Vars ":=" Exprs | ("while" | "for") LC Expr LC "do" LC Commandes LC "od" | "if" LC Expr LC "then" LC Commandes
@@ -969,8 +969,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Commande:
-	//	"nop" | Vars ":=" Exprs | ("while" | "for") LC Expr LC "do" LC Commandes LC "od" | "if" LC Expr LC "then" LC
-	//	Commandes LC ("else" LC Commandes LC)? "fi" | "foreach" LC Expr LC "in" LC Expr LC "do" LC Commandes LC "od";
+	//	"nop" | Vars ":=" Exprs | ("while" | "for") LC Expr LC "do" LC Commandes LC "od" | "if" LC Expr LC "then" LC Commandes
+	//	LC ("else" LC Commandes LC)? "fi" | "foreach" LC Expr LC "in" LC Expr LC "do" LC Commandes LC "od";
 	public CommandeElements getCommandeAccess() {
 		return pCommande;
 	}
