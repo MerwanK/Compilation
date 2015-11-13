@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.xtext.example.mydsl.myDsl.Model
+
 /* Last */
 /**
  * Generates code from your model files on save.
