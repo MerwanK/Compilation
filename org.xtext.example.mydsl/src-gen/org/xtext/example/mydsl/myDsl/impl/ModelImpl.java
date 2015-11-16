@@ -3,14 +3,17 @@
 package org.xtext.example.mydsl.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Programme;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,24 +31,14 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The default value of the '{@link #getProgramme() <em>Programme</em>}' attribute.
+   * The cached value of the '{@link #getProgramme() <em>Programme</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getProgramme()
    * @generated
    * @ordered
    */
-  protected static final String PROGRAMME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getProgramme() <em>Programme</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProgramme()
-   * @generated
-   * @ordered
-   */
-  protected String programme = PROGRAMME_EDEFAULT;
+  protected Programme programme;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,7 +66,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getProgramme()
+  public Programme getProgramme()
   {
     return programme;
   }
@@ -83,12 +76,53 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProgramme(String newProgramme)
+  public NotificationChain basicSetProgramme(Programme newProgramme, NotificationChain msgs)
   {
-    String oldProgramme = programme;
+    Programme oldProgramme = programme;
     programme = newProgramme;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.MODEL__PROGRAMME, oldProgramme, programme));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.MODEL__PROGRAMME, oldProgramme, newProgramme);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProgramme(Programme newProgramme)
+  {
+    if (newProgramme != programme)
+    {
+      NotificationChain msgs = null;
+      if (programme != null)
+        msgs = ((InternalEObject)programme).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.MODEL__PROGRAMME, null, msgs);
+      if (newProgramme != null)
+        msgs = ((InternalEObject)newProgramme).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.MODEL__PROGRAMME, null, msgs);
+      msgs = basicSetProgramme(newProgramme, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.MODEL__PROGRAMME, newProgramme, newProgramme));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.MODEL__PROGRAMME:
+        return basicSetProgramme(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -118,7 +152,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case MyDslPackage.MODEL__PROGRAMME:
-        setProgramme((String)newValue);
+        setProgramme((Programme)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,7 +169,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case MyDslPackage.MODEL__PROGRAMME:
-        setProgramme(PROGRAMME_EDEFAULT);
+        setProgramme((Programme)null);
         return;
     }
     super.eUnset(featureID);
@@ -152,26 +186,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case MyDslPackage.MODEL__PROGRAMME:
-        return PROGRAMME_EDEFAULT == null ? programme != null : !PROGRAMME_EDEFAULT.equals(programme);
+        return programme != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (programme: ");
-    result.append(programme);
-    result.append(')');
-    return result.toString();
   }
 
 } //ModelImpl

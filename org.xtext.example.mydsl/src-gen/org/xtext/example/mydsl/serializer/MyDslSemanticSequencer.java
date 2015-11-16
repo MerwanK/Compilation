@@ -16,8 +16,23 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.myDsl.Commande;
+import org.xtext.example.mydsl.myDsl.Commandes;
+import org.xtext.example.mydsl.myDsl.Expr;
+import org.xtext.example.mydsl.myDsl.ExprAnd;
+import org.xtext.example.mydsl.myDsl.ExprEq;
+import org.xtext.example.mydsl.myDsl.ExprNot;
+import org.xtext.example.mydsl.myDsl.ExprOr;
+import org.xtext.example.mydsl.myDsl.ExprSimple;
+import org.xtext.example.mydsl.myDsl.Exprs;
+import org.xtext.example.mydsl.myDsl.Fonction;
+import org.xtext.example.mydsl.myDsl.Input;
+import org.xtext.example.mydsl.myDsl.LExpr;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Output;
+import org.xtext.example.mydsl.myDsl.Programme;
+import org.xtext.example.mydsl.myDsl.Vars;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -29,12 +44,188 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == MyDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.COMMANDE:
+				sequence_Commande(context, (Commande) semanticObject); 
+				return; 
+			case MyDslPackage.COMMANDES:
+				sequence_Commandes(context, (Commandes) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR:
+				sequence_Expr(context, (Expr) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_AND:
+				sequence_ExprAnd(context, (ExprAnd) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_EQ:
+				sequence_ExprEq(context, (ExprEq) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_NOT:
+				sequence_ExprNot(context, (ExprNot) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_OR:
+				sequence_ExprOr(context, (ExprOr) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_SIMPLE:
+				sequence_ExprSimple(context, (ExprSimple) semanticObject); 
+				return; 
+			case MyDslPackage.EXPRS:
+				sequence_Exprs(context, (Exprs) semanticObject); 
+				return; 
+			case MyDslPackage.FONCTION:
+				sequence_Fonction(context, (Fonction) semanticObject); 
+				return; 
+			case MyDslPackage.INPUT:
+				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case MyDslPackage.LEXPR:
+				sequence_LExpr(context, (LExpr) semanticObject); 
+				return; 
 			case MyDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case MyDslPackage.OUTPUT:
+				sequence_Output(context, (Output) semanticObject); 
+				return; 
+			case MyDslPackage.PROGRAMME:
+				sequence_Programme(context, (Programme) semanticObject); 
+				return; 
+			case MyDslPackage.VARS:
+				sequence_Vars(context, (Vars) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     {Commande}
+	 */
+	protected void sequence_Commande(EObject context, Commande semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (com1=Commande com2+=Commande*)
+	 */
+	protected void sequence_Commandes(EObject context, Commandes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expO=ExprOr expO2+=ExprOr*)
+	 */
+	protected void sequence_ExprAnd(EObject context, ExprAnd semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((ExpS=ExprSimple ExpS2=ExprSimple) | exp=Expr)
+	 */
+	protected void sequence_ExprEq(EObject context, ExprEq semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expEq=ExprEq
+	 */
+	protected void sequence_ExprNot(EObject context, ExprNot semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXPR_NOT__EXP_EQ) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXPR_NOT__EXP_EQ));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExprNotAccess().getExpEqExprEqParserRuleCall_1_0(), semanticObject.getExpEq());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expN=ExprNot expN2+=ExprNot*)
+	 */
+	protected void sequence_ExprOr(EObject context, ExprOr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {ExprSimple}
+	 */
+	protected void sequence_ExprSimple(EObject context, ExprSimple semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expA=ExprAnd | expS=ExprSimple)
+	 */
+	protected void sequence_Expr(EObject context, Expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (exp1=Expr exp2+=Expr*)
+	 */
+	protected void sequence_Exprs(EObject context, Exprs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (symbole=SYM In=Input com=Commandes Out=Output)
+	 */
+	protected void sequence_Fonction(EObject context, Fonction semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FONCTION__SYMBOLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FONCTION__SYMBOLE));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FONCTION__IN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FONCTION__IN));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FONCTION__COM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FONCTION__COM));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FONCTION__OUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FONCTION__OUT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFonctionAccess().getSymboleSYMTerminalRuleCall_2_0(), semanticObject.getSymbole());
+		feeder.accept(grammarAccess.getFonctionAccess().getInInputParserRuleCall_7_0(), semanticObject.getIn());
+		feeder.accept(grammarAccess.getFonctionAccess().getComCommandesParserRuleCall_9_0(), semanticObject.getCom());
+		feeder.accept(grammarAccess.getFonctionAccess().getOutOutputParserRuleCall_13_0(), semanticObject.getOut());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (var1=VAR var2+=VAR*)
+	 */
+	protected void sequence_Input(EObject context, Input semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     exp+=Expr+
+	 */
+	protected void sequence_LExpr(EObject context, LExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -49,5 +240,32 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getModelAccess().getProgrammeProgrammeParserRuleCall_0(), semanticObject.getProgramme());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (var1=VAR var2+=VAR*)
+	 */
+	protected void sequence_Output(EObject context, Output semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (fonct+=Fonction*)
+	 */
+	protected void sequence_Programme(EObject context, Programme semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (var1=VAR var2+=VAR*)
+	 */
+	protected void sequence_Vars(EObject context, Vars semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

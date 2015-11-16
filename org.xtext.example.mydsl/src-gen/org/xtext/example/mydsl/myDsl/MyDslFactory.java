@@ -32,6 +32,141 @@ public interface MyDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Programme</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Programme</em>'.
+   * @generated
+   */
+  Programme createProgramme();
+
+  /**
+   * Returns a new object of class '<em>Fonction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fonction</em>'.
+   * @generated
+   */
+  Fonction createFonction();
+
+  /**
+   * Returns a new object of class '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input</em>'.
+   * @generated
+   */
+  Input createInput();
+
+  /**
+   * Returns a new object of class '<em>Output</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output</em>'.
+   * @generated
+   */
+  Output createOutput();
+
+  /**
+   * Returns a new object of class '<em>Commandes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Commandes</em>'.
+   * @generated
+   */
+  Commandes createCommandes();
+
+  /**
+   * Returns a new object of class '<em>Commande</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Commande</em>'.
+   * @generated
+   */
+  Commande createCommande();
+
+  /**
+   * Returns a new object of class '<em>Vars</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Vars</em>'.
+   * @generated
+   */
+  Vars createVars();
+
+  /**
+   * Returns a new object of class '<em>Exprs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exprs</em>'.
+   * @generated
+   */
+  Exprs createExprs();
+
+  /**
+   * Returns a new object of class '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr</em>'.
+   * @generated
+   */
+  Expr createExpr();
+
+  /**
+   * Returns a new object of class '<em>Expr Simple</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Simple</em>'.
+   * @generated
+   */
+  ExprSimple createExprSimple();
+
+  /**
+   * Returns a new object of class '<em>LExpr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>LExpr</em>'.
+   * @generated
+   */
+  LExpr createLExpr();
+
+  /**
+   * Returns a new object of class '<em>Expr And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr And</em>'.
+   * @generated
+   */
+  ExprAnd createExprAnd();
+
+  /**
+   * Returns a new object of class '<em>Expr Or</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Or</em>'.
+   * @generated
+   */
+  ExprOr createExprOr();
+
+  /**
+   * Returns a new object of class '<em>Expr Not</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Not</em>'.
+   * @generated
+   */
+  ExprNot createExprNot();
+
+  /**
+   * Returns a new object of class '<em>Expr Eq</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Eq</em>'.
+   * @generated
+   */
+  ExprEq createExprEq();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

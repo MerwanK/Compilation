@@ -23,29 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Programme</b></em>' attribute.
+   * Returns the value of the '<em><b>Programme</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Programme</em>' attribute isn't clear,
+   * If the meaning of the '<em>Programme</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Programme</em>' attribute.
-   * @see #setProgramme(String)
+   * @return the value of the '<em>Programme</em>' containment reference.
+   * @see #setProgramme(Programme)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getModel_Programme()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getProgramme();
+  Programme getProgramme();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Model#getProgramme <em>Programme</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Model#getProgramme <em>Programme</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Programme</em>' attribute.
+   * @param value the new value of the '<em>Programme</em>' containment reference.
    * @see #getProgramme()
    * @generated
    */
-  void setProgramme(String value);
+  void setProgramme(Programme value);
 
 } // Model

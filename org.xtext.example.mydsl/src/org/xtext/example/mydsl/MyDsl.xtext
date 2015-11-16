@@ -14,64 +14,66 @@ Model:
  */
 	
 Programme :
-	(Fonction CR*)*;
+	{Programme}(fonct+=Fonction CR*)* ;
 
 Fonction :
-	"fonction" LC SYM ':' LC "read" LC Input '%' Commandes '%' "write" LC Output;
+	"fonction" LC symbole=SYM ':' LC "read" LC In=Input '%' com=Commandes '%' "write" LC Out=Output;
 	
 Input :
-	VAR (','VAR)*;
+	var1=VAR (','var2+=VAR)*;
 
 Output :
-	VAR (','VAR)*;
+	var1=VAR (','var2+=VAR)*;
 	
 /* Syntaxe des commandes */	
 
 Commandes :
-	Commande(';'Commande)*;
+	com1=Commande(';'com2+=Commande)*;
 
 Commande :
+	{Commande}
 	"nop" |
-	(Vars ":=" Exprs)|
-	(("while"|"for") LC Expr LC "do" LC Commandes LC "od")|
-	("if" LC Expr LC "then" LC Commandes LC ("else" LC Commandes LC)? "fi")|
-	("foreach" LC Expr LC "in" LC Expr LC "do" LC Commandes LC "od");
+	(var=Vars ":=" exp=Exprs)|
+	(("while"|"for") LC exp2=Expr LC "do" LC com=Commandes LC "od")|
+	("if" LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi")|
+	("foreach" LC exp4=Expr LC "in" LC exp5=Expr LC "do" LC com4=Commandes LC "od");
 
 Vars :
-	VAR (','VAR)*;
+	var1=VAR (','var2+=VAR)*;
 
 /* EXPRESSIONS SIMPLE ET EXPRESSIONS LOGIQUES */
 	 
 Exprs : 
-	Expr (','Expr)*;
+	exp1=Expr (','exp2+=Expr)*;
 
 Expr : 
-	ExprAnd|ExprSimple;
+	expA=ExprAnd|expS=ExprSimple;
 	
 ExprSimple :
+	{ExprSimple}
 	"nil"| 
-	VAR| 
-	SYM| 
-	(PARAG "cons" LExpr PARAD)|
-	(PARAG "list" LExpr PARAD)|
-	(PARAG "hd" LC Expr PARAD)|
-	(PARAG "tl" LC Expr PARAD)|
-	(PARAG SYM LExpr PARAD);
+	var=VAR| 
+	symbole=SYM| 
+	(PARAG "cons" le=LExpr PARAD)|
+	(PARAG "list" le2=LExpr PARAD)|
+	(PARAG "hd" LC le3=Expr PARAD)|
+	(PARAG "tl" LC le4=Expr PARAD)|
+	(PARAG SYM le5=LExpr PARAD);
 
 LExpr :
-	(LC Expr)+;
+	(LC exp+=Expr)+;
 	
 ExprAnd :
-	ExprOr (LC "and" LC ExprOr)*;
+	expO=ExprOr (LC "and" LC expO2+=ExprOr)*;
 	
 ExprOr : 
-	ExprNot (LC "or" LC ExprNot)*;
+	expN=ExprNot (LC "or" LC expN2+=ExprNot)*;
 			
 ExprNot : 
-	("not" LC)? ExprEq;
+	("not" LC)? expEq=ExprEq;
 
 ExprEq : 
-	ExprSimple "=?" ExprSimple | PARAG Expr PARAD;
+	ExpS=ExprSimple "=?" ExpS2=ExprSimple | PARAG exp=Expr PARAD;
 
 /* UNITES LEXICALES */	
 

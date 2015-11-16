@@ -12,6 +12,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.myDsl.Model;
+import org.xtext.example.mydsl.myDsl.Programme;
 
 /**
  * Generates code from your model files on save.
@@ -31,9 +32,15 @@ public class MyDslGenerator implements IGenerator {
     }
   }
   
-  public CharSequence compile(final Model e) {
+  public CharSequence compile(final Model m) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field p is undefined for the type MyDslGenerator"
+      + "\ncompile cannot be resolved");
+  }
+  
+  public CharSequence compile(final Programme p) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("    ");
+    _builder.append("   ");
     _builder.newLine();
     return _builder;
   }
