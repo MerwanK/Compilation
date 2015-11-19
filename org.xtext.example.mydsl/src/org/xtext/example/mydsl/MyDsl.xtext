@@ -17,7 +17,7 @@ Programme :
 	{Programme}(fonct+=Fonction CR*)* ;
 
 Fonction :
-	"fonction" LC symbole=SYM ':' LC "read" LC In=Input '%' com=Commandes '%' "write" LC Out=Output;
+	"fonction" LC symbole=SYM ':' LC "read" LC in=Input '%' com=Commandes '%' "write" LC out=Output;
 	
 Input :
 	var1=VAR (','var2+=VAR)*;

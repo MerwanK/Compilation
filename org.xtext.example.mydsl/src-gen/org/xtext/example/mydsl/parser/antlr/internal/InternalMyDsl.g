@@ -242,14 +242,14 @@ ruleLC
 		{ 
 	        newCompositeNode(grammarAccess.getFonctionAccess().getInInputParserRuleCall_7_0()); 
 	    }
-		lv_In_7_0=ruleInput		{
+		lv_in_7_0=ruleInput		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFonctionRule());
 	        }
        		set(
        			$current, 
-       			"In",
-        		lv_In_7_0, 
+       			"in",
+        		lv_in_7_0, 
         		"Input");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -301,14 +301,14 @@ ruleLC
 		{ 
 	        newCompositeNode(grammarAccess.getFonctionAccess().getOutOutputParserRuleCall_13_0()); 
 	    }
-		lv_Out_13_0=ruleOutput		{
+		lv_out_13_0=ruleOutput		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFonctionRule());
 	        }
        		set(
        			$current, 
-       			"Out",
-        		lv_Out_13_0, 
+       			"out",
+        		lv_out_13_0, 
         		"Output");
 	        afterParserOrEnumRuleCall();
 	    }

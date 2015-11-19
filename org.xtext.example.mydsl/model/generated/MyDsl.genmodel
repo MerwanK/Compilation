@@ -15,9 +15,9 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Fonction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fonction/symbole"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Fonction/In"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Fonction/in"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Fonction/com"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Fonction/Out"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Fonction/out"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Input/var1"/>

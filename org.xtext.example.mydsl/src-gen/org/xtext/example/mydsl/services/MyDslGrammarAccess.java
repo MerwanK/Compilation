@@ -92,10 +92,10 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOutOutputParserRuleCall_13_0 = (RuleCall)cOutAssignment_13.eContents().get(0);
 		
 		//Fonction:
-		//	"fonction" LC symbole=SYM ":" LC "read" LC In=Input "%" com=Commandes "%" "write" LC Out=Output;
+		//	"fonction" LC symbole=SYM ":" LC "read" LC in=Input "%" com=Commandes "%" "write" LC out=Output;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"fonction" LC symbole=SYM ":" LC "read" LC In=Input "%" com=Commandes "%" "write" LC Out=Output
+		//"fonction" LC symbole=SYM ":" LC "read" LC in=Input "%" com=Commandes "%" "write" LC out=Output
 		public Group getGroup() { return cGroup; }
 
 		//"fonction"
@@ -122,7 +122,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LC
 		public RuleCall getLCParserRuleCall_6() { return cLCParserRuleCall_6; }
 
-		//In=Input
+		//in=Input
 		public Assignment getInAssignment_7() { return cInAssignment_7; }
 
 		//Input
@@ -146,7 +146,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LC
 		public RuleCall getLCParserRuleCall_12() { return cLCParserRuleCall_12; }
 
-		//Out=Output
+		//out=Output
 		public Assignment getOutAssignment_13() { return cOutAssignment_13; }
 
 		//Output
@@ -1127,7 +1127,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Fonction:
-	//	"fonction" LC symbole=SYM ":" LC "read" LC In=Input "%" com=Commandes "%" "write" LC Out=Output;
+	//	"fonction" LC symbole=SYM ":" LC "read" LC in=Input "%" com=Commandes "%" "write" LC out=Output;
 	public FonctionElements getFonctionAccess() {
 		return pFonction;
 	}

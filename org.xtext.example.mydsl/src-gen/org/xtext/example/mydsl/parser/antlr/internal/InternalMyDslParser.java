@@ -449,7 +449,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFonction"
-    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:173:1: ruleFonction returns [EObject current=null] : (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_In_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_Out_13_0= ruleOutput ) ) ) ;
+    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:173:1: ruleFonction returns [EObject current=null] : (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_in_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_out_13_0= ruleOutput ) ) ) ;
     public final EObject ruleFonction() throws RecognitionException {
         EObject current = null;
 
@@ -460,21 +460,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_8=null;
         Token otherlv_10=null;
         Token otherlv_11=null;
-        EObject lv_In_7_0 = null;
+        EObject lv_in_7_0 = null;
 
         EObject lv_com_9_0 = null;
 
-        EObject lv_Out_13_0 = null;
+        EObject lv_out_13_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:176:28: ( (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_In_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_Out_13_0= ruleOutput ) ) ) )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:177:1: (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_In_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_Out_13_0= ruleOutput ) ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:176:28: ( (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_in_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_out_13_0= ruleOutput ) ) ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:177:1: (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_in_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_out_13_0= ruleOutput ) ) )
             {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:177:1: (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_In_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_Out_13_0= ruleOutput ) ) )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:177:3: otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_In_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_Out_13_0= ruleOutput ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:177:1: (otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_in_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_out_13_0= ruleOutput ) ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:177:3: otherlv_0= 'fonction' ruleLC ( (lv_symbole_2_0= RULE_SYM ) ) otherlv_3= ':' ruleLC otherlv_5= 'read' ruleLC ( (lv_in_7_0= ruleInput ) ) otherlv_8= '%' ( (lv_com_9_0= ruleCommandes ) ) otherlv_10= '%' otherlv_11= 'write' ruleLC ( (lv_out_13_0= ruleOutput ) )
             {
             otherlv_0=(Token)match(input,20,FOLLOW_20_in_ruleFonction338); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -584,11 +584,11 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:240:1: ( (lv_In_7_0= ruleInput ) )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:241:1: (lv_In_7_0= ruleInput )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:240:1: ( (lv_in_7_0= ruleInput ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:241:1: (lv_in_7_0= ruleInput )
             {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:241:1: (lv_In_7_0= ruleInput )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:242:3: lv_In_7_0= ruleInput
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:241:1: (lv_in_7_0= ruleInput )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:242:3: lv_in_7_0= ruleInput
             {
             if ( state.backtracking==0 ) {
                
@@ -596,7 +596,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
               	    
             }
             pushFollow(FOLLOW_ruleInput_in_ruleFonction459);
-            lv_In_7_0=ruleInput();
+            lv_in_7_0=ruleInput();
 
             state._fsp--;
             if (state.failed) return current;
@@ -607,8 +607,8 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"In",
-                      		lv_In_7_0, 
+                     			"in",
+                      		lv_in_7_0, 
                       		"Input");
               	        afterParserOrEnumRuleCall();
               	    
@@ -692,11 +692,11 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:299:1: ( (lv_Out_13_0= ruleOutput ) )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:300:1: (lv_Out_13_0= ruleOutput )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:299:1: ( (lv_out_13_0= ruleOutput ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:300:1: (lv_out_13_0= ruleOutput )
             {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:300:1: (lv_Out_13_0= ruleOutput )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:301:3: lv_Out_13_0= ruleOutput
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:300:1: (lv_out_13_0= ruleOutput )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:301:3: lv_out_13_0= ruleOutput
             {
             if ( state.backtracking==0 ) {
                
@@ -704,7 +704,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
               	    
             }
             pushFollow(FOLLOW_ruleOutput_in_ruleFonction555);
-            lv_Out_13_0=ruleOutput();
+            lv_out_13_0=ruleOutput();
 
             state._fsp--;
             if (state.failed) return current;
@@ -715,8 +715,8 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"Out",
-                      		lv_Out_13_0, 
+                     			"out",
+                      		lv_out_13_0, 
                       		"Output");
               	        afterParserOrEnumRuleCall();
               	    

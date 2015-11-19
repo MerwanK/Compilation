@@ -186,7 +186,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (symbole=SYM In=Input com=Commandes Out=Output)
+	 *     (symbole=SYM in=Input com=Commandes out=Output)
 	 */
 	protected void sequence_Fonction(EObject context, Fonction semanticObject) {
 		if(errorAcceptor != null) {

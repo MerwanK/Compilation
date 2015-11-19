@@ -34,24 +34,32 @@ import org.xtext.example.mydsl.myDsl.ExprEq
 class MyDslGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		for(e: resource.allContents.toIterable.filter(Model)){
-			fsa.generateFile('pp.whpp',e.compile); 
+		for(f: resource.allContents.toIterable.filter(Fonction)){
+			fsa.generateFile('pp.whpp',f.compile); 
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
 		}
 	}
 	
-	
-  def compile(Model m) ''' 
- 		«m.programme» 
-    	«p.compile»
-    '''
-    
-   def compile(Programme p) '''
+   def compile(Fonction f) '''
+		fonction «f.symbole» : read «f.in.compile» % «f.com.compile» % write «f.out.compile»
+   		   '''
    
+   def compile(Input i)'''
+   		«i.var1» «FOR v :i.var2»
+   			, «i.var2»
+   		«ENDFOR»
    '''
    
+   def compile(Output o)'''
+   		«o.var1» «FOR v :o.var2»
+   			, «o.var2»
+   		«ENDFOR»
+   '''
+   
+   def compile(Commandes co)'''
+   '''
 }
 /* 
 

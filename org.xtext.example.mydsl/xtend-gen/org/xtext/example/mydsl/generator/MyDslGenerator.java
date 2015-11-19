@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.generator;
 
 import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -11,8 +12,10 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.xtext.example.mydsl.myDsl.Model;
-import org.xtext.example.mydsl.myDsl.Programme;
+import org.xtext.example.mydsl.myDsl.Commandes;
+import org.xtext.example.mydsl.myDsl.Fonction;
+import org.xtext.example.mydsl.myDsl.Input;
+import org.xtext.example.mydsl.myDsl.Output;
 
 /**
  * Generates code from your model files on save.
@@ -25,23 +28,72 @@ public class MyDslGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Model> _filter = Iterables.<Model>filter(_iterable, Model.class);
-    for (final Model e : _filter) {
-      CharSequence _compile = this.compile(e);
+    Iterable<Fonction> _filter = Iterables.<Fonction>filter(_iterable, Fonction.class);
+    for (final Fonction f : _filter) {
+      CharSequence _compile = this.compile(f);
       fsa.generateFile("pp.whpp", _compile);
     }
   }
   
-  public CharSequence compile(final Model m) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field p is undefined for the type MyDslGenerator"
-      + "\ncompile cannot be resolved");
+  public CharSequence compile(final Fonction f) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("fonction ");
+    String _symbole = f.getSymbole();
+    _builder.append(_symbole, "");
+    _builder.append(" : read ");
+    Input _in = f.getIn();
+    CharSequence _compile = this.compile(_in);
+    _builder.append(_compile, "");
+    _builder.append(" % ");
+    Commandes _com = f.getCom();
+    CharSequence _compile_1 = this.compile(_com);
+    _builder.append(_compile_1, "");
+    _builder.append(" % write ");
+    Output _out = f.getOut();
+    CharSequence _compile_2 = this.compile(_out);
+    _builder.append(_compile_2, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
-  public CharSequence compile(final Programme p) {
+  public CharSequence compile(final Input i) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("   ");
-    _builder.newLine();
+    String _var1 = i.getVar1();
+    _builder.append(_var1, "");
+    _builder.append(" ");
+    {
+      EList<String> _var2 = i.getVar2();
+      for(final String v : _var2) {
+        _builder.newLineIfNotEmpty();
+        _builder.append(", ");
+        EList<String> _var2_1 = i.getVar2();
+        _builder.append(_var2_1, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Output o) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _var1 = o.getVar1();
+    _builder.append(_var1, "");
+    _builder.append(" ");
+    {
+      EList<String> _var2 = o.getVar2();
+      for(final String v : _var2) {
+        _builder.newLineIfNotEmpty();
+        _builder.append(", ");
+        EList<String> _var2_1 = o.getVar2();
+        _builder.append(_var2_1, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Commandes co) {
+    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
 }
