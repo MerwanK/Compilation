@@ -1,1 +1,3 @@
-fonction
+fonction deux!:
+	read Merwan!,Maxime!%while(list nil) 
+		do Maxime!:=Skill! od%write Cinema!
