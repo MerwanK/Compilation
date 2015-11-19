@@ -25,17 +25,6 @@ import org.xtext.example.mydsl.myDsl.ExprNot
 import org.xtext.example.mydsl.myDsl.ExprEq
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* Last */
 /**
  * Generates code from your model files on save.
