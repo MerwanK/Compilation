@@ -98,7 +98,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     {Commande}
+	 *     nop=NOP
 	 */
 	protected void sequence_Commande(EObject context, Commande semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

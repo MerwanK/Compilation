@@ -26,6 +26,7 @@ import org.xtext.example.mydsl.myDsl.Vars;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getNop <em>Nop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp2 <em>Exp2</em>}</li>
@@ -42,6 +43,26 @@ import org.xtext.example.mydsl.myDsl.Vars;
  */
 public class CommandeImpl extends MinimalEObjectImpl.Container implements Commande
 {
+  /**
+   * The default value of the '{@link #getNop() <em>Nop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNop()
+   * @generated
+   * @ordered
+   */
+  protected static final String NOP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNop() <em>Nop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNop()
+   * @generated
+   * @ordered
+   */
+  protected String nop = NOP_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -161,6 +182,29 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.COMMANDE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNop()
+  {
+    return nop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNop(String newNop)
+  {
+    String oldNop = nop;
+    nop = newNop;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__NOP, oldNop, nop));
   }
 
   /**
@@ -687,6 +731,8 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
+      case MyDslPackage.COMMANDE__NOP:
+        return getNop();
       case MyDslPackage.COMMANDE__VAR:
         return getVar();
       case MyDslPackage.COMMANDE__EXP:
@@ -721,6 +767,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
+      case MyDslPackage.COMMANDE__NOP:
+        setNop((String)newValue);
+        return;
       case MyDslPackage.COMMANDE__VAR:
         setVar((Vars)newValue);
         return;
@@ -765,6 +814,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
+      case MyDslPackage.COMMANDE__NOP:
+        setNop(NOP_EDEFAULT);
+        return;
       case MyDslPackage.COMMANDE__VAR:
         setVar((Vars)null);
         return;
@@ -809,6 +861,8 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
+      case MyDslPackage.COMMANDE__NOP:
+        return NOP_EDEFAULT == null ? nop != null : !NOP_EDEFAULT.equals(nop);
       case MyDslPackage.COMMANDE__VAR:
         return var != null;
       case MyDslPackage.COMMANDE__EXP:
@@ -831,6 +885,23 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
         return com4 != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (nop: ");
+    result.append(nop);
+    result.append(')');
+    return result.toString();
   }
 
 } //CommandeImpl

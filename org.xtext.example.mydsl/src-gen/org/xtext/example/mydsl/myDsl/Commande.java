@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getNop <em>Nop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp2 <em>Exp2</em>}</li>
@@ -31,6 +32,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Commande extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Nop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Nop</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nop</em>' attribute.
+   * @see #setNop(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Nop()
+   * @model
+   * @generated
+   */
+  String getNop();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getNop <em>Nop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nop</em>' attribute.
+   * @see #getNop()
+   * @generated
+   */
+  void setNop(String value);
+
   /**
    * Returns the value of the '<em><b>Var</b></em>' containment reference.
    * <!-- begin-user-doc -->

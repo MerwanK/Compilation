@@ -527,11 +527,25 @@ ruleCommande returns [EObject current=null]
             grammarAccess.getCommandeAccess().getCommandeAction_0_0(),
             $current);
     }
-)	otherlv_1='nop' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getCommandeAccess().getNopKeyword_0_1());
-    }
+)(
+(
+		lv_nop_1_0=RULE_NOP
+		{
+			newLeafNode(lv_nop_1_0, grammarAccess.getCommandeAccess().getNopNOPTerminalRuleCall_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getCommandeRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"nop",
+        		lv_nop_1_0, 
+        		"NOP");
+	    }
+
 )
+))
     |((
 (
 		{ 
@@ -1807,6 +1821,8 @@ RULE_CR : '\n';
 RULE_TAB : '\t';
 
 RULE_LF : '\r';
+
+RULE_NOP : 'nop';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

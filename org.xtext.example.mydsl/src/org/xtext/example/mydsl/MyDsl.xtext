@@ -32,7 +32,7 @@ Commandes :
 
 Commande :
 	{Commande}
-	"nop" |
+	nop = NOP |
 	(var=Vars ":=" exp=Exprs)|
 	(("while"|"for") LC exp2=Expr LC "do" LC com=Commandes LC "od")|
 	("if" LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi")|
@@ -40,6 +40,7 @@ Commande :
 
 Vars :
 	var1=VAR (','var2+=VAR)*;
+
 
 /* EXPRESSIONS SIMPLE ET EXPRESSIONS LOGIQUES */
 	 
@@ -95,4 +96,4 @@ LC :
 	terminal CR : '\n';
 	terminal TAB :'\t';
 	terminal LF : '\r';
-	
+	terminal NOP : 'nop';

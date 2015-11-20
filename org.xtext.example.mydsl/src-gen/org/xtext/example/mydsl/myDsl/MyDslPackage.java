@@ -289,13 +289,22 @@ public interface MyDslPackage extends EPackage
   int COMMANDE = 6;
 
   /**
+   * The feature id for the '<em><b>Nop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMANDE__NOP = 0;
+
+  /**
    * The feature id for the '<em><b>Var</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMANDE__VAR = 0;
+  int COMMANDE__VAR = 1;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -304,7 +313,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__EXP = 1;
+  int COMMANDE__EXP = 2;
 
   /**
    * The feature id for the '<em><b>Exp2</b></em>' containment reference.
@@ -313,7 +322,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__EXP2 = 2;
+  int COMMANDE__EXP2 = 3;
 
   /**
    * The feature id for the '<em><b>Com</b></em>' containment reference.
@@ -322,7 +331,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__COM = 3;
+  int COMMANDE__COM = 4;
 
   /**
    * The feature id for the '<em><b>Exp3</b></em>' containment reference.
@@ -331,7 +340,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__EXP3 = 4;
+  int COMMANDE__EXP3 = 5;
 
   /**
    * The feature id for the '<em><b>Com2</b></em>' containment reference.
@@ -340,7 +349,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__COM2 = 5;
+  int COMMANDE__COM2 = 6;
 
   /**
    * The feature id for the '<em><b>Com3</b></em>' containment reference.
@@ -349,7 +358,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__COM3 = 6;
+  int COMMANDE__COM3 = 7;
 
   /**
    * The feature id for the '<em><b>Exp4</b></em>' containment reference.
@@ -358,7 +367,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__EXP4 = 7;
+  int COMMANDE__EXP4 = 8;
 
   /**
    * The feature id for the '<em><b>Exp5</b></em>' containment reference.
@@ -367,7 +376,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__EXP5 = 8;
+  int COMMANDE__EXP5 = 9;
 
   /**
    * The feature id for the '<em><b>Com4</b></em>' containment reference.
@@ -376,7 +385,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE__COM4 = 9;
+  int COMMANDE__COM4 = 10;
 
   /**
    * The number of structural features of the '<em>Commande</em>' class.
@@ -385,7 +394,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMANDE_FEATURE_COUNT = 10;
+  int COMMANDE_FEATURE_COUNT = 11;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.VarsImpl <em>Vars</em>}' class.
@@ -958,6 +967,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getCommande();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Commande#getNop <em>Nop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nop</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Commande#getNop()
+   * @see #getCommande()
+   * @generated
+   */
+  EAttribute getCommande_Nop();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Commande#getVar <em>Var</em>}'.
@@ -1589,6 +1609,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass COMMANDE = eINSTANCE.getCommande();
+
+    /**
+     * The meta object literal for the '<em><b>Nop</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMANDE__NOP = eINSTANCE.getCommande_Nop();
 
     /**
      * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.

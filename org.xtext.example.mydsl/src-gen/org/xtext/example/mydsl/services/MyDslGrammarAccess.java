@@ -266,7 +266,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cCommandeAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Keyword cNopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cNopAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNopNOPTerminalRuleCall_0_1_0 = (RuleCall)cNopAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cVarAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cVarVarsParserRuleCall_1_0_0 = (RuleCall)cVarAssignment_1_0.eContents().get(0);
@@ -324,24 +325,27 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOdKeyword_4_12 = (Keyword)cGroup_4.eContents().get(12);
 		
 		//Commande:
-		//	{Commande} "nop" | var=Vars ":=" exp=Exprs | ("while" | "for") LC exp2=Expr LC "do" LC com=Commandes LC "od" | "if"
+		//	{Commande} nop=NOP | var=Vars ":=" exp=Exprs | ("while" | "for") LC exp2=Expr LC "do" LC com=Commandes LC "od" | "if"
 		//	LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi" | "foreach" LC exp4=Expr LC "in" LC
 		//	exp5=Expr LC "do" LC com4=Commandes LC "od";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Commande} "nop" | var=Vars ":=" exp=Exprs | ("while" | "for") LC exp2=Expr LC "do" LC com=Commandes LC "od" | "if" LC
+		//{Commande} nop=NOP | var=Vars ":=" exp=Exprs | ("while" | "for") LC exp2=Expr LC "do" LC com=Commandes LC "od" | "if" LC
 		//exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi" | "foreach" LC exp4=Expr LC "in" LC
 		//exp5=Expr LC "do" LC com4=Commandes LC "od"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{Commande} "nop"
+		//{Commande} nop=NOP
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{Commande}
 		public Action getCommandeAction_0_0() { return cCommandeAction_0_0; }
 
-		//"nop"
-		public Keyword getNopKeyword_0_1() { return cNopKeyword_0_1; }
+		//nop=NOP
+		public Assignment getNopAssignment_0_1() { return cNopAssignment_0_1; }
+
+		//NOP
+		public RuleCall getNopNOPTerminalRuleCall_0_1_0() { return cNopNOPTerminalRuleCall_0_1_0; }
 
 		//var=Vars ":=" exp=Exprs
 		public Group getGroup_1() { return cGroup_1; }
@@ -1038,6 +1042,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tCR;
 	private final TerminalRule tTAB;
 	private final TerminalRule tLF;
+	private final TerminalRule tNOP;
 	
 	private final Grammar grammar;
 
@@ -1074,6 +1079,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.tCR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "CR");
 		this.tTAB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TAB");
 		this.tLF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "LF");
+		this.tNOP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NOP");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1167,7 +1173,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Commande:
-	//	{Commande} "nop" | var=Vars ":=" exp=Exprs | ("while" | "for") LC exp2=Expr LC "do" LC com=Commandes LC "od" | "if"
+	//	{Commande} nop=NOP | var=Vars ":=" exp=Exprs | ("while" | "for") LC exp2=Expr LC "do" LC com=Commandes LC "od" | "if"
 	//	LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi" | "foreach" LC exp4=Expr LC "in" LC
 	//	exp5=Expr LC "do" LC com4=Commandes LC "od";
 	public CommandeElements getCommandeAccess() {
@@ -1335,6 +1341,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	"\r";
 	public TerminalRule getLFRule() {
 		return tLF;
+	} 
+
+	//terminal NOP:
+	//	"nop";
+	public TerminalRule getNOPRule() {
+		return tNOP;
 	} 
 
 	//terminal ID:

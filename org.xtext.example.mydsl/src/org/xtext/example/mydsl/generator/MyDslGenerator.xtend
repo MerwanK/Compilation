@@ -71,8 +71,11 @@ class MyDslGenerator implements IGenerator {
    '''
    
    def compile(Commande co)'''
-   		nop
+   		«switch co{
+   			case NOP : "nope"
+   			default : "ça ne marche pas"}»
    '''
+   
 }
 /* 
 
