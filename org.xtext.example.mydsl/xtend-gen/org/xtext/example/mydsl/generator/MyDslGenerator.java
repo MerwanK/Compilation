@@ -127,7 +127,9 @@ public class MyDslGenerator implements IGenerator {
   }
   
   public CharSequence compile(final Commande co) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field NOP is undefined for the type MyDslGenerator");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("nop");
+    _builder.newLine();
+    return _builder;
   }
 }
