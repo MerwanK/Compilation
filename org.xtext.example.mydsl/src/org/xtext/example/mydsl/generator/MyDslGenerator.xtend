@@ -34,31 +34,44 @@ import org.xtext.example.mydsl.myDsl.ExprEq
 class MyDslGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		for(f: resource.allContents.toIterable.filter(Fonction)){
-			fsa.generateFile('pp.whpp',f.compile); 
+		for(p: resource.allContents.toIterable.filter(Programme)){
+			fsa.generateFile('pp.whpp',p.compile); 
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
 		}
 	}
 	
+	def compile(Programme p)'''
+   		«FOR f :p.fonct»«f.compile»
+   		
+   		«ENDFOR»
+   '''
+		
+	
    def compile(Fonction f) '''
-		fonction «f.symbole» : read «f.in.compile» % «f.com.compile» % write «f.out.compile»
+		fonction «f.symbole»:
+		read «f.in.compile»
+		%
+		«f.com.compile»
+		%
+		write «f.out.compile»
    		   '''
    
    def compile(Input i)'''
-   		«i.var1» «FOR v :i.var2»
-   			, «i.var2»
-   		«ENDFOR»
+   		«i.var1»«FOR v :i.var2», «v»«ENDFOR»
    '''
    
    def compile(Output o)'''
-   		«o.var1» «FOR v :o.var2»
-   			, «o.var2»
-   		«ENDFOR»
+   		«o.var1»«FOR v :o.var2», «v»«ENDFOR»
    '''
    
-   def compile(Commandes co)'''
+   def compile(Commandes cos)'''
+   		«cos.com1.compile»«FOR v :cos.com2», «v.compile»«ENDFOR»
+   '''
+   
+   def compile(Commande co)'''
+   		nop
    '''
 }
 /* 
