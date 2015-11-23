@@ -686,7 +686,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVars_Var1()
+  public EAttribute getVars_Var2()
   {
     return (EAttribute)varsEClass.getEStructuralFeatures().get(0);
   }
@@ -696,7 +696,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVars_Var2()
+  public EAttribute getVars_Var3()
   {
     return (EAttribute)varsEClass.getEStructuralFeatures().get(1);
   }
@@ -1066,8 +1066,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(foreachEClass, FOREACH__COM7);
 
     varsEClass = createEClass(VARS);
-    createEAttribute(varsEClass, VARS__VAR1);
     createEAttribute(varsEClass, VARS__VAR2);
+    createEAttribute(varsEClass, VARS__VAR3);
 
     exprsEClass = createEClass(EXPRS);
     createEReference(exprsEClass, EXPRS__EXPR_S);
@@ -1192,8 +1192,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getForeach_Com7(), this.getCommandes(), null, "com7", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varsEClass, Vars.class, "Vars", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVars_Var1(), ecorePackage.getEString(), "var1", null, 0, 1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVars_Var2(), ecorePackage.getEString(), "var2", null, 0, -1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVars_Var2(), ecorePackage.getEString(), "var2", null, 0, 1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVars_Var3(), ecorePackage.getEString(), "var3", null, 0, -1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprsEClass, Exprs.class, "Exprs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExprs_ExprS(), this.getExpr(), null, "exprS", null, 0, 1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

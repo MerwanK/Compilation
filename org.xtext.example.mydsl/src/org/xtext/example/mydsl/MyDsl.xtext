@@ -55,7 +55,7 @@ Foreach :
 	("foreach" LC exp5=Expr LC "in" LC exp6=Expr LC "do" LC com7=Commandes LC "od");
 
 Vars :
-	var1=VAR (','var2+=VAR)*;
+	var2=VAR (','var3+=VAR)*;
 
 
 /* EXPRESSIONS SIMPLE ET EXPRESSIONS LOGIQUES */

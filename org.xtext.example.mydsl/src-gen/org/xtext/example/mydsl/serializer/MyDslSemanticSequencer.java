@@ -352,7 +352,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (var1=VAR var2+=VAR*)
+	 *     (var2=VAR var3+=VAR*)
 	 */
 	protected void sequence_Vars(EObject context, Vars semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

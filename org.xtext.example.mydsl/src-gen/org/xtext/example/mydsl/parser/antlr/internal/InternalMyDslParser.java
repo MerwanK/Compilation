@@ -3051,33 +3051,33 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVars"
-    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1258:1: ruleVars returns [EObject current=null] : ( ( (lv_var1_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) ) )* ) ;
+    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1258:1: ruleVars returns [EObject current=null] : ( ( (lv_var2_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) ) )* ) ;
     public final EObject ruleVars() throws RecognitionException {
         EObject current = null;
 
-        Token lv_var1_0_0=null;
+        Token lv_var2_0_0=null;
         Token otherlv_1=null;
-        Token lv_var2_2_0=null;
+        Token lv_var3_2_0=null;
 
          enterRule(); 
             
         try {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1261:28: ( ( ( (lv_var1_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) ) )* ) )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:1: ( ( (lv_var1_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) ) )* )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1261:28: ( ( ( (lv_var2_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) ) )* ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:1: ( ( (lv_var2_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) ) )* )
             {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:1: ( ( (lv_var1_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) ) )* )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:2: ( (lv_var1_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) ) )*
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:1: ( ( (lv_var2_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) ) )* )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:2: ( (lv_var2_0_0= RULE_VAR ) ) (otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) ) )*
             {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:2: ( (lv_var1_0_0= RULE_VAR ) )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1263:1: (lv_var1_0_0= RULE_VAR )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1262:2: ( (lv_var2_0_0= RULE_VAR ) )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1263:1: (lv_var2_0_0= RULE_VAR )
             {
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1263:1: (lv_var1_0_0= RULE_VAR )
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1264:3: lv_var1_0_0= RULE_VAR
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1263:1: (lv_var2_0_0= RULE_VAR )
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1264:3: lv_var2_0_0= RULE_VAR
             {
-            lv_var1_0_0=(Token)match(input,RULE_VAR,FOLLOW_RULE_VAR_in_ruleVars2432); if (state.failed) return current;
+            lv_var2_0_0=(Token)match(input,RULE_VAR,FOLLOW_RULE_VAR_in_ruleVars2432); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(lv_var1_0_0, grammarAccess.getVarsAccess().getVar1VARTerminalRuleCall_0_0()); 
+              			newLeafNode(lv_var2_0_0, grammarAccess.getVarsAccess().getVar2VARTerminalRuleCall_0_0()); 
               		
             }
             if ( state.backtracking==0 ) {
@@ -3087,8 +3087,8 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
               	        }
                      		setWithLastConsumed(
                      			current, 
-                     			"var1",
-                      		lv_var1_0_0, 
+                     			"var2",
+                      		lv_var2_0_0, 
                       		"VAR");
               	    
             }
@@ -3098,7 +3098,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1280:2: (otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) ) )*
+            // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1280:2: (otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -3111,7 +3111,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1280:4: otherlv_1= ',' ( (lv_var2_2_0= RULE_VAR ) )
+            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1280:4: otherlv_1= ',' ( (lv_var3_2_0= RULE_VAR ) )
             	    {
             	    otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleVars2450); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -3119,16 +3119,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	          	newLeafNode(otherlv_1, grammarAccess.getVarsAccess().getCommaKeyword_1_0());
             	          
             	    }
-            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1284:1: ( (lv_var2_2_0= RULE_VAR ) )
-            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1285:1: (lv_var2_2_0= RULE_VAR )
+            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1284:1: ( (lv_var3_2_0= RULE_VAR ) )
+            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1285:1: (lv_var3_2_0= RULE_VAR )
             	    {
-            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1285:1: (lv_var2_2_0= RULE_VAR )
-            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1286:3: lv_var2_2_0= RULE_VAR
+            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1285:1: (lv_var3_2_0= RULE_VAR )
+            	    // ../org.xtext.example.mydsl/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1286:3: lv_var3_2_0= RULE_VAR
             	    {
-            	    lv_var2_2_0=(Token)match(input,RULE_VAR,FOLLOW_RULE_VAR_in_ruleVars2467); if (state.failed) return current;
+            	    lv_var3_2_0=(Token)match(input,RULE_VAR,FOLLOW_RULE_VAR_in_ruleVars2467); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      			newLeafNode(lv_var2_2_0, grammarAccess.getVarsAccess().getVar2VARTerminalRuleCall_1_1_0()); 
+            	      			newLeafNode(lv_var3_2_0, grammarAccess.getVarsAccess().getVar3VARTerminalRuleCall_1_1_0()); 
             	      		
             	    }
             	    if ( state.backtracking==0 ) {
@@ -3138,8 +3138,8 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	      	        }
             	             		addWithLastConsumed(
             	             			current, 
-            	             			"var2",
-            	              		lv_var2_2_0, 
+            	             			"var3",
+            	              		lv_var3_2_0, 
             	              		"VAR");
             	      	    
             	    }

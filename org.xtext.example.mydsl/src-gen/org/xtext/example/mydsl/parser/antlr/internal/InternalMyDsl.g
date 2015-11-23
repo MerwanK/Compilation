@@ -1261,9 +1261,9 @@ ruleVars returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_var1_0_0=RULE_VAR
+		lv_var2_0_0=RULE_VAR
 		{
-			newLeafNode(lv_var1_0_0, grammarAccess.getVarsAccess().getVar1VARTerminalRuleCall_0_0()); 
+			newLeafNode(lv_var2_0_0, grammarAccess.getVarsAccess().getVar2VARTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1271,8 +1271,8 @@ ruleVars returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"var1",
-        		lv_var1_0_0, 
+       			"var2",
+        		lv_var2_0_0, 
         		"VAR");
 	    }
 
@@ -1283,9 +1283,9 @@ ruleVars returns [EObject current=null]
     }
 (
 (
-		lv_var2_2_0=RULE_VAR
+		lv_var3_2_0=RULE_VAR
 		{
-			newLeafNode(lv_var2_2_0, grammarAccess.getVarsAccess().getVar2VARTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_var3_2_0, grammarAccess.getVarsAccess().getVar3VARTerminalRuleCall_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1293,8 +1293,8 @@ ruleVars returns [EObject current=null]
 	        }
        		addWithLastConsumed(
        			$current, 
-       			"var2",
-        		lv_var2_2_0, 
+       			"var3",
+        		lv_var3_2_0, 
         		"VAR");
 	    }
 

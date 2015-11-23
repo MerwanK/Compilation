@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Vars#getVar1 <em>Var1</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Vars#getVar2 <em>Var2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Vars#getVar3 <em>Var3</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,45 +26,45 @@ import org.eclipse.emf.ecore.EObject;
 public interface Vars extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Var1</b></em>' attribute.
+   * Returns the value of the '<em><b>Var2</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var1</em>' attribute isn't clear,
+   * If the meaning of the '<em>Var2</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var1</em>' attribute.
-   * @see #setVar1(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVars_Var1()
+   * @return the value of the '<em>Var2</em>' attribute.
+   * @see #setVar2(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVars_Var2()
    * @model
    * @generated
    */
-  String getVar1();
+  String getVar2();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Vars#getVar1 <em>Var1</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Vars#getVar2 <em>Var2</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var1</em>' attribute.
-   * @see #getVar1()
+   * @param value the new value of the '<em>Var2</em>' attribute.
+   * @see #getVar2()
    * @generated
    */
-  void setVar1(String value);
+  void setVar2(String value);
 
   /**
-   * Returns the value of the '<em><b>Var2</b></em>' attribute list.
+   * Returns the value of the '<em><b>Var3</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var2</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Var3</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var2</em>' attribute list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVars_Var2()
+   * @return the value of the '<em>Var3</em>' attribute list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVars_Var3()
    * @model unique="false"
    * @generated
    */
-  EList<String> getVar2();
+  EList<String> getVar3();
 
 } // Vars
