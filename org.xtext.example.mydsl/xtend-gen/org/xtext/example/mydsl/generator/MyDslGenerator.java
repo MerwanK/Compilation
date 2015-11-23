@@ -16,6 +16,10 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.myDsl.AffectVar;
 import org.xtext.example.mydsl.myDsl.Commande;
 import org.xtext.example.mydsl.myDsl.Commandes;
+import org.xtext.example.mydsl.myDsl.Expr;
+import org.xtext.example.mydsl.myDsl.ExprAnd;
+import org.xtext.example.mydsl.myDsl.ExprSimple;
+import org.xtext.example.mydsl.myDsl.Exprs;
 import org.xtext.example.mydsl.myDsl.Fonction;
 import org.xtext.example.mydsl.myDsl.For;
 import org.xtext.example.mydsl.myDsl.Foreach;
@@ -23,6 +27,7 @@ import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.Input;
 import org.xtext.example.mydsl.myDsl.Output;
 import org.xtext.example.mydsl.myDsl.Programme;
+import org.xtext.example.mydsl.myDsl.Vars;
 import org.xtext.example.mydsl.myDsl.While;
 
 /**
@@ -43,15 +48,22 @@ public class MyDslGenerator implements IGenerator {
     }
   }
   
-  /**
-   * def indentation(int k){
-   * var String indent = "";
-   * while(k!=0){
-   * indent += " ";
-   * k = k-1;
-   * }
-   * }
-   */
+  private int i = 3;
+  
+  private int n = 1;
+  
+  public String indentation(final int k) {
+    int j = k;
+    String indent = "";
+    while ((j > 0)) {
+      {
+        indent = (indent + " ");
+        j = (j - 1);
+      }
+    }
+    return indent;
+  }
+  
   public CharSequence compile(final Programme p) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -150,7 +162,6 @@ public class MyDslGenerator implements IGenerator {
         _builder.append("nop");
       }
     }
-    _builder.append("\t");
     {
       AffectVar _affectVar = co.getAffectVar();
       boolean _notEquals_1 = (!Objects.equal(_affectVar, null));
@@ -200,16 +211,38 @@ public class MyDslGenerator implements IGenerator {
     return _builder;
   }
   
+  public CharSequence compile(final AffectVar av) {
+    StringConcatenation _builder = new StringConcatenation();
+    Vars _var1 = av.getVar1();
+    CharSequence _compile = this.compile(_var1);
+    _builder.append(_compile, "");
+    _builder.append(" := ");
+    Exprs _exp = av.getExp();
+    CharSequence _compile_1 = this.compile(_exp);
+    _builder.append(_compile_1, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public CharSequence compile(final While w) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("while");
     _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compile(final AffectVar av) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("afgect");
+    String _indentation = this.indentation(this.i);
+    _builder.append(_indentation, "");
+    Expr _exp2 = w.getExp2();
+    CharSequence _compile = this.compile(_exp2);
+    _builder.append(_compile, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("do ");
+    _builder.newLine();
+    String _indentation_1 = this.indentation(this.i);
+    _builder.append(_indentation_1, "");
+    Commandes _com3 = w.getCom3();
+    Object _compile_1 = this.compile(_com3);
+    _builder.append(_compile_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("od");
     _builder.newLine();
     return _builder;
   }
@@ -218,6 +251,22 @@ public class MyDslGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("for");
     _builder.newLine();
+    String _indentation = this.indentation(this.i);
+    _builder.append(_indentation, "");
+    Expr _exp3 = f.getExp3();
+    CharSequence _compile = this.compile(_exp3);
+    _builder.append(_compile, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("do");
+    _builder.newLine();
+    String _indentation_1 = this.indentation(this.i);
+    _builder.append(_indentation_1, "");
+    Commandes _com4 = f.getCom4();
+    CharSequence _compile_1 = this.compile(_com4);
+    _builder.append(_compile_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("od ");
+    _builder.newLine();
     return _builder;
   }
   
@@ -225,12 +274,121 @@ public class MyDslGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("if");
     _builder.newLine();
+    String _indentation = this.indentation(this.i);
+    _builder.append(_indentation, "");
+    Expr _exp4 = ifc.getExp4();
+    CharSequence _compile = this.compile(_exp4);
+    _builder.append(_compile, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("then");
+    _builder.newLine();
+    String _indentation_1 = this.indentation(this.i);
+    _builder.append(_indentation_1, "");
+    Commandes _com5 = ifc.getCom5();
+    CharSequence _compile_1 = this.compile(_com5);
+    _builder.append(_compile_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("else");
+    _builder.newLine();
+    String _indentation_2 = this.indentation(this.i);
+    _builder.append(_indentation_2, "");
+    Commandes _com6 = ifc.getCom6();
+    CharSequence _compile_2 = this.compile(_com6);
+    _builder.append(_compile_2, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("fi");
+    _builder.newLine();
     return _builder;
   }
   
   public CharSequence compile(final Foreach fe) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("foreach");
+    _builder.newLine();
+    String _indentation = this.indentation(this.i);
+    _builder.append(_indentation, "");
+    Expr _exp5 = fe.getExp5();
+    CharSequence _compile = this.compile(_exp5);
+    _builder.append(_compile, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("in");
+    _builder.newLine();
+    String _indentation_1 = this.indentation(this.i);
+    _builder.append(_indentation_1, "");
+    Expr _exp6 = fe.getExp6();
+    CharSequence _compile_1 = this.compile(_exp6);
+    _builder.append(_compile_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("do");
+    _builder.newLine();
+    String _indentation_2 = this.indentation(this.i);
+    _builder.append(_indentation_2, "");
+    Commandes _com7 = fe.getCom7();
+    CharSequence _compile_2 = this.compile(_com7);
+    _builder.append(_compile_2, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("od");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Vars v) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Exprs exps) {
+    StringConcatenation _builder = new StringConcatenation();
+    Expr _exprS = exps.getExprS();
+    CharSequence _compile = this.compile(_exprS);
+    _builder.append(_compile, "");
+    {
+      EList<Expr> _exprS2 = exps.getExprS2();
+      for(final Expr v : _exprS2) {
+        _builder.append(", ");
+        CharSequence _compile_1 = this.compile(v);
+        _builder.append(_compile_1, "");
+        _builder.append(" ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Expr ex) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      ExprAnd _expA = ex.getExpA();
+      boolean _notEquals = (!Objects.equal(_expA, null));
+      if (_notEquals) {
+        ExprAnd _expA_1 = ex.getExpA();
+        CharSequence _compile = this.compile(_expA_1);
+        _builder.append(_compile, "");
+      }
+    }
+    {
+      ExprSimple _expS = ex.getExpS();
+      boolean _notEquals_1 = (!Objects.equal(_expS, null));
+      if (_notEquals_1) {
+        ExprSimple _expS_1 = ex.getExpS();
+        CharSequence _compile_1 = this.compile(_expS_1);
+        _builder.append(_compile_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final ExprSimple es) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("lol");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final ExprAnd ea) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("mdr");
     _builder.newLine();
     return _builder;
   }

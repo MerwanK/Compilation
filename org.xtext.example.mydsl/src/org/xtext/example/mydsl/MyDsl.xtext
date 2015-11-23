@@ -40,19 +40,19 @@ Commande :
 	foreachC = Foreach;
 	
 AffectVar :
-	(var=Vars ":=" exp=Exprs);
+	(var1=Vars ":=" exp=Exprs);
 
 While :
-	("while" LC exp2=Expr LC "do" LC com=Commandes LC "od");
+	("while" LC exp2=Expr LC "do" LC com3=Commandes LC "od");
 
 For :
-	("for" LC exp2=Expr LC "do" LC com=Commandes LC "od");
+	("for" LC exp3=Expr LC "do" LC com4=Commandes LC "od");
 
 If :
-	("if" LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi");
+	("if" LC exp4=Expr LC "then" LC com5=Commandes LC ("else" LC com6=Commandes LC)? "fi");
 
 Foreach :
-	("foreach" LC exp4=Expr LC "in" LC exp5=Expr LC "do" LC com4=Commandes LC "od");
+	("foreach" LC exp5=Expr LC "in" LC exp6=Expr LC "do" LC com7=Commandes LC "od");
 
 Vars :
 	var1=VAR (','var2+=VAR)*;
@@ -61,7 +61,7 @@ Vars :
 /* EXPRESSIONS SIMPLE ET EXPRESSIONS LOGIQUES */
 	 
 Exprs : 
-	exp1=Expr (','exp2+=Expr)*;
+	exprS=Expr (','exprS2+=Expr)*;
 
 Expr : 
 	expA=ExprAnd|expS=ExprSimple;
@@ -90,7 +90,7 @@ ExprNot :
 	("not" LC)? expEq=ExprEq;
 
 ExprEq : 
-	ExpS=ExprSimple "=?" ExpS2=ExprSimple | PARAG exp=Expr PARAD;
+	ExpSi=ExprSimple "=?" ExpS2=ExprSimple | PARAG exp=Expr PARAD;
 
 /* UNITES LEXICALES */	
 

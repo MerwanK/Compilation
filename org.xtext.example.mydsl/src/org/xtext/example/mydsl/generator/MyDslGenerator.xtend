@@ -38,7 +38,8 @@ import org.xtext.example.mydsl.myDsl.ExprEq
  */
 class MyDslGenerator implements IGenerator {
 	
-	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
+	override void doGenerate(Resource resource, IFileSystemAccess fsa){ 
+			//					int i_if, int i_while, int i_foreach, int i_for) {
 		for(p: resource.allContents.toIterable.filter(Programme)){
 			fsa.generateFile('pp.whpp',p.compile); 
 //				.filter(typeof(Greeting))
@@ -46,15 +47,20 @@ class MyDslGenerator implements IGenerator {
 //				.join(', '))
 		}
 	}
-	/*
+	
+	var int i = 3;
+	var int n = 1;
+	
 	def indentation(int k){
+		var int j = k;
 		var String indent = "";
-		while(k!=0){
-			indent += " ";
-			k = k-1;
+		while(j>0){
+			indent = indent + " ";
+			j = j-1;
 		}
+		return indent;
 	}
-	*/
+	
 	def compile(Programme p)'''
    		«FOR f :p.fonct»«f.compile»
    		
@@ -84,36 +90,74 @@ class MyDslGenerator implements IGenerator {
    
    def compile(Commande co)'''
    		«IF co.nop != null»nop«
-   		ENDIF»	«IF co.affectVar != null»«co.affectVar.compile»«
+   		ENDIF»«IF co.affectVar != null»«co.affectVar.compile»«
    		ENDIF»«IF co.whileC != null»«co.whileC.compile»«
    		ENDIF»«IF co.forC != null»«co.whileC.compile»«
    		ENDIF»«IF co.ifC != null»«co.whileC.compile»«
    		ENDIF»«IF co.foreachC != null»«co.whileC.compile»«
    		ENDIF»
+   '''	
+   
+     
+   def compile(AffectVar av)'''
+   «av.var1.compile» := «av.exp.compile»
    '''
    
    def compile(While w)'''
    while
-   '''
-   
-   def compile(AffectVar av)'''
-   afgect
+   «indentation(i)»«w.exp2.compile»
+   do 
+   «indentation(i)»«w.com3.compile»
+   od
    '''
       
    def compile(For f)'''
    for
+   «indentation(i)»«f.exp3.compile»
+   do
+   «indentation(i)»«f.com4.compile»
+   od 
    '''
    
    def compile(If ifc)'''
    if
+   «indentation(i)»«ifc.exp4.compile»
+   then
+   «indentation(i)»«ifc.com5.compile»
+   else
+   «indentation(i)»«ifc.com6.compile»
+   fi
    '''
    
    def compile(Foreach fe)'''
    foreach
+   «indentation(i)»«fe.exp5.compile»
+   in
+   «indentation(i)»«fe.exp6.compile»
+   do
+   «indentation(i)»«fe.com7.compile»
+   od
    '''
    
-   /* 
-   «switch co{
-   			case NOP : "nope"
-   			default : "ça ne marche pas"}»*/
+   def compile(Vars v)'''
+   '''
+   
+   def compile(Exprs exps)'''
+   «exps.exprS.compile »«FOR v :exps.exprS2», «v.compile» «ENDFOR»
+   '''
+   
+   def compile(Expr ex)'''
+   «IF ex.expA != null»«ex.expA.compile»«
+   ENDIF»«IF ex.expS != null»«ex.expS.compile»«
+   ENDIF»
+   '''
+   
+   def compile(ExprSimple es)'''
+   lol
+   '''
+   
+   def compile(ExprAnd ea)'''
+   mdr
+   '''
+   
 }

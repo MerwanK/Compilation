@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpS <em>Exp S</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpSi <em>Exp Si</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpS2 <em>Exp S2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.ExprEq#getExp <em>Exp</em>}</li>
  * </ul>
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface ExprEq extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Exp S</b></em>' containment reference.
+   * Returns the value of the '<em><b>Exp Si</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exp S</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Exp Si</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp S</em>' containment reference.
-   * @see #setExpS(ExprSimple)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprEq_ExpS()
+   * @return the value of the '<em>Exp Si</em>' containment reference.
+   * @see #setExpSi(ExprSimple)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprEq_ExpSi()
    * @model containment="true"
    * @generated
    */
-  ExprSimple getExpS();
+  ExprSimple getExpSi();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpS <em>Exp S</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpSi <em>Exp Si</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp S</em>' containment reference.
-   * @see #getExpS()
+   * @param value the new value of the '<em>Exp Si</em>' containment reference.
+   * @see #getExpSi()
    * @generated
    */
-  void setExpS(ExprSimple value);
+  void setExpSi(ExprSimple value);
 
   /**
    * Returns the value of the '<em><b>Exp S2</b></em>' containment reference.
