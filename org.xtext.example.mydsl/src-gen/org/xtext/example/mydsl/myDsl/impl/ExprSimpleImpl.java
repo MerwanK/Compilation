@@ -22,7 +22,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getSymbole <em>Symbole</em>}</li>
@@ -32,6 +31,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getLe4 <em>Le4</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getLe5 <em>Le5</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

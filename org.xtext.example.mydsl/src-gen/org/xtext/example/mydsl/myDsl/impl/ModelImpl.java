@@ -21,10 +21,10 @@ import org.xtext.example.mydsl.myDsl.Programme;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ModelImpl#getProgramme <em>Programme</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

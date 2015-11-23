@@ -28,11 +28,11 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprsImpl#getExp1 <em>Exp1</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprsImpl#getExp2 <em>Exp2</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

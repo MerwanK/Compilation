@@ -11,53 +11,53 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.myDsl.Commandes;
 import org.xtext.example.mydsl.myDsl.Expr;
-import org.xtext.example.mydsl.myDsl.ExprAnd;
-import org.xtext.example.mydsl.myDsl.ExprSimple;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.While;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expr</b></em>'.
+ * An implementation of the model object '<em><b>While</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpA <em>Exp A</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpS <em>Exp S</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.WhileImpl#getExp2 <em>Exp2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.WhileImpl#getCom <em>Com</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
+public class WhileImpl extends MinimalEObjectImpl.Container implements While
 {
   /**
-   * The cached value of the '{@link #getExpA() <em>Exp A</em>}' containment reference.
+   * The cached value of the '{@link #getExp2() <em>Exp2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpA()
+   * @see #getExp2()
    * @generated
    * @ordered
    */
-  protected ExprAnd expA;
+  protected Expr exp2;
 
   /**
-   * The cached value of the '{@link #getExpS() <em>Exp S</em>}' containment reference.
+   * The cached value of the '{@link #getCom() <em>Com</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpS()
+   * @see #getCom()
    * @generated
    * @ordered
    */
-  protected ExprSimple expS;
+  protected Commandes com;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExprImpl()
+  protected WhileImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.EXPR;
+    return MyDslPackage.Literals.WHILE;
   }
 
   /**
@@ -78,9 +78,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprAnd getExpA()
+  public Expr getExp2()
   {
-    return expA;
+    return exp2;
   }
 
   /**
@@ -88,13 +88,13 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpA(ExprAnd newExpA, NotificationChain msgs)
+  public NotificationChain basicSetExp2(Expr newExp2, NotificationChain msgs)
   {
-    ExprAnd oldExpA = expA;
-    expA = newExpA;
+    Expr oldExp2 = exp2;
+    exp2 = newExp2;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_A, oldExpA, newExpA);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.WHILE__EXP2, oldExp2, newExp2);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -105,20 +105,20 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpA(ExprAnd newExpA)
+  public void setExp2(Expr newExp2)
   {
-    if (newExpA != expA)
+    if (newExp2 != exp2)
     {
       NotificationChain msgs = null;
-      if (expA != null)
-        msgs = ((InternalEObject)expA).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_A, null, msgs);
-      if (newExpA != null)
-        msgs = ((InternalEObject)newExpA).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_A, null, msgs);
-      msgs = basicSetExpA(newExpA, msgs);
+      if (exp2 != null)
+        msgs = ((InternalEObject)exp2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.WHILE__EXP2, null, msgs);
+      if (newExp2 != null)
+        msgs = ((InternalEObject)newExp2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.WHILE__EXP2, null, msgs);
+      msgs = basicSetExp2(newExp2, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_A, newExpA, newExpA));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.WHILE__EXP2, newExp2, newExp2));
   }
 
   /**
@@ -126,9 +126,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprSimple getExpS()
+  public Commandes getCom()
   {
-    return expS;
+    return com;
   }
 
   /**
@@ -136,13 +136,13 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpS(ExprSimple newExpS, NotificationChain msgs)
+  public NotificationChain basicSetCom(Commandes newCom, NotificationChain msgs)
   {
-    ExprSimple oldExpS = expS;
-    expS = newExpS;
+    Commandes oldCom = com;
+    com = newCom;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, oldExpS, newExpS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.WHILE__COM, oldCom, newCom);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpS(ExprSimple newExpS)
+  public void setCom(Commandes newCom)
   {
-    if (newExpS != expS)
+    if (newCom != com)
     {
       NotificationChain msgs = null;
-      if (expS != null)
-        msgs = ((InternalEObject)expS).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
-      if (newExpS != null)
-        msgs = ((InternalEObject)newExpS).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
-      msgs = basicSetExpS(newExpS, msgs);
+      if (com != null)
+        msgs = ((InternalEObject)com).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.WHILE__COM, null, msgs);
+      if (newCom != null)
+        msgs = ((InternalEObject)newCom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.WHILE__COM, null, msgs);
+      msgs = basicSetCom(newCom, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, newExpS, newExpS));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.WHILE__COM, newCom, newCom));
   }
 
   /**
@@ -179,10 +179,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        return basicSetExpA(null, msgs);
-      case MyDslPackage.EXPR__EXP_S:
-        return basicSetExpS(null, msgs);
+      case MyDslPackage.WHILE__EXP2:
+        return basicSetExp2(null, msgs);
+      case MyDslPackage.WHILE__COM:
+        return basicSetCom(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +197,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        return getExpA();
-      case MyDslPackage.EXPR__EXP_S:
-        return getExpS();
+      case MyDslPackage.WHILE__EXP2:
+        return getExp2();
+      case MyDslPackage.WHILE__COM:
+        return getCom();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +215,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        setExpA((ExprAnd)newValue);
+      case MyDslPackage.WHILE__EXP2:
+        setExp2((Expr)newValue);
         return;
-      case MyDslPackage.EXPR__EXP_S:
-        setExpS((ExprSimple)newValue);
+      case MyDslPackage.WHILE__COM:
+        setCom((Commandes)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +235,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        setExpA((ExprAnd)null);
+      case MyDslPackage.WHILE__EXP2:
+        setExp2((Expr)null);
         return;
-      case MyDslPackage.EXPR__EXP_S:
-        setExpS((ExprSimple)null);
+      case MyDslPackage.WHILE__COM:
+        setCom((Commandes)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,12 +255,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        return expA != null;
-      case MyDslPackage.EXPR__EXP_S:
-        return expS != null;
+      case MyDslPackage.WHILE__EXP2:
+        return exp2 != null;
+      case MyDslPackage.WHILE__COM:
+        return com != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ExprImpl
+} //WhileImpl

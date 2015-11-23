@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commandes#getCom1 <em>Com1</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commandes#getCom2 <em>Com2</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommandes()
  * @model

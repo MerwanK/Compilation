@@ -11,53 +11,53 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.myDsl.Expr;
-import org.xtext.example.mydsl.myDsl.ExprAnd;
-import org.xtext.example.mydsl.myDsl.ExprSimple;
+import org.xtext.example.mydsl.myDsl.AffectVar;
+import org.xtext.example.mydsl.myDsl.Exprs;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Vars;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expr</b></em>'.
+ * An implementation of the model object '<em><b>Affect Var</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpA <em>Exp A</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpS <em>Exp S</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.AffectVarImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.AffectVarImpl#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
+public class AffectVarImpl extends MinimalEObjectImpl.Container implements AffectVar
 {
   /**
-   * The cached value of the '{@link #getExpA() <em>Exp A</em>}' containment reference.
+   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpA()
+   * @see #getVar()
    * @generated
    * @ordered
    */
-  protected ExprAnd expA;
+  protected Vars var;
 
   /**
-   * The cached value of the '{@link #getExpS() <em>Exp S</em>}' containment reference.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpS()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected ExprSimple expS;
+  protected Exprs exp;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExprImpl()
+  protected AffectVarImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.EXPR;
+    return MyDslPackage.Literals.AFFECT_VAR;
   }
 
   /**
@@ -78,9 +78,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprAnd getExpA()
+  public Vars getVar()
   {
-    return expA;
+    return var;
   }
 
   /**
@@ -88,13 +88,13 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpA(ExprAnd newExpA, NotificationChain msgs)
+  public NotificationChain basicSetVar(Vars newVar, NotificationChain msgs)
   {
-    ExprAnd oldExpA = expA;
-    expA = newExpA;
+    Vars oldVar = var;
+    var = newVar;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_A, oldExpA, newExpA);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.AFFECT_VAR__VAR, oldVar, newVar);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -105,20 +105,20 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpA(ExprAnd newExpA)
+  public void setVar(Vars newVar)
   {
-    if (newExpA != expA)
+    if (newVar != var)
     {
       NotificationChain msgs = null;
-      if (expA != null)
-        msgs = ((InternalEObject)expA).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_A, null, msgs);
-      if (newExpA != null)
-        msgs = ((InternalEObject)newExpA).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_A, null, msgs);
-      msgs = basicSetExpA(newExpA, msgs);
+      if (var != null)
+        msgs = ((InternalEObject)var).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.AFFECT_VAR__VAR, null, msgs);
+      if (newVar != null)
+        msgs = ((InternalEObject)newVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.AFFECT_VAR__VAR, null, msgs);
+      msgs = basicSetVar(newVar, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_A, newExpA, newExpA));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.AFFECT_VAR__VAR, newVar, newVar));
   }
 
   /**
@@ -126,9 +126,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprSimple getExpS()
+  public Exprs getExp()
   {
-    return expS;
+    return exp;
   }
 
   /**
@@ -136,13 +136,13 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpS(ExprSimple newExpS, NotificationChain msgs)
+  public NotificationChain basicSetExp(Exprs newExp, NotificationChain msgs)
   {
-    ExprSimple oldExpS = expS;
-    expS = newExpS;
+    Exprs oldExp = exp;
+    exp = newExp;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, oldExpS, newExpS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.AFFECT_VAR__EXP, oldExp, newExp);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpS(ExprSimple newExpS)
+  public void setExp(Exprs newExp)
   {
-    if (newExpS != expS)
+    if (newExp != exp)
     {
       NotificationChain msgs = null;
-      if (expS != null)
-        msgs = ((InternalEObject)expS).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
-      if (newExpS != null)
-        msgs = ((InternalEObject)newExpS).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
-      msgs = basicSetExpS(newExpS, msgs);
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.AFFECT_VAR__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.AFFECT_VAR__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, newExpS, newExpS));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.AFFECT_VAR__EXP, newExp, newExp));
   }
 
   /**
@@ -179,10 +179,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        return basicSetExpA(null, msgs);
-      case MyDslPackage.EXPR__EXP_S:
-        return basicSetExpS(null, msgs);
+      case MyDslPackage.AFFECT_VAR__VAR:
+        return basicSetVar(null, msgs);
+      case MyDslPackage.AFFECT_VAR__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +197,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        return getExpA();
-      case MyDslPackage.EXPR__EXP_S:
-        return getExpS();
+      case MyDslPackage.AFFECT_VAR__VAR:
+        return getVar();
+      case MyDslPackage.AFFECT_VAR__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +215,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        setExpA((ExprAnd)newValue);
+      case MyDslPackage.AFFECT_VAR__VAR:
+        setVar((Vars)newValue);
         return;
-      case MyDslPackage.EXPR__EXP_S:
-        setExpS((ExprSimple)newValue);
+      case MyDslPackage.AFFECT_VAR__EXP:
+        setExp((Exprs)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +235,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        setExpA((ExprAnd)null);
+      case MyDslPackage.AFFECT_VAR__VAR:
+        setVar((Vars)null);
         return;
-      case MyDslPackage.EXPR__EXP_S:
-        setExpS((ExprSimple)null);
+      case MyDslPackage.AFFECT_VAR__EXP:
+        setExp((Exprs)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,12 +255,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_A:
-        return expA != null;
-      case MyDslPackage.EXPR__EXP_S:
-        return expS != null;
+      case MyDslPackage.AFFECT_VAR__VAR:
+        return var != null;
+      case MyDslPackage.AFFECT_VAR__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ExprImpl
+} //AffectVarImpl
