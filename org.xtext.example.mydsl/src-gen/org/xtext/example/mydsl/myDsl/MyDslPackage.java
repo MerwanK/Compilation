@@ -362,13 +362,13 @@ public interface MyDslPackage extends EPackage
   int AFFECT_VAR = 7;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' containment reference.
+   * The feature id for the '<em><b>Var1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AFFECT_VAR__VAR = 0;
+  int AFFECT_VAR__VAR1 = 0;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -408,13 +408,13 @@ public interface MyDslPackage extends EPackage
   int WHILE__EXP2 = 0;
 
   /**
-   * The feature id for the '<em><b>Com</b></em>' containment reference.
+   * The feature id for the '<em><b>Com3</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WHILE__COM = 1;
+  int WHILE__COM3 = 1;
 
   /**
    * The number of structural features of the '<em>While</em>' class.
@@ -436,22 +436,22 @@ public interface MyDslPackage extends EPackage
   int FOR = 9;
 
   /**
-   * The feature id for the '<em><b>Exp2</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp3</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR__EXP2 = 0;
+  int FOR__EXP3 = 0;
 
   /**
-   * The feature id for the '<em><b>Com</b></em>' containment reference.
+   * The feature id for the '<em><b>Com4</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR__COM = 1;
+  int FOR__COM4 = 1;
 
   /**
    * The number of structural features of the '<em>For</em>' class.
@@ -473,31 +473,31 @@ public interface MyDslPackage extends EPackage
   int IF = 10;
 
   /**
-   * The feature id for the '<em><b>Exp3</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp4</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF__EXP3 = 0;
+  int IF__EXP4 = 0;
 
   /**
-   * The feature id for the '<em><b>Com2</b></em>' containment reference.
+   * The feature id for the '<em><b>Com5</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF__COM2 = 1;
+  int IF__COM5 = 1;
 
   /**
-   * The feature id for the '<em><b>Com3</b></em>' containment reference.
+   * The feature id for the '<em><b>Com6</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF__COM3 = 2;
+  int IF__COM6 = 2;
 
   /**
    * The number of structural features of the '<em>If</em>' class.
@@ -519,31 +519,31 @@ public interface MyDslPackage extends EPackage
   int FOREACH = 11;
 
   /**
-   * The feature id for the '<em><b>Exp4</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOREACH__EXP4 = 0;
-
-  /**
    * The feature id for the '<em><b>Exp5</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOREACH__EXP5 = 1;
+  int FOREACH__EXP5 = 0;
 
   /**
-   * The feature id for the '<em><b>Com4</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp6</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOREACH__COM4 = 2;
+  int FOREACH__EXP6 = 1;
+
+  /**
+   * The feature id for the '<em><b>Com7</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__COM7 = 2;
 
   /**
    * The number of structural features of the '<em>Foreach</em>' class.
@@ -602,22 +602,22 @@ public interface MyDslPackage extends EPackage
   int EXPRS = 13;
 
   /**
-   * The feature id for the '<em><b>Exp1</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr S</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRS__EXP1 = 0;
+  int EXPRS__EXPR_S = 0;
 
   /**
-   * The feature id for the '<em><b>Exp2</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expr S2</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRS__EXP2 = 1;
+  int EXPRS__EXPR_S2 = 1;
 
   /**
    * The number of structural features of the '<em>Exprs</em>' class.
@@ -888,13 +888,13 @@ public interface MyDslPackage extends EPackage
   int EXPR_EQ = 20;
 
   /**
-   * The feature id for the '<em><b>Exp S</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp Si</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_EQ__EXP_S = 0;
+  int EXPR_EQ__EXP_SI = 0;
 
   /**
    * The feature id for the '<em><b>Exp S2</b></em>' containment reference.
@@ -1203,15 +1203,15 @@ public interface MyDslPackage extends EPackage
   EClass getAffectVar();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.AffectVar#getVar <em>Var</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.AffectVar#getVar1 <em>Var1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Var</em>'.
-   * @see org.xtext.example.mydsl.myDsl.AffectVar#getVar()
+   * @return the meta object for the containment reference '<em>Var1</em>'.
+   * @see org.xtext.example.mydsl.myDsl.AffectVar#getVar1()
    * @see #getAffectVar()
    * @generated
    */
-  EReference getAffectVar_Var();
+  EReference getAffectVar_Var1();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.AffectVar#getExp <em>Exp</em>}'.
@@ -1246,15 +1246,15 @@ public interface MyDslPackage extends EPackage
   EReference getWhile_Exp2();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.While#getCom <em>Com</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.While#getCom3 <em>Com3</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Com</em>'.
-   * @see org.xtext.example.mydsl.myDsl.While#getCom()
+   * @return the meta object for the containment reference '<em>Com3</em>'.
+   * @see org.xtext.example.mydsl.myDsl.While#getCom3()
    * @see #getWhile()
    * @generated
    */
-  EReference getWhile_Com();
+  EReference getWhile_Com3();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For <em>For</em>}'.
@@ -1267,26 +1267,26 @@ public interface MyDslPackage extends EPackage
   EClass getFor();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For#getExp2 <em>Exp2</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For#getExp3 <em>Exp3</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp2</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For#getExp2()
+   * @return the meta object for the containment reference '<em>Exp3</em>'.
+   * @see org.xtext.example.mydsl.myDsl.For#getExp3()
    * @see #getFor()
    * @generated
    */
-  EReference getFor_Exp2();
+  EReference getFor_Exp3();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For#getCom <em>Com</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For#getCom4 <em>Com4</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Com</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For#getCom()
+   * @return the meta object for the containment reference '<em>Com4</em>'.
+   * @see org.xtext.example.mydsl.myDsl.For#getCom4()
    * @see #getFor()
    * @generated
    */
-  EReference getFor_Com();
+  EReference getFor_Com4();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.If <em>If</em>}'.
@@ -1299,37 +1299,37 @@ public interface MyDslPackage extends EPackage
   EClass getIf();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.If#getExp3 <em>Exp3</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.If#getExp4 <em>Exp4</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp3</em>'.
-   * @see org.xtext.example.mydsl.myDsl.If#getExp3()
+   * @return the meta object for the containment reference '<em>Exp4</em>'.
+   * @see org.xtext.example.mydsl.myDsl.If#getExp4()
    * @see #getIf()
    * @generated
    */
-  EReference getIf_Exp3();
+  EReference getIf_Exp4();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.If#getCom2 <em>Com2</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.If#getCom5 <em>Com5</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Com2</em>'.
-   * @see org.xtext.example.mydsl.myDsl.If#getCom2()
+   * @return the meta object for the containment reference '<em>Com5</em>'.
+   * @see org.xtext.example.mydsl.myDsl.If#getCom5()
    * @see #getIf()
    * @generated
    */
-  EReference getIf_Com2();
+  EReference getIf_Com5();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.If#getCom3 <em>Com3</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.If#getCom6 <em>Com6</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Com3</em>'.
-   * @see org.xtext.example.mydsl.myDsl.If#getCom3()
+   * @return the meta object for the containment reference '<em>Com6</em>'.
+   * @see org.xtext.example.mydsl.myDsl.If#getCom6()
    * @see #getIf()
    * @generated
    */
-  EReference getIf_Com3();
+  EReference getIf_Com6();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Foreach <em>Foreach</em>}'.
@@ -1340,17 +1340,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getForeach();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Foreach#getExp4 <em>Exp4</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp4</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Foreach#getExp4()
-   * @see #getForeach()
-   * @generated
-   */
-  EReference getForeach_Exp4();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Foreach#getExp5 <em>Exp5</em>}'.
@@ -1364,15 +1353,26 @@ public interface MyDslPackage extends EPackage
   EReference getForeach_Exp5();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Foreach#getCom4 <em>Com4</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Foreach#getExp6 <em>Exp6</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Com4</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Foreach#getCom4()
+   * @return the meta object for the containment reference '<em>Exp6</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Foreach#getExp6()
    * @see #getForeach()
    * @generated
    */
-  EReference getForeach_Com4();
+  EReference getForeach_Exp6();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Foreach#getCom7 <em>Com7</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Com7</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Foreach#getCom7()
+   * @see #getForeach()
+   * @generated
+   */
+  EReference getForeach_Com7();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Vars <em>Vars</em>}'.
@@ -1417,26 +1417,26 @@ public interface MyDslPackage extends EPackage
   EClass getExprs();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Exprs#getExp1 <em>Exp1</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS <em>Expr S</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp1</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Exprs#getExp1()
+   * @return the meta object for the containment reference '<em>Expr S</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Exprs#getExprS()
    * @see #getExprs()
    * @generated
    */
-  EReference getExprs_Exp1();
+  EReference getExprs_ExprS();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Exprs#getExp2 <em>Exp2</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS2 <em>Expr S2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exp2</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Exprs#getExp2()
+   * @return the meta object for the containment reference list '<em>Expr S2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Exprs#getExprS2()
    * @see #getExprs()
    * @generated
    */
-  EReference getExprs_Exp2();
+  EReference getExprs_ExprS2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expr <em>Expr</em>}'.
@@ -1674,15 +1674,15 @@ public interface MyDslPackage extends EPackage
   EClass getExprEq();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpS <em>Exp S</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpSi <em>Exp Si</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp S</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ExprEq#getExpS()
+   * @return the meta object for the containment reference '<em>Exp Si</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprEq#getExpSi()
    * @see #getExprEq()
    * @generated
    */
-  EReference getExprEq_ExpS();
+  EReference getExprEq_ExpSi();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprEq#getExpS2 <em>Exp S2</em>}'.
@@ -1954,12 +1954,12 @@ public interface MyDslPackage extends EPackage
     EClass AFFECT_VAR = eINSTANCE.getAffectVar();
 
     /**
-     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Var1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference AFFECT_VAR__VAR = eINSTANCE.getAffectVar_Var();
+    EReference AFFECT_VAR__VAR1 = eINSTANCE.getAffectVar_Var1();
 
     /**
      * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
@@ -1988,12 +1988,12 @@ public interface MyDslPackage extends EPackage
     EReference WHILE__EXP2 = eINSTANCE.getWhile_Exp2();
 
     /**
-     * The meta object literal for the '<em><b>Com</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Com3</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference WHILE__COM = eINSTANCE.getWhile_Com();
+    EReference WHILE__COM3 = eINSTANCE.getWhile_Com3();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ForImpl <em>For</em>}' class.
@@ -2006,20 +2006,20 @@ public interface MyDslPackage extends EPackage
     EClass FOR = eINSTANCE.getFor();
 
     /**
-     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp3</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR__EXP2 = eINSTANCE.getFor_Exp2();
+    EReference FOR__EXP3 = eINSTANCE.getFor_Exp3();
 
     /**
-     * The meta object literal for the '<em><b>Com</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Com4</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR__COM = eINSTANCE.getFor_Com();
+    EReference FOR__COM4 = eINSTANCE.getFor_Com4();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.IfImpl <em>If</em>}' class.
@@ -2032,28 +2032,28 @@ public interface MyDslPackage extends EPackage
     EClass IF = eINSTANCE.getIf();
 
     /**
-     * The meta object literal for the '<em><b>Exp3</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp4</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IF__EXP3 = eINSTANCE.getIf_Exp3();
+    EReference IF__EXP4 = eINSTANCE.getIf_Exp4();
 
     /**
-     * The meta object literal for the '<em><b>Com2</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Com5</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IF__COM2 = eINSTANCE.getIf_Com2();
+    EReference IF__COM5 = eINSTANCE.getIf_Com5();
 
     /**
-     * The meta object literal for the '<em><b>Com3</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Com6</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IF__COM3 = eINSTANCE.getIf_Com3();
+    EReference IF__COM6 = eINSTANCE.getIf_Com6();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ForeachImpl <em>Foreach</em>}' class.
@@ -2066,14 +2066,6 @@ public interface MyDslPackage extends EPackage
     EClass FOREACH = eINSTANCE.getForeach();
 
     /**
-     * The meta object literal for the '<em><b>Exp4</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOREACH__EXP4 = eINSTANCE.getForeach_Exp4();
-
-    /**
      * The meta object literal for the '<em><b>Exp5</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2082,12 +2074,20 @@ public interface MyDslPackage extends EPackage
     EReference FOREACH__EXP5 = eINSTANCE.getForeach_Exp5();
 
     /**
-     * The meta object literal for the '<em><b>Com4</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp6</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOREACH__COM4 = eINSTANCE.getForeach_Com4();
+    EReference FOREACH__EXP6 = eINSTANCE.getForeach_Exp6();
+
+    /**
+     * The meta object literal for the '<em><b>Com7</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOREACH__COM7 = eINSTANCE.getForeach_Com7();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.VarsImpl <em>Vars</em>}' class.
@@ -2126,20 +2126,20 @@ public interface MyDslPackage extends EPackage
     EClass EXPRS = eINSTANCE.getExprs();
 
     /**
-     * The meta object literal for the '<em><b>Exp1</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expr S</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRS__EXP1 = eINSTANCE.getExprs_Exp1();
+    EReference EXPRS__EXPR_S = eINSTANCE.getExprs_ExprS();
 
     /**
-     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expr S2</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRS__EXP2 = eINSTANCE.getExprs_Exp2();
+    EReference EXPRS__EXPR_S2 = eINSTANCE.getExprs_ExprS2();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl <em>Expr</em>}' class.
@@ -2332,12 +2332,12 @@ public interface MyDslPackage extends EPackage
     EClass EXPR_EQ = eINSTANCE.getExprEq();
 
     /**
-     * The meta object literal for the '<em><b>Exp S</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp Si</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR_EQ__EXP_S = eINSTANCE.getExprEq_ExpS();
+    EReference EXPR_EQ__EXP_SI = eINSTANCE.getExprEq_ExpSi();
 
     /**
      * The meta object literal for the '<em><b>Exp S2</b></em>' containment reference feature.

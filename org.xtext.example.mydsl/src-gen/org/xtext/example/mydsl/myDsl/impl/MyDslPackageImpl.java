@@ -516,7 +516,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAffectVar_Var()
+  public EReference getAffectVar_Var1()
   {
     return (EReference)affectVarEClass.getEStructuralFeatures().get(0);
   }
@@ -556,7 +556,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWhile_Com()
+  public EReference getWhile_Com3()
   {
     return (EReference)whileEClass.getEStructuralFeatures().get(1);
   }
@@ -576,7 +576,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFor_Exp2()
+  public EReference getFor_Exp3()
   {
     return (EReference)forEClass.getEStructuralFeatures().get(0);
   }
@@ -586,7 +586,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFor_Com()
+  public EReference getFor_Com4()
   {
     return (EReference)forEClass.getEStructuralFeatures().get(1);
   }
@@ -606,7 +606,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIf_Exp3()
+  public EReference getIf_Exp4()
   {
     return (EReference)ifEClass.getEStructuralFeatures().get(0);
   }
@@ -616,7 +616,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIf_Com2()
+  public EReference getIf_Com5()
   {
     return (EReference)ifEClass.getEStructuralFeatures().get(1);
   }
@@ -626,7 +626,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIf_Com3()
+  public EReference getIf_Com6()
   {
     return (EReference)ifEClass.getEStructuralFeatures().get(2);
   }
@@ -646,7 +646,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForeach_Exp4()
+  public EReference getForeach_Exp5()
   {
     return (EReference)foreachEClass.getEStructuralFeatures().get(0);
   }
@@ -656,7 +656,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForeach_Exp5()
+  public EReference getForeach_Exp6()
   {
     return (EReference)foreachEClass.getEStructuralFeatures().get(1);
   }
@@ -666,7 +666,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForeach_Com4()
+  public EReference getForeach_Com7()
   {
     return (EReference)foreachEClass.getEStructuralFeatures().get(2);
   }
@@ -716,7 +716,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprs_Exp1()
+  public EReference getExprs_ExprS()
   {
     return (EReference)exprsEClass.getEStructuralFeatures().get(0);
   }
@@ -726,7 +726,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprs_Exp2()
+  public EReference getExprs_ExprS2()
   {
     return (EReference)exprsEClass.getEStructuralFeatures().get(1);
   }
@@ -956,7 +956,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprEq_ExpS()
+  public EReference getExprEq_ExpSi()
   {
     return (EReference)exprEqEClass.getEStructuralFeatures().get(0);
   }
@@ -1044,34 +1044,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(commandeEClass, COMMANDE__FOREACH_C);
 
     affectVarEClass = createEClass(AFFECT_VAR);
-    createEReference(affectVarEClass, AFFECT_VAR__VAR);
+    createEReference(affectVarEClass, AFFECT_VAR__VAR1);
     createEReference(affectVarEClass, AFFECT_VAR__EXP);
 
     whileEClass = createEClass(WHILE);
     createEReference(whileEClass, WHILE__EXP2);
-    createEReference(whileEClass, WHILE__COM);
+    createEReference(whileEClass, WHILE__COM3);
 
     forEClass = createEClass(FOR);
-    createEReference(forEClass, FOR__EXP2);
-    createEReference(forEClass, FOR__COM);
+    createEReference(forEClass, FOR__EXP3);
+    createEReference(forEClass, FOR__COM4);
 
     ifEClass = createEClass(IF);
-    createEReference(ifEClass, IF__EXP3);
-    createEReference(ifEClass, IF__COM2);
-    createEReference(ifEClass, IF__COM3);
+    createEReference(ifEClass, IF__EXP4);
+    createEReference(ifEClass, IF__COM5);
+    createEReference(ifEClass, IF__COM6);
 
     foreachEClass = createEClass(FOREACH);
-    createEReference(foreachEClass, FOREACH__EXP4);
     createEReference(foreachEClass, FOREACH__EXP5);
-    createEReference(foreachEClass, FOREACH__COM4);
+    createEReference(foreachEClass, FOREACH__EXP6);
+    createEReference(foreachEClass, FOREACH__COM7);
 
     varsEClass = createEClass(VARS);
     createEAttribute(varsEClass, VARS__VAR1);
     createEAttribute(varsEClass, VARS__VAR2);
 
     exprsEClass = createEClass(EXPRS);
-    createEReference(exprsEClass, EXPRS__EXP1);
-    createEReference(exprsEClass, EXPRS__EXP2);
+    createEReference(exprsEClass, EXPRS__EXPR_S);
+    createEReference(exprsEClass, EXPRS__EXPR_S2);
 
     exprEClass = createEClass(EXPR);
     createEReference(exprEClass, EXPR__EXP_A);
@@ -1101,7 +1101,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(exprNotEClass, EXPR_NOT__EXP_EQ);
 
     exprEqEClass = createEClass(EXPR_EQ);
-    createEReference(exprEqEClass, EXPR_EQ__EXP_S);
+    createEReference(exprEqEClass, EXPR_EQ__EXP_SI);
     createEReference(exprEqEClass, EXPR_EQ__EXP_S2);
     createEReference(exprEqEClass, EXPR_EQ__EXP);
   }
@@ -1170,34 +1170,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getCommande_ForeachC(), this.getForeach(), null, "foreachC", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(affectVarEClass, AffectVar.class, "AffectVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAffectVar_Var(), this.getVars(), null, "var", null, 0, 1, AffectVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAffectVar_Var1(), this.getVars(), null, "var1", null, 0, 1, AffectVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAffectVar_Exp(), this.getExprs(), null, "exp", null, 0, 1, AffectVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWhile_Exp2(), this.getExpr(), null, "exp2", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWhile_Com(), this.getCommandes(), null, "com", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhile_Com3(), this.getCommandes(), null, "com3", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forEClass, For.class, "For", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFor_Exp2(), this.getExpr(), null, "exp2", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFor_Com(), this.getCommandes(), null, "com", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Exp3(), this.getExpr(), null, "exp3", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Com4(), this.getCommandes(), null, "com4", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIf_Exp3(), this.getExpr(), null, "exp3", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIf_Com2(), this.getCommandes(), null, "com2", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIf_Com3(), this.getCommandes(), null, "com3", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Exp4(), this.getExpr(), null, "exp4", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Com5(), this.getCommandes(), null, "com5", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Com6(), this.getCommandes(), null, "com6", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(foreachEClass, Foreach.class, "Foreach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getForeach_Exp4(), this.getExpr(), null, "exp4", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForeach_Exp5(), this.getExpr(), null, "exp5", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getForeach_Com4(), this.getCommandes(), null, "com4", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForeach_Exp6(), this.getExpr(), null, "exp6", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForeach_Com7(), this.getCommandes(), null, "com7", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varsEClass, Vars.class, "Vars", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVars_Var1(), ecorePackage.getEString(), "var1", null, 0, 1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVars_Var2(), ecorePackage.getEString(), "var2", null, 0, -1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprsEClass, Exprs.class, "Exprs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprs_Exp1(), this.getExpr(), null, "exp1", null, 0, 1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExprs_Exp2(), this.getExpr(), null, "exp2", null, 0, -1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprs_ExprS(), this.getExpr(), null, "exprS", null, 0, 1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprs_ExprS2(), this.getExpr(), null, "exprS2", null, 0, -1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpr_ExpA(), this.getExprAnd(), null, "expA", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1227,7 +1227,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getExprNot_ExpEq(), this.getExprEq(), null, "expEq", null, 0, 1, ExprNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEqEClass, ExprEq.class, "ExprEq", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprEq_ExpS(), this.getExprSimple(), null, "ExpS", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprEq_ExpSi(), this.getExprSimple(), null, "ExpSi", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExprEq_ExpS2(), this.getExprSimple(), null, "ExpS2", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExprEq_Exp(), this.getExpr(), null, "exp", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

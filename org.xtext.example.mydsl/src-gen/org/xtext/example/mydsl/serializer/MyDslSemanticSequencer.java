@@ -118,18 +118,18 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (var=Vars exp=Exprs)
+	 *     (var1=Vars exp=Exprs)
 	 */
 	protected void sequence_AffectVar(EObject context, AffectVar semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.AFFECT_VAR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.AFFECT_VAR__VAR));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.AFFECT_VAR__VAR1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.AFFECT_VAR__VAR1));
 			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.AFFECT_VAR__EXP) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.AFFECT_VAR__EXP));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAffectVarAccess().getVarVarsParserRuleCall_0_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getAffectVarAccess().getVar1VarsParserRuleCall_0_0(), semanticObject.getVar1());
 		feeder.accept(grammarAccess.getAffectVarAccess().getExpExprsParserRuleCall_2_0(), semanticObject.getExp());
 		feeder.finish();
 	}
@@ -164,7 +164,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((ExpS=ExprSimple ExpS2=ExprSimple) | exp=Expr)
+	 *     ((ExpSi=ExprSimple ExpS2=ExprSimple) | exp=Expr)
 	 */
 	protected void sequence_ExprEq(EObject context, ExprEq semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -216,7 +216,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (exp1=Expr exp2+=Expr*)
+	 *     (exprS=Expr exprS2+=Expr*)
 	 */
 	protected void sequence_Exprs(EObject context, Exprs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -250,48 +250,48 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (exp2=Expr com=Commandes)
+	 *     (exp3=Expr com4=Commandes)
 	 */
 	protected void sequence_For(EObject context, For semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR__EXP2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR__EXP2));
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR__COM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR__COM));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR__EXP3) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR__EXP3));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR__COM4) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR__COM4));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getForAccess().getExp2ExprParserRuleCall_2_0(), semanticObject.getExp2());
-		feeder.accept(grammarAccess.getForAccess().getComCommandesParserRuleCall_6_0(), semanticObject.getCom());
+		feeder.accept(grammarAccess.getForAccess().getExp3ExprParserRuleCall_2_0(), semanticObject.getExp3());
+		feeder.accept(grammarAccess.getForAccess().getCom4CommandesParserRuleCall_6_0(), semanticObject.getCom4());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (exp4=Expr exp5=Expr com4=Commandes)
+	 *     (exp5=Expr exp6=Expr com7=Commandes)
 	 */
 	protected void sequence_Foreach(EObject context, Foreach semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__EXP4) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__EXP4));
 			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__EXP5) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__EXP5));
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__COM4) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__COM4));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__EXP6) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__EXP6));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__COM7) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__COM7));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getForeachAccess().getExp4ExprParserRuleCall_2_0(), semanticObject.getExp4());
-		feeder.accept(grammarAccess.getForeachAccess().getExp5ExprParserRuleCall_6_0(), semanticObject.getExp5());
-		feeder.accept(grammarAccess.getForeachAccess().getCom4CommandesParserRuleCall_10_0(), semanticObject.getCom4());
+		feeder.accept(grammarAccess.getForeachAccess().getExp5ExprParserRuleCall_2_0(), semanticObject.getExp5());
+		feeder.accept(grammarAccess.getForeachAccess().getExp6ExprParserRuleCall_6_0(), semanticObject.getExp6());
+		feeder.accept(grammarAccess.getForeachAccess().getCom7CommandesParserRuleCall_10_0(), semanticObject.getCom7());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (exp3=Expr com2=Commandes com3=Commandes?)
+	 *     (exp4=Expr com5=Commandes com6=Commandes?)
 	 */
 	protected void sequence_If(EObject context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -361,19 +361,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (exp2=Expr com=Commandes)
+	 *     (exp2=Expr com3=Commandes)
 	 */
 	protected void sequence_While(EObject context, While semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.WHILE__EXP2) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WHILE__EXP2));
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.WHILE__COM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WHILE__COM));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.WHILE__COM3) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WHILE__COM3));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getWhileAccess().getExp2ExprParserRuleCall_2_0(), semanticObject.getExp2());
-		feeder.accept(grammarAccess.getWhileAccess().getComCommandesParserRuleCall_6_0(), semanticObject.getCom());
+		feeder.accept(grammarAccess.getWhileAccess().getCom3CommandesParserRuleCall_6_0(), semanticObject.getCom3());
 		feeder.finish();
 	}
 }

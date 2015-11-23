@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExp1 <em>Exp1</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExp2 <em>Exp2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS <em>Expr S</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS2 <em>Expr S2</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,45 +26,45 @@ import org.eclipse.emf.ecore.EObject;
 public interface Exprs extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Exp1</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expr S</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exp1</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Expr S</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp1</em>' containment reference.
-   * @see #setExp1(Expr)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs_Exp1()
+   * @return the value of the '<em>Expr S</em>' containment reference.
+   * @see #setExprS(Expr)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs_ExprS()
    * @model containment="true"
    * @generated
    */
-  Expr getExp1();
+  Expr getExprS();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Exprs#getExp1 <em>Exp1</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS <em>Expr S</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp1</em>' containment reference.
-   * @see #getExp1()
+   * @param value the new value of the '<em>Expr S</em>' containment reference.
+   * @see #getExprS()
    * @generated
    */
-  void setExp1(Expr value);
+  void setExprS(Expr value);
 
   /**
-   * Returns the value of the '<em><b>Exp2</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Expr S2</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Expr}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exp2</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Expr S2</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp2</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs_Exp2()
+   * @return the value of the '<em>Expr S2</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs_ExprS2()
    * @model containment="true"
    * @generated
    */
-  EList<Expr> getExp2();
+  EList<Expr> getExprS2();
 
 } // Exprs
