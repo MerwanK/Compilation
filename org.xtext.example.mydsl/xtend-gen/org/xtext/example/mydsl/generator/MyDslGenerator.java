@@ -334,6 +334,12 @@ public class MyDslGenerator implements IGenerator {
   
   public CharSequence compile(final Vars v) {
     StringConcatenation _builder = new StringConcatenation();
+    String _var2 = v.getVar2();
+    _builder.append(_var2, "");
+    _builder.append(", ");
+    EList<String> _var3 = v.getVar3();
+    _builder.append(_var3, "");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

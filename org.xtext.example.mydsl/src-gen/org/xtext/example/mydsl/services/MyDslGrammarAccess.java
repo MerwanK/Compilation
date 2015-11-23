@@ -632,37 +632,37 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class VarsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Vars");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cVar1Assignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVar1VARTerminalRuleCall_0_0 = (RuleCall)cVar1Assignment_0.eContents().get(0);
+		private final Assignment cVar2Assignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVar2VARTerminalRuleCall_0_0 = (RuleCall)cVar2Assignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cVar2Assignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cVar2VARTerminalRuleCall_1_1_0 = (RuleCall)cVar2Assignment_1_1.eContents().get(0);
+		private final Assignment cVar3Assignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cVar3VARTerminalRuleCall_1_1_0 = (RuleCall)cVar3Assignment_1_1.eContents().get(0);
 		
 		//Vars:
-		//	var1=VAR ("," var2+=VAR)*;
+		//	var2=VAR ("," var3+=VAR)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//var1=VAR ("," var2+=VAR)*
+		//var2=VAR ("," var3+=VAR)*
 		public Group getGroup() { return cGroup; }
 
-		//var1=VAR
-		public Assignment getVar1Assignment_0() { return cVar1Assignment_0; }
+		//var2=VAR
+		public Assignment getVar2Assignment_0() { return cVar2Assignment_0; }
 
 		//VAR
-		public RuleCall getVar1VARTerminalRuleCall_0_0() { return cVar1VARTerminalRuleCall_0_0; }
+		public RuleCall getVar2VARTerminalRuleCall_0_0() { return cVar2VARTerminalRuleCall_0_0; }
 
-		//("," var2+=VAR)*
+		//("," var3+=VAR)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//","
 		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
 
-		//var2+=VAR
-		public Assignment getVar2Assignment_1_1() { return cVar2Assignment_1_1; }
+		//var3+=VAR
+		public Assignment getVar3Assignment_1_1() { return cVar3Assignment_1_1; }
 
 		//VAR
-		public RuleCall getVar2VARTerminalRuleCall_1_1_0() { return cVar2VARTerminalRuleCall_1_1_0; }
+		public RuleCall getVar3VARTerminalRuleCall_1_1_0() { return cVar3VARTerminalRuleCall_1_1_0; }
 	}
 
 	public class ExprsElements extends AbstractParserRuleElementFinder {
@@ -1357,7 +1357,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Vars:
-	//	var1=VAR ("," var2+=VAR)*;
+	//	var2=VAR ("," var3+=VAR)*;
 	public VarsElements getVarsAccess() {
 		return pVars;
 	}

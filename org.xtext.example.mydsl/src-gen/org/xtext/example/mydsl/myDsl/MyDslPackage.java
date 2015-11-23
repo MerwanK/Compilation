@@ -565,22 +565,22 @@ public interface MyDslPackage extends EPackage
   int VARS = 12;
 
   /**
-   * The feature id for the '<em><b>Var1</b></em>' attribute.
+   * The feature id for the '<em><b>Var2</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARS__VAR1 = 0;
+  int VARS__VAR2 = 0;
 
   /**
-   * The feature id for the '<em><b>Var2</b></em>' attribute list.
+   * The feature id for the '<em><b>Var3</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARS__VAR2 = 1;
+  int VARS__VAR3 = 1;
 
   /**
    * The number of structural features of the '<em>Vars</em>' class.
@@ -1385,26 +1385,26 @@ public interface MyDslPackage extends EPackage
   EClass getVars();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Vars#getVar1 <em>Var1</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Vars#getVar2 <em>Var2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var1</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Vars#getVar1()
-   * @see #getVars()
-   * @generated
-   */
-  EAttribute getVars_Var1();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Vars#getVar2 <em>Var2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Var2</em>'.
+   * @return the meta object for the attribute '<em>Var2</em>'.
    * @see org.xtext.example.mydsl.myDsl.Vars#getVar2()
    * @see #getVars()
    * @generated
    */
   EAttribute getVars_Var2();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Vars#getVar3 <em>Var3</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Var3</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Vars#getVar3()
+   * @see #getVars()
+   * @generated
+   */
+  EAttribute getVars_Var3();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Exprs <em>Exprs</em>}'.
@@ -2100,20 +2100,20 @@ public interface MyDslPackage extends EPackage
     EClass VARS = eINSTANCE.getVars();
 
     /**
-     * The meta object literal for the '<em><b>Var1</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARS__VAR1 = eINSTANCE.getVars_Var1();
-
-    /**
-     * The meta object literal for the '<em><b>Var2</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Var2</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute VARS__VAR2 = eINSTANCE.getVars_Var2();
+
+    /**
+     * The meta object literal for the '<em><b>Var3</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARS__VAR3 = eINSTANCE.getVars_Var3();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprsImpl <em>Exprs</em>}' class.

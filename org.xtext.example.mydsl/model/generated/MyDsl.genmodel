@@ -62,8 +62,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Foreach/com7"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Vars">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Vars/var1"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Vars/var2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Vars/var3"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Exprs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exprs/exprS"/>

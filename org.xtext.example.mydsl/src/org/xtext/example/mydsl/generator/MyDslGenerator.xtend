@@ -100,7 +100,7 @@ class MyDslGenerator implements IGenerator {
    
      
    def compile(AffectVar av)'''
-   «av.var1.compile» := «av.exp.compile»
+   		«av.var1.compile» := «av.exp.compile»
    '''
    
    def compile(While w)'''
@@ -140,10 +140,11 @@ class MyDslGenerator implements IGenerator {
    '''
    
    def compile(Vars v)'''
+   		«v.var2», «v.var3»
    '''
    
    def compile(Exprs exps)'''
-   «exps.exprS.compile »«FOR v :exps.exprS2», «v.compile» «ENDFOR»
+   		«exps.exprS.compile »«FOR v :exps.exprS2», «v.compile» «ENDFOR»
    '''
    
    def compile(Expr ex)'''
