@@ -1,0 +1,17 @@
+--------------HELP whpp(pretty printer)-------------
+
+[SYNOPSIS]: whpp SOURCE... [OPTION]... -o DEST
+
+[DESCRIPTION]:
+
+[OPTIONS]:
+
+[BUGS]:
+
+[SEE ALSO]:
+
+[AUTHORS]: Chef de projet: Jordan Bachelin
+	   Responsable test: Maxime Servais
+	   Developpeurs: Merwan Kaf
+			 Jeremy Delvinquier
+		    	 Pierre LeCorre
