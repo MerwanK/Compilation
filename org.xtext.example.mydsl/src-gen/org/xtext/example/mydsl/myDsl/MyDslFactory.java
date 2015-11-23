@@ -86,6 +86,51 @@ public interface MyDslFactory extends EFactory
   Commande createCommande();
 
   /**
+   * Returns a new object of class '<em>Affect Var</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Affect Var</em>'.
+   * @generated
+   */
+  AffectVar createAffectVar();
+
+  /**
+   * Returns a new object of class '<em>While</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While</em>'.
+   * @generated
+   */
+  While createWhile();
+
+  /**
+   * Returns a new object of class '<em>For</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For</em>'.
+   * @generated
+   */
+  For createFor();
+
+  /**
+   * Returns a new object of class '<em>If</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If</em>'.
+   * @generated
+   */
+  If createIf();
+
+  /**
+   * Returns a new object of class '<em>Foreach</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Foreach</em>'.
+   * @generated
+   */
+  Foreach createForeach();
+
+  /**
    * Returns a new object of class '<em>Vars</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

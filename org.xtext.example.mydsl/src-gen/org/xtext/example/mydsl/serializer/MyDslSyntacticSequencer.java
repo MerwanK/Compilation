@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,14 +21,12 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Commande_ForKeyword_2_0_1_or_WhileKeyword_2_0_0;
 	protected AbstractElementAlias match_ExprNot___NotKeyword_0_0_LCParserRuleCall_0_1__q;
 	protected AbstractElementAlias match_Programme_CRTerminalRuleCall_1_1_a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
-		match_Commande_ForKeyword_2_0_1_or_WhileKeyword_2_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCommandeAccess().getForKeyword_2_0_1()), new TokenAlias(false, false, grammarAccess.getCommandeAccess().getWhileKeyword_2_0_0()));
 		match_ExprNot___NotKeyword_0_0_LCParserRuleCall_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getExprNotAccess().getNotKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getExprNotAccess().getLCParserRuleCall_0_1()));
 		match_Programme_CRTerminalRuleCall_1_1_a = new TokenAlias(true, true, grammarAccess.getProgrammeAccess().getCRTerminalRuleCall_1_1());
 	}
@@ -92,7 +89,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getSYMToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "?";
+		return "";
 	}
 	
 	@Override
@@ -101,9 +98,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Commande_ForKeyword_2_0_1_or_WhileKeyword_2_0_0.equals(syntax))
-				emit_Commande_ForKeyword_2_0_1_or_WhileKeyword_2_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ExprNot___NotKeyword_0_0_LCParserRuleCall_0_1__q.equals(syntax))
+			if(match_ExprNot___NotKeyword_0_0_LCParserRuleCall_0_1__q.equals(syntax))
 				emit_ExprNot___NotKeyword_0_0_LCParserRuleCall_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Programme_CRTerminalRuleCall_1_1_a.equals(syntax))
 				emit_Programme_CRTerminalRuleCall_1_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -111,17 +106,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'while' | 'for'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) LC exp2=Expr
-	 */
-	protected void emit_Commande_ForKeyword_2_0_1_or_WhileKeyword_2_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     ('not' LC)?

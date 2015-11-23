@@ -11,12 +11,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.myDsl.AffectVar;
 import org.xtext.example.mydsl.myDsl.Commande;
-import org.xtext.example.mydsl.myDsl.Commandes;
-import org.xtext.example.mydsl.myDsl.Expr;
-import org.xtext.example.mydsl.myDsl.Exprs;
+import org.xtext.example.mydsl.myDsl.For;
+import org.xtext.example.mydsl.myDsl.Foreach;
+import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Vars;
+import org.xtext.example.mydsl.myDsl.While;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,16 +28,11 @@ import org.xtext.example.mydsl.myDsl.Vars;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getNop <em>Nop</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getVar <em>Var</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp <em>Exp</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp2 <em>Exp2</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getCom <em>Com</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp3 <em>Exp3</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getCom2 <em>Com2</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getCom3 <em>Com3</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp4 <em>Exp4</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getExp5 <em>Exp5</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getCom4 <em>Com4</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getAffectVar <em>Affect Var</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getWhileC <em>While C</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getForC <em>For C</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getIfC <em>If C</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getForeachC <em>Foreach C</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,104 +60,54 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   protected String nop = NOP_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
+   * The cached value of the '{@link #getAffectVar() <em>Affect Var</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar()
+   * @see #getAffectVar()
    * @generated
    * @ordered
    */
-  protected Vars var;
+  protected AffectVar affectVar;
 
   /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * The cached value of the '{@link #getWhileC() <em>While C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp()
+   * @see #getWhileC()
    * @generated
    * @ordered
    */
-  protected Exprs exp;
+  protected While whileC;
 
   /**
-   * The cached value of the '{@link #getExp2() <em>Exp2</em>}' containment reference.
+   * The cached value of the '{@link #getForC() <em>For C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp2()
+   * @see #getForC()
    * @generated
    * @ordered
    */
-  protected Expr exp2;
+  protected For forC;
 
   /**
-   * The cached value of the '{@link #getCom() <em>Com</em>}' containment reference.
+   * The cached value of the '{@link #getIfC() <em>If C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCom()
+   * @see #getIfC()
    * @generated
    * @ordered
    */
-  protected Commandes com;
+  protected If ifC;
 
   /**
-   * The cached value of the '{@link #getExp3() <em>Exp3</em>}' containment reference.
+   * The cached value of the '{@link #getForeachC() <em>Foreach C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp3()
+   * @see #getForeachC()
    * @generated
    * @ordered
    */
-  protected Expr exp3;
-
-  /**
-   * The cached value of the '{@link #getCom2() <em>Com2</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCom2()
-   * @generated
-   * @ordered
-   */
-  protected Commandes com2;
-
-  /**
-   * The cached value of the '{@link #getCom3() <em>Com3</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCom3()
-   * @generated
-   * @ordered
-   */
-  protected Commandes com3;
-
-  /**
-   * The cached value of the '{@link #getExp4() <em>Exp4</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp4()
-   * @generated
-   * @ordered
-   */
-  protected Expr exp4;
-
-  /**
-   * The cached value of the '{@link #getExp5() <em>Exp5</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp5()
-   * @generated
-   * @ordered
-   */
-  protected Expr exp5;
-
-  /**
-   * The cached value of the '{@link #getCom4() <em>Com4</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCom4()
-   * @generated
-   * @ordered
-   */
-  protected Commandes com4;
+  protected Foreach foreachC;
 
   /**
    * <!-- begin-user-doc -->
@@ -212,9 +158,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public Vars getVar()
+  public AffectVar getAffectVar()
   {
-    return var;
+    return affectVar;
   }
 
   /**
@@ -222,13 +168,13 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar(Vars newVar, NotificationChain msgs)
+  public NotificationChain basicSetAffectVar(AffectVar newAffectVar, NotificationChain msgs)
   {
-    Vars oldVar = var;
-    var = newVar;
+    AffectVar oldAffectVar = affectVar;
+    affectVar = newAffectVar;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__VAR, oldVar, newVar);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__AFFECT_VAR, oldAffectVar, newAffectVar);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -239,20 +185,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVar(Vars newVar)
+  public void setAffectVar(AffectVar newAffectVar)
   {
-    if (newVar != var)
+    if (newAffectVar != affectVar)
     {
       NotificationChain msgs = null;
-      if (var != null)
-        msgs = ((InternalEObject)var).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__VAR, null, msgs);
-      if (newVar != null)
-        msgs = ((InternalEObject)newVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__VAR, null, msgs);
-      msgs = basicSetVar(newVar, msgs);
+      if (affectVar != null)
+        msgs = ((InternalEObject)affectVar).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__AFFECT_VAR, null, msgs);
+      if (newAffectVar != null)
+        msgs = ((InternalEObject)newAffectVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__AFFECT_VAR, null, msgs);
+      msgs = basicSetAffectVar(newAffectVar, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__VAR, newVar, newVar));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__AFFECT_VAR, newAffectVar, newAffectVar));
   }
 
   /**
@@ -260,9 +206,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exprs getExp()
+  public While getWhileC()
   {
-    return exp;
+    return whileC;
   }
 
   /**
@@ -270,13 +216,13 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp(Exprs newExp, NotificationChain msgs)
+  public NotificationChain basicSetWhileC(While newWhileC, NotificationChain msgs)
   {
-    Exprs oldExp = exp;
-    exp = newExp;
+    While oldWhileC = whileC;
+    whileC = newWhileC;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP, oldExp, newExp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__WHILE_C, oldWhileC, newWhileC);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -287,20 +233,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp(Exprs newExp)
+  public void setWhileC(While newWhileC)
   {
-    if (newExp != exp)
+    if (newWhileC != whileC)
     {
       NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
+      if (whileC != null)
+        msgs = ((InternalEObject)whileC).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__WHILE_C, null, msgs);
+      if (newWhileC != null)
+        msgs = ((InternalEObject)newWhileC).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__WHILE_C, null, msgs);
+      msgs = basicSetWhileC(newWhileC, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP, newExp, newExp));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__WHILE_C, newWhileC, newWhileC));
   }
 
   /**
@@ -308,9 +254,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExp2()
+  public For getForC()
   {
-    return exp2;
+    return forC;
   }
 
   /**
@@ -318,13 +264,13 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp2(Expr newExp2, NotificationChain msgs)
+  public NotificationChain basicSetForC(For newForC, NotificationChain msgs)
   {
-    Expr oldExp2 = exp2;
-    exp2 = newExp2;
+    For oldForC = forC;
+    forC = newForC;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP2, oldExp2, newExp2);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__FOR_C, oldForC, newForC);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -335,20 +281,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp2(Expr newExp2)
+  public void setForC(For newForC)
   {
-    if (newExp2 != exp2)
+    if (newForC != forC)
     {
       NotificationChain msgs = null;
-      if (exp2 != null)
-        msgs = ((InternalEObject)exp2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP2, null, msgs);
-      if (newExp2 != null)
-        msgs = ((InternalEObject)newExp2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP2, null, msgs);
-      msgs = basicSetExp2(newExp2, msgs);
+      if (forC != null)
+        msgs = ((InternalEObject)forC).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__FOR_C, null, msgs);
+      if (newForC != null)
+        msgs = ((InternalEObject)newForC).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__FOR_C, null, msgs);
+      msgs = basicSetForC(newForC, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP2, newExp2, newExp2));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__FOR_C, newForC, newForC));
   }
 
   /**
@@ -356,9 +302,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public Commandes getCom()
+  public If getIfC()
   {
-    return com;
+    return ifC;
   }
 
   /**
@@ -366,13 +312,13 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCom(Commandes newCom, NotificationChain msgs)
+  public NotificationChain basicSetIfC(If newIfC, NotificationChain msgs)
   {
-    Commandes oldCom = com;
-    com = newCom;
+    If oldIfC = ifC;
+    ifC = newIfC;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM, oldCom, newCom);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__IF_C, oldIfC, newIfC);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -383,20 +329,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCom(Commandes newCom)
+  public void setIfC(If newIfC)
   {
-    if (newCom != com)
+    if (newIfC != ifC)
     {
       NotificationChain msgs = null;
-      if (com != null)
-        msgs = ((InternalEObject)com).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM, null, msgs);
-      if (newCom != null)
-        msgs = ((InternalEObject)newCom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM, null, msgs);
-      msgs = basicSetCom(newCom, msgs);
+      if (ifC != null)
+        msgs = ((InternalEObject)ifC).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__IF_C, null, msgs);
+      if (newIfC != null)
+        msgs = ((InternalEObject)newIfC).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__IF_C, null, msgs);
+      msgs = basicSetIfC(newIfC, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM, newCom, newCom));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__IF_C, newIfC, newIfC));
   }
 
   /**
@@ -404,9 +350,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExp3()
+  public Foreach getForeachC()
   {
-    return exp3;
+    return foreachC;
   }
 
   /**
@@ -414,13 +360,13 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp3(Expr newExp3, NotificationChain msgs)
+  public NotificationChain basicSetForeachC(Foreach newForeachC, NotificationChain msgs)
   {
-    Expr oldExp3 = exp3;
-    exp3 = newExp3;
+    Foreach oldForeachC = foreachC;
+    foreachC = newForeachC;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP3, oldExp3, newExp3);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__FOREACH_C, oldForeachC, newForeachC);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -431,260 +377,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp3(Expr newExp3)
+  public void setForeachC(Foreach newForeachC)
   {
-    if (newExp3 != exp3)
+    if (newForeachC != foreachC)
     {
       NotificationChain msgs = null;
-      if (exp3 != null)
-        msgs = ((InternalEObject)exp3).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP3, null, msgs);
-      if (newExp3 != null)
-        msgs = ((InternalEObject)newExp3).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP3, null, msgs);
-      msgs = basicSetExp3(newExp3, msgs);
+      if (foreachC != null)
+        msgs = ((InternalEObject)foreachC).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__FOREACH_C, null, msgs);
+      if (newForeachC != null)
+        msgs = ((InternalEObject)newForeachC).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__FOREACH_C, null, msgs);
+      msgs = basicSetForeachC(newForeachC, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP3, newExp3, newExp3));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Commandes getCom2()
-  {
-    return com2;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCom2(Commandes newCom2, NotificationChain msgs)
-  {
-    Commandes oldCom2 = com2;
-    com2 = newCom2;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM2, oldCom2, newCom2);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCom2(Commandes newCom2)
-  {
-    if (newCom2 != com2)
-    {
-      NotificationChain msgs = null;
-      if (com2 != null)
-        msgs = ((InternalEObject)com2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM2, null, msgs);
-      if (newCom2 != null)
-        msgs = ((InternalEObject)newCom2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM2, null, msgs);
-      msgs = basicSetCom2(newCom2, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM2, newCom2, newCom2));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Commandes getCom3()
-  {
-    return com3;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCom3(Commandes newCom3, NotificationChain msgs)
-  {
-    Commandes oldCom3 = com3;
-    com3 = newCom3;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM3, oldCom3, newCom3);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCom3(Commandes newCom3)
-  {
-    if (newCom3 != com3)
-    {
-      NotificationChain msgs = null;
-      if (com3 != null)
-        msgs = ((InternalEObject)com3).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM3, null, msgs);
-      if (newCom3 != null)
-        msgs = ((InternalEObject)newCom3).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM3, null, msgs);
-      msgs = basicSetCom3(newCom3, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM3, newCom3, newCom3));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expr getExp4()
-  {
-    return exp4;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp4(Expr newExp4, NotificationChain msgs)
-  {
-    Expr oldExp4 = exp4;
-    exp4 = newExp4;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP4, oldExp4, newExp4);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExp4(Expr newExp4)
-  {
-    if (newExp4 != exp4)
-    {
-      NotificationChain msgs = null;
-      if (exp4 != null)
-        msgs = ((InternalEObject)exp4).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP4, null, msgs);
-      if (newExp4 != null)
-        msgs = ((InternalEObject)newExp4).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP4, null, msgs);
-      msgs = basicSetExp4(newExp4, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP4, newExp4, newExp4));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expr getExp5()
-  {
-    return exp5;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp5(Expr newExp5, NotificationChain msgs)
-  {
-    Expr oldExp5 = exp5;
-    exp5 = newExp5;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP5, oldExp5, newExp5);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExp5(Expr newExp5)
-  {
-    if (newExp5 != exp5)
-    {
-      NotificationChain msgs = null;
-      if (exp5 != null)
-        msgs = ((InternalEObject)exp5).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP5, null, msgs);
-      if (newExp5 != null)
-        msgs = ((InternalEObject)newExp5).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__EXP5, null, msgs);
-      msgs = basicSetExp5(newExp5, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__EXP5, newExp5, newExp5));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Commandes getCom4()
-  {
-    return com4;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCom4(Commandes newCom4, NotificationChain msgs)
-  {
-    Commandes oldCom4 = com4;
-    com4 = newCom4;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM4, oldCom4, newCom4);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCom4(Commandes newCom4)
-  {
-    if (newCom4 != com4)
-    {
-      NotificationChain msgs = null;
-      if (com4 != null)
-        msgs = ((InternalEObject)com4).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM4, null, msgs);
-      if (newCom4 != null)
-        msgs = ((InternalEObject)newCom4).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDE__COM4, null, msgs);
-      msgs = basicSetCom4(newCom4, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__COM4, newCom4, newCom4));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDE__FOREACH_C, newForeachC, newForeachC));
   }
 
   /**
@@ -697,26 +403,16 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
-      case MyDslPackage.COMMANDE__VAR:
-        return basicSetVar(null, msgs);
-      case MyDslPackage.COMMANDE__EXP:
-        return basicSetExp(null, msgs);
-      case MyDslPackage.COMMANDE__EXP2:
-        return basicSetExp2(null, msgs);
-      case MyDslPackage.COMMANDE__COM:
-        return basicSetCom(null, msgs);
-      case MyDslPackage.COMMANDE__EXP3:
-        return basicSetExp3(null, msgs);
-      case MyDslPackage.COMMANDE__COM2:
-        return basicSetCom2(null, msgs);
-      case MyDslPackage.COMMANDE__COM3:
-        return basicSetCom3(null, msgs);
-      case MyDslPackage.COMMANDE__EXP4:
-        return basicSetExp4(null, msgs);
-      case MyDslPackage.COMMANDE__EXP5:
-        return basicSetExp5(null, msgs);
-      case MyDslPackage.COMMANDE__COM4:
-        return basicSetCom4(null, msgs);
+      case MyDslPackage.COMMANDE__AFFECT_VAR:
+        return basicSetAffectVar(null, msgs);
+      case MyDslPackage.COMMANDE__WHILE_C:
+        return basicSetWhileC(null, msgs);
+      case MyDslPackage.COMMANDE__FOR_C:
+        return basicSetForC(null, msgs);
+      case MyDslPackage.COMMANDE__IF_C:
+        return basicSetIfC(null, msgs);
+      case MyDslPackage.COMMANDE__FOREACH_C:
+        return basicSetForeachC(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -733,26 +429,16 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
     {
       case MyDslPackage.COMMANDE__NOP:
         return getNop();
-      case MyDslPackage.COMMANDE__VAR:
-        return getVar();
-      case MyDslPackage.COMMANDE__EXP:
-        return getExp();
-      case MyDslPackage.COMMANDE__EXP2:
-        return getExp2();
-      case MyDslPackage.COMMANDE__COM:
-        return getCom();
-      case MyDslPackage.COMMANDE__EXP3:
-        return getExp3();
-      case MyDslPackage.COMMANDE__COM2:
-        return getCom2();
-      case MyDslPackage.COMMANDE__COM3:
-        return getCom3();
-      case MyDslPackage.COMMANDE__EXP4:
-        return getExp4();
-      case MyDslPackage.COMMANDE__EXP5:
-        return getExp5();
-      case MyDslPackage.COMMANDE__COM4:
-        return getCom4();
+      case MyDslPackage.COMMANDE__AFFECT_VAR:
+        return getAffectVar();
+      case MyDslPackage.COMMANDE__WHILE_C:
+        return getWhileC();
+      case MyDslPackage.COMMANDE__FOR_C:
+        return getForC();
+      case MyDslPackage.COMMANDE__IF_C:
+        return getIfC();
+      case MyDslPackage.COMMANDE__FOREACH_C:
+        return getForeachC();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -770,35 +456,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
       case MyDslPackage.COMMANDE__NOP:
         setNop((String)newValue);
         return;
-      case MyDslPackage.COMMANDE__VAR:
-        setVar((Vars)newValue);
+      case MyDslPackage.COMMANDE__AFFECT_VAR:
+        setAffectVar((AffectVar)newValue);
         return;
-      case MyDslPackage.COMMANDE__EXP:
-        setExp((Exprs)newValue);
+      case MyDslPackage.COMMANDE__WHILE_C:
+        setWhileC((While)newValue);
         return;
-      case MyDslPackage.COMMANDE__EXP2:
-        setExp2((Expr)newValue);
+      case MyDslPackage.COMMANDE__FOR_C:
+        setForC((For)newValue);
         return;
-      case MyDslPackage.COMMANDE__COM:
-        setCom((Commandes)newValue);
+      case MyDslPackage.COMMANDE__IF_C:
+        setIfC((If)newValue);
         return;
-      case MyDslPackage.COMMANDE__EXP3:
-        setExp3((Expr)newValue);
-        return;
-      case MyDslPackage.COMMANDE__COM2:
-        setCom2((Commandes)newValue);
-        return;
-      case MyDslPackage.COMMANDE__COM3:
-        setCom3((Commandes)newValue);
-        return;
-      case MyDslPackage.COMMANDE__EXP4:
-        setExp4((Expr)newValue);
-        return;
-      case MyDslPackage.COMMANDE__EXP5:
-        setExp5((Expr)newValue);
-        return;
-      case MyDslPackage.COMMANDE__COM4:
-        setCom4((Commandes)newValue);
+      case MyDslPackage.COMMANDE__FOREACH_C:
+        setForeachC((Foreach)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -817,35 +488,20 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
       case MyDslPackage.COMMANDE__NOP:
         setNop(NOP_EDEFAULT);
         return;
-      case MyDslPackage.COMMANDE__VAR:
-        setVar((Vars)null);
+      case MyDslPackage.COMMANDE__AFFECT_VAR:
+        setAffectVar((AffectVar)null);
         return;
-      case MyDslPackage.COMMANDE__EXP:
-        setExp((Exprs)null);
+      case MyDslPackage.COMMANDE__WHILE_C:
+        setWhileC((While)null);
         return;
-      case MyDslPackage.COMMANDE__EXP2:
-        setExp2((Expr)null);
+      case MyDslPackage.COMMANDE__FOR_C:
+        setForC((For)null);
         return;
-      case MyDslPackage.COMMANDE__COM:
-        setCom((Commandes)null);
+      case MyDslPackage.COMMANDE__IF_C:
+        setIfC((If)null);
         return;
-      case MyDslPackage.COMMANDE__EXP3:
-        setExp3((Expr)null);
-        return;
-      case MyDslPackage.COMMANDE__COM2:
-        setCom2((Commandes)null);
-        return;
-      case MyDslPackage.COMMANDE__COM3:
-        setCom3((Commandes)null);
-        return;
-      case MyDslPackage.COMMANDE__EXP4:
-        setExp4((Expr)null);
-        return;
-      case MyDslPackage.COMMANDE__EXP5:
-        setExp5((Expr)null);
-        return;
-      case MyDslPackage.COMMANDE__COM4:
-        setCom4((Commandes)null);
+      case MyDslPackage.COMMANDE__FOREACH_C:
+        setForeachC((Foreach)null);
         return;
     }
     super.eUnset(featureID);
@@ -863,26 +519,16 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
     {
       case MyDslPackage.COMMANDE__NOP:
         return NOP_EDEFAULT == null ? nop != null : !NOP_EDEFAULT.equals(nop);
-      case MyDslPackage.COMMANDE__VAR:
-        return var != null;
-      case MyDslPackage.COMMANDE__EXP:
-        return exp != null;
-      case MyDslPackage.COMMANDE__EXP2:
-        return exp2 != null;
-      case MyDslPackage.COMMANDE__COM:
-        return com != null;
-      case MyDslPackage.COMMANDE__EXP3:
-        return exp3 != null;
-      case MyDslPackage.COMMANDE__COM2:
-        return com2 != null;
-      case MyDslPackage.COMMANDE__COM3:
-        return com3 != null;
-      case MyDslPackage.COMMANDE__EXP4:
-        return exp4 != null;
-      case MyDslPackage.COMMANDE__EXP5:
-        return exp5 != null;
-      case MyDslPackage.COMMANDE__COM4:
-        return com4 != null;
+      case MyDslPackage.COMMANDE__AFFECT_VAR:
+        return affectVar != null;
+      case MyDslPackage.COMMANDE__WHILE_C:
+        return whileC != null;
+      case MyDslPackage.COMMANDE__FOR_C:
+        return forC != null;
+      case MyDslPackage.COMMANDE__IF_C:
+        return ifC != null;
+      case MyDslPackage.COMMANDE__FOREACH_C:
+        return foreachC != null;
     }
     return super.eIsSet(featureID);
   }

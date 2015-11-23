@@ -35,16 +35,37 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Commande">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectVar" eType="#//AffectVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whileC" eType="#//While"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forC" eType="#//For" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifC" eType="#//If" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foreachC" eType="#//Foreach"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AffectVar">
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Vars" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Exprs" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="While">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp2" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="com" eType="#//Commandes"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="For">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp2" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="com" eType="#//Commandes"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="If">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp3" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="com2" eType="#//Commandes"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="com3" eType="#//Commandes"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Foreach">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp4" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp5" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="com4" eType="#//Commandes"

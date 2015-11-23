@@ -14,16 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getNop <em>Nop</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getVar <em>Var</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp <em>Exp</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp2 <em>Exp2</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getCom <em>Com</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp3 <em>Exp3</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getCom2 <em>Com2</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getCom3 <em>Com3</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp4 <em>Exp4</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getExp5 <em>Exp5</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getCom4 <em>Com4</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getAffectVar <em>Affect Var</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getWhileC <em>While C</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getForC <em>For C</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getIfC <em>If C</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getForeachC <em>Foreach C</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande()
@@ -59,263 +54,133 @@ public interface Commande extends EObject
   void setNop(String value);
 
   /**
-   * Returns the value of the '<em><b>Var</b></em>' containment reference.
+   * Returns the value of the '<em><b>Affect Var</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Affect Var</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(Vars)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Var()
+   * @return the value of the '<em>Affect Var</em>' containment reference.
+   * @see #setAffectVar(AffectVar)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_AffectVar()
    * @model containment="true"
    * @generated
    */
-  Vars getVar();
+  AffectVar getAffectVar();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getVar <em>Var</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getAffectVar <em>Affect Var</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' containment reference.
-   * @see #getVar()
+   * @param value the new value of the '<em>Affect Var</em>' containment reference.
+   * @see #getAffectVar()
    * @generated
    */
-  void setVar(Vars value);
+  void setAffectVar(AffectVar value);
 
   /**
-   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
+   * Returns the value of the '<em><b>While C</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
+   * If the meaning of the '<em>While C</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp</em>' containment reference.
-   * @see #setExp(Exprs)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Exp()
+   * @return the value of the '<em>While C</em>' containment reference.
+   * @see #setWhileC(While)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_WhileC()
    * @model containment="true"
    * @generated
    */
-  Exprs getExp();
+  While getWhileC();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getExp <em>Exp</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getWhileC <em>While C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp</em>' containment reference.
-   * @see #getExp()
+   * @param value the new value of the '<em>While C</em>' containment reference.
+   * @see #getWhileC()
    * @generated
    */
-  void setExp(Exprs value);
+  void setWhileC(While value);
 
   /**
-   * Returns the value of the '<em><b>Exp2</b></em>' containment reference.
+   * Returns the value of the '<em><b>For C</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exp2</em>' containment reference isn't clear,
+   * If the meaning of the '<em>For C</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp2</em>' containment reference.
-   * @see #setExp2(Expr)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Exp2()
+   * @return the value of the '<em>For C</em>' containment reference.
+   * @see #setForC(For)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_ForC()
    * @model containment="true"
    * @generated
    */
-  Expr getExp2();
+  For getForC();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getExp2 <em>Exp2</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getForC <em>For C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp2</em>' containment reference.
-   * @see #getExp2()
+   * @param value the new value of the '<em>For C</em>' containment reference.
+   * @see #getForC()
    * @generated
    */
-  void setExp2(Expr value);
+  void setForC(For value);
 
   /**
-   * Returns the value of the '<em><b>Com</b></em>' containment reference.
+   * Returns the value of the '<em><b>If C</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Com</em>' containment reference isn't clear,
+   * If the meaning of the '<em>If C</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Com</em>' containment reference.
-   * @see #setCom(Commandes)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Com()
+   * @return the value of the '<em>If C</em>' containment reference.
+   * @see #setIfC(If)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_IfC()
    * @model containment="true"
    * @generated
    */
-  Commandes getCom();
+  If getIfC();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getCom <em>Com</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getIfC <em>If C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Com</em>' containment reference.
-   * @see #getCom()
+   * @param value the new value of the '<em>If C</em>' containment reference.
+   * @see #getIfC()
    * @generated
    */
-  void setCom(Commandes value);
+  void setIfC(If value);
 
   /**
-   * Returns the value of the '<em><b>Exp3</b></em>' containment reference.
+   * Returns the value of the '<em><b>Foreach C</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exp3</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Foreach C</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp3</em>' containment reference.
-   * @see #setExp3(Expr)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Exp3()
+   * @return the value of the '<em>Foreach C</em>' containment reference.
+   * @see #setForeachC(Foreach)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_ForeachC()
    * @model containment="true"
    * @generated
    */
-  Expr getExp3();
+  Foreach getForeachC();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getExp3 <em>Exp3</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getForeachC <em>Foreach C</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp3</em>' containment reference.
-   * @see #getExp3()
+   * @param value the new value of the '<em>Foreach C</em>' containment reference.
+   * @see #getForeachC()
    * @generated
    */
-  void setExp3(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>Com2</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Com2</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Com2</em>' containment reference.
-   * @see #setCom2(Commandes)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Com2()
-   * @model containment="true"
-   * @generated
-   */
-  Commandes getCom2();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getCom2 <em>Com2</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Com2</em>' containment reference.
-   * @see #getCom2()
-   * @generated
-   */
-  void setCom2(Commandes value);
-
-  /**
-   * Returns the value of the '<em><b>Com3</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Com3</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Com3</em>' containment reference.
-   * @see #setCom3(Commandes)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Com3()
-   * @model containment="true"
-   * @generated
-   */
-  Commandes getCom3();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getCom3 <em>Com3</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Com3</em>' containment reference.
-   * @see #getCom3()
-   * @generated
-   */
-  void setCom3(Commandes value);
-
-  /**
-   * Returns the value of the '<em><b>Exp4</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Exp4</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp4</em>' containment reference.
-   * @see #setExp4(Expr)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Exp4()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getExp4();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getExp4 <em>Exp4</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp4</em>' containment reference.
-   * @see #getExp4()
-   * @generated
-   */
-  void setExp4(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>Exp5</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Exp5</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp5</em>' containment reference.
-   * @see #setExp5(Expr)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Exp5()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getExp5();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getExp5 <em>Exp5</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp5</em>' containment reference.
-   * @see #getExp5()
-   * @generated
-   */
-  void setExp5(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>Com4</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Com4</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Com4</em>' containment reference.
-   * @see #setCom4(Commandes)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande_Com4()
-   * @model containment="true"
-   * @generated
-   */
-  Commandes getCom4();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commande#getCom4 <em>Com4</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Com4</em>' containment reference.
-   * @see #getCom4()
-   * @generated
-   */
-  void setCom4(Commandes value);
+  void setForeachC(Foreach value);
 
 } // Commande

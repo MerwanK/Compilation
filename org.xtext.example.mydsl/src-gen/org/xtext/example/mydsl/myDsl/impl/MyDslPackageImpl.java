@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl.myDsl.AffectVar;
 import org.xtext.example.mydsl.myDsl.Commande;
 import org.xtext.example.mydsl.myDsl.Commandes;
 import org.xtext.example.mydsl.myDsl.Expr;
@@ -19,6 +20,9 @@ import org.xtext.example.mydsl.myDsl.ExprOr;
 import org.xtext.example.mydsl.myDsl.ExprSimple;
 import org.xtext.example.mydsl.myDsl.Exprs;
 import org.xtext.example.mydsl.myDsl.Fonction;
+import org.xtext.example.mydsl.myDsl.For;
+import org.xtext.example.mydsl.myDsl.Foreach;
+import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.Input;
 import org.xtext.example.mydsl.myDsl.LExpr;
 import org.xtext.example.mydsl.myDsl.Model;
@@ -27,6 +31,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Output;
 import org.xtext.example.mydsl.myDsl.Programme;
 import org.xtext.example.mydsl.myDsl.Vars;
+import org.xtext.example.mydsl.myDsl.While;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +89,41 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass commandeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass affectVarEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass whileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass forEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass foreachEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -416,7 +456,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Var()
+  public EReference getCommande_AffectVar()
   {
     return (EReference)commandeEClass.getEStructuralFeatures().get(1);
   }
@@ -426,7 +466,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Exp()
+  public EReference getCommande_WhileC()
   {
     return (EReference)commandeEClass.getEStructuralFeatures().get(2);
   }
@@ -436,7 +476,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Exp2()
+  public EReference getCommande_ForC()
   {
     return (EReference)commandeEClass.getEStructuralFeatures().get(3);
   }
@@ -446,7 +486,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Com()
+  public EReference getCommande_IfC()
   {
     return (EReference)commandeEClass.getEStructuralFeatures().get(4);
   }
@@ -456,7 +496,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Exp3()
+  public EReference getCommande_ForeachC()
   {
     return (EReference)commandeEClass.getEStructuralFeatures().get(5);
   }
@@ -466,9 +506,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Com2()
+  public EClass getAffectVar()
   {
-    return (EReference)commandeEClass.getEStructuralFeatures().get(6);
+    return affectVarEClass;
   }
 
   /**
@@ -476,9 +516,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Com3()
+  public EReference getAffectVar_Var()
   {
-    return (EReference)commandeEClass.getEStructuralFeatures().get(7);
+    return (EReference)affectVarEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -486,9 +526,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Exp4()
+  public EReference getAffectVar_Exp()
   {
-    return (EReference)commandeEClass.getEStructuralFeatures().get(8);
+    return (EReference)affectVarEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -496,9 +536,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Exp5()
+  public EClass getWhile()
   {
-    return (EReference)commandeEClass.getEStructuralFeatures().get(9);
+    return whileEClass;
   }
 
   /**
@@ -506,9 +546,129 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommande_Com4()
+  public EReference getWhile_Exp2()
   {
-    return (EReference)commandeEClass.getEStructuralFeatures().get(10);
+    return (EReference)whileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhile_Com()
+  {
+    return (EReference)whileEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFor()
+  {
+    return forEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFor_Exp2()
+  {
+    return (EReference)forEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFor_Com()
+  {
+    return (EReference)forEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIf()
+  {
+    return ifEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIf_Exp3()
+  {
+    return (EReference)ifEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIf_Com2()
+  {
+    return (EReference)ifEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIf_Com3()
+  {
+    return (EReference)ifEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getForeach()
+  {
+    return foreachEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForeach_Exp4()
+  {
+    return (EReference)foreachEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForeach_Exp5()
+  {
+    return (EReference)foreachEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForeach_Com4()
+  {
+    return (EReference)foreachEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -877,16 +1037,33 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     commandeEClass = createEClass(COMMANDE);
     createEAttribute(commandeEClass, COMMANDE__NOP);
-    createEReference(commandeEClass, COMMANDE__VAR);
-    createEReference(commandeEClass, COMMANDE__EXP);
-    createEReference(commandeEClass, COMMANDE__EXP2);
-    createEReference(commandeEClass, COMMANDE__COM);
-    createEReference(commandeEClass, COMMANDE__EXP3);
-    createEReference(commandeEClass, COMMANDE__COM2);
-    createEReference(commandeEClass, COMMANDE__COM3);
-    createEReference(commandeEClass, COMMANDE__EXP4);
-    createEReference(commandeEClass, COMMANDE__EXP5);
-    createEReference(commandeEClass, COMMANDE__COM4);
+    createEReference(commandeEClass, COMMANDE__AFFECT_VAR);
+    createEReference(commandeEClass, COMMANDE__WHILE_C);
+    createEReference(commandeEClass, COMMANDE__FOR_C);
+    createEReference(commandeEClass, COMMANDE__IF_C);
+    createEReference(commandeEClass, COMMANDE__FOREACH_C);
+
+    affectVarEClass = createEClass(AFFECT_VAR);
+    createEReference(affectVarEClass, AFFECT_VAR__VAR);
+    createEReference(affectVarEClass, AFFECT_VAR__EXP);
+
+    whileEClass = createEClass(WHILE);
+    createEReference(whileEClass, WHILE__EXP2);
+    createEReference(whileEClass, WHILE__COM);
+
+    forEClass = createEClass(FOR);
+    createEReference(forEClass, FOR__EXP2);
+    createEReference(forEClass, FOR__COM);
+
+    ifEClass = createEClass(IF);
+    createEReference(ifEClass, IF__EXP3);
+    createEReference(ifEClass, IF__COM2);
+    createEReference(ifEClass, IF__COM3);
+
+    foreachEClass = createEClass(FOREACH);
+    createEReference(foreachEClass, FOREACH__EXP4);
+    createEReference(foreachEClass, FOREACH__EXP5);
+    createEReference(foreachEClass, FOREACH__COM4);
 
     varsEClass = createEClass(VARS);
     createEAttribute(varsEClass, VARS__VAR1);
@@ -986,16 +1163,33 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(commandeEClass, Commande.class, "Commande", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommande_Nop(), ecorePackage.getEString(), "nop", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Var(), this.getVars(), null, "var", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Exp(), this.getExprs(), null, "exp", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Exp2(), this.getExpr(), null, "exp2", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Com(), this.getCommandes(), null, "com", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Exp3(), this.getExpr(), null, "exp3", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Com2(), this.getCommandes(), null, "com2", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Com3(), this.getCommandes(), null, "com3", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Exp4(), this.getExpr(), null, "exp4", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Exp5(), this.getExpr(), null, "exp5", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommande_Com4(), this.getCommandes(), null, "com4", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommande_AffectVar(), this.getAffectVar(), null, "affectVar", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommande_WhileC(), this.getWhile(), null, "whileC", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommande_ForC(), this.getFor(), null, "forC", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommande_IfC(), this.getIf(), null, "ifC", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommande_ForeachC(), this.getForeach(), null, "foreachC", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(affectVarEClass, AffectVar.class, "AffectVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAffectVar_Var(), this.getVars(), null, "var", null, 0, 1, AffectVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAffectVar_Exp(), this.getExprs(), null, "exp", null, 0, 1, AffectVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhile_Exp2(), this.getExpr(), null, "exp2", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhile_Com(), this.getCommandes(), null, "com", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forEClass, For.class, "For", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFor_Exp2(), this.getExpr(), null, "exp2", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Com(), this.getCommandes(), null, "com", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIf_Exp3(), this.getExpr(), null, "exp3", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Com2(), this.getCommandes(), null, "com2", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Com3(), this.getCommandes(), null, "com3", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(foreachEClass, Foreach.class, "Foreach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForeach_Exp4(), this.getExpr(), null, "exp4", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForeach_Exp5(), this.getExpr(), null, "exp5", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForeach_Com4(), this.getCommandes(), null, "com4", null, 0, 1, Foreach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varsEClass, Vars.class, "Vars", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVars_Var1(), ecorePackage.getEString(), "var1", null, 0, 1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

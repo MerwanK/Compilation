@@ -14,6 +14,11 @@ import org.xtext.example.mydsl.myDsl.Input
 import org.xtext.example.mydsl.myDsl.Output
 import org.xtext.example.mydsl.myDsl.Commandes
 import org.xtext.example.mydsl.myDsl.Commande
+import org.xtext.example.mydsl.myDsl.AffectVar
+import org.xtext.example.mydsl.myDsl.While
+import org.xtext.example.mydsl.myDsl.For
+import org.xtext.example.mydsl.myDsl.If
+import org.xtext.example.mydsl.myDsl.Foreach
 import org.xtext.example.mydsl.myDsl.Vars
 import org.xtext.example.mydsl.myDsl.Exprs
 import org.xtext.example.mydsl.myDsl.Expr
@@ -41,14 +46,21 @@ class MyDslGenerator implements IGenerator {
 //				.join(', '))
 		}
 	}
-	
+	/*
+	def indentation(int k){
+		var String indent = "";
+		while(k!=0){
+			indent += " ";
+			k = k-1;
+		}
+	}
+	*/
 	def compile(Programme p)'''
    		«FOR f :p.fonct»«f.compile»
    		
    		«ENDFOR»
    '''
 		
-	
    def compile(Fonction f) '''
 		fonction «f.symbole»:
 		read «f.in.compile»
@@ -56,7 +68,7 @@ class MyDslGenerator implements IGenerator {
 		«f.com.compile»
 		%
 		write «f.out.compile»
-   		   '''
+   	'''
    
    def compile(Input i)'''
    		«i.var1»«FOR v :i.var2», «v»«ENDFOR»
@@ -71,8 +83,35 @@ class MyDslGenerator implements IGenerator {
    '''
    
    def compile(Commande co)'''
-   		nop
+   		«IF co.nop != null»nop«
+   		ENDIF»	«IF co.affectVar != null»«co.affectVar.compile»«
+   		ENDIF»«IF co.whileC != null»«co.whileC.compile»«
+   		ENDIF»«IF co.forC != null»«co.whileC.compile»«
+   		ENDIF»«IF co.ifC != null»«co.whileC.compile»«
+   		ENDIF»«IF co.foreachC != null»«co.whileC.compile»«
+   		ENDIF»
    '''
+   
+   def compile(While w)'''
+   while
+   '''
+   
+   def compile(AffectVar av)'''
+   afgect
+   '''
+      
+   def compile(For f)'''
+   for
+   '''
+   
+   def compile(If ifc)'''
+   if
+   '''
+   
+   def compile(Foreach fe)'''
+   foreach
+   '''
+   
    /* 
    «switch co{
    			case NOP : "nope"

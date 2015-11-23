@@ -71,6 +71,11 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.OUTPUT: return createOutput();
       case MyDslPackage.COMMANDES: return createCommandes();
       case MyDslPackage.COMMANDE: return createCommande();
+      case MyDslPackage.AFFECT_VAR: return createAffectVar();
+      case MyDslPackage.WHILE: return createWhile();
+      case MyDslPackage.FOR: return createFor();
+      case MyDslPackage.IF: return createIf();
+      case MyDslPackage.FOREACH: return createForeach();
       case MyDslPackage.VARS: return createVars();
       case MyDslPackage.EXPRS: return createExprs();
       case MyDslPackage.EXPR: return createExpr();
@@ -160,6 +165,61 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     CommandeImpl commande = new CommandeImpl();
     return commande;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AffectVar createAffectVar()
+  {
+    AffectVarImpl affectVar = new AffectVarImpl();
+    return affectVar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public While createWhile()
+  {
+    WhileImpl while_ = new WhileImpl();
+    return while_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public For createFor()
+  {
+    ForImpl for_ = new ForImpl();
+    return for_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public If createIf()
+  {
+    IfImpl if_ = new IfImpl();
+    return if_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Foreach createForeach()
+  {
+    ForeachImpl foreach = new ForeachImpl();
+    return foreach;
   }
 
   /**

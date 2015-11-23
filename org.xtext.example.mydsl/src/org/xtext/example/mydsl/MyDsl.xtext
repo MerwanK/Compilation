@@ -32,10 +32,26 @@ Commandes :
 
 Commande :
 	{Commande}
-	"nop" |
-	(var=Vars ":=" exp=Exprs)|
-	(("while"|"for") LC exp2=Expr LC "do" LC com=Commandes LC "od")|
-	("if" LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi")|
+	nop = 'nop' |
+	affectVar = AffectVar|
+	whileC = While|
+	forC = For|
+	ifC = If|
+	foreachC = Foreach;
+	
+AffectVar :
+	(var=Vars ":=" exp=Exprs);
+
+While :
+	("while" LC exp2=Expr LC "do" LC com=Commandes LC "od");
+
+For :
+	("for" LC exp2=Expr LC "do" LC com=Commandes LC "od");
+
+If :
+	("if" LC exp3=Expr LC "then" LC com2=Commandes LC ("else" LC com3=Commandes LC)? "fi");
+
+Foreach :
 	("foreach" LC exp4=Expr LC "in" LC exp5=Expr LC "do" LC com4=Commandes LC "od");
 
 Vars :
@@ -89,7 +105,7 @@ LC :
 
 	terminal VAR : ('A'..'Z')('a'..'z'|'A'..'Z'|'0'..'9')*CONF;
 	terminal SYM : ('a'..'z')('a'..'z'|'A'..'Z'|'0'..'9')*CONF;
-	terminal CONF : (('-'|'+'|'.'|'/'|'_'|'&'|"->")('a'..'z'|'A'..'Z'|'0'..'9')+)*('?'|'!');
+	terminal CONF : (('-'|'+'|'.'|'/'|'_'|'&'|"->")('a'..'z'|'A'..'Z'|'0'..'9')+)*('?'|'!')?;
 	terminal PARAG : '(';
 	terminal PARAD : ')';
 	terminal SP : ' ';

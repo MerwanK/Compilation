@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.myDsl.AffectVar;
 import org.xtext.example.mydsl.myDsl.Commande;
 import org.xtext.example.mydsl.myDsl.Commandes;
 import org.xtext.example.mydsl.myDsl.Expr;
@@ -26,6 +27,9 @@ import org.xtext.example.mydsl.myDsl.ExprOr;
 import org.xtext.example.mydsl.myDsl.ExprSimple;
 import org.xtext.example.mydsl.myDsl.Exprs;
 import org.xtext.example.mydsl.myDsl.Fonction;
+import org.xtext.example.mydsl.myDsl.For;
+import org.xtext.example.mydsl.myDsl.Foreach;
+import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.Input;
 import org.xtext.example.mydsl.myDsl.LExpr;
 import org.xtext.example.mydsl.myDsl.Model;
@@ -33,6 +37,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Output;
 import org.xtext.example.mydsl.myDsl.Programme;
 import org.xtext.example.mydsl.myDsl.Vars;
+import org.xtext.example.mydsl.myDsl.While;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -44,6 +49,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == MyDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.AFFECT_VAR:
+				sequence_AffectVar(context, (AffectVar) semanticObject); 
+				return; 
 			case MyDslPackage.COMMANDE:
 				sequence_Commande(context, (Commande) semanticObject); 
 				return; 
@@ -74,6 +82,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.FONCTION:
 				sequence_Fonction(context, (Fonction) semanticObject); 
 				return; 
+			case MyDslPackage.FOR:
+				sequence_For(context, (For) semanticObject); 
+				return; 
+			case MyDslPackage.FOREACH:
+				sequence_Foreach(context, (Foreach) semanticObject); 
+				return; 
+			case MyDslPackage.IF:
+				sequence_If(context, (If) semanticObject); 
+				return; 
 			case MyDslPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
 				return; 
@@ -92,13 +109,35 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.VARS:
 				sequence_Vars(context, (Vars) semanticObject); 
 				return; 
+			case MyDslPackage.WHILE:
+				sequence_While(context, (While) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Constraint:
-	 *     nop=NOP
+	 *     (var=Vars exp=Exprs)
+	 */
+	protected void sequence_AffectVar(EObject context, AffectVar semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.AFFECT_VAR__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.AFFECT_VAR__VAR));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.AFFECT_VAR__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.AFFECT_VAR__EXP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAffectVarAccess().getVarVarsParserRuleCall_0_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getAffectVarAccess().getExpExprsParserRuleCall_2_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     nop='nop'
 	 */
 	protected void sequence_Commande(EObject context, Commande semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -211,6 +250,56 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (exp2=Expr com=Commandes)
+	 */
+	protected void sequence_For(EObject context, For semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR__EXP2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR__EXP2));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR__COM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR__COM));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getForAccess().getExp2ExprParserRuleCall_2_0(), semanticObject.getExp2());
+		feeder.accept(grammarAccess.getForAccess().getComCommandesParserRuleCall_6_0(), semanticObject.getCom());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (exp4=Expr exp5=Expr com4=Commandes)
+	 */
+	protected void sequence_Foreach(EObject context, Foreach semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__EXP4) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__EXP4));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__EXP5) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__EXP5));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOREACH__COM4) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOREACH__COM4));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getForeachAccess().getExp4ExprParserRuleCall_2_0(), semanticObject.getExp4());
+		feeder.accept(grammarAccess.getForeachAccess().getExp5ExprParserRuleCall_6_0(), semanticObject.getExp5());
+		feeder.accept(grammarAccess.getForeachAccess().getCom4CommandesParserRuleCall_10_0(), semanticObject.getCom4());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (exp3=Expr com2=Commandes com3=Commandes?)
+	 */
+	protected void sequence_If(EObject context, If semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (var1=VAR var2+=VAR*)
 	 */
 	protected void sequence_Input(EObject context, Input semanticObject) {
@@ -267,5 +356,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Vars(EObject context, Vars semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (exp2=Expr com=Commandes)
+	 */
+	protected void sequence_While(EObject context, While semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.WHILE__EXP2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WHILE__EXP2));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.WHILE__COM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WHILE__COM));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWhileAccess().getExp2ExprParserRuleCall_2_0(), semanticObject.getExp2());
+		feeder.accept(grammarAccess.getWhileAccess().getComCommandesParserRuleCall_6_0(), semanticObject.getCom());
+		feeder.finish();
 	}
 }
