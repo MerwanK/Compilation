@@ -5,15 +5,15 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.xtext.example.mydsl.generator.MyDslGenerator;
 
 
 public class whpp {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		String pathHelp = "doc\\whpp_help.txt";
+		String pathHelp = "Document\\whpp_help.txt";
 		String fichierSource = args[0];
-		URI uri = URI.createFileURI(fichierSource);
 		String fichierDest = fichierSource + "pp";
 
 		int indDefault = 2;
@@ -51,7 +51,7 @@ public class whpp {
 					fichierDest = args[param+1];
 			}
 			MyDslGenerator generator = new MyDslGenerator();
-			generator.generationDuPrettyPrinter(uri, fichierDest, indIf, indWhile, indForeach, indForeach, indDefault);
+			generator.generationDuPrettyPrinter(fichierSource, fichierDest, indIf, indWhile, indForeach, indForeach, indDefault);
 		}
 	}
 }
