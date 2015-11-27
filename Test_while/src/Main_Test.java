@@ -38,7 +38,7 @@ public class Main_Test {
 	    }
 	});
 		
-	Files.walk(Paths.get(System.getProperty("user.dir"),"Test_Files")).forEach(filePath -> 
+	Files.walk(Paths.get(System.getProperty("user.dir"),"Test_files")).forEach(filePath -> 
 	{
 	    if (Files.isRegularFile(filePath)) 
 	    {
