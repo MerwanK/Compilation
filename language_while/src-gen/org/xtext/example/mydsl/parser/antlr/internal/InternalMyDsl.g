@@ -2297,7 +2297,7 @@ ruleLC returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
     newLeafNode(this_LF_3, grammarAccess.getLCAccess().getLFTerminalRuleCall_3()); 
     }
-)?
+)*
     ;
 
 

@@ -55,7 +55,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * LC :
-	 * 	(SP|CR|TAB|LF)?;
+	 * 	(SP|CR|TAB|LF)*;
 	 */
 	protected String getLCToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

@@ -1198,10 +1198,10 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	PONCT|PARAG|PARAD;	
 		//	terminal PONCT : (','|';'|':');
 		// * / LC:
-		//	(SP | CR | TAB | LF)?;
+		//	(SP | CR | TAB | LF)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//(SP | CR | TAB | LF)?
+		//(SP | CR | TAB | LF)*
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SP
@@ -1597,7 +1597,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	PONCT|PARAG|PARAD;	
 	//	terminal PONCT : (','|';'|':');
 	// * / LC:
-	//	(SP | CR | TAB | LF)?;
+	//	(SP | CR | TAB | LF)*;
 	public LCElements getLCAccess() {
 		return pLC;
 	}

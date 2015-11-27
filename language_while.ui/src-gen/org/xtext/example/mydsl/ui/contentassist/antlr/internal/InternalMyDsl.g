@@ -809,7 +809,7 @@ ruleLC
 	:
 (
 { before(grammarAccess.getLCAccess().getAlternatives()); }
-(rule__LC__Alternatives)?
+(rule__LC__Alternatives)*
 { after(grammarAccess.getLCAccess().getAlternatives()); }
 )
 
