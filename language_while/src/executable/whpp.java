@@ -12,7 +12,7 @@ import org.xtext.example.mydsl.generator.MyDslGenerator;
 public class whpp {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		String pathHelp = "Document/whpp_help.txt";
+		String pathHelp = "src/whpp_help.txt";
 		String fichierSource = args[0];
 		String fichierDest = fichierSource + "pp";
 
@@ -23,7 +23,7 @@ public class whpp {
 		int indIf = indDefault;
 
 		if (args[0].equals("-help")){
-			Scanner scanner=new Scanner(new File(pathHelp));
+			Scanner scanner=new Scanner(whpp.class.getClass().getResourceAsStream("/executable/whpp_help.txt"));
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
 				System.out.println(line);

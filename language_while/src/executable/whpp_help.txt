@@ -1,0 +1,29 @@
+--------------HELP whpp(pretty printer)-------------
+
+[SYNOPSIS]: whpp SOURCEFILE [OPTIONS]
+
+[DESCRIPTION]: Ce programme permet d'effectuer le "pretty-print" sur un 
+fichier "WHILE" source. En d'autres termes, whpp est une application 
+permettant la mise en forme élégante de textes écrits ici en langage 
+WHILE.
+
+[OPTIONS]: [-if] nombre --> donne une valeur spécifique d'indentation pour 
+                            les blocs IF
+	   [-while] nombre --> idem avec les blocs while
+	   [-foreach] nombre --> idem avec les blocs foreach
+	   [-for] nombre --> idem avec les blocs for
+	   [-all] nombre --> donne une valeur par défaut de l'indentation 
+			     (2 par défaut si on n'utilise pas cette option)
+	   [-o] DESTFILE --> permet de renommer comme on le souhaite le 
+			     fichier de sortie
+
+[BUGS]:
+
+[SEE ALSO]: Le lien vers le github de notre groupe --> 
+	    https://github.com/MerwanK/Compilation
+
+[AUTHORS]: Chef de projet: Jordan Bachelin
+	   Responsable test: Maxime Servais
+	   Developpeurs: Merwan Kaf
+			 Jeremy Delvinquier
+		         Pierre LeCorre
