@@ -1,0 +1,136 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+/*Merwan Kaf et Maxime Servasisi */
+
+Model:
+	programme = Programme;
+
+
+/* Syntaxe des programmes */	
+/* Integre def dans fuction pour interpretation du noeud
+ * identificateur LC
+ * Donner des noms (command etc)
+ */
+	
+Programme :
+	{Programme}(fonct+=Fonction CR*)* ;
+
+Fonction :
+	"fonction" LC symbole=SYM ':' LC "read" LC in=Input '%' com=Commandes '%' "write" LC out=Output;
+	
+Input :
+	var1=VAR (','var2+=VAR)*;
+
+Output :
+	var1=VAR (','var2+=VAR)*;
+	
+/* Syntaxe des commandes */	
+
+Commandes :
+	com1=Commande(';'com2+=Commande)*;
+
+Commande :
+	{Commande}
+	nop = 'nop' |
+	affectVar = AffectVar|
+	whileC = While|
+	forC = For|
+	ifC = If|
+	foreachC = Foreach;
+	
+AffectVar :
+	(var1=Vars ":=" exp=Exprs);
+
+While :
+	("while" LC exp2=Expr LC "do" LC com3=Commandes LC "od");
+
+For :
+	("for" LC exp3=Expr LC "do" LC com4=Commandes LC "od");
+
+If :
+	("if" LC exp4=Expr LC "then" LC com5=Commandes LC ("else" LC com6=Commandes LC)? "fi");
+
+Foreach :
+	("foreach" LC exp5=Expr LC "in" LC exp6=Expr LC "do" LC com7=Commandes LC "od");
+
+Vars :
+	var2=VAR (','var3+=VAR)*;
+
+
+/* EXPRESSIONS SIMPLE ET EXPRESSIONS LOGIQUES */
+	 
+Exprs : 
+	exprS=Expr (','exprS2+=Expr)*;
+
+Expr : 
+	expA=ExprAnd|expS=ExprSimple;
+	
+ExprSimple :
+	{ExprSimple}
+	vide="nil"| 
+	variable = VAR| 
+	symbole = SYM| 
+	cons = Cons|
+	liste = Liste|
+	hd = Hd|
+	tl = Tl|
+	symbolEx = SymboleEx;
+
+Cons :
+	(PARAG "cons" le1=LExpr PARAD)
+;
+
+Liste :
+	(PARAG "list" le2=LExpr PARAD)
+;
+
+Hd:
+	(PARAG "hd" LC le3=Expr PARAD)
+;
+
+Tl :
+	(PARAG "tl" LC le4=Expr PARAD)
+;
+
+SymboleEx:
+	(PARAG p=SYM le5=LExpr PARAD)
+;
+
+LExpr :
+	(LC expLe+=Expr)+;
+	
+ExprAnd :
+	expO=ExprOr (LC "and" LC expO2+=ExprOr)*;
+	
+ExprOr : 
+	expN=ExprNot (LC "or" LC expN2+=ExprNot)*;
+			
+ExprNot : 
+	('not' LC)? expEq=ExprEq;
+
+ExprEq : 
+	expS1=ExprSimple "=?" expS2=ExprSimple | PARAG expR=Expr PARAD;
+
+/* UNITES LEXICALES */	
+
+/* Comme nous n'utilisons pas Ponctuation nous le laissons en commentaire
+Ponctuation :
+	PONCT|PARAG|PARAD;	
+	terminal PONCT : (','|';'|':');
+*/
+	
+LC :
+	(SP|CR|TAB|LF)?;
+
+	terminal VAR : ('A'..'Z')('a'..'z'|'A'..'Z'|'0'..'9')*CONF;
+	terminal SYM : ('a'..'z')('a'..'z'|'A'..'Z'|'0'..'9')*CONF;
+	terminal CONF : (('-'|'+'|'.'|'/'|'_'|'&'|"->")('a'..'z'|'A'..'Z'|'0'..'9')+)*('?'|'!')?;
+	terminal PARAG : '(';
+	terminal PARAD : ')';
+	terminal SP : ' ';
+	terminal CR : '\n';
+	terminal TAB :'\t';
+	terminal LF : '\r';
+	//terminal NOP : 'nop';
