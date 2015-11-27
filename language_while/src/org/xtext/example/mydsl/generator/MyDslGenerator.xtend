@@ -60,9 +60,8 @@ class MyDslGenerator implements IGenerator {
 	
 	var int n = 0;
 	var indent = 0;
-	var dechet = 0; 
 	 
-	def generationDuPrettyPrinter(URI entree, String nameWhpp,int indIf,
+	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor,int indDefault){
 			
 		i_if = indIf;
@@ -72,7 +71,8 @@ class MyDslGenerator implements IGenerator {
 		nomPP = nameWhpp;
 		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
 		val resourceSet = injector.getInstance(XtextResourceSet);
-		val xtextResource = resourceSet.getResource(entree, true);
+		val uri = URI.createURI(entree);
+		val xtextResource = resourceSet.getResource(uri, true);
 		EcoreUtil.resolveAll(xtextResource);
 		val fstream = new FileWriter(nameWhpp);
  		val buff = new BufferedWriter(fstream);
