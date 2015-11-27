@@ -1,0 +1,131 @@
+fonction deuedsqx!:
+read Merwan!, MaximeLePetitZizzfgjhi!
+%
+while XX do
+  Maxime! := nil
+od
+%
+write Cinema!
+
+fonction deuedsqx!:
+read Merwan!, MaximeLePetitZizzfgjhi!
+%
+while XX do
+  Maxime! := (cons nil)
+od
+%
+write Cinema!
+
+fonction deuedsqx!:
+read Merwan!, MaximeLePetitZizzfgjhi!
+%
+while XX do
+  Maxime! := not (cons nil) =? nil and not (cons nil) =? nil
+od
+%
+write Cinema!
+
+fonction test:
+read X, Y
+%
+while Z do
+  while W do
+    Y := B ; 
+    X := A
+  od
+od
+%
+write A, B
+
+fonction p:
+read X
+%
+Y := nil ; 
+while X do
+  Y := (cons (hd X)Y) ; 
+  X := (tl X)
+od
+%
+write Y
+
+fonction test:
+read X, Y
+%
+while Z do
+  while W do
+    while I do
+      Y := B ; 
+      X := A
+    od
+  od
+od
+%
+write A, B
+
+fonction teezst:
+read X, Y
+%
+while Z do
+  while W do
+    while I do
+      Y := B ; 
+      X := A
+    od
+  od ; 
+  while I do
+    J := V
+  od
+od
+%
+write A, B
+
+fonction teeeest:
+read X, Y
+%
+while Z do
+  while W do
+    while I do
+      Y := B ; 
+      X := A
+    od
+  od ; 
+  for S do
+    A := B
+  od ; 
+  foreach S in L do
+    A := B
+  od ; 
+  for A do
+    A := B
+  od
+od
+%
+write A, B
+
+fonction tezstz:
+read X, Y
+%
+while Z do
+  while W do
+    while I do
+      Y := B ; 
+      X := A
+    od
+  od ; 
+  if X then
+    Y := A ; 
+    J := V ; 
+    Z := I
+  else
+    C := B
+  fi ; 
+  for S do
+    A := B
+  od ; 
+  foreach S in L do
+    A := B
+  od
+od
+%
+write A, B
+
