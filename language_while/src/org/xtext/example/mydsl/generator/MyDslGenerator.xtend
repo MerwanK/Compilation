@@ -51,19 +51,20 @@ import org.eclipse.emf.common.util.URI
  */
 class MyDslGenerator implements IGenerator {
 	
-
-	private var int i_if = 2;
-	private var int i_while = 2;
-	private var int i_foreach = 2;
-	private var int i_for = 2;
+	private var int i_default = 2;
+	private var int i_if = i_default;
+	private var int i_while = i_default;
+	private var int i_foreach = i_default;
+	private var int i_for = i_default;
 	private var String nomPP = "onEssayeVoir";
 	
 	var int n = 0;
 	var indent = 0;
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
-		int indWhile, int indForeach, int indFor){
-			
+		int indWhile, int indForeach, int indFor, int indDefault){
+		
+		i_default = indDefault;	
 		i_if = indIf;
 		i_while = indWhile;
 		i_foreach = indForeach;

@@ -51,7 +51,7 @@ public class whpp {
 					fichierDest = args[param+1];
 			}
 			MyDslGenerator generator = new MyDslGenerator();
-			generator.generationDuPrettyPrinter(fichierSource, fichierDest, indIf, indWhile, indForeach, indForeach);
+			generator.generationDuPrettyPrinter(fichierSource, fichierDest, indIf, indWhile, indForeach, indForeach,indDefault);
 		}
 	}
 }
