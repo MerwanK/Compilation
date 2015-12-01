@@ -11,41 +11,41 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.myDsl.Expr;
+import org.xtext.example.mydsl.myDsl.ExprEq;
+import org.xtext.example.mydsl.myDsl.ExprNotNot;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Tl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Tl</b></em>'.
+ * An implementation of the model object '<em><b>Expr Not Not</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TlImpl#getLe4 <em>Le4</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprNotNotImpl#getExpEq1 <em>Exp Eq1</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TlImpl extends MinimalEObjectImpl.Container implements Tl
+public class ExprNotNotImpl extends MinimalEObjectImpl.Container implements ExprNotNot
 {
   /**
-   * The cached value of the '{@link #getLe4() <em>Le4</em>}' containment reference.
+   * The cached value of the '{@link #getExpEq1() <em>Exp Eq1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLe4()
+   * @see #getExpEq1()
    * @generated
    * @ordered
    */
-  protected Expr le4;
+  protected ExprEq expEq1;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TlImpl()
+  protected ExprNotNotImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.TL;
+    return MyDslPackage.Literals.EXPR_NOT_NOT;
   }
 
   /**
@@ -66,9 +66,9 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getLe4()
+  public ExprEq getExpEq1()
   {
-    return le4;
+    return expEq1;
   }
 
   /**
@@ -76,13 +76,13 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLe4(Expr newLe4, NotificationChain msgs)
+  public NotificationChain basicSetExpEq1(ExprEq newExpEq1, NotificationChain msgs)
   {
-    Expr oldLe4 = le4;
-    le4 = newLe4;
+    ExprEq oldExpEq1 = expEq1;
+    expEq1 = newExpEq1;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.TL__LE4, oldLe4, newLe4);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT_NOT__EXP_EQ1, oldExpEq1, newExpEq1);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +93,20 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLe4(Expr newLe4)
+  public void setExpEq1(ExprEq newExpEq1)
   {
-    if (newLe4 != le4)
+    if (newExpEq1 != expEq1)
     {
       NotificationChain msgs = null;
-      if (le4 != null)
-        msgs = ((InternalEObject)le4).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.TL__LE4, null, msgs);
-      if (newLe4 != null)
-        msgs = ((InternalEObject)newLe4).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.TL__LE4, null, msgs);
-      msgs = basicSetLe4(newLe4, msgs);
+      if (expEq1 != null)
+        msgs = ((InternalEObject)expEq1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT_NOT__EXP_EQ1, null, msgs);
+      if (newExpEq1 != null)
+        msgs = ((InternalEObject)newExpEq1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT_NOT__EXP_EQ1, null, msgs);
+      msgs = basicSetExpEq1(newExpEq1, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.TL__LE4, newLe4, newLe4));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT_NOT__EXP_EQ1, newExpEq1, newExpEq1));
   }
 
   /**
@@ -119,8 +119,8 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
   {
     switch (featureID)
     {
-      case MyDslPackage.TL__LE4:
-        return basicSetLe4(null, msgs);
+      case MyDslPackage.EXPR_NOT_NOT__EXP_EQ1:
+        return basicSetExpEq1(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +135,8 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
   {
     switch (featureID)
     {
-      case MyDslPackage.TL__LE4:
-        return getLe4();
+      case MyDslPackage.EXPR_NOT_NOT__EXP_EQ1:
+        return getExpEq1();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +151,8 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
   {
     switch (featureID)
     {
-      case MyDslPackage.TL__LE4:
-        setLe4((Expr)newValue);
+      case MyDslPackage.EXPR_NOT_NOT__EXP_EQ1:
+        setExpEq1((ExprEq)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +168,8 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
   {
     switch (featureID)
     {
-      case MyDslPackage.TL__LE4:
-        setLe4((Expr)null);
+      case MyDslPackage.EXPR_NOT_NOT__EXP_EQ1:
+        setExpEq1((ExprEq)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,10 +185,10 @@ public class TlImpl extends MinimalEObjectImpl.Container implements Tl
   {
     switch (featureID)
     {
-      case MyDslPackage.TL__LE4:
-        return le4 != null;
+      case MyDslPackage.EXPR_NOT_NOT__EXP_EQ1:
+        return expEq1 != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //TlImpl
+} //ExprNotNotImpl

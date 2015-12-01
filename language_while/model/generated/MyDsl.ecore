@@ -133,7 +133,17 @@
         eType="#//ExprNot" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExprNot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expEq" eType="#//ExprEq"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprNotNot" eType="#//ExprNotNot"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprNotDo" eType="#//ExprNotDo"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExprNotNot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expEq1" eType="#//ExprEq"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExprNotDo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expEq2" eType="#//ExprEq"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExprEq">

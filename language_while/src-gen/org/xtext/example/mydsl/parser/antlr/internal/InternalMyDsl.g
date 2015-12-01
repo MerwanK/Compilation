@@ -2124,40 +2124,137 @@ ruleExprNot returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExprNotAccess().getExprNotNotExprNotNotParserRuleCall_0_0()); 
+	    }
+		lv_exprNotNot_0_0=ruleExprNotNot		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExprNotRule());
+	        }
+       		set(
+       			$current, 
+       			"exprNotNot",
+        		lv_exprNotNot_0_0, 
+        		"ExprNotNot");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExprNotAccess().getExprNotDoExprNotDoParserRuleCall_1_0()); 
+	    }
+		lv_exprNotDo_1_0=ruleExprNotDo		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExprNotRule());
+	        }
+       		set(
+       			$current, 
+       			"exprNotDo",
+        		lv_exprNotDo_1_0, 
+        		"ExprNotDo");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleExprNotNot
+entryRuleExprNotNot returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getExprNotNotRule()); }
+	 iv_ruleExprNotNot=ruleExprNotNot 
+	 { $current=$iv_ruleExprNotNot.current; } 
+	 EOF 
+;
+
+// Rule ExprNotNot
+ruleExprNotNot returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 ((	otherlv_0='not' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getExprNotAccess().getNotKeyword_0_0());
+    	newLeafNode(otherlv_0, grammarAccess.getExprNotNotAccess().getNotKeyword_0_0());
     }
 
 	{ 
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getExprNotAccess().getLCParserRuleCall_0_1()); 
+        newCompositeNode(grammarAccess.getExprNotNotAccess().getLCParserRuleCall_0_1()); 
     }
 ruleLC
     { 
         afterParserOrEnumRuleCall();
     }
-)?(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExprNotAccess().getExpEqExprEqParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getExprNotNotAccess().getExpEq1ExprEqParserRuleCall_1_0()); 
 	    }
-		lv_expEq_2_0=ruleExprEq		{
+		lv_expEq1_2_0=ruleExprEq		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExprNotRule());
+	            $current = createModelElementForParent(grammarAccess.getExprNotNotRule());
 	        }
        		set(
        			$current, 
-       			"expEq",
-        		lv_expEq_2_0, 
+       			"expEq1",
+        		lv_expEq1_2_0, 
         		"ExprEq");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleExprNotDo
+entryRuleExprNotDo returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getExprNotDoRule()); }
+	 iv_ruleExprNotDo=ruleExprNotDo 
+	 { $current=$iv_ruleExprNotDo.current; } 
+	 EOF 
+;
+
+// Rule ExprNotDo
+ruleExprNotDo returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExprNotDoAccess().getExpEq2ExprEqParserRuleCall_0()); 
+	    }
+		lv_expEq2_0_0=ruleExprEq		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExprNotDoRule());
+	        }
+       		set(
+       			$current, 
+       			"expEq2",
+        		lv_expEq2_0_0, 
+        		"ExprEq");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
 ;
 
 

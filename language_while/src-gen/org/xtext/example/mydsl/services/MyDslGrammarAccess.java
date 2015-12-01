@@ -1099,21 +1099,49 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ExprNotElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExprNot");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cExprNotNotAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cExprNotNotExprNotNotParserRuleCall_0_0 = (RuleCall)cExprNotNotAssignment_0.eContents().get(0);
+		private final Assignment cExprNotDoAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cExprNotDoExprNotDoParserRuleCall_1_0 = (RuleCall)cExprNotDoAssignment_1.eContents().get(0);
+		
+		//ExprNot:
+		//	exprNotNot=ExprNotNot | exprNotDo=ExprNotDo;
+		@Override public ParserRule getRule() { return rule; }
+
+		//exprNotNot=ExprNotNot | exprNotDo=ExprNotDo
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//exprNotNot=ExprNotNot
+		public Assignment getExprNotNotAssignment_0() { return cExprNotNotAssignment_0; }
+
+		//ExprNotNot
+		public RuleCall getExprNotNotExprNotNotParserRuleCall_0_0() { return cExprNotNotExprNotNotParserRuleCall_0_0; }
+
+		//exprNotDo=ExprNotDo
+		public Assignment getExprNotDoAssignment_1() { return cExprNotDoAssignment_1; }
+
+		//ExprNotDo
+		public RuleCall getExprNotDoExprNotDoParserRuleCall_1_0() { return cExprNotDoExprNotDoParserRuleCall_1_0; }
+	}
+
+	public class ExprNotNotElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExprNotNot");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Keyword cNotKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Assignment cExpEqAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpEqExprEqParserRuleCall_1_0 = (RuleCall)cExpEqAssignment_1.eContents().get(0);
+		private final Assignment cExpEq1Assignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpEq1ExprEqParserRuleCall_1_0 = (RuleCall)cExpEq1Assignment_1.eContents().get(0);
 		
-		//ExprNot:
-		//	("not" LC)? expEq=ExprEq;
+		//ExprNotNot:
+		//	("not" LC) expEq1=ExprEq;
 		@Override public ParserRule getRule() { return rule; }
 
-		//("not" LC)? expEq=ExprEq
+		//("not" LC) expEq1=ExprEq
 		public Group getGroup() { return cGroup; }
 
-		//("not" LC)?
+		//"not" LC
 		public Group getGroup_0() { return cGroup_0; }
 
 		//"not"
@@ -1122,11 +1150,27 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LC
 		public RuleCall getLCParserRuleCall_0_1() { return cLCParserRuleCall_0_1; }
 
-		//expEq=ExprEq
-		public Assignment getExpEqAssignment_1() { return cExpEqAssignment_1; }
+		//expEq1=ExprEq
+		public Assignment getExpEq1Assignment_1() { return cExpEq1Assignment_1; }
 
 		//ExprEq
-		public RuleCall getExpEqExprEqParserRuleCall_1_0() { return cExpEqExprEqParserRuleCall_1_0; }
+		public RuleCall getExpEq1ExprEqParserRuleCall_1_0() { return cExpEq1ExprEqParserRuleCall_1_0; }
+	}
+
+	public class ExprNotDoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExprNotDo");
+		private final Assignment cExpEq2Assignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cExpEq2ExprEqParserRuleCall_0 = (RuleCall)cExpEq2Assignment.eContents().get(0);
+		
+		//ExprNotDo:
+		//	expEq2=ExprEq;
+		@Override public ParserRule getRule() { return rule; }
+
+		//expEq2=ExprEq
+		public Assignment getExpEq2Assignment() { return cExpEq2Assignment; }
+
+		//ExprEq
+		public RuleCall getExpEq2ExprEqParserRuleCall_0() { return cExpEq2ExprEqParserRuleCall_0; }
 	}
 
 	public class ExprEqElements extends AbstractParserRuleElementFinder {
@@ -1243,6 +1287,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ExprAndElements pExprAnd;
 	private final ExprOrElements pExprOr;
 	private final ExprNotElements pExprNot;
+	private final ExprNotNotElements pExprNotNot;
+	private final ExprNotDoElements pExprNotDo;
 	private final ExprEqElements pExprEq;
 	private final LCElements pLC;
 	private final TerminalRule tVAR;
@@ -1289,6 +1335,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExprAnd = new ExprAndElements();
 		this.pExprOr = new ExprOrElements();
 		this.pExprNot = new ExprNotElements();
+		this.pExprNotNot = new ExprNotNotElements();
+		this.pExprNotDo = new ExprNotDoElements();
 		this.pExprEq = new ExprEqElements();
 		this.pLC = new LCElements();
 		this.tVAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "VAR");
@@ -1573,13 +1621,33 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExprNot:
-	//	("not" LC)? expEq=ExprEq;
+	//	exprNotNot=ExprNotNot | exprNotDo=ExprNotDo;
 	public ExprNotElements getExprNotAccess() {
 		return pExprNot;
 	}
 	
 	public ParserRule getExprNotRule() {
 		return getExprNotAccess().getRule();
+	}
+
+	//ExprNotNot:
+	//	("not" LC) expEq1=ExprEq;
+	public ExprNotNotElements getExprNotNotAccess() {
+		return pExprNotNot;
+	}
+	
+	public ParserRule getExprNotNotRule() {
+		return getExprNotNotAccess().getRule();
+	}
+
+	//ExprNotDo:
+	//	expEq2=ExprEq;
+	public ExprNotDoElements getExprNotDoAccess() {
+		return pExprNotDo;
+	}
+	
+	public ParserRule getExprNotDoRule() {
+		return getExprNotDoAccess().getRule();
 	}
 
 	//ExprEq:

@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.SymboleEx#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.SymboleEx#getLe5 <em>Le5</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getSymboleEx()
  * @model

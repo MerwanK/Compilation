@@ -89,6 +89,8 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.EXPR_AND: return createExprAnd();
       case MyDslPackage.EXPR_OR: return createExprOr();
       case MyDslPackage.EXPR_NOT: return createExprNot();
+      case MyDslPackage.EXPR_NOT_NOT: return createExprNotNot();
+      case MyDslPackage.EXPR_NOT_DO: return createExprNotDo();
       case MyDslPackage.EXPR_EQ: return createExprEq();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -368,6 +370,28 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ExprNotImpl exprNot = new ExprNotImpl();
     return exprNot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprNotNot createExprNotNot()
+  {
+    ExprNotNotImpl exprNotNot = new ExprNotNotImpl();
+    return exprNotNot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprNotDo createExprNotDo()
+  {
+    ExprNotDoImpl exprNotDo = new ExprNotDoImpl();
+    return exprNotDo;
   }
 
   /**

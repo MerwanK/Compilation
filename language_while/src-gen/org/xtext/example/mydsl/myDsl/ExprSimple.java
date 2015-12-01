@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.ExprSimple#getVide <em>Vide</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.ExprSimple#getVariable <em>Variable</em>}</li>
@@ -22,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.ExprSimple#getTl <em>Tl</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.ExprSimple#getSymbolEx <em>Symbol Ex</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprSimple()
  * @model

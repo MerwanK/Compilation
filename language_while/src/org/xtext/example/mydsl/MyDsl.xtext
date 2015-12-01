@@ -108,7 +108,15 @@ ExprOr :
 	expN=ExprNot (LC "or" LC expN2+=ExprNot)*;
 			
 ExprNot : 
-	('not' LC)? expEq=ExprEq;
+	exprNotNot = ExprNotNot |
+	exprNotDo = ExprNotDo;
+
+ExprNotNot :
+	('not' LC) expEq1=ExprEq;
+	
+ExprNotDo :
+	expEq2=ExprEq;
+
 
 ExprEq : 
 	expS1=ExprSimple "=?" expS2=ExprSimple | PARAG expR=Expr PARAD;

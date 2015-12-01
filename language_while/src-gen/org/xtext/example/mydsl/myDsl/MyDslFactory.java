@@ -248,6 +248,24 @@ public interface MyDslFactory extends EFactory
   ExprNot createExprNot();
 
   /**
+   * Returns a new object of class '<em>Expr Not Not</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Not Not</em>'.
+   * @generated
+   */
+  ExprNotNot createExprNotNot();
+
+  /**
+   * Returns a new object of class '<em>Expr Not Do</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Not Do</em>'.
+   * @generated
+   */
+  ExprNotDo createExprNotDo();
+
+  /**
    * Returns a new object of class '<em>Expr Eq</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

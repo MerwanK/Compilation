@@ -22,11 +22,11 @@ import org.xtext.example.mydsl.myDsl.While;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.WhileImpl#getExp2 <em>Exp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.WhileImpl#getCom3 <em>Com3</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

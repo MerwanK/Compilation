@@ -200,6 +200,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createExprNotAdapter();
       }
       @Override
+      public Adapter caseExprNotNot(ExprNotNot object)
+      {
+        return createExprNotNotAdapter();
+      }
+      @Override
+      public Adapter caseExprNotDo(ExprNotDo object)
+      {
+        return createExprNotDoAdapter();
+      }
+      @Override
       public Adapter caseExprEq(ExprEq object)
       {
         return createExprEqAdapter();
@@ -597,6 +607,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExprNotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ExprNotNot <em>Expr Not Not</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ExprNotNot
+   * @generated
+   */
+  public Adapter createExprNotNotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ExprNotDo <em>Expr Not Do</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ExprNotDo
+   * @generated
+   */
+  public Adapter createExprNotDoAdapter()
   {
     return null;
   }

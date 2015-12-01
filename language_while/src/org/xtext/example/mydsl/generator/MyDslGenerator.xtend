@@ -33,6 +33,8 @@ import org.xtext.example.mydsl.myDsl.Liste
 import org.xtext.example.mydsl.myDsl.Hd
 import org.xtext.example.mydsl.myDsl.Tl
 import org.xtext.example.mydsl.myDsl.SymboleEx
+import org.xtext.example.mydsl.myDsl.ExprNotNot
+import org.xtext.example.mydsl.myDsl.ExprNotDo
 import javax.inject.Inject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.emf.ecore.util.EcoreUtil
@@ -45,6 +47,7 @@ import org.eclipse.emf.common.util.URI
 import java.util.ArrayList
 import java.util.List
 import java.util.Iterator
+import java.util.LinkedList
 
 /* Last */
 /**
@@ -60,7 +63,7 @@ class MyDslGenerator implements IGenerator {
 	private var int i_foreach = 4;
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
-	List<Integer> listIndent;   //Une solution pour les différents niveau d'indent
+	List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -90,9 +93,6 @@ class MyDslGenerator implements IGenerator {
 			fsa.generateFile(nomPP + ".whpp",p.compile()); 
 		}
 	}
-	/* A RESOUDRE PROBLEME ALGO INDENTATION ON NE PEUT PAS FAIRE NIVEAU*TAILLE_INDENT 
-	 * SI LES INDENT SONT DE TAILLES DIFFERENTES POUR CHAQUE TYPE DE COMMANDES
-	 */
 	
 	def indentation(List<Integer> listInd){	
 		var String indent = "";
@@ -115,7 +115,7 @@ class MyDslGenerator implements IGenerator {
    '''
 		
    def compile(Fonction f) '''
-		fonction «f.symbole»:«listIndent.add(i_default)»
+		fonction «f.symbole»:«listIndent = new LinkedList<Integer>()»«listIndent.add(i_default)»
 		read «f.in.compile()»
 		%
 		«f.com.compile(listIndent)»
@@ -212,8 +212,16 @@ class MyDslGenerator implements IGenerator {
    «eo.expN.compile»«FOR v:eo.expN2» or «v.compile»«ENDFOR»'''
    
    def compile(ExprNot en)'''
-	«(("not ") ?: ("")) + en.expEq.compile»'''
+	«IF en.exprNotNot != null»«en.exprNotNot.compile»«ENDIF»
+	«IF en.exprNotDo != null»«en.exprNotDo.compile»«ENDIF»'''
 	
+   def compile(ExprNotNot enn)'''
+   not «enn.expEq1.compile»'''
+   	
+   def compile(ExprNotDo end)'''
+   «end.expEq2.compile»
+   '''
+   
    def compile(ExprEq eeq)'''
 	«(eeq.expS1.compile +  " =? " + eeq.expS2.compile) ?: ("(" + eeq.expR.compile + ")")»'''
    

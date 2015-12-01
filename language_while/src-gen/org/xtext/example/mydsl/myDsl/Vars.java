@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Vars#getVar2 <em>Var2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Vars#getVar3 <em>Var3</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVars()
  * @model

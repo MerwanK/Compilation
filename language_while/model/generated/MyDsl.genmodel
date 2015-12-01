@@ -4,7 +4,7 @@
     editorDirectory="/language_while.editor/src" modelPluginID="language_while" forceOverwrite="true"
     modelName="MyDsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="language_while.edit"
-    editorPluginID="language_while.editor" runtimeVersion="2.11">
+    editorPluginID="language_while.editor" runtimeVersion="2.10">
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="wh" ecorePackage="MyDsl.ecore#/">
     <genClasses ecoreClass="MyDsl.ecore#//Model">
@@ -111,7 +111,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprOr/expN2"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ExprNot">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprNot/expEq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprNot/exprNotNot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprNot/exprNotDo"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ExprNotNot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprNotNot/expEq1"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//ExprNotDo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprNotDo/expEq2"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ExprEq">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprEq/expS1"/>

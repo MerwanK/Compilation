@@ -24,6 +24,8 @@ import org.xtext.example.mydsl.myDsl.Expr;
 import org.xtext.example.mydsl.myDsl.ExprAnd;
 import org.xtext.example.mydsl.myDsl.ExprEq;
 import org.xtext.example.mydsl.myDsl.ExprNot;
+import org.xtext.example.mydsl.myDsl.ExprNotDo;
+import org.xtext.example.mydsl.myDsl.ExprNotNot;
 import org.xtext.example.mydsl.myDsl.ExprOr;
 import org.xtext.example.mydsl.myDsl.ExprSimple;
 import org.xtext.example.mydsl.myDsl.Exprs;
@@ -77,6 +79,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.EXPR_NOT:
 				sequence_ExprNot(context, (ExprNot) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_NOT_DO:
+				sequence_ExprNotDo(context, (ExprNotDo) semanticObject); 
+				return; 
+			case MyDslPackage.EXPR_NOT_NOT:
+				sequence_ExprNotNot(context, (ExprNotNot) semanticObject); 
 				return; 
 			case MyDslPackage.EXPR_OR:
 				sequence_ExprOr(context, (ExprOr) semanticObject); 
@@ -209,17 +217,42 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     expEq=ExprEq
+	 *     expEq2=ExprEq
 	 */
-	protected void sequence_ExprNot(EObject context, ExprNot semanticObject) {
+	protected void sequence_ExprNotDo(EObject context, ExprNotDo semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXPR_NOT__EXP_EQ) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXPR_NOT__EXP_EQ));
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXPR_NOT_DO__EXP_EQ2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXPR_NOT_DO__EXP_EQ2));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getExprNotAccess().getExpEqExprEqParserRuleCall_1_0(), semanticObject.getExpEq());
+		feeder.accept(grammarAccess.getExprNotDoAccess().getExpEq2ExprEqParserRuleCall_0(), semanticObject.getExpEq2());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expEq1=ExprEq
+	 */
+	protected void sequence_ExprNotNot(EObject context, ExprNotNot semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.EXPR_NOT_NOT__EXP_EQ1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.EXPR_NOT_NOT__EXP_EQ1));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExprNotNotAccess().getExpEq1ExprEqParserRuleCall_1_0(), semanticObject.getExpEq1());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (exprNotNot=ExprNotNot | exprNotDo=ExprNotDo)
+	 */
+	protected void sequence_ExprNot(EObject context, ExprNot semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

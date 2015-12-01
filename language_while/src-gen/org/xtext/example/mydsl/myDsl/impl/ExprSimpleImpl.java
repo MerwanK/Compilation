@@ -25,7 +25,6 @@ import org.xtext.example.mydsl.myDsl.Tl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getVide <em>Vide</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getVariable <em>Variable</em>}</li>
@@ -36,6 +35,7 @@ import org.xtext.example.mydsl.myDsl.Tl;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getTl <em>Tl</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl#getSymbolEx <em>Symbol Ex</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

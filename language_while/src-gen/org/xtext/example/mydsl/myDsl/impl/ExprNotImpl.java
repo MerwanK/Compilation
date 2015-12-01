@@ -11,8 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.myDsl.ExprEq;
 import org.xtext.example.mydsl.myDsl.ExprNot;
+import org.xtext.example.mydsl.myDsl.ExprNotDo;
+import org.xtext.example.mydsl.myDsl.ExprNotNot;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
 /**
@@ -21,24 +22,35 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprNotImpl#getExpEq <em>Exp Eq</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprNotImpl#getExprNotNot <em>Expr Not Not</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprNotImpl#getExprNotDo <em>Expr Not Do</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
 public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
 {
   /**
-   * The cached value of the '{@link #getExpEq() <em>Exp Eq</em>}' containment reference.
+   * The cached value of the '{@link #getExprNotNot() <em>Expr Not Not</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpEq()
+   * @see #getExprNotNot()
    * @generated
    * @ordered
    */
-  protected ExprEq expEq;
+  protected ExprNotNot exprNotNot;
+
+  /**
+   * The cached value of the '{@link #getExprNotDo() <em>Expr Not Do</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExprNotDo()
+   * @generated
+   * @ordered
+   */
+  protected ExprNotDo exprNotDo;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,9 +78,9 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprEq getExpEq()
+  public ExprNotNot getExprNotNot()
   {
-    return expEq;
+    return exprNotNot;
   }
 
   /**
@@ -76,13 +88,13 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpEq(ExprEq newExpEq, NotificationChain msgs)
+  public NotificationChain basicSetExprNotNot(ExprNotNot newExprNotNot, NotificationChain msgs)
   {
-    ExprEq oldExpEq = expEq;
-    expEq = newExpEq;
+    ExprNotNot oldExprNotNot = exprNotNot;
+    exprNotNot = newExprNotNot;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT__EXP_EQ, oldExpEq, newExpEq);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT__EXPR_NOT_NOT, oldExprNotNot, newExprNotNot);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +105,68 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpEq(ExprEq newExpEq)
+  public void setExprNotNot(ExprNotNot newExprNotNot)
   {
-    if (newExpEq != expEq)
+    if (newExprNotNot != exprNotNot)
     {
       NotificationChain msgs = null;
-      if (expEq != null)
-        msgs = ((InternalEObject)expEq).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT__EXP_EQ, null, msgs);
-      if (newExpEq != null)
-        msgs = ((InternalEObject)newExpEq).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT__EXP_EQ, null, msgs);
-      msgs = basicSetExpEq(newExpEq, msgs);
+      if (exprNotNot != null)
+        msgs = ((InternalEObject)exprNotNot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT__EXPR_NOT_NOT, null, msgs);
+      if (newExprNotNot != null)
+        msgs = ((InternalEObject)newExprNotNot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT__EXPR_NOT_NOT, null, msgs);
+      msgs = basicSetExprNotNot(newExprNotNot, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT__EXP_EQ, newExpEq, newExpEq));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT__EXPR_NOT_NOT, newExprNotNot, newExprNotNot));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprNotDo getExprNotDo()
+  {
+    return exprNotDo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExprNotDo(ExprNotDo newExprNotDo, NotificationChain msgs)
+  {
+    ExprNotDo oldExprNotDo = exprNotDo;
+    exprNotDo = newExprNotDo;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT__EXPR_NOT_DO, oldExprNotDo, newExprNotDo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExprNotDo(ExprNotDo newExprNotDo)
+  {
+    if (newExprNotDo != exprNotDo)
+    {
+      NotificationChain msgs = null;
+      if (exprNotDo != null)
+        msgs = ((InternalEObject)exprNotDo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT__EXPR_NOT_DO, null, msgs);
+      if (newExprNotDo != null)
+        msgs = ((InternalEObject)newExprNotDo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR_NOT__EXPR_NOT_DO, null, msgs);
+      msgs = basicSetExprNotDo(newExprNotDo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR_NOT__EXPR_NOT_DO, newExprNotDo, newExprNotDo));
   }
 
   /**
@@ -119,8 +179,10 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR_NOT__EXP_EQ:
-        return basicSetExpEq(null, msgs);
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_NOT:
+        return basicSetExprNotNot(null, msgs);
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_DO:
+        return basicSetExprNotDo(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +197,10 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR_NOT__EXP_EQ:
-        return getExpEq();
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_NOT:
+        return getExprNotNot();
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_DO:
+        return getExprNotDo();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +215,11 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR_NOT__EXP_EQ:
-        setExpEq((ExprEq)newValue);
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_NOT:
+        setExprNotNot((ExprNotNot)newValue);
+        return;
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_DO:
+        setExprNotDo((ExprNotDo)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +235,11 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR_NOT__EXP_EQ:
-        setExpEq((ExprEq)null);
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_NOT:
+        setExprNotNot((ExprNotNot)null);
+        return;
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_DO:
+        setExprNotDo((ExprNotDo)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,8 +255,10 @@ public class ExprNotImpl extends MinimalEObjectImpl.Container implements ExprNot
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR_NOT__EXP_EQ:
-        return expEq != null;
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_NOT:
+        return exprNotNot != null;
+      case MyDslPackage.EXPR_NOT__EXPR_NOT_DO:
+        return exprNotDo != null;
     }
     return super.eIsSet(featureID);
   }

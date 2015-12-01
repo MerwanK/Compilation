@@ -21,11 +21,11 @@ import org.xtext.example.mydsl.myDsl.SymboleEx;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.SymboleExImpl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.SymboleExImpl#getLe5 <em>Le5</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS <em>Expr S</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExprS2 <em>Expr S2</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs()
  * @model

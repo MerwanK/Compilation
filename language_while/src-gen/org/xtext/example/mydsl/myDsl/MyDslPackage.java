@@ -1018,13 +1018,22 @@ public interface MyDslPackage extends EPackage
   int EXPR_NOT = 24;
 
   /**
-   * The feature id for the '<em><b>Exp Eq</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr Not Not</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_NOT__EXP_EQ = 0;
+  int EXPR_NOT__EXPR_NOT_NOT = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr Not Do</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT__EXPR_NOT_DO = 1;
 
   /**
    * The number of structural features of the '<em>Expr Not</em>' class.
@@ -1033,7 +1042,63 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_NOT_FEATURE_COUNT = 1;
+  int EXPR_NOT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprNotNotImpl <em>Expr Not Not</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ExprNotNotImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNotNot()
+   * @generated
+   */
+  int EXPR_NOT_NOT = 25;
+
+  /**
+   * The feature id for the '<em><b>Exp Eq1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT_NOT__EXP_EQ1 = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr Not Not</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT_NOT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprNotDoImpl <em>Expr Not Do</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ExprNotDoImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNotDo()
+   * @generated
+   */
+  int EXPR_NOT_DO = 26;
+
+  /**
+   * The feature id for the '<em><b>Exp Eq2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT_DO__EXP_EQ2 = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr Not Do</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT_DO_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprEqImpl <em>Expr Eq</em>}' class.
@@ -1043,7 +1108,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprEq()
    * @generated
    */
-  int EXPR_EQ = 25;
+  int EXPR_EQ = 27;
 
   /**
    * The feature id for the '<em><b>Exp S1</b></em>' containment reference.
@@ -1938,15 +2003,68 @@ public interface MyDslPackage extends EPackage
   EClass getExprNot();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprNot#getExpEq <em>Exp Eq</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprNot#getExprNotNot <em>Expr Not Not</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp Eq</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ExprNot#getExpEq()
+   * @return the meta object for the containment reference '<em>Expr Not Not</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprNot#getExprNotNot()
    * @see #getExprNot()
    * @generated
    */
-  EReference getExprNot_ExpEq();
+  EReference getExprNot_ExprNotNot();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprNot#getExprNotDo <em>Expr Not Do</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr Not Do</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprNot#getExprNotDo()
+   * @see #getExprNot()
+   * @generated
+   */
+  EReference getExprNot_ExprNotDo();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ExprNotNot <em>Expr Not Not</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Not Not</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprNotNot
+   * @generated
+   */
+  EClass getExprNotNot();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprNotNot#getExpEq1 <em>Exp Eq1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp Eq1</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprNotNot#getExpEq1()
+   * @see #getExprNotNot()
+   * @generated
+   */
+  EReference getExprNotNot_ExpEq1();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ExprNotDo <em>Expr Not Do</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Not Do</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprNotDo
+   * @generated
+   */
+  EClass getExprNotDo();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.ExprNotDo#getExpEq2 <em>Exp Eq2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp Eq2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ExprNotDo#getExpEq2()
+   * @see #getExprNotDo()
+   * @generated
+   */
+  EReference getExprNotDo_ExpEq2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ExprEq <em>Expr Eq</em>}'.
@@ -2705,12 +2823,56 @@ public interface MyDslPackage extends EPackage
     EClass EXPR_NOT = eINSTANCE.getExprNot();
 
     /**
-     * The meta object literal for the '<em><b>Exp Eq</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expr Not Not</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR_NOT__EXP_EQ = eINSTANCE.getExprNot_ExpEq();
+    EReference EXPR_NOT__EXPR_NOT_NOT = eINSTANCE.getExprNot_ExprNotNot();
+
+    /**
+     * The meta object literal for the '<em><b>Expr Not Do</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_NOT__EXPR_NOT_DO = eINSTANCE.getExprNot_ExprNotDo();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprNotNotImpl <em>Expr Not Not</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ExprNotNotImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNotNot()
+     * @generated
+     */
+    EClass EXPR_NOT_NOT = eINSTANCE.getExprNotNot();
+
+    /**
+     * The meta object literal for the '<em><b>Exp Eq1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_NOT_NOT__EXP_EQ1 = eINSTANCE.getExprNotNot_ExpEq1();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprNotDoImpl <em>Expr Not Do</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ExprNotDoImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNotDo()
+     * @generated
+     */
+    EClass EXPR_NOT_DO = eINSTANCE.getExprNotDo();
+
+    /**
+     * The meta object literal for the '<em><b>Exp Eq2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_NOT_DO__EXP_EQ2 = eINSTANCE.getExprNotDo_ExpEq2();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprEqImpl <em>Expr Eq</em>}' class.

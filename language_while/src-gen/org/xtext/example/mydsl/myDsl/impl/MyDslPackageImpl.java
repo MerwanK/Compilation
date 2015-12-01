@@ -17,6 +17,8 @@ import org.xtext.example.mydsl.myDsl.Expr;
 import org.xtext.example.mydsl.myDsl.ExprAnd;
 import org.xtext.example.mydsl.myDsl.ExprEq;
 import org.xtext.example.mydsl.myDsl.ExprNot;
+import org.xtext.example.mydsl.myDsl.ExprNotDo;
+import org.xtext.example.mydsl.myDsl.ExprNotNot;
 import org.xtext.example.mydsl.myDsl.ExprOr;
 import org.xtext.example.mydsl.myDsl.ExprSimple;
 import org.xtext.example.mydsl.myDsl.Exprs;
@@ -220,6 +222,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass exprNotEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exprNotNotEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exprNotDoEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1096,9 +1112,59 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprNot_ExpEq()
+  public EReference getExprNot_ExprNotNot()
   {
     return (EReference)exprNotEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExprNot_ExprNotDo()
+  {
+    return (EReference)exprNotEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExprNotNot()
+  {
+    return exprNotNotEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExprNotNot_ExpEq1()
+  {
+    return (EReference)exprNotNotEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExprNotDo()
+  {
+    return exprNotDoEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExprNotDo_ExpEq2()
+  {
+    return (EReference)exprNotDoEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1275,7 +1341,14 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(exprOrEClass, EXPR_OR__EXP_N2);
 
     exprNotEClass = createEClass(EXPR_NOT);
-    createEReference(exprNotEClass, EXPR_NOT__EXP_EQ);
+    createEReference(exprNotEClass, EXPR_NOT__EXPR_NOT_NOT);
+    createEReference(exprNotEClass, EXPR_NOT__EXPR_NOT_DO);
+
+    exprNotNotEClass = createEClass(EXPR_NOT_NOT);
+    createEReference(exprNotNotEClass, EXPR_NOT_NOT__EXP_EQ1);
+
+    exprNotDoEClass = createEClass(EXPR_NOT_DO);
+    createEReference(exprNotDoEClass, EXPR_NOT_DO__EXP_EQ2);
 
     exprEqEClass = createEClass(EXPR_EQ);
     createEReference(exprEqEClass, EXPR_EQ__EXP_S1);
@@ -1418,7 +1491,14 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getExprOr_ExpN2(), this.getExprNot(), null, "expN2", null, 0, -1, ExprOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprNotEClass, ExprNot.class, "ExprNot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprNot_ExpEq(), this.getExprEq(), null, "expEq", null, 0, 1, ExprNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprNot_ExprNotNot(), this.getExprNotNot(), null, "exprNotNot", null, 0, 1, ExprNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprNot_ExprNotDo(), this.getExprNotDo(), null, "exprNotDo", null, 0, 1, ExprNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exprNotNotEClass, ExprNotNot.class, "ExprNotNot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExprNotNot_ExpEq1(), this.getExprEq(), null, "expEq1", null, 0, 1, ExprNotNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exprNotDoEClass, ExprNotDo.class, "ExprNotDo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExprNotDo_ExpEq2(), this.getExprEq(), null, "expEq2", null, 0, 1, ExprNotDo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEqEClass, ExprEq.class, "ExprEq", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExprEq_ExpS1(), this.getExprSimple(), null, "expS1", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -22,12 +22,12 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ForeachImpl#getExp5 <em>Exp5</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ForeachImpl#getExp6 <em>Exp6</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ForeachImpl#getCom7 <em>Com7</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

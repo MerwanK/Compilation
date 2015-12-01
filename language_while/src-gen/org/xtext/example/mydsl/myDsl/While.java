@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.While#getExp2 <em>Exp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.While#getCom3 <em>Com3</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getWhile()
  * @model

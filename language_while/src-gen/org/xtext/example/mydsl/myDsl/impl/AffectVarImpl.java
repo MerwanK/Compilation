@@ -22,11 +22,11 @@ import org.xtext.example.mydsl.myDsl.Vars;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.AffectVarImpl#getVar1 <em>Var1</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.AffectVarImpl#getExp <em>Exp</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
