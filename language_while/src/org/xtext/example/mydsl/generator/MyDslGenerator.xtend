@@ -43,6 +43,8 @@ import java.io.File
 import org.xtext.example.mydsl.MyDslStandaloneSetup
 import org.eclipse.emf.common.util.URI
 import java.util.ArrayList
+import java.util.List
+import java.util.Iterator
 
 /* Last */
 /**
@@ -52,19 +54,19 @@ import java.util.ArrayList
  */
 class MyDslGenerator implements IGenerator {
 	
-	private var int i_default = 2;
-	private var int i_if = i_default;
-	private var int i_while = i_default;
-	private var int i_foreach = i_default;
-	private var int i_for = i_default;
+	private var int i_default = 1;
+	private var int i_if = 2;
+	private var int i_while = 3;
+	private var int i_foreach = 4;
+	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
-	//private var int[] tableauIndent = new ArrayList(); Une solution pour les différents niveau d'indent
+	List<Integer> listIndent;   //Une solution pour les différents niveau d'indent
 	var int n = 0;
 	var indent = 0;
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
-		
+	
 		i_default = indDefault;	
 		i_if = indIf;
 		i_while = indWhile;
@@ -94,12 +96,15 @@ class MyDslGenerator implements IGenerator {
 	 * SI LES INDENT SONT DE TAILLES DIFFERENTES POUR CHAQUE TYPE DE COMMANDES
 	 */
 	
-	def indentation(int taille_indent, int niveau){	
-		var int cpt=niveau*taille_indent;
+	def indentation(List<Integer> listInd){	
 		var String indent = "";
-		while(cpt>0){
-			indent = indent + " ";
-			cpt = cpt-1;
+			
+		for (i : 0 ..< listInd.size){
+			var cpt = listInd.get(i);
+			while(cpt>0){
+				indent = indent + " ";
+				cpt = cpt-1;
+			}
 		}
 		println(indent);
 	}
@@ -112,10 +117,10 @@ class MyDslGenerator implements IGenerator {
    '''
 		
    def compile(Fonction f) '''
-		fonction «f.symbole»:
+		fonction «f.symbole»:«listIndent.add(i_default)»
 		read «f.in.compile()»
 		%
-		«f.com.compile(indent,n)»
+		«f.com.compile(listIndent)»
 		%
 		write «f.out.compile()»
    	'''
@@ -126,44 +131,44 @@ class MyDslGenerator implements IGenerator {
    def compile(Output o)'''
    «o.var1»«FOR v :o.var2», «v»«ENDFOR»'''
    
-   def compile(Commandes cos,int indent, int n)'''
-   «indentation(indent,n)»«cos.com1.compile(indent,n)»«FOR v :cos.com2» ; 
-   «indentation(indent,n)»«v.compile(indent,n)»«ENDFOR»'''
+   def compile(Commandes cos, List l)'''
+   «indentation(l)»«cos.com1.compile(l)»«FOR v :cos.com2» ; 
+   «indentation(l)»«v.compile(l)»«ENDFOR»'''
    
-   def compile(Commande co,int indent, int n)'''
+   def compile(Commande co, List l)'''
    		«IF co.nop != null»nop«
    		ENDIF»«IF co.affectVar != null»«co.affectVar.compile()»«
-   		ENDIF»«IF co.whileC != null»«co.whileC.compile(indent,n)»«
-   		ENDIF»«IF co.forC != null»«co.forC.compile(indent,n)»«
-   		ENDIF»«IF co.ifC != null»«co.ifC.compile(indent,n)»«
-   		ENDIF»«IF co.foreachC != null»«co.foreachC.compile(indent,n)»«
+   		ENDIF»«IF co.whileC != null»«co.whileC.compile(l)»«
+   		ENDIF»«IF co.forC != null»«co.forC.compile(l)»«
+   		ENDIF»«IF co.ifC != null»«co.ifC.compile(l)»«
+   		ENDIF»«IF co.foreachC != null»«co.foreachC.compile(l)»«
    		ENDIF»'''	
    
      
    def compile(AffectVar av)'''
    «av.var1.compile» := «av.exp.compile»'''
    
-   def compile(While w,int indent,int n)'''
-   while «w.exp2.compile» do
-   «w.com3.compile(i_while,n+1)»
-   «indentation(indent,n)»od'''
+   def compile(While w, List l)'''
+   while «w.exp2.compile» do«l.add(i_while)»
+   «w.com3.compile(l)»«l.remove(l.size-1)»
+   «indentation(l)»od'''
       
-   def compile(For f,int indent,int n)'''
-   for «f.exp3.compile» do
-   «f.com4.compile(i_for,n+1)»
-   «indentation(indent,n)»od'''
+   def compile(For f, List l)'''
+   for «f.exp3.compile» do«l.add(i_for)»
+   «f.com4.compile(l)»«l.remove(l.size-1)»
+   «indentation(l)»od'''
    
-   def compile(If ifc,int indent, int n)'''
-   if «ifc.exp4.compile» then
-   «ifc.com5.compile(i_if,n+1)»
-   «indentation(indent,n)»else
-   «ifc.com6.compile(i_if,n+1)»
-   «indentation(indent,n)»fi'''
+   def compile(If ifc, List l)'''
+   if «ifc.exp4.compile» then«l.add(i_if)»
+   «ifc.com5.compile(l)»«l.remove(l.size-1)»
+   «indentation(l)»else«l.add(i_if)»
+   «ifc.com6.compile(l)»«l.remove(l.size-1)»
+   «indentation(l)»fi'''
    
-   def compile(Foreach fe,int indent, int n)'''
-   foreach «fe.exp5.compile» in «fe.exp6.compile» do
-   «fe.com7.compile(i_foreach,n+1)»
-   «indentation(indent,n)»od'''
+   def compile(Foreach fe, List l)'''
+   foreach «fe.exp5.compile» in «fe.exp6.compile» do«l.add(i_foreach)»
+   «fe.com7.compile(l)»«l.remove(l.size-1)»
+   «indentation(l)»od'''
    
    def compile(Vars v)'''
    «v.var2»«FOR va :v.var3», «va»«ENDFOR»'''
