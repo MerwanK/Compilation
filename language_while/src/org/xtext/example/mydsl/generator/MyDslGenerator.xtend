@@ -61,8 +61,6 @@ class MyDslGenerator implements IGenerator {
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
 	List<Integer> listIndent;   //Une solution pour les différents niveau d'indent
-	var int n = 0;
-	var indent = 0;
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -131,11 +129,11 @@ class MyDslGenerator implements IGenerator {
    def compile(Output o)'''
    «o.var1»«FOR v :o.var2», «v»«ENDFOR»'''
    
-   def compile(Commandes cos, List l)'''
+   def compile(Commandes cos, List<Integer> l)'''
    «indentation(l)»«cos.com1.compile(l)»«FOR v :cos.com2» ; 
    «indentation(l)»«v.compile(l)»«ENDFOR»'''
    
-   def compile(Commande co, List l)'''
+   def compile(Commande co, List<Integer> l)'''
    		«IF co.nop != null»nop«
    		ENDIF»«IF co.affectVar != null»«co.affectVar.compile()»«
    		ENDIF»«IF co.whileC != null»«co.whileC.compile(l)»«
@@ -148,24 +146,24 @@ class MyDslGenerator implements IGenerator {
    def compile(AffectVar av)'''
    «av.var1.compile» := «av.exp.compile»'''
    
-   def compile(While w, List l)'''
+   def compile(While w, List<Integer> l)'''
    while «w.exp2.compile» do«l.add(i_while)»
    «w.com3.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»od'''
       
-   def compile(For f, List l)'''
+   def compile(For f, List<Integer> l)'''
    for «f.exp3.compile» do«l.add(i_for)»
    «f.com4.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»od'''
    
-   def compile(If ifc, List l)'''
+   def compile(If ifc, List<Integer> l)'''
    if «ifc.exp4.compile» then«l.add(i_if)»
    «ifc.com5.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»else«l.add(i_if)»
    «ifc.com6.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»fi'''
    
-   def compile(Foreach fe, List l)'''
+   def compile(Foreach fe, List<Integer> l)'''
    foreach «fe.exp5.compile» in «fe.exp6.compile» do«l.add(i_foreach)»
    «fe.com7.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»od'''
