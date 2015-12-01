@@ -42,6 +42,7 @@ import org.eclipse.xtext.resource.XtextResourceSet
 import java.io.File
 import org.xtext.example.mydsl.MyDslStandaloneSetup
 import org.eclipse.emf.common.util.URI
+import java.util.ArrayList
 
 /* Last */
 /**
@@ -57,7 +58,7 @@ class MyDslGenerator implements IGenerator {
 	private var int i_foreach = i_default;
 	private var int i_for = i_default;
 	private var String nomPP = "onEssayeVoir";
-	
+	//private var int[] tableauIndent = new ArrayList(); Une solution pour les différents niveau d'indent
 	var int n = 0;
 	var indent = 0;
 	 
