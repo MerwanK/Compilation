@@ -131,7 +131,7 @@ class MyDslGenerator implements IGenerator {
 		%
 		«f.com.compile(listIndent)»
 		%
-		write «f.out.compile()»'''
+		write «f.out.compile()»«listIndent.clear»'''
    
    def compile(Input i)'''
    «i.var1»«FOR v :i.var2», «v»«ENDFOR»'''
@@ -167,7 +167,7 @@ class MyDslGenerator implements IGenerator {
    «indentation(l)»od'''
    
    def compile(If ifc, List<Integer> l)'''
-   if «ifc.exp4.compile» then«l.add(i_if)»
+   if «ifc.exp4.compile» then«addNoRet(l,i_if)»
    «ifc.com5.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»else«addNoRet(l,i_if)»
    «ifc.com6.compile(l)»«l.remove(l.size-1)»
