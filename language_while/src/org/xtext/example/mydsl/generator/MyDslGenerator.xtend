@@ -113,6 +113,11 @@ class MyDslGenerator implements IGenerator {
 		return "";
 	}
 	
+	def removeNoRet(List<Integer> list, int position){
+		list.remove(position);
+		return "";
+	}
+	
 	def initListe(){
 		listIndent = new LinkedList<Integer>();
 		return "";
@@ -131,7 +136,7 @@ class MyDslGenerator implements IGenerator {
 		%
 		«f.com.compile(listIndent)»
 		%
-		write «f.out.compile()»«listIndent.clear»'''
+		write «f.out.compile()»'''
    
    def compile(Input i)'''
    «i.var1»«FOR v :i.var2», «v»«ENDFOR»'''
@@ -158,24 +163,24 @@ class MyDslGenerator implements IGenerator {
    
    def compile(While w, List<Integer> l)'''
    while «w.exp2.compile» do«addNoRet(l,i_while)»
-   «w.com3.compile(l)»«l.remove(l.size-1)»
+   «w.com3.compile(l)»«removeNoRet(l,l.size-1)»
    «indentation(l)»od'''
       
    def compile(For f, List<Integer> l)'''
    for «f.exp3.compile» do«addNoRet(l,i_for)»
-   «f.com4.compile(l)»«l.remove(l.size-1)»
+   «f.com4.compile(l)»«removeNoRet(l,l.size-1)»
    «indentation(l)»od'''
    
    def compile(If ifc, List<Integer> l)'''
    if «ifc.exp4.compile» then«addNoRet(l,i_if)»
-   «ifc.com5.compile(l)»«l.remove(l.size-1)»
+   «ifc.com5.compile(l)»«removeNoRet(l,l.size-1)»
    «indentation(l)»else«addNoRet(l,i_if)»
-   «ifc.com6.compile(l)»«l.remove(l.size-1)»
+   «ifc.com6.compile(l)»«removeNoRet(l,l.size-1)»
    «indentation(l)»fi'''
    
    def compile(Foreach fe, List<Integer> l)'''
    foreach «fe.exp5.compile» in «fe.exp6.compile» do«addNoRet(l,i_foreach)»
-   «fe.com7.compile(l)»«l.remove(l.size-1)»
+   «fe.com7.compile(l)»«removeNoRet(l,l.size-1)»
    «indentation(l)»od'''
    
    def compile(Vars v)'''
@@ -229,8 +234,7 @@ class MyDslGenerator implements IGenerator {
    not «enn.expEq1.compile»'''
    	
    def compile(ExprNotDo end)'''
-   «end.expEq2.compile»
-   '''
+   «end.expEq2.compile»'''
    
    def compile(ExprEq eeq)'''
 	«(eeq.expS1.compile +  " =? " + eeq.expS2.compile) ?: ("(" + eeq.expR.compile + ")")»'''
