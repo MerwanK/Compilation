@@ -105,14 +105,19 @@ class MyDslGenerator implements IGenerator {
 				cpt = cpt-1;
 			}
 		}
-		println(indent);
+		return(indent);
 	}
 	
 	def addNoRet(List<Integer> list, int elem){
 		list.add(elem);
 		return "";
 	}
-	
+	/*
+	def nouvelleListe(List<Integer> list){
+		list = new LinkedList<Integer>();
+		return "";
+	}
+	 */
 	
 	def compile(Programme p)'''
    		«FOR f :p.fonct»«f.compile()»
@@ -121,7 +126,7 @@ class MyDslGenerator implements IGenerator {
    '''
 		
    def compile(Fonction f) '''
-		fonction «f.symbole»:«listIndent = new LinkedList<Integer>()»«addNoRet(listIndent,i_default)»
+		fonction «f.symbole»:«listIndent = new LinkedList<Integer>»«addNoRet(listIndent,i_default)»
 		read «f.in.compile()»
 		%
 		«f.com.compile(listIndent)»
