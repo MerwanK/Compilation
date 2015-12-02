@@ -1,12 +1,14 @@
-fonction deuedsqx!:read Merwan!,MaximeLePetitZizzfgjhi!%while XX 
-									do Maxime!:=nil od%write Cinema!
-fonction deuedsqx!:read Merwan!,MaximeLePetitZizzfgjhi!%while XX 
-									do Maxime!:=(cons nil) od%write Cinema!
-fonction deuedsqx!:read Merwan!,MaximeLePetitZizzfgjhi!%while XX 
-									do Maxime!:=(cons nil)=?nil and (cons nil)=?nil od%write Cinema!									
-fonction test:read X,Y%while Z do while W do Y:=B;X:=A od od%write A,B
-fonction p:read X%Y:=nil;while   X         do   Y:=(cons      (hd X)Y);X:=(tl X) od%write   Y
-fonction test:read X,Y%while Z do 
+fonction premiere:read Merwan,Maxime%while XX do Maxime:=nil od%write Cinema
+
+fonction deuxieme:read Merwan,Maxime%while XX do Maxime!:=(cons nil) od%write Cinema!
+
+fonction troisieme:read Merwan,Maxime%while XX do Maxime:=(cons nil)=?nil and (cons nil)=?nil od%write Cinema!
+									
+fonction quatrieme:read X,Y%while Z do while W do Y:=B;X:=A od od%write A,B
+
+fonction cinquieme:read X%Y:=nil;while X    do   Y:=(cons      (hd X)Y);X:=(tl X) od%write   Y
+
+fonction sixieme:read X,Y%while Z do 
 							   while W do 
 							   		while I do
 							   			Y:=B;X:=A
@@ -15,7 +17,8 @@ fonction test:read X,Y%while Z do
 						od
 					   %
 					   write A,B
-fonction teezst:read X,Y%while Z do 
+					   
+fonction septieme:read X,Y%while Z do 
 							   while W do 
 							   		while I do
 							   			Y:=B;X:=A
@@ -27,7 +30,8 @@ fonction teezst:read X,Y%while Z do
 						od
 					   %
 					   write A,B
-fonction teeeest:read X,Y%while Z do 
+					   
+fonction huitieme:read X,Y%while Z do 
 							   while W do 
 							   		while I do
 							   			Y:=B;X:=A
@@ -45,8 +49,9 @@ fonction teeeest:read X,Y%while Z do
 							   
 						od
 					   %
-					   write A,B	   
-fonction tezstz:read X,Y%while Z do 
+					   write A,B	
+					      
+fonction neuvieme:read X,Y%while Z do 
 							   while W do 
 							   		while I do
 							   			Y:=B;X:=A
