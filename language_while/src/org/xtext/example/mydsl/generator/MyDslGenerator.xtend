@@ -64,6 +64,7 @@ class MyDslGenerator implements IGenerator {
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
 	List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
+	
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -107,6 +108,11 @@ class MyDslGenerator implements IGenerator {
 		println(indent);
 	}
 	
+	def addNoRet(List<Integer> list, int elem){
+		list.add(elem);
+		return "";
+	}
+	
 	
 	def compile(Programme p)'''
    		«FOR f :p.fonct»«f.compile()»
@@ -115,13 +121,12 @@ class MyDslGenerator implements IGenerator {
    '''
 		
    def compile(Fonction f) '''
-		fonction «f.symbole»:«listIndent = new LinkedList<Integer>()»«listIndent.add(i_default)»
+		fonction «f.symbole»:«listIndent = new LinkedList<Integer>()»«addNoRet(listIndent,i_default)»
 		read «f.in.compile()»
 		%
 		«f.com.compile(listIndent)»
 		%
-		write «f.out.compile()»
-   	'''
+		write «f.out.compile()»'''
    
    def compile(Input i)'''
    «i.var1»«FOR v :i.var2», «v»«ENDFOR»'''
@@ -147,24 +152,24 @@ class MyDslGenerator implements IGenerator {
    «av.var1.compile» := «av.exp.compile»'''
    
    def compile(While w, List<Integer> l)'''
-   while «w.exp2.compile» do«l.add(i_while)»
+   while «w.exp2.compile» do«addNoRet(l,i_while)»
    «w.com3.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»od'''
       
    def compile(For f, List<Integer> l)'''
-   for «f.exp3.compile» do«l.add(i_for)»
+   for «f.exp3.compile» do«addNoRet(l,i_for)»
    «f.com4.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»od'''
    
    def compile(If ifc, List<Integer> l)'''
    if «ifc.exp4.compile» then«l.add(i_if)»
    «ifc.com5.compile(l)»«l.remove(l.size-1)»
-   «indentation(l)»else«l.add(i_if)»
+   «indentation(l)»else«addNoRet(l,i_if)»
    «ifc.com6.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»fi'''
    
    def compile(Foreach fe, List<Integer> l)'''
-   foreach «fe.exp5.compile» in «fe.exp6.compile» do«l.add(i_foreach)»
+   foreach «fe.exp5.compile» in «fe.exp6.compile» do«addNoRet(l,i_foreach)»
    «fe.com7.compile(l)»«l.remove(l.size-1)»
    «indentation(l)»od'''
    
