@@ -7,7 +7,6 @@ package org.xtext.example.mydsl.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-import org.xtext.example.mydsl.myDsl.Model
 import org.xtext.example.mydsl.myDsl.Programme
 import org.xtext.example.mydsl.myDsl.Fonction
 import org.xtext.example.mydsl.myDsl.Input
@@ -35,8 +34,6 @@ import org.xtext.example.mydsl.myDsl.Tl
 import org.xtext.example.mydsl.myDsl.SymboleEx
 import org.xtext.example.mydsl.myDsl.ExprNotNot
 import org.xtext.example.mydsl.myDsl.ExprNotDo
-import javax.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.emf.ecore.util.EcoreUtil
 import java.io.FileWriter
 import java.io.BufferedWriter
@@ -44,10 +41,10 @@ import org.eclipse.xtext.resource.XtextResourceSet
 import java.io.File
 import org.xtext.example.mydsl.MyDslStandaloneSetup
 import org.eclipse.emf.common.util.URI
-import java.util.ArrayList
 import java.util.List
-import java.util.Iterator
 import java.util.LinkedList
+import tableSymboles.ParamVarFunction
+import tableSymboles.SymbolsTable
 
 /* Last */
 /**
@@ -64,7 +61,7 @@ class MyDslGenerator implements IGenerator {
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
 	List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
-	
+	ParamVarFunction tableVarLocal = new ParamVarFunction();
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -136,13 +133,14 @@ class MyDslGenerator implements IGenerator {
 		%
 		«f.com.compile(listIndent)»
 		%
-		write «f.out.compile()»'''
+		write «f.out.compile()»
+		«tableVarLocal.toString()»'''
    
    def compile(Input i)'''
-   «i.var1»«FOR v :i.var2», «v»«ENDFOR»'''
+   «i.var1»«tableVarLocal.setInLocalVars(i.var1)»«FOR v :i.var2», «v»«tableVarLocal.setInLocalVars(v)»«ENDFOR»'''
    
    def compile(Output o)'''
-   «o.var1»«FOR v :o.var2», «v»«ENDFOR»'''
+   «o.var1»«tableVarLocal.setOutLocalVars(o.var1)»«FOR v :o.var2», «v»«tableVarLocal.setOutLocalVars(v)»«ENDFOR»'''
    
    def compile(Commandes cos, List<Integer> l)'''
    «indentation(l)»«cos.com1.compile(l)»«FOR v :cos.com2» ; 

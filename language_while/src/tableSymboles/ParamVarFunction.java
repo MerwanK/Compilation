@@ -9,11 +9,13 @@ public class ParamVarFunction {
 	private int nbParamOut;
 	private HashMap<String, String> LocalVars;
 	
+	/*
 	public ParamVarFunction(int nbIn, int nbOut){
 		nbParamIn = nbIn;
 		nbParamOut = nbOut;
 		LocalVars = new HashMap<String, String>(); 
 	}
+	*/
 	
 	public ParamVarFunction(){
 		nbParamIn = 0;
@@ -29,24 +31,10 @@ public class ParamVarFunction {
 	}
 
 	/**
-	 * @param nbParamIn the nbParamIn to set
-	 */
-	public void setNbParamIn(int nbParamIn) {
-		this.nbParamIn = nbParamIn;
-	}
-
-	/**
 	 * @return the nbParamOut
 	 */
 	public int getNbParamOut() {
 		return nbParamOut;
-	}
-
-	/**
-	 * @param nbParamOut the nbParamOut to set
-	 */
-	public void setNbParamOut(int nbParamOut) {
-		this.nbParamOut = nbParamOut;
 	}
 
 	/**
@@ -62,9 +50,26 @@ public class ParamVarFunction {
 	 * @param value
 	 */
 	
-	public void setLocalVars(String nameVarLocal, String value) {
+	public void setInLocalVars(String nameVarLocal, String value) {
 		if(!LocalVars.containsKey(nameVarLocal)){
 			LocalVars.put(nameVarLocal, value);
+			nbParamIn++;
+		}
+		else
+			LocalVars.put(nameVarLocal, value);
+	}
+	
+	public void setInLocalVars(String nameVarLocal) {
+		if(!LocalVars.containsKey(nameVarLocal)){
+			LocalVars.put(nameVarLocal, "null");
+			nbParamIn++;
+		}
+	}
+	
+	public void setOutLocalVars(String nameVarLocal) {
+		if(!LocalVars.containsKey(nameVarLocal)){
+			LocalVars.put(nameVarLocal, "null");
+			nbParamOut++;
 		}
 	}
 

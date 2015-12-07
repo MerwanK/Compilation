@@ -39,12 +39,12 @@ public class SymbolsTable {
 	 * @param nbIn
 	 * @param nbOut
 	 */
-	
+	/*
 	public void putFunction(String nameFunction, int nbIn, int nbOut){
 		ParamVarFunction infosFunc = new ParamVarFunction(nbIn, nbOut);
 		tableFunctions.put(nameFunction, infosFunc);
 	}
-	
+	*/
 	/**
 	 * 
 	 * @param nameFunction
