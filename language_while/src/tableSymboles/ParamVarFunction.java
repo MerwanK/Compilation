@@ -7,6 +7,7 @@ public class ParamVarFunction {
 
 	private int nbParamIn;
 	private int nbParamOut;
+	private int compteur;
 	private HashMap<String, String> LocalVars;
 	
 	/*
@@ -20,6 +21,7 @@ public class ParamVarFunction {
 	public ParamVarFunction(){
 		nbParamIn = 0;
 		nbParamOut = 0;
+		compteur = 0;
 		LocalVars = new HashMap<String, String>();
 	}
 
@@ -50,29 +52,22 @@ public class ParamVarFunction {
 	 * @param value
 	 */
 	
-	public void setInLocalVars(String nameVarLocal, String value) {
-		if(!LocalVars.containsKey(nameVarLocal)){
-			LocalVars.put(nameVarLocal, value);
-			nbParamIn++;
-		}
-		else
-			LocalVars.put(nameVarLocal, value);
-	}
-	
 	public void setInLocalVars(String nameVarLocal) {
 		if(!LocalVars.containsKey(nameVarLocal)){
-			LocalVars.put(nameVarLocal, "null");
+			LocalVars.put(nameVarLocal, "var" + compteur);
 			nbParamIn++;
+			compteur++;
 		}
 	}
 	
 	public void setOutLocalVars(String nameVarLocal) {
 		if(!LocalVars.containsKey(nameVarLocal)){
-			LocalVars.put(nameVarLocal, "null");
+			LocalVars.put(nameVarLocal, "var" + compteur);
 			nbParamOut++;
+			compteur++;
 		}
 	}
-
+	
 	/**
 	 * 
 	 */
