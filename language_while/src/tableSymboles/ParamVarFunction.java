@@ -55,15 +55,22 @@ public class ParamVarFunction {
 	public void setInLocalVars(String nameVarLocal) {
 		if(!LocalVars.containsKey(nameVarLocal)){
 			LocalVars.put(nameVarLocal, "var" + compteur);
-			nbParamIn++;
 			compteur++;
 		}
+		nbParamIn++;
 	}
 	
 	public void setOutLocalVars(String nameVarLocal) {
 		if(!LocalVars.containsKey(nameVarLocal)){
 			LocalVars.put(nameVarLocal, "var" + compteur);
-			nbParamOut++;
+			compteur++;
+		}
+		nbParamOut++;
+	}
+	
+	public void setLocalVars(String nameVarLocal) {
+		if(!LocalVars.containsKey(nameVarLocal)){
+			LocalVars.put(nameVarLocal, "var" + compteur);
 			compteur++;
 		}
 	}
@@ -73,7 +80,7 @@ public class ParamVarFunction {
 	 */
 	
 	public String toString() {
-		return "Table des fonctions : [nbInputs =" + nbParamIn + ", nbOutputs =" + nbParamOut + ", Liste des variables locales =" + LocalVars + "]";
+		return " [nbInputs =" + nbParamIn + ", nbOutputs =" + nbParamOut + ", Liste des variables locales =" + LocalVars + "]\n";
 	}
 	
 	

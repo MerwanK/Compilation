@@ -61,7 +61,8 @@ class MyDslGenerator implements IGenerator {
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
 	List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
-	ParamVarFunction tableVarLocal = new ParamVarFunction();
+	SymbolsTable tableSymboles = new SymbolsTable();
+	String fonctionEnCours;
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -125,22 +126,23 @@ class MyDslGenerator implements IGenerator {
    		«FOR f :p.fonct»«f.compile()»
    		
    		«ENDFOR»
+   		«tableSymboles.toString()»
    '''
 		
    def compile(Fonction f) '''
-		fonction «f.symbole»:«initListe»«addNoRet(listIndent,i_default)»
+		fonction «fonctionEnCours=f.symbole»:«initListe»«addNoRet(listIndent,i_default)»«tableSymboles.putFunction(f.symbole)»
 		read «f.in.compile()»
 		%
 		«f.com.compile(listIndent)»
 		%
 		write «f.out.compile()»
-		«tableVarLocal.toString()»'''
+		'''
    
    def compile(Input i)'''
-   «i.var1»«tableVarLocal.setInLocalVars(i.var1)»«FOR v :i.var2», «v»«tableVarLocal.setInLocalVars(v)»«ENDFOR»'''
+   «i.var1»«tableSymboles.setInVariable(fonctionEnCours,i.var1)»«FOR v :i.var2», «v»«tableSymboles.setInVariable(fonctionEnCours,v)»«ENDFOR»'''
    
    def compile(Output o)'''
-   «o.var1»«tableVarLocal.setOutLocalVars(o.var1)»«FOR v :o.var2», «v»«tableVarLocal.setOutLocalVars(v)»«ENDFOR»'''
+   «o.var1»«tableSymboles.setOutVariable(fonctionEnCours,o.var1)»«FOR v :o.var2», «v»«tableSymboles.setOutVariable(fonctionEnCours,v)»«ENDFOR»'''
    
    def compile(Commandes cos, List<Integer> l)'''
    «indentation(l)»«cos.com1.compile(l)»«FOR v :cos.com2» ; 
@@ -182,7 +184,7 @@ class MyDslGenerator implements IGenerator {
    «indentation(l)»od'''
    
    def compile(Vars v)'''
-   «v.var2»«FOR va :v.var3», «va»«ENDFOR»'''
+   «v.var2»«tableSymboles.setVariable(fonctionEnCours,v.var2)»«FOR va :v.var3»«tableSymboles.setVariable(fonctionEnCours,va)», «va»«ENDFOR»'''
    
    def compile(Exprs exps)'''
    «exps.exprS.compile »«FOR v :exps.exprS2», «v.compile»«ENDFOR»'''
@@ -194,8 +196,8 @@ class MyDslGenerator implements IGenerator {
    
    def compile(ExprSimple es)'''
    		«IF es.vide != null»nil«
-   		ENDIF»«IF es.variable != null»«es.variable»«
-   		ENDIF»«IF es.symbole != null»«es.symbole»«
+   		ENDIF»«IF es.variable != null»«es.variable»«tableSymboles.setVariable(fonctionEnCours,es.variable)»«
+   		ENDIF»«IF es.symbole != null»«es.symbole»«tableSymboles.setSymbol(es.symbole)»«
    		ENDIF»«IF es.cons != null»«es.cons.compile»«
    		ENDIF»«IF es.liste != null»«es.liste.compile»«
    		ENDIF»«IF es.hd != null»«es.hd.compile»«
