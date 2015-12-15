@@ -61,10 +61,11 @@ class MyDslGenerator implements IGenerator {
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
 	private List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
-	private SymbolsTable tableSymboles = new SymbolsTable();
+	private SymbolsTable tableSymboles;
 	private String fonctionEnCours;
-	private CodeGenere codeG = new CodeGenere();
-	private int compteurRegistre = 0;
+	private CodeGenere codeG;
+	private int compteurRegistre;
+	private int compteurLabel;
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -89,7 +90,12 @@ class MyDslGenerator implements IGenerator {
 		
 	}
 	
+	//!!!!!!!!!!!!! NE PAS OUBLIEZ DE REMETTRE LES INIT DANS L'EXECUTABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	override void doGenerate(Resource resource, IFileSystemAccess fsa){
+		initTableSymbole();
+		initCodeGenere();
+		compteurLabel = 0;
+		compteurRegistre = 0;
 		for(p: resource.allContents.toIterable.filter(Programme)){
 			fsa.generateFile(nomPP + ".whpp",p.compile()); 
 		}
@@ -121,6 +127,26 @@ class MyDslGenerator implements IGenerator {
 	def initListe(){
 		listIndent = new LinkedList<Integer>();
 		return "";
+	}
+	
+	def initTableSymbole(){
+		tableSymboles = new SymbolsTable();
+		return"";
+	}
+	
+	def initCodeGenere(){
+		codeG = new CodeGenere();
+		return"";
+	}
+	
+	def incrementeurLabel(){
+		compteurLabel = compteurLabel + 1;
+		return ""; 
+	}
+	
+	def incrementeurRegistre(){
+		compteurRegistre = compteurRegistre + 1;
+		return ""; 
 	}
 	
 	
@@ -169,20 +195,20 @@ class MyDslGenerator implements IGenerator {
    «av.var1.compile» := «av.exp.compile»'''
    
    def compile(While w, List<Integer> l)'''
-   while «w.exp2.compile» do«addNoRet(l,i_while)»
-   «w.com3.compile(l)»«removeNoRet(l,l.size-1)»
+   while «w.exp2.compile»«codeG.quadrupletLabel("L"+compteurLabel)»«incrementeurLabel()»«codeG.addWhile("expToDo","L"+compteurLabel)»«incrementeurLabel()» do«addNoRet(l,i_while)»
+   «w.com3.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+(compteurLabel-2))»
    «indentation(l)»od'''
       
    def compile(For f, List<Integer> l)'''
-   for «f.exp3.compile» do«addNoRet(l,i_for)»
-   «f.com4.compile(l)»«removeNoRet(l,l.size-1)»
+   for «f.exp3.compile»«codeG.quadrupletLabel("L"+compteurLabel)»«incrementeurLabel()»«codeG.addFor("expToDo","L"+compteurLabel)»«incrementeurLabel()» do«addNoRet(l,i_for)»
+   «f.com4.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+(compteurLabel-2))»
    «indentation(l)»od'''
    
    def compile(If ifc, List<Integer> l)'''
-   if «ifc.exp4.compile» then«addNoRet(l,i_if)»
-   «ifc.com5.compile(l)»«removeNoRet(l,l.size-1)»
-   «indentation(l)»else«addNoRet(l,i_if)»
-   «ifc.com6.compile(l)»«removeNoRet(l,l.size-1)»
+   if «ifc.exp4.compile» then«addNoRet(l,i_if)»«codeG.addIf("condToDo","L"+compteurLabel,"L"+(compteurLabel+1))»«codeG.quadrupletLabel("L"+compteurLabel)»
+   «ifc.com5.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+compteurLabel)»
+   «indentation(l)»else«addNoRet(l,i_if)»«codeG.quadrupletLabel("L"+compteurLabel+1)»«incrementeurLabel()»«incrementeurLabel()»
+   «ifc.com6.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+(compteurLabel-2))»
    «indentation(l)»fi'''
    
    def compile(Foreach fe, List<Integer> l)'''
@@ -191,7 +217,7 @@ class MyDslGenerator implements IGenerator {
    «indentation(l)»od'''
    
    def compile(Vars v)'''
-   «v.var2»«tableSymboles.setVariable(fonctionEnCours,v.var2)»«FOR va :v.var3»«tableSymboles.setVariable(fonctionEnCours,va)», «va»«ENDFOR»'''
+   «v.var2»«tableSymboles.setVariable(fonctionEnCours,v.var2)»«codeG.addAff(v.var2,"R"+compteurRegistre)»«incrementeurRegistre()»«FOR va :v.var3»«tableSymboles.setVariable(fonctionEnCours,va)»«codeG.addAff(va,"R"+compteurRegistre)»«incrementeurRegistre()», «va»«ENDFOR»'''
    
    def compile(Exprs exps)'''
    «exps.exprS.compile »«FOR v :exps.exprS2», «v.compile»«ENDFOR»'''
