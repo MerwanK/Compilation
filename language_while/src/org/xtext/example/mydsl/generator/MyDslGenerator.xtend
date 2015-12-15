@@ -43,8 +43,8 @@ import org.xtext.example.mydsl.MyDslStandaloneSetup
 import org.eclipse.emf.common.util.URI
 import java.util.List
 import java.util.LinkedList
-import tableSymboles.ParamVarFunction
 import tableSymboles.SymbolsTable
+import code3adresses.CodeGenere
 
 /* Last */
 /**
@@ -60,9 +60,11 @@ class MyDslGenerator implements IGenerator {
 	private var int i_foreach = 4;
 	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
-	List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
-	SymbolsTable tableSymboles = new SymbolsTable();
-	String fonctionEnCours;
+	private List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
+	private SymbolsTable tableSymboles = new SymbolsTable();
+	private String fonctionEnCours;
+	private CodeGenere codeG = new CodeGenere();
+	private int compteurRegistre = 0;
 	 
 	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
 		int indWhile, int indForeach, int indFor, int indDefault){
@@ -126,7 +128,12 @@ class MyDslGenerator implements IGenerator {
    		«FOR f :p.fonct»«f.compile()»
    		
    		«ENDFOR»
+   		
+   		Table des symboles :
    		«tableSymboles.toString()»
+   		
+   		Code 3 adresses généré :
+   		«codeG.toString()»
    '''
 		
    def compile(Fonction f) '''
@@ -139,10 +146,10 @@ class MyDslGenerator implements IGenerator {
 		'''
    
    def compile(Input i)'''
-   «i.var1»«tableSymboles.setInVariable(fonctionEnCours,i.var1)»«FOR v :i.var2», «v»«tableSymboles.setInVariable(fonctionEnCours,v)»«ENDFOR»'''
+   «i.var1»«tableSymboles.setInVariable(fonctionEnCours,i.var1)»«codeG.addRead(i.var1)»«FOR v :i.var2», «v»«tableSymboles.setInVariable(fonctionEnCours,v)»«codeG.addRead(v)»«ENDFOR»'''
    
    def compile(Output o)'''
-   «o.var1»«tableSymboles.setOutVariable(fonctionEnCours,o.var1)»«FOR v :o.var2», «v»«tableSymboles.setOutVariable(fonctionEnCours,v)»«ENDFOR»'''
+   «o.var1»«tableSymboles.setOutVariable(fonctionEnCours,o.var1)»«codeG.addWrite(o.var1)»«FOR v :o.var2», «v»«tableSymboles.setOutVariable(fonctionEnCours,v)»«codeG.addWrite(v)»«ENDFOR»'''
    
    def compile(Commandes cos, List<Integer> l)'''
    «indentation(l)»«cos.com1.compile(l)»«FOR v :cos.com2» ; 
