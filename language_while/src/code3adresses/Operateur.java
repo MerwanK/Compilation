@@ -22,6 +22,18 @@ public class Operateur {
 		codeGenere = cg; 
 	}
 	
+	public String getOperateur(){
+		return operateur;
+	}
+	
+	public String getNom(){
+		return nom;
+	}
+	
+	public CodeGenere getCodeGenere(){
+		return codeGenere;
+	}
+	
 	public String toString(){
 		String res = "";
 		if(codeGenere != null)

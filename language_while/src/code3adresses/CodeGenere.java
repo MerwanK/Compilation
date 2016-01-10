@@ -68,6 +68,7 @@ public class CodeGenere {
 		listQuadruplet.add(elem);
 	}	
 	
+	
 	public String toString(){
 		String res = "";
 		Iterator<Quadruplet> it = listQuadruplet.iterator();
