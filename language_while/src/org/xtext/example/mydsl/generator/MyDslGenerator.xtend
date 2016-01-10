@@ -54,40 +54,26 @@ import code3adresses.CodeGenere
  */
 class MyDslGenerator implements IGenerator {
 	
-	private var int i_default = 1;
-	private var int i_if = 2;
-	private var int i_while = 3;
-	private var int i_foreach = 4;
-	private var int i_for = 5;
 	private var String nomPP = "onEssayeVoir";
-	private List<Integer> listIndent ;   //Une solution pour les différents niveau d'indent
 	private SymbolsTable tableSymboles;
 	private String fonctionEnCours;
 	private CodeGenere codeG;
 	private int compteurRegistre;
 	private int compteurLabel;
 	 
-	def public File generationDuPrettyPrinter(String entree, String nameWhpp,int indIf,
-		int indWhile, int indForeach, int indFor, int indDefault){
+	def public File generationCode3Adresses(String entree, String nameFile){
 	
-		i_default = indDefault;	
-		i_if = indIf;
-		i_while = indWhile;
-		i_foreach = indForeach;
-		i_for = indFor;
-		nomPP = nameWhpp;
 		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
 		val resourceSet = injector.getInstance(XtextResourceSet);
 		val uri = URI.createURI(entree);
 		val xtextResource = resourceSet.getResource(uri, true);
 		EcoreUtil.resolveAll(xtextResource);
-		val fstream = new FileWriter(nameWhpp);
+		val fstream = new FileWriter(nameFile);
  		val buff = new BufferedWriter(fstream);
   		for(p: xtextResource.allContents.toIterable.filter(Programme))
 			buff.write(p.compile().toString);
   		buff.close();
-  		return new File(nameWhpp);
-		
+  		return new File(nameFile);
 	}
 	
 	//!!!!!!!!!!!!! NE PAS OUBLIEZ DE REMETTRE LES INIT DANS L'EXECUTABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -97,38 +83,10 @@ class MyDslGenerator implements IGenerator {
 		compteurLabel = 0;
 		compteurRegistre = 0;
 		for(p: resource.allContents.toIterable.filter(Programme)){
-			fsa.generateFile(nomPP + ".whpp",p.compile()); 
+			p.compile(); 
 		}
 	}
-	
-	def indentation(List<Integer> listInd){	
-		var String indent = "";
-			
-		for (i : 0 ..< listInd.size){
-			var cpt = listInd.get(i);
-			while(cpt>0){
-				indent = indent + " ";
-				cpt = cpt-1;
-			}
-		}
-		return(indent);
-	}
-	
-	def addNoRet(List<Integer> list, int elem){
-		list.add(elem);
-		return "";
-	}
-	
-	def removeNoRet(List<Integer> list, int position){
-		list.remove(position);
-		return "";
-	}
-	
-	def initListe(){
-		listIndent = new LinkedList<Integer>();
-		return "";
-	}
-	
+		
 	def initTableSymbole(){
 		tableSymboles = new SymbolsTable();
 		return"";
@@ -150,130 +108,229 @@ class MyDslGenerator implements IGenerator {
 	}
 	
 	
-	def compile(Programme p)'''
-   		«FOR f :p.fonct»«f.compile()»
-   		
-   		«ENDFOR»
-   		
-   		Table des symboles :
-   		«tableSymboles.toString()»
-   		
-   		Code 3 adresses généré :
-   		«codeG.toString()»
-   '''
+	def compile(Programme p){
+   		for(Fonction f: p.fonct){
+   			f.compile();
+   		}
+   		tableSymboles.toString();
+   		codeG.toString();
+   }
 		
-   def compile(Fonction f) '''
-		fonction «fonctionEnCours=f.symbole»:«initListe»«addNoRet(listIndent,i_default)»«tableSymboles.putFunction(f.symbole)»
-		read «f.in.compile()»
-		%
-		«f.com.compile(listIndent)»
-		%
-		write «f.out.compile()»
-		'''
+   def compile(Fonction f){ 
+		fonctionEnCours = f.symbole;
+		tableSymboles.putFunction(f.symbole);
+		f.in.compile();
+		f.com.compile();
+		f.out.compile();
+	}	
    
-   def compile(Input i)'''
-   «i.var1»«tableSymboles.setInVariable(fonctionEnCours,i.var1)»«codeG.addRead(i.var1)»«FOR v :i.var2», «v»«tableSymboles.setInVariable(fonctionEnCours,v)»«codeG.addRead(v)»«ENDFOR»'''
+   def compile(Input i){
+   		tableSymboles.setInVariable(fonctionEnCours,i.var1);
+   		codeG.addRead(i.var1);
+   		for(String v :i.var2){
+    		tableSymboles.setInVariable(fonctionEnCours,v);
+    		codeG.addRead(v);
+   		}
+   }
    
-   def compile(Output o)'''
-   «o.var1»«tableSymboles.setOutVariable(fonctionEnCours,o.var1)»«codeG.addWrite(o.var1)»«FOR v :o.var2», «v»«tableSymboles.setOutVariable(fonctionEnCours,v)»«codeG.addWrite(v)»«ENDFOR»'''
+   def compile(Output o){
+   		tableSymboles.setOutVariable(fonctionEnCours,o.var1);
+   		codeG.addWrite(o.var1);
+   		for(String v :o.var2){
+   			tableSymboles.setOutVariable(fonctionEnCours,v);
+   			codeG.addWrite(v);	
+   		}
+   }
    
-   def compile(Commandes cos, List<Integer> l)'''
-   «indentation(l)»«cos.com1.compile(l)»«FOR v :cos.com2» ; 
-   «indentation(l)»«v.compile(l)»«ENDFOR»'''
    
-   def compile(Commande co, List<Integer> l)'''
-   		«IF co.nop != null»nop«
-   		ENDIF»«IF co.affectVar != null»«co.affectVar.compile()»«
-   		ENDIF»«IF co.whileC != null»«co.whileC.compile(l)»«
-   		ENDIF»«IF co.forC != null»«co.forC.compile(l)»«
-   		ENDIF»«IF co.ifC != null»«co.ifC.compile(l)»«
-   		ENDIF»«IF co.foreachC != null»«co.foreachC.compile(l)»«
-   		ENDIF»'''	
+   def compile(Commandes cos){
+   		cos.com1.compile();
+   		for(Commande v :cos.com2){  
+   			v.compile();
+   		}
+   }
+   
+   def compile(Commande co){
+   		if(co.nop != null){
+   			codeG.addNop();
+   		}
+   		if(co.affectVar != null){
+   			co.affectVar.compile();
+   		}
+   		if(co.whileC != null){
+   			co.whileC.compile();	
+   		}
+   		if(co.forC != null){
+   			co.forC.compile();
+   		}
+   		if(co.ifC != null){
+   			co.ifC.compile();
+   		}
+   		if(co.foreachC != null){
+   			co.foreachC.compile();
+   		}	
+   	}
    
      
-   def compile(AffectVar av)'''
-   «av.var1.compile» := «av.exp.compile»'''
+   def compile(AffectVar av){
+  	 	av.var1.compile();
+  	 	av.exp.compile();
+   }
    
-   def compile(While w, List<Integer> l)'''
-   while «w.exp2.compile»«codeG.quadrupletLabel("L"+compteurLabel)»«incrementeurLabel()»«codeG.addWhile("expToDo","L"+compteurLabel)»«incrementeurLabel()» do«addNoRet(l,i_while)»
-   «w.com3.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+(compteurLabel-2))»
-   «indentation(l)»od'''
+   def compile(While w){
+   		w.exp2.compile();
+   		codeG.quadrupletLabel("L"+compteurLabel);
+   		incrementeurLabel();
+   		codeG.addWhile("expToDo","L"+compteurLabel);
+   		incrementeurLabel();
+   		w.com3.compile();
+   		codeG.addGoto("L"+(compteurLabel-2));
+   }
       
-   def compile(For f, List<Integer> l)'''
-   for «f.exp3.compile»«codeG.quadrupletLabel("L"+compteurLabel)»«incrementeurLabel()»«codeG.addFor("expToDo","L"+compteurLabel)»«incrementeurLabel()» do«addNoRet(l,i_for)»
-   «f.com4.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+(compteurLabel-2))»
-   «indentation(l)»od'''
+   def compile(For f){
+   f.exp3.compile();
+   codeG.quadrupletLabel("L"+compteurLabel);
+   incrementeurLabel();
+   codeG.addFor("expToDo","L"+compteurLabel);
+   incrementeurLabel();
+   f.com4.compile();
+   codeG.addGoto("L"+(compteurLabel-2));
+   }
    
-   def compile(If ifc, List<Integer> l)'''
-   if «ifc.exp4.compile» then«addNoRet(l,i_if)»«codeG.addIf("condToDo","L"+compteurLabel,"L"+(compteurLabel+1))»«codeG.quadrupletLabel("L"+compteurLabel)»
-   «ifc.com5.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+compteurLabel)»
-   «indentation(l)»else«addNoRet(l,i_if)»«codeG.quadrupletLabel("L"+compteurLabel+1)»«incrementeurLabel()»«incrementeurLabel()»
-   «ifc.com6.compile(l)»«removeNoRet(l,l.size-1)»«codeG.addGoto("L"+(compteurLabel-2))»
-   «indentation(l)»fi'''
+   def compile(If ifc){
+   		ifc.exp4.compile();
+   		codeG.addIf("condToDo","L"+compteurLabel,"L"+(compteurLabel+1));
+   		codeG.quadrupletLabel("L"+compteurLabel);
+   		ifc.com5.compile();
+   		codeG.addGoto("L"+compteurLabel);
+   		codeG.quadrupletLabel("L"+compteurLabel+1);
+   		incrementeurLabel();incrementeurLabel();
+   		ifc.com6.compile();
+   		codeG.addGoto("L"+(compteurLabel-2));
+   }
    
-   def compile(Foreach fe, List<Integer> l)'''
-   foreach «fe.exp5.compile» in «fe.exp6.compile» do«addNoRet(l,i_foreach)»
-   «fe.com7.compile(l)»«removeNoRet(l,l.size-1)»
-   «indentation(l)»od'''
+   def compile(Foreach fe){
+   		fe.exp5.compile();
+   		fe.exp6.compile();
+   		fe.com7.compile();
+   }
    
-   def compile(Vars v)'''
-   «v.var2»«tableSymboles.setVariable(fonctionEnCours,v.var2)»«codeG.addAff(v.var2,"R"+compteurRegistre)»«incrementeurRegistre()»«FOR va :v.var3»«tableSymboles.setVariable(fonctionEnCours,va)»«codeG.addAff(va,"R"+compteurRegistre)»«incrementeurRegistre()», «va»«ENDFOR»'''
+   def compile(Vars v){
+   		tableSymboles.setVariable(fonctionEnCours,v.var2);
+   		codeG.addAff(v.var2,"R"+compteurRegistre);
+   		incrementeurRegistre();
+   		for(String va :v.var3){
+   			tableSymboles.setVariable(fonctionEnCours,va);
+   			codeG.addAff(va,"R"+compteurRegistre);
+   			incrementeurRegistre();
+   		}
+   }
    
-   def compile(Exprs exps)'''
-   «exps.exprS.compile »«FOR v :exps.exprS2», «v.compile»«ENDFOR»'''
+   def compile(Exprs exps){
+   		exps.exprS.compile();
+   		for(Expr v :exps.exprS2){
+   			 v.compile();
+   		}
+   }
    
-   def compile(Expr ex)'''
-   «IF ex.expA != null»«ex.expA.compile»«
-   ENDIF»«IF ex.expS != null»«ex.expS.compile»«
-   ENDIF»'''
+   def compile(Expr ex){
+   		if(ex.expA != null){
+   	 		ex.expA.compile();
+   		}
+  		if(ex.expS != null){
+   			ex.expS.compile();  
+   		}
+   		
+   	}
    
-   def compile(ExprSimple es)'''
-   		«IF es.vide != null»nil«
-   		ENDIF»«IF es.variable != null»«es.variable»«tableSymboles.setVariable(fonctionEnCours,es.variable)»«
-   		ENDIF»«IF es.symbole != null»«es.symbole»«tableSymboles.setSymbol(es.symbole)»«
-   		ENDIF»«IF es.cons != null»«es.cons.compile»«
-   		ENDIF»«IF es.liste != null»«es.liste.compile»«
-   		ENDIF»«IF es.hd != null»«es.hd.compile»«
-   		ENDIF»«IF es.tl != null»«es.tl.compile»«
-   		ENDIF»«IF es.symbolEx != null»«es.symbolEx.compile»«
-   		ENDIF»'''
+   def compile(ExprSimple es){
+   		if(es.vide != null){
+   			
+   		}
+   		if(es.variable != null){
+   			tableSymboles.setVariable(fonctionEnCours,es.variable);	
+   		}
+   		if(es.symbole != null){
+   			tableSymboles.setSymbol(es.symbole);
+   		}
+   		if(es.cons != null){
+   			es.cons.compile();
+   		}
+   		if(es.liste != null){
+   			es.liste.compile();
+   		}
+   		if(es.hd != null){
+   			es.hd.compile();
+   		}
+   		if(es.tl != null){
+   			es.tl.compile();
+   		}
+   		if(es.symbolEx != null){
+   			es.symbolEx.compile();
+   		}
+   }
    
-   def compile(Cons ce)'''
-   (cons «ce.le1.compile»)'''
+   def compile(Cons ce){
+   		ce.le1.compile();
+   }
    
-   def compile(Liste lie)'''
-   (list «lie.le2.compile»)'''
+   def compile(Liste lie){
+   		lie.le2.compile();
+   }
    
-   def compile(Hd h)'''
-   (hd «h.le3.compile»)'''
+   def compile(Hd h){
+   		h.le3.compile();
+   }
    
-   def compile(Tl t)'''
-   (tl «t.le4.compile»)'''
+   def compile(Tl t){
+   		t.le4.compile();
+   }
    
-   def compile(SymboleEx sex)'''
-   («sex.p» «sex.le5.compile»)'''
+   def compile(SymboleEx sex){
+   		sex.le5.compile();
+   }
    
-   def compile(ExprAnd ea)'''
-   «ea.expO.compile»«FOR v:ea.expO2» and «v.compile»«ENDFOR»'''
+   def compile(ExprAnd ea){
+   		ea.expO.compile();
+   		for(ExprOr v :ea.expO2){
+   			v.compile();
+   		}
+   }
    
-   def compile(ExprOr eo)'''
-   «eo.expN.compile»«FOR v:eo.expN2» or «v.compile»«ENDFOR»'''
+   def compile(ExprOr eo){
+   		eo.expN.compile();
+   		for(ExprNot v:eo.expN2){
+   			v.compile();
+   		}
+   }
    
-   def compile(ExprNot en)'''
-	«IF en.exprNotNot != null»«en.exprNotNot.compile»«ENDIF»
-	«IF en.exprNotDo != null»«en.exprNotDo.compile»«ENDIF»'''
+   def compile(ExprNot en){
+		if(en.exprNotNot != null){
+			en.exprNotNot.compile();
+		}
+		if(en.exprNotDo != null){
+			en.exprNotDo.compile();
+		}
+	}
 	
-   def compile(ExprNotNot enn)'''
-   not «enn.expEq1.compile»'''
+   def compile(ExprNotNot enn){
+   		enn.expEq1.compile();
+   }
    	
-   def compile(ExprNotDo end)'''
-   «end.expEq2.compile»'''
+   def compile(ExprNotDo end){
+   		end.expEq2.compile();
+   }
    
-   def compile(ExprEq eeq)'''
-	«(eeq.expS1.compile +  " =? " + eeq.expS2.compile) ?: ("(" + eeq.expR.compile + ")")»'''
+   def compile(ExprEq eeq){
+		eeq.expS1.compile();
+		eeq.expS2.compile(); 
+		eeq.expR.compile();
+   }
    
-   def compile(LExpr a)'''
-   «FOR v:a.expLe»«v.compile»«ENDFOR»''' 
+   def compile(LExpr a){
+   for(Expr v: a.expLe)
+   		v.compile(); 
+   }
 
    
 }

@@ -11,46 +11,40 @@ public class CodeGenere {
 	public CodeGenere(){
 		listQuadruplet = new ArrayList<Quadruplet>();
 	}
-
-	//Permet de créer un label
-	public void quadrupletLabel(String label){
-		Quadruplet qlabel = new Quadruplet(label,"","","");
-		listQuadruplet.add(qlabel);
-	}
 	
-	//Permet de creer le goto
-	public void addGoto(String label){
-		Quadruplet elemGoto = new Quadruplet("goto","",label,"");
-		listQuadruplet.add(elemGoto);
-	}
+	//Permet d'ajouter les nop
+	public void addNop(){
+		Quadruplet elem = new Quadruplet(new Operateur("nop"),"","","");
+		listQuadruplet.add(elem);
+	}	
 
 	//Permet d'ajouter le quadruplet d'un read
 	public void addRead(String elemRead){
-		Quadruplet elem = new Quadruplet("read","",elemRead,"");
+		Quadruplet elem = new Quadruplet(new Operateur("read"),elemRead,"","");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un write
 	public void addWrite(String elemWrite){
-		Quadruplet elem = new Quadruplet("write","",elemWrite,"");
+		Quadruplet elem = new Quadruplet(new Operateur("write"),"",elemWrite,"");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'une affectation
 	public void addAff(String elemG, String elemD){
-		Quadruplet elem = new Quadruplet("aff",elemG,elemD,"");
+		Quadruplet elem = new Quadruplet(new Operateur("Aff"),elemG,elemD,"");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un while
-	public void addWhile(String cond,String label){
-		Quadruplet elem = new Quadruplet("while "+cond,"",label,"");
+	public void addWhile(String cond){
+		Quadruplet elem = new Quadruplet(new Operateur("while",cond),"","","");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un for
-	public void addFor(String cond,String label){
-		Quadruplet elem = new Quadruplet("for "+cond,"",label,"");
+	public void addFor(String cond){
+		Quadruplet elem = new Quadruplet(new Operateur("for",cond),"","","");
 		listQuadruplet.add(elem);
 	}
 
@@ -63,8 +57,8 @@ public class CodeGenere {
 	 */
 
 	//Permet d'ajouter le quadruplet d'un for
-	public void addIf(String cond,String label1, String label2){
-		Quadruplet elem = new Quadruplet("if "+cond,"",label1,label2);
+	public void addIf(String cond){
+		Quadruplet elem = new Quadruplet(new Operateur("if"),"","","");
 		listQuadruplet.add(elem);
 	}	
 	

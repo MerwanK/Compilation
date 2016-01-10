@@ -2,16 +2,20 @@ package code3adresses;
 
 public class Quadruplet {
 	 
-	private String operateur;
+	private Operateur operateur;
 	private String element1;
 	private String element2;
 	private String element3;
 	
-	public Quadruplet(String op, String elem1, String elem2, String elem3){
+	public Quadruplet(Operateur op, String elem1, String elem2, String elem3){
 		operateur = op;
 		element1  = elem1;
 		element2  = elem2;
 		element3  = elem3;
+	}
+	
+	public void addCodeGenere(CodeGenere cg){
+		operateur.addCodeGenere(cg);
 	}
 	
 	public String toString(){
