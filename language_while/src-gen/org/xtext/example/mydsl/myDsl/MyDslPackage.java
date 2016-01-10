@@ -639,22 +639,22 @@ public interface MyDslPackage extends EPackage
   int EXPR = 14;
 
   /**
-   * The feature id for the '<em><b>Exp A</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__EXP_A = 0;
-
-  /**
    * The feature id for the '<em><b>Exp S</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__EXP_S = 1;
+  int EXPR__EXP_S = 0;
+
+  /**
+   * The feature id for the '<em><b>Exp A</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR__EXP_A = 1;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -1672,17 +1672,6 @@ public interface MyDslPackage extends EPackage
   EClass getExpr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expr#getExpA <em>Exp A</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp A</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Expr#getExpA()
-   * @see #getExpr()
-   * @generated
-   */
-  EReference getExpr_ExpA();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expr#getExpS <em>Exp S</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1692,6 +1681,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getExpr_ExpS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expr#getExpA <em>Exp A</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp A</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expr#getExpA()
+   * @see #getExpr()
+   * @generated
+   */
+  EReference getExpr_ExpA();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ExprSimple <em>Expr Simple</em>}'.
@@ -2555,20 +2555,20 @@ public interface MyDslPackage extends EPackage
     EClass EXPR = eINSTANCE.getExpr();
 
     /**
-     * The meta object literal for the '<em><b>Exp A</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR__EXP_A = eINSTANCE.getExpr_ExpA();
-
-    /**
      * The meta object literal for the '<em><b>Exp S</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference EXPR__EXP_S = eINSTANCE.getExpr_ExpS();
+
+    /**
+     * The meta object literal for the '<em><b>Exp A</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR__EXP_A = eINSTANCE.getExpr_ExpA();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprSimpleImpl <em>Expr Simple</em>}' class.

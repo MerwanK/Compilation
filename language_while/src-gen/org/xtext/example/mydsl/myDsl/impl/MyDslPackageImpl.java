@@ -802,7 +802,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpr_ExpA()
+  public EReference getExpr_ExpS()
   {
     return (EReference)exprEClass.getEStructuralFeatures().get(0);
   }
@@ -812,7 +812,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpr_ExpS()
+  public EReference getExpr_ExpA()
   {
     return (EReference)exprEClass.getEStructuralFeatures().get(1);
   }
@@ -1300,8 +1300,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(exprsEClass, EXPRS__EXPR_S2);
 
     exprEClass = createEClass(EXPR);
-    createEReference(exprEClass, EXPR__EXP_A);
     createEReference(exprEClass, EXPR__EXP_S);
+    createEReference(exprEClass, EXPR__EXP_A);
 
     exprSimpleEClass = createEClass(EXPR_SIMPLE);
     createEAttribute(exprSimpleEClass, EXPR_SIMPLE__VIDE);
@@ -1450,8 +1450,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getExprs_ExprS2(), this.getExpr(), null, "exprS2", null, 0, -1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpr_ExpA(), this.getExprAnd(), null, "expA", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpr_ExpS(), this.getExprSimple(), null, "expS", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpr_ExpA(), this.getExprAnd(), null, "expA", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprSimpleEClass, ExprSimple.class, "ExprSimple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExprSimple_Vide(), ecorePackage.getEString(), "vide", null, 0, 1, ExprSimple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

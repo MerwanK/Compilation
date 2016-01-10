@@ -34,15 +34,13 @@ import org.xtext.example.mydsl.myDsl.Tl
 import org.xtext.example.mydsl.myDsl.SymboleEx
 import org.xtext.example.mydsl.myDsl.ExprNotNot
 import org.xtext.example.mydsl.myDsl.ExprNotDo
-import org.eclipse.emf.ecore.util.EcoreUtil
-import java.io.FileWriter
-import java.io.BufferedWriter
-import org.eclipse.xtext.resource.XtextResourceSet
-import java.io.File
-import org.xtext.example.mydsl.MyDslStandaloneSetup
-import org.eclipse.emf.common.util.URI
-import java.util.List
-import java.util.LinkedList
+//import org.eclipse.emf.ecore.util.EcoreUtil
+//import java.io.FileWriter
+//import java.io.BufferedWriter
+//import org.eclipse.xtext.resource.XtextResourceSet
+//import java.io.File
+//import org.xtext.example.mydsl.MyDslStandaloneSetup
+//import org.eclipse.emf.common.util.URI
 import tableSymboles.SymbolsTable
 import code3adresses.CodeGenere
 
@@ -54,52 +52,36 @@ import code3adresses.CodeGenere
  */
 class MyDslGenerator implements IGenerator {
 	
-	private var String nomPP = "onEssayeVoir";
 	private SymbolsTable tableSymboles;
 	private String fonctionEnCours;
 	private CodeGenere codeG;
 	private int compteurRegistre;
-	private int compteurLabel;
+	private int compteurCond;
 	 
-	def public File generationCode3Adresses(String entree, String nameFile){
-	
-		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
-		val resourceSet = injector.getInstance(XtextResourceSet);
-		val uri = URI.createURI(entree);
-		val xtextResource = resourceSet.getResource(uri, true);
-		EcoreUtil.resolveAll(xtextResource);
-		val fstream = new FileWriter(nameFile);
- 		val buff = new BufferedWriter(fstream);
-  		for(p: xtextResource.allContents.toIterable.filter(Programme))
-			buff.write(p.compile().toString);
-  		buff.close();
-  		return new File(nameFile);
-	}
+//	def public File generationCode3Adresses(String entree, String nameFile){
+//	
+//		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
+//		val resourceSet = injector.getInstance(XtextResourceSet);
+//		val uri = URI.createURI(entree);
+//		val xtextResource = resourceSet.getResource(uri, true);
+//		EcoreUtil.resolveAll(xtextResource);
+//		val fstream = new FileWriter(nameFile);
+// 		val buff = new BufferedWriter(fstream);
+//  		for(p: xtextResource.allContents.toIterable.filter(Programme))
+//			buff.write(p.compile().toString);
+//  		buff.close();
+//  		return new File(nameFile);
+//	}
 	
 	//!!!!!!!!!!!!! NE PAS OUBLIEZ DE REMETTRE LES INIT DANS L'EXECUTABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	override void doGenerate(Resource resource, IFileSystemAccess fsa){
-		initTableSymbole();
-		initCodeGenere();
-		compteurLabel = 0;
+		tableSymboles = new SymbolsTable();
+		codeG = new CodeGenere();
+		compteurCond = 0;
 		compteurRegistre = 0;
 		for(p: resource.allContents.toIterable.filter(Programme)){
 			p.compile(); 
 		}
-	}
-		
-	def initTableSymbole(){
-		tableSymboles = new SymbolsTable();
-		return"";
-	}
-	
-	def initCodeGenere(){
-		codeG = new CodeGenere();
-		return"";
-	}
-	
-	def incrementeurLabel(){
-		compteurLabel = compteurLabel + 1;
-		return ""; 
 	}
 	
 	def incrementeurRegistre(){
@@ -112,8 +94,8 @@ class MyDslGenerator implements IGenerator {
    		for(Fonction f: p.fonct){
    			f.compile();
    		}
-   		tableSymboles.toString();
-   		codeG.toString();
+   		System.out.println(tableSymboles.toString());
+   		System.out.println(codeG.toString());
    }
 		
    def compile(Fonction f){ 
@@ -143,11 +125,12 @@ class MyDslGenerator implements IGenerator {
    }
    
    
-   def compile(Commandes cos){
+   def int compile(Commandes cos){
    		cos.com1.compile();
    		for(Commande v :cos.com2){  
    			v.compile();
    		}
+   		return 0;
    }
    
    def compile(Commande co){
@@ -178,35 +161,24 @@ class MyDslGenerator implements IGenerator {
    }
    
    def compile(While w){
+   		codeG.addWhile("expr"+compteurCond);
    		w.exp2.compile();
-   		codeG.quadrupletLabel("L"+compteurLabel);
-   		incrementeurLabel();
-   		codeG.addWhile("expToDo","L"+compteurLabel);
-   		incrementeurLabel();
+   		compteurCond++;
    		w.com3.compile();
-   		codeG.addGoto("L"+(compteurLabel-2));
    }
       
    def compile(For f){
-   f.exp3.compile();
-   codeG.quadrupletLabel("L"+compteurLabel);
-   incrementeurLabel();
-   codeG.addFor("expToDo","L"+compteurLabel);
-   incrementeurLabel();
-   f.com4.compile();
-   codeG.addGoto("L"+(compteurLabel-2));
+   		f.exp3.compile();
+   		codeG.addFor("expr"+compteurCond);
+   		compteurCond++;
+   		f.com4.compile();
    }
    
    def compile(If ifc){
    		ifc.exp4.compile();
-   		codeG.addIf("condToDo","L"+compteurLabel,"L"+(compteurLabel+1));
-   		codeG.quadrupletLabel("L"+compteurLabel);
+   		codeG.addIf("expr"+compteurCond);
    		ifc.com5.compile();
-   		codeG.addGoto("L"+compteurLabel);
-   		codeG.quadrupletLabel("L"+compteurLabel+1);
-   		incrementeurLabel();incrementeurLabel();
    		ifc.com6.compile();
-   		codeG.addGoto("L"+(compteurLabel-2));
    }
    
    def compile(Foreach fe){
@@ -233,13 +205,14 @@ class MyDslGenerator implements IGenerator {
    		}
    }
    
-   def compile(Expr ex){
+   def int compile(Expr ex){
    		if(ex.expA != null){
    	 		ex.expA.compile();
    		}
   		if(ex.expS != null){
    			ex.expS.compile();  
    		}
+   		return 0;
    		
    	}
    

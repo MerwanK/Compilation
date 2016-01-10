@@ -1384,17 +1384,17 @@ ruleExpr returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExprAccess().getExpAExprAndParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getExprAccess().getExpSExprSimpleParserRuleCall_0_0()); 
 	    }
-		lv_expA_0_0=ruleExprAnd		{
+		lv_expS_0_0=ruleExprSimple		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExprRule());
 	        }
        		set(
        			$current, 
-       			"expA",
-        		lv_expA_0_0, 
-        		"ExprAnd");
+       			"expS",
+        		lv_expS_0_0, 
+        		"ExprSimple");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1403,17 +1403,17 @@ ruleExpr returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExprAccess().getExpSExprSimpleParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getExprAccess().getExpAExprAndParserRuleCall_1_0()); 
 	    }
-		lv_expS_1_0=ruleExprSimple		{
+		lv_expA_1_0=ruleExprAnd		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExprRule());
 	        }
        		set(
        			$current, 
-       			"expS",
-        		lv_expS_1_0, 
-        		"ExprSimple");
+       			"expA",
+        		lv_expA_1_0, 
+        		"ExprAnd");
 	        afterParserOrEnumRuleCall();
 	    }
 
