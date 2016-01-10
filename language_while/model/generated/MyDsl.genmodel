@@ -70,8 +70,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exprs/exprS2"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Expr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expr/expS"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expr/expA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expr/expS"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ExprSimple">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ExprSimple/vide"/>

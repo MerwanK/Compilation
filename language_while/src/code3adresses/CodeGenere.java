@@ -1,6 +1,7 @@
 package code3adresses;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CodeGenere {
 
@@ -11,6 +12,11 @@ public class CodeGenere {
 	public CodeGenere(){
 		listQuadruplet = new ArrayList<Quadruplet>();
 	}
+	
+	public void addFonction(String nomFonction,CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("fonction",nomFonction,codeG),"","","");
+		listQuadruplet.add(elem);
+	}	
 	
 	//Permet d'ajouter les nop
 	public void addNop(){
@@ -37,14 +43,14 @@ public class CodeGenere {
 	}
 
 	//Permet d'ajouter le quadruplet d'un while
-	public void addWhile(String cond){
-		Quadruplet elem = new Quadruplet(new Operateur("while",cond),"","","");
+	public void addWhile(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("while",cond,codeG),"","","");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un for
-	public void addFor(String cond){
-		Quadruplet elem = new Quadruplet(new Operateur("for",cond),"","","");
+	public void addFor(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("for",cond,codeG),"","","");
 		listQuadruplet.add(elem);
 	}
 
@@ -63,7 +69,12 @@ public class CodeGenere {
 	}	
 	
 	public String toString(){
-		return listQuadruplet.toString();
+		String res = "";
+		Iterator<Quadruplet> it = listQuadruplet.iterator();
+		while(it.hasNext()){
+			res = res + it.next().toString() + "\n";
+		}
+		return res;
 	}
 
 }

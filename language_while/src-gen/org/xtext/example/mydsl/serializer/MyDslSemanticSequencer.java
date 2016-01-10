@@ -276,7 +276,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (expS=ExprSimple | expA=ExprAnd)
+	 *     (expA=ExprAnd | expS=ExprSimple)
 	 */
 	protected void sequence_Expr(EObject context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

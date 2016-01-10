@@ -2879,35 +2879,21 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Expr__Alternatives"
-    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:926:1: rule__Expr__Alternatives : ( ( ( rule__Expr__ExpSAssignment_0 ) ) | ( ( rule__Expr__ExpAAssignment_1 ) ) );
+    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:926:1: rule__Expr__Alternatives : ( ( ( rule__Expr__ExpAAssignment_0 ) ) | ( ( rule__Expr__ExpSAssignment_1 ) ) );
     public final void rule__Expr__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:930:1: ( ( ( rule__Expr__ExpSAssignment_0 ) ) | ( ( rule__Expr__ExpAAssignment_1 ) ) )
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:930:1: ( ( ( rule__Expr__ExpAAssignment_0 ) ) | ( ( rule__Expr__ExpSAssignment_1 ) ) )
             int alt4=2;
             switch ( input.LA(1) ) {
-            case 47:
+            case 44:
                 {
-                int LA4_1 = input.LA(2);
-
-                if ( (synpred8_InternalMyDsl()) ) {
-                    alt4=1;
-                }
-                else if ( (true) ) {
-                    alt4=2;
-                }
-                else {
-                    if (state.backtracking>0) {state.failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 4, 1, input);
-
-                    throw nvae;
-                }
+                alt4=1;
                 }
                 break;
-            case RULE_VAR:
+            case 47:
                 {
                 int LA4_2 = input.LA(2);
 
@@ -2926,7 +2912,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case RULE_SYM:
+            case RULE_VAR:
                 {
                 int LA4_3 = input.LA(2);
 
@@ -2945,7 +2931,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case RULE_PARAG:
+            case RULE_SYM:
                 {
                 int LA4_4 = input.LA(2);
 
@@ -2964,9 +2950,23 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 44:
+            case RULE_PARAG:
                 {
-                alt4=2;
+                int LA4_5 = input.LA(2);
+
+                if ( (synpred8_InternalMyDsl()) ) {
+                    alt4=1;
+                }
+                else if ( (true) ) {
+                    alt4=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return ;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 4, 5, input);
+
+                    throw nvae;
+                }
                 }
                 break;
             default:
@@ -2979,19 +2979,19 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
             switch (alt4) {
                 case 1 :
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpSAssignment_0 ) )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpAAssignment_0 ) )
                     {
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpSAssignment_0 ) )
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:932:1: ( rule__Expr__ExpSAssignment_0 )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpAAssignment_0 ) )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:932:1: ( rule__Expr__ExpAAssignment_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getExprAccess().getExpSAssignment_0()); 
+                       before(grammarAccess.getExprAccess().getExpAAssignment_0()); 
                     }
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:1: ( rule__Expr__ExpSAssignment_0 )
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:2: rule__Expr__ExpSAssignment_0
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:1: ( rule__Expr__ExpAAssignment_0 )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:2: rule__Expr__ExpAAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Expr__ExpSAssignment_0_in_rule__Expr__Alternatives1957);
-                    rule__Expr__ExpSAssignment_0();
+                    pushFollow(FOLLOW_rule__Expr__ExpAAssignment_0_in_rule__Expr__Alternatives1957);
+                    rule__Expr__ExpAAssignment_0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2999,7 +2999,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getExprAccess().getExpSAssignment_0()); 
+                       after(grammarAccess.getExprAccess().getExpAAssignment_0()); 
                     }
 
                     }
@@ -3008,19 +3008,19 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:937:6: ( ( rule__Expr__ExpAAssignment_1 ) )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:937:6: ( ( rule__Expr__ExpSAssignment_1 ) )
                     {
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:937:6: ( ( rule__Expr__ExpAAssignment_1 ) )
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:938:1: ( rule__Expr__ExpAAssignment_1 )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:937:6: ( ( rule__Expr__ExpSAssignment_1 ) )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:938:1: ( rule__Expr__ExpSAssignment_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getExprAccess().getExpAAssignment_1()); 
+                       before(grammarAccess.getExprAccess().getExpSAssignment_1()); 
                     }
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:939:1: ( rule__Expr__ExpAAssignment_1 )
-                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:939:2: rule__Expr__ExpAAssignment_1
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:939:1: ( rule__Expr__ExpSAssignment_1 )
+                    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:939:2: rule__Expr__ExpSAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__Expr__ExpAAssignment_1_in_rule__Expr__Alternatives1975);
-                    rule__Expr__ExpAAssignment_1();
+                    pushFollow(FOLLOW_rule__Expr__ExpSAssignment_1_in_rule__Expr__Alternatives1975);
+                    rule__Expr__ExpSAssignment_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -3028,7 +3028,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getExprAccess().getExpAAssignment_1()); 
+                       after(grammarAccess.getExprAccess().getExpSAssignment_1()); 
                     }
 
                     }
@@ -16573,74 +16573,29 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Exprs__ExprS2Assignment_1_1"
 
 
-    // $ANTLR start "rule__Expr__ExpSAssignment_0"
-    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5860:1: rule__Expr__ExpSAssignment_0 : ( ruleExprSimple ) ;
-    public final void rule__Expr__ExpSAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Expr__ExpAAssignment_0"
+    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5860:1: rule__Expr__ExpAAssignment_0 : ( ruleExprAnd ) ;
+    public final void rule__Expr__ExpAAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5864:1: ( ( ruleExprSimple ) )
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5865:1: ( ruleExprSimple )
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5864:1: ( ( ruleExprAnd ) )
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5865:1: ( ruleExprAnd )
             {
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5865:1: ( ruleExprSimple )
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5866:1: ruleExprSimple
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprAccess().getExpSExprSimpleParserRuleCall_0_0()); 
-            }
-            pushFollow(FOLLOW_ruleExprSimple_in_rule__Expr__ExpSAssignment_011787);
-            ruleExprSimple();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprAccess().getExpSExprSimpleParserRuleCall_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Expr__ExpSAssignment_0"
-
-
-    // $ANTLR start "rule__Expr__ExpAAssignment_1"
-    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5875:1: rule__Expr__ExpAAssignment_1 : ( ruleExprAnd ) ;
-    public final void rule__Expr__ExpAAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5879:1: ( ( ruleExprAnd ) )
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5880:1: ( ruleExprAnd )
-            {
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5880:1: ( ruleExprAnd )
-            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5881:1: ruleExprAnd
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5865:1: ( ruleExprAnd )
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5866:1: ruleExprAnd
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprAccess().getExpAExprAndParserRuleCall_1_0()); 
+               before(grammarAccess.getExprAccess().getExpAExprAndParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleExprAnd_in_rule__Expr__ExpAAssignment_111818);
+            pushFollow(FOLLOW_ruleExprAnd_in_rule__Expr__ExpAAssignment_011787);
             ruleExprAnd();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprAccess().getExpAExprAndParserRuleCall_1_0()); 
+               after(grammarAccess.getExprAccess().getExpAExprAndParserRuleCall_0_0()); 
             }
 
             }
@@ -16660,7 +16615,52 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Expr__ExpAAssignment_1"
+    // $ANTLR end "rule__Expr__ExpAAssignment_0"
+
+
+    // $ANTLR start "rule__Expr__ExpSAssignment_1"
+    // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5875:1: rule__Expr__ExpSAssignment_1 : ( ruleExprSimple ) ;
+    public final void rule__Expr__ExpSAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5879:1: ( ( ruleExprSimple ) )
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5880:1: ( ruleExprSimple )
+            {
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5880:1: ( ruleExprSimple )
+            // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:5881:1: ruleExprSimple
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getExprAccess().getExpSExprSimpleParserRuleCall_1_0()); 
+            }
+            pushFollow(FOLLOW_ruleExprSimple_in_rule__Expr__ExpSAssignment_111818);
+            ruleExprSimple();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getExprAccess().getExpSExprSimpleParserRuleCall_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Expr__ExpSAssignment_1"
 
 
     // $ANTLR start "rule__ExprSimple__VideAssignment_0_1"
@@ -17830,20 +17830,20 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred8_InternalMyDsl
     public final void synpred8_InternalMyDsl_fragment() throws RecognitionException {   
-        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( ( rule__Expr__ExpSAssignment_0 ) ) )
-        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpSAssignment_0 ) )
+        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( ( rule__Expr__ExpAAssignment_0 ) ) )
+        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpAAssignment_0 ) )
         {
-        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpSAssignment_0 ) )
-        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:932:1: ( rule__Expr__ExpSAssignment_0 )
+        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:931:1: ( ( rule__Expr__ExpAAssignment_0 ) )
+        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:932:1: ( rule__Expr__ExpAAssignment_0 )
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getExprAccess().getExpSAssignment_0()); 
+           before(grammarAccess.getExprAccess().getExpAAssignment_0()); 
         }
-        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:1: ( rule__Expr__ExpSAssignment_0 )
-        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:2: rule__Expr__ExpSAssignment_0
+        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:1: ( rule__Expr__ExpAAssignment_0 )
+        // ../language_while.ui/src-gen/org/xtext/example/mydsl/ui/contentassist/antlr/internal/InternalMyDsl.g:933:2: rule__Expr__ExpAAssignment_0
         {
-        pushFollow(FOLLOW_rule__Expr__ExpSAssignment_0_in_synpred8_InternalMyDsl1957);
-        rule__Expr__ExpSAssignment_0();
+        pushFollow(FOLLOW_rule__Expr__ExpAAssignment_0_in_synpred8_InternalMyDsl1957);
+        rule__Expr__ExpAAssignment_0();
 
         state._fsp--;
         if (state.failed) return ;
@@ -18197,8 +18197,8 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__Commande__ForCAssignment_3_in_rule__Commande__Alternatives1888 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Commande__IfCAssignment_4_in_rule__Commande__Alternatives1906 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Commande__ForeachCAssignment_5_in_rule__Commande__Alternatives1924 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expr__ExpSAssignment_0_in_rule__Expr__Alternatives1957 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expr__ExpAAssignment_1_in_rule__Expr__Alternatives1975 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expr__ExpAAssignment_0_in_rule__Expr__Alternatives1957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expr__ExpSAssignment_1_in_rule__Expr__Alternatives1975 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExprSimple__Group_0__0_in_rule__ExprSimple__Alternatives2008 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExprSimple__VariableAssignment_1_in_rule__ExprSimple__Alternatives2026 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExprSimple__SymboleAssignment_2_in_rule__ExprSimple__Alternatives2044 = new BitSet(new long[]{0x0000000000000002L});
@@ -18619,8 +18619,8 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_VAR_in_rule__Vars__Var3Assignment_1_111694 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpr_in_rule__Exprs__ExprSAssignment_011725 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpr_in_rule__Exprs__ExprS2Assignment_1_111756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExprSimple_in_rule__Expr__ExpSAssignment_011787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExprAnd_in_rule__Expr__ExpAAssignment_111818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExprAnd_in_rule__Expr__ExpAAssignment_011787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExprSimple_in_rule__Expr__ExpSAssignment_111818 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_47_in_rule__ExprSimple__VideAssignment_0_111854 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_VAR_in_rule__ExprSimple__VariableAssignment_111893 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_SYM_in_rule__ExprSimple__SymboleAssignment_211924 = new BitSet(new long[]{0x0000000000000002L});
@@ -18647,7 +18647,7 @@ public class InternalMyDslParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleExprSimple_in_rule__ExprEq__ExpS1Assignment_0_012575 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExprSimple_in_rule__ExprEq__ExpS2Assignment_0_212606 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpr_in_rule__ExprEq__ExpRAssignment_1_112637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expr__ExpSAssignment_0_in_synpred8_InternalMyDsl1957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expr__ExpAAssignment_0_in_synpred8_InternalMyDsl1957 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExprEq__Group_0__0_in_synpred17_InternalMyDsl2218 = new BitSet(new long[]{0x0000000000000002L});
 
 }

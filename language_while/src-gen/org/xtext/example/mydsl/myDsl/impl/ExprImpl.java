@@ -23,8 +23,8 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpS <em>Exp S</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpA <em>Exp A</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExpS <em>Exp S</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,16 +32,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  */
 public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
 {
-  /**
-   * The cached value of the '{@link #getExpS() <em>Exp S</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpS()
-   * @generated
-   * @ordered
-   */
-  protected ExprSimple expS;
-
   /**
    * The cached value of the '{@link #getExpA() <em>Exp A</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -51,6 +41,16 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected ExprAnd expA;
+
+  /**
+   * The cached value of the '{@link #getExpS() <em>Exp S</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpS()
+   * @generated
+   * @ordered
+   */
+  protected ExprSimple expS;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,54 +71,6 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.EXPR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExprSimple getExpS()
-  {
-    return expS;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpS(ExprSimple newExpS, NotificationChain msgs)
-  {
-    ExprSimple oldExpS = expS;
-    expS = newExpS;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, oldExpS, newExpS);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExpS(ExprSimple newExpS)
-  {
-    if (newExpS != expS)
-    {
-      NotificationChain msgs = null;
-      if (expS != null)
-        msgs = ((InternalEObject)expS).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
-      if (newExpS != null)
-        msgs = ((InternalEObject)newExpS).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
-      msgs = basicSetExpS(newExpS, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, newExpS, newExpS));
   }
 
   /**
@@ -174,15 +126,63 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public ExprSimple getExpS()
+  {
+    return expS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpS(ExprSimple newExpS, NotificationChain msgs)
+  {
+    ExprSimple oldExpS = expS;
+    expS = newExpS;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, oldExpS, newExpS);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpS(ExprSimple newExpS)
+  {
+    if (newExpS != expS)
+    {
+      NotificationChain msgs = null;
+      if (expS != null)
+        msgs = ((InternalEObject)expS).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
+      if (newExpS != null)
+        msgs = ((InternalEObject)newExpS).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXP_S, null, msgs);
+      msgs = basicSetExpS(newExpS, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXP_S, newExpS, newExpS));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_S:
-        return basicSetExpS(null, msgs);
       case MyDslPackage.EXPR__EXP_A:
         return basicSetExpA(null, msgs);
+      case MyDslPackage.EXPR__EXP_S:
+        return basicSetExpS(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +197,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_S:
-        return getExpS();
       case MyDslPackage.EXPR__EXP_A:
         return getExpA();
+      case MyDslPackage.EXPR__EXP_S:
+        return getExpS();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +215,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_S:
-        setExpS((ExprSimple)newValue);
-        return;
       case MyDslPackage.EXPR__EXP_A:
         setExpA((ExprAnd)newValue);
+        return;
+      case MyDslPackage.EXPR__EXP_S:
+        setExpS((ExprSimple)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +235,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_S:
-        setExpS((ExprSimple)null);
-        return;
       case MyDslPackage.EXPR__EXP_A:
         setExpA((ExprAnd)null);
+        return;
+      case MyDslPackage.EXPR__EXP_S:
+        setExpS((ExprSimple)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,10 +255,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case MyDslPackage.EXPR__EXP_S:
-        return expS != null;
       case MyDslPackage.EXPR__EXP_A:
         return expA != null;
+      case MyDslPackage.EXPR__EXP_S:
+        return expS != null;
     }
     return super.eIsSet(featureID);
   }

@@ -55,6 +55,7 @@ class MyDslGenerator implements IGenerator {
 	private SymbolsTable tableSymboles;
 	private String fonctionEnCours;
 	private CodeGenere codeG;
+	private CodeGenere codeFonction;
 	private int compteurRegistre;
 	private int compteurCond;
 	 
@@ -80,8 +81,9 @@ class MyDslGenerator implements IGenerator {
 		compteurCond = 0;
 		compteurRegistre = 0;
 		for(p: resource.allContents.toIterable.filter(Programme)){
-			p.compile(); 
+			fsa.generateFile("sketuve.xxx",p.compile()); 
 		}
+  		System.out.println(codeG.toString());
 	}
 	
 	def incrementeurRegistre(){
@@ -94,107 +96,113 @@ class MyDslGenerator implements IGenerator {
    		for(Fonction f: p.fonct){
    			f.compile();
    		}
-   		System.out.println(tableSymboles.toString());
-   		System.out.println(codeG.toString());
+   		return codeG.toString();
    }
+   
+
+	
 		
    def compile(Fonction f){ 
 		fonctionEnCours = f.symbole;
 		tableSymboles.putFunction(f.symbole);
-		f.in.compile();
-		f.com.compile();
-		f.out.compile();
+		codeFonction = new CodeGenere();
+		f.in.compile(codeFonction);
+		f.com.compile(codeFonction);
+		f.out.compile(codeFonction);
+		codeG.addFonction(f.symbole,codeFonction);
 	}	
    
-   def compile(Input i){
+   def compile(Input i, CodeGenere code){
    		tableSymboles.setInVariable(fonctionEnCours,i.var1);
-   		codeG.addRead(i.var1);
+   		code.addRead(i.var1);
    		for(String v :i.var2){
     		tableSymboles.setInVariable(fonctionEnCours,v);
-    		codeG.addRead(v);
+    		code.addRead(v);
    		}
    }
    
-   def compile(Output o){
+   def compile(Output o, CodeGenere code){
    		tableSymboles.setOutVariable(fonctionEnCours,o.var1);
-   		codeG.addWrite(o.var1);
+   		code.addWrite(o.var1);
    		for(String v :o.var2){
    			tableSymboles.setOutVariable(fonctionEnCours,v);
-   			codeG.addWrite(v);	
+   			code.addWrite(v);	
    		}
    }
    
    
-   def int compile(Commandes cos){
-   		cos.com1.compile();
+   def int compile(Commandes cos, CodeGenere code){
+   		cos.com1.compile(code);
    		for(Commande v :cos.com2){  
-   			v.compile();
+   			v.compile(code);
    		}
    		return 0;
    }
    
-   def compile(Commande co){
+   def compile(Commande co, CodeGenere code){
    		if(co.nop != null){
-   			codeG.addNop();
+   			code.addNop();
    		}
    		if(co.affectVar != null){
-   			co.affectVar.compile();
+   			co.affectVar.compile(code);
    		}
    		if(co.whileC != null){
-   			co.whileC.compile();	
+   			co.whileC.compile(code);	
    		}
    		if(co.forC != null){
-   			co.forC.compile();
+   			co.forC.compile(code);
    		}
    		if(co.ifC != null){
-   			co.ifC.compile();
+   			co.ifC.compile(code);
    		}
    		if(co.foreachC != null){
-   			co.foreachC.compile();
+   			co.foreachC.compile(code);
    		}	
    	}
    
      
-   def compile(AffectVar av){
+   def compile(AffectVar av, CodeGenere code){///////////////!!!!!!!!!!! A modif
   	 	av.var1.compile();
   	 	av.exp.compile();
+  	 	code.addAff("A","B");//truc bidon
    }
    
-   def compile(While w){
-   		codeG.addWhile("expr"+compteurCond);
+   def compile(While w, CodeGenere code){ //////////!!!!!!!!!!! A modifier
+   		val CodeGenere codeWhile = new CodeGenere(); 
    		w.exp2.compile();
+   		w.com3.compile(codeWhile);
+   		code.addWhile("expr"+compteurCond,codeWhile);
    		compteurCond++;
-   		w.com3.compile();
    }
       
-   def compile(For f){
+   def compile(For f, CodeGenere code){ ////////////!!!!!!!!!!!! A modif
+   		val CodeGenere codeFor = new CodeGenere();
    		f.exp3.compile();
-   		codeG.addFor("expr"+compteurCond);
+   		f.com4.compile(codeFor);
+   		code.addFor("expr"+compteurCond,codeFonction);
    		compteurCond++;
-   		f.com4.compile();
    }
    
-   def compile(If ifc){
+   def compile(If ifc, CodeGenere code){/////////////!!!!!!!!!!!!!!!!!!!!!!!!!! Muavais codage du IF
+   		val CodeGenere codeIf = new CodeGenere();
    		ifc.exp4.compile();
-   		codeG.addIf("expr"+compteurCond);
-   		ifc.com5.compile();
-   		ifc.com6.compile();
+   		code.addIf("expr"+compteurCond);
+   		ifc.com5.compile(codeIf);
+   		ifc.com6.compile(codeIf);
    }
    
-   def compile(Foreach fe){
+   def compile(Foreach fe, CodeGenere code){/////////////!!!!!!!!!!!! La on fait rien du tout
+   		val CodeGenere codeForEach = new CodeGenere;
    		fe.exp5.compile();
    		fe.exp6.compile();
-   		fe.com7.compile();
+   		fe.com7.compile(codeForEach);
    }
    
    def compile(Vars v){
    		tableSymboles.setVariable(fonctionEnCours,v.var2);
-   		codeG.addAff(v.var2,"R"+compteurRegistre);
    		incrementeurRegistre();
    		for(String va :v.var3){
    			tableSymboles.setVariable(fonctionEnCours,va);
-   			codeG.addAff(va,"R"+compteurRegistre);
-   			incrementeurRegistre();
    		}
    }
    

@@ -20,7 +20,7 @@ public class Quadruplet {
 	
 	public String toString(){
 		String res = "";
-		res = "<" + operateur + ", " + element1 + ", " + element2 + ", " + element3 + ">\n";
+		res = "<" + operateur.toString() + ", " + element1 + ", " + element2 + ", " + element3 + ">";
 		return res;
 	}
 	

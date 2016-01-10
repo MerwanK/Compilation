@@ -12,10 +12,10 @@ public class Operateur {
 		codeGenere = null;
 	}
 	
-	public Operateur(String op, String nomOp){
+	public Operateur(String op, String nomOp,CodeGenere codeG){
 		operateur = op;
 		nom = nomOp;
-		codeGenere = new CodeGenere();
+		codeGenere = codeG;
 	}
 	
 	public void addCodeGenere(CodeGenere cg){
@@ -24,7 +24,11 @@ public class Operateur {
 	
 	public String toString(){
 		String res = "";
-		res = "<" + operateur + ", " + nom + ", " + codeGenere.toString() + ">";
+		if(codeGenere != null)
+			res = "(" + operateur + ", " + nom + ")\n"+ "sous_code:\n"+codeGenere.toString();
+		else
+			res = "(" + operateur + ",_,_" + ")";
+		
 		return res;
 	}
 

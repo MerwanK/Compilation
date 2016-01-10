@@ -83,9 +83,9 @@
         eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expS" eType="#//ExprSimple"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expA" eType="#//ExprAnd"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expS" eType="#//ExprSimple"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExprSimple">

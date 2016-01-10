@@ -704,29 +704,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cExpSAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cExpSExprSimpleParserRuleCall_0_0 = (RuleCall)cExpSAssignment_0.eContents().get(0);
-		private final Assignment cExpAAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cExpAExprAndParserRuleCall_1_0 = (RuleCall)cExpAAssignment_1.eContents().get(0);
+		private final Assignment cExpAAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cExpAExprAndParserRuleCall_0_0 = (RuleCall)cExpAAssignment_0.eContents().get(0);
+		private final Assignment cExpSAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cExpSExprSimpleParserRuleCall_1_0 = (RuleCall)cExpSAssignment_1.eContents().get(0);
 		
 		//Expr:
-		//	expS=ExprSimple | expA=ExprAnd;
+		//	expA=ExprAnd | expS=ExprSimple;
 		@Override public ParserRule getRule() { return rule; }
 
-		//expS=ExprSimple | expA=ExprAnd
+		//expA=ExprAnd | expS=ExprSimple
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//expS=ExprSimple
-		public Assignment getExpSAssignment_0() { return cExpSAssignment_0; }
-
-		//ExprSimple
-		public RuleCall getExpSExprSimpleParserRuleCall_0_0() { return cExpSExprSimpleParserRuleCall_0_0; }
-
 		//expA=ExprAnd
-		public Assignment getExpAAssignment_1() { return cExpAAssignment_1; }
+		public Assignment getExpAAssignment_0() { return cExpAAssignment_0; }
 
 		//ExprAnd
-		public RuleCall getExpAExprAndParserRuleCall_1_0() { return cExpAExprAndParserRuleCall_1_0; }
+		public RuleCall getExpAExprAndParserRuleCall_0_0() { return cExpAExprAndParserRuleCall_0_0; }
+
+		//expS=ExprSimple
+		public Assignment getExpSAssignment_1() { return cExpSAssignment_1; }
+
+		//ExprSimple
+		public RuleCall getExpSExprSimpleParserRuleCall_1_0() { return cExpSExprSimpleParserRuleCall_1_0; }
 	}
 
 	public class ExprSimpleElements extends AbstractParserRuleElementFinder {
@@ -1521,7 +1521,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Expr:
-	//	expS=ExprSimple | expA=ExprAnd;
+	//	expA=ExprAnd | expS=ExprSimple;
 	public ExprElements getExprAccess() {
 		return pExpr;
 	}

@@ -65,7 +65,7 @@ Exprs :
 	exprS=Expr (','exprS2+=Expr)*;
 
 Expr : 
-	expS=ExprSimple|expA=ExprAnd;
+	expA=ExprAnd|expS=ExprSimple;
 	
 ExprSimple :
 	{ExprSimple}
