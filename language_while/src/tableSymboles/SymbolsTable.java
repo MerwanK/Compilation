@@ -70,6 +70,13 @@ public class SymbolsTable {
 		return tableFunctions.get(nameFunction);
 	}
 
+	public String getVarLocal(String key, String nomFonction){
+		return tableFunctions.get(nomFonction).getValueLocalVars(key);
+	}
+
+	public String getVarGlobal(String key){
+		return tableSymbols.get(key);
+	}
 	// A voir si nécessaire de pouvoir changer de nom de fonction ?? (pareil pour var et symb)
 
 	/**

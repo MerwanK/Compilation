@@ -177,7 +177,7 @@ class MyDslGenerator implements IGenerator {
    def compile(If ifc, CodeGenere code){/////////////!!!!!!!!!!!!!!!!!!!!!!!!!! Muavais codage du IF
    		val CodeGenere codeIf = new CodeGenere();
    		ifc.exp4.compile();
-   		code.addIf("expr"+compteurCond);
+   		code.addIf("expr"+compteurCond,codeFonction);
    		ifc.com5.compile(codeIf);
    		ifc.com6.compile(codeIf);
    }

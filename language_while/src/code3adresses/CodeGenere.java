@@ -12,16 +12,16 @@ public class CodeGenere {
 	public CodeGenere(){
 		listQuadruplet = new ArrayList<Quadruplet>();
 	}
-	
+
 	public List<Quadruplet> getListQuadruplet(){
 		return listQuadruplet;
 	}
-	
+
 	public void addFonction(String nomFonction,CodeGenere codeG){
 		Quadruplet elem = new Quadruplet(new Operateur("fonction",nomFonction,codeG),"","","");
 		listQuadruplet.add(elem);
 	}	
-	
+
 	//Permet d'ajouter les nop
 	public void addNop(){
 		Quadruplet elem = new Quadruplet(new Operateur("nop"),"","","");
@@ -58,20 +58,25 @@ public class CodeGenere {
 		listQuadruplet.add(elem);
 	}
 
-	/*
+
 	//Permet d'ajouter le quadruplet d'un foreach
-	public void addForeach(String cond,String label1, String label2){
-		Quadruplet elem = new Quadruplet("foreach",cond,label1,label2);
+	public void addForeach(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("foreach",cond,codeG),"","","");
 		listQuadruplet.add(elem);
 	}
-	 */
 
-	//Permet d'ajouter le quadruplet d'un for
-	public void addIf(String cond){
-		Quadruplet elem = new Quadruplet(new Operateur("if"),"","","");
+	//Permet d'ajouter le quadruplet d'un if
+	public void addIf(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("if",cond,codeG),"","","");
 		listQuadruplet.add(elem);
 	}	
-		
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addElse(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
+		listQuadruplet.add(elem);
+	}
+
 	public String toString(){
 		String res = "";
 		Iterator<Quadruplet> it = listQuadruplet.iterator();
