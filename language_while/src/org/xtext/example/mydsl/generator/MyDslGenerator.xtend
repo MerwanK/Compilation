@@ -34,13 +34,10 @@ import org.xtext.example.mydsl.myDsl.Tl
 import org.xtext.example.mydsl.myDsl.SymboleEx
 import org.xtext.example.mydsl.myDsl.ExprNotNot
 import org.xtext.example.mydsl.myDsl.ExprNotDo
-//import org.eclipse.emf.ecore.util.EcoreUtil
-//import java.io.FileWriter
-//import java.io.BufferedWriter
-//import org.eclipse.xtext.resource.XtextResourceSet
-//import java.io.File
-//import org.xtext.example.mydsl.MyDslStandaloneSetup
-//import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.xtext.resource.XtextResourceSet
+import org.xtext.example.mydsl.MyDslStandaloneSetup
+import org.eclipse.emf.common.util.URI
 import tableSymboles.SymbolsTable
 import code3adresses.CodeGenere
 
@@ -59,20 +56,20 @@ class MyDslGenerator implements IGenerator {
 	private int compteurRegistre;
 	private int compteurCond;
 	 
-//	def public File generationCode3Adresses(String entree, String nameFile){
-//	
-//		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
-//		val resourceSet = injector.getInstance(XtextResourceSet);
-//		val uri = URI.createURI(entree);
-//		val xtextResource = resourceSet.getResource(uri, true);
-//		EcoreUtil.resolveAll(xtextResource);
-//		val fstream = new FileWriter(nameFile);
-// 		val buff = new BufferedWriter(fstream);
-//  		for(p: xtextResource.allContents.toIterable.filter(Programme))
-//			buff.write(p.compile().toString);
-//  		buff.close();
-//  		return new File(nameFile);
-//	}
+	def public CodeGenere generationCode3Adresses(String entree){
+		tableSymboles = new SymbolsTable();
+		codeG = new CodeGenere();
+		compteurCond = 0;
+		compteurRegistre = 0;
+		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
+		val resourceSet = injector.getInstance(XtextResourceSet);
+		val uri = URI.createURI(entree);
+		val xtextResource = resourceSet.getResource(uri, true);
+		EcoreUtil.resolveAll(xtextResource);
+  		for(p: xtextResource.allContents.toIterable.filter(Programme))
+			p.compile();
+  		return codeG;
+	}
 	
 	//!!!!!!!!!!!!! NE PAS OUBLIEZ DE REMETTRE LES INIT DANS L'EXECUTABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	override void doGenerate(Resource resource, IFileSystemAccess fsa){
@@ -91,7 +88,6 @@ class MyDslGenerator implements IGenerator {
 		return ""; 
 	}
 	
-	
 	def compile(Programme p){
    		for(Fonction f: p.fonct){
    			f.compile();
@@ -99,9 +95,6 @@ class MyDslGenerator implements IGenerator {
    		return codeG.toString();
    }
    
-
-	
-		
    def compile(Fonction f){ 
 		fonctionEnCours = f.symbole;
 		tableSymboles.putFunction(f.symbole);
@@ -129,7 +122,6 @@ class MyDslGenerator implements IGenerator {
    			code.addWrite(v);	
    		}
    }
-   
    
    def int compile(Commandes cos, CodeGenere code){
    		cos.com1.compile(code);
@@ -160,7 +152,6 @@ class MyDslGenerator implements IGenerator {
    		}	
    	}
    
-     
    def compile(AffectVar av, CodeGenere code){///////////////!!!!!!!!!!! A modif
   	 	av.var1.compile();
   	 	av.exp.compile();

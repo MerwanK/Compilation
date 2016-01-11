@@ -22,7 +22,7 @@ public class TroisAddVersPython {
 		codeW.addNop();
 		codeF.addWhile("expr",codeW);
 		codeF.addWrite("B");
-		code.addFonction("f1", codeF);
+		code.addFonction("f1", codeF);        
 
 		System.out.println(codePython(code));
 	}
@@ -60,7 +60,7 @@ public class TroisAddVersPython {
 						 Iterator<Quadruplet> it = listQuadruplet.iterator();
 						 Quadruplet currentQuadruplet = it.next();	
 						 while(currentQuadruplet.getOperateur().getOperateur()=="read"){
-							res += currentQuadruplet.getElement1();
+							res += "ArbreBin " +currentQuadruplet.getElement1();
 							Quadruplet nextQuadruplet = it.next();	
 							if (nextQuadruplet.getOperateur().getOperateur()=="read"){
 								res +=", ";
