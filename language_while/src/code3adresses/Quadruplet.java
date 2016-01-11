@@ -34,7 +34,9 @@ public class Quadruplet {
 		return element3;
 	}
 
-
+	public boolean isSousCode(){
+		return operateur.isSousCode();
+	}
 
 	public String toString(){
 		String res = "";

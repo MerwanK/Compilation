@@ -13,6 +13,10 @@ public class CodeGenere {
 		listQuadruplet = new ArrayList<Quadruplet>();
 	}
 	
+	public List<Quadruplet> getListQuadruplet(){
+		return listQuadruplet;
+	}
+	
 	public void addFonction(String nomFonction,CodeGenere codeG){
 		Quadruplet elem = new Quadruplet(new Operateur("fonction",nomFonction,codeG),"","","");
 		listQuadruplet.add(elem);
@@ -67,8 +71,7 @@ public class CodeGenere {
 		Quadruplet elem = new Quadruplet(new Operateur("if"),"","","");
 		listQuadruplet.add(elem);
 	}	
-	
-	
+		
 	public String toString(){
 		String res = "";
 		Iterator<Quadruplet> it = listQuadruplet.iterator();

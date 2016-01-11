@@ -17,11 +17,7 @@ public class Operateur {
 		nom = nomOp;
 		codeGenere = codeG;
 	}
-	
-	public void addCodeGenere(CodeGenere cg){
-		codeGenere = cg; 
-	}
-	
+		
 	public String getOperateur(){
 		return operateur;
 	}
@@ -33,7 +29,14 @@ public class Operateur {
 	public CodeGenere getCodeGenere(){
 		return codeGenere;
 	}
+
+	public boolean isSousCode(){
+		return (codeGenere!=null);	
+	}
 	
+	public void addCodeGenere(CodeGenere cg){
+		codeGenere = cg; 
+	}
 	public String toString(){
 		String res = "";
 		if(codeGenere != null)
