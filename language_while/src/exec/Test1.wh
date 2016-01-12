@@ -1,0 +1,8 @@
+fonction p:
+read X
+%
+while X do
+  nop;
+ od
+%
+write Y
