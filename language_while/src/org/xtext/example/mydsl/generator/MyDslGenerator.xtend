@@ -90,11 +90,6 @@ class MyDslGenerator implements IGenerator {
   		System.out.println(codeG.toString());
 	}
 	
-	def incrementeurRegistre(){
-		compteurRegistre = compteurRegistre + 1;
-		return ""; 
-	}
-	
 	def compile(Programme p){
    		for(Fonction f: p.fonct){
    			f.compile();
@@ -159,34 +154,52 @@ class MyDslGenerator implements IGenerator {
    		}	
    	}
    
-    def compile(AffectVar av, CodeGenere code){///////////////!!!!!!!!!!! A modif
-  	 	av.exp.compile();
-  	 	av.var1.compile();
-  	 	code.addAff("A","B");//truc bidon
-  }
+    def compile(AffectVar av, CodeGenere code){
+  	 	av.exp.compile(code);
+  	 	av.var1.compile(code);
+    }
 //   aff   
 //   aff a:=b
-//	(aff, r0, a,)
-//   (aff,a,b, )
+//  (aff,r0,b, )
+//  (aff, a, r0,)
 
 //   aff a:=b
 //   aff b:=a
-//	(aff, r0, a,)
-//   (aff,a,b, )
-//	(aff, r1, b,)
-//   (aff,b,a, )
-//   aff a;b:=b;a
-//	(aff, r0, a,)
-//	(aff, r1, b,)
-//   (aff,a,b, )
-//   (aff,b,a, )
+//  (aff,r0,b, )
+//	(aff, a, r0,)
+//  (aff,r2,a, )
+//	(aff, b, r2,)
 
-   def compile(Vars v){
+//   aff a;b:=b;a
+//	(aff, r0, r2,)
+//	(aff, r1, a,)
+//	(aff, a, r0,)
+//	(aff, b, r1,)
+   
+   def compile(Exprs exps, CodeGenere code){
+   		exps.exprS.compile();
+   		var int tmp = compteurRegistre;
+   		code.addAff("R"+compteurRegistre,"R");//voir partie de droite pour les expr!!!!!! 
+   		compteurRegistre++;
+   		for(Expr v :exps.exprS2){
+   			 v.compile();
+   			 code.addAff("R"+compteurRegistre,"R");//voir partie de droite pour les expr!!!!!! 
+   			 compteurRegistre++;
+   		}
+   		compteurRegistre = tmp;
+   }
+
+   def compile(Vars v, CodeGenere code){
    		tableSymboles.setVariable(fonctionEnCours,v.var2);
-   		incrementeurRegistre();
+   		var int tmp = compteurRegistre;
+   		code.addAff(v.var2,"R"+compteurRegistre);
+   		compteurRegistre++;
    		for(String va :v.var3){
    			tableSymboles.setVariable(fonctionEnCours,va);
+   			code.addAff(va,"R"+compteurRegistre); 
+   			compteurRegistre++;	
    		}
+   		compteurRegistre = tmp;
    }  
    
    def compile(While w, CodeGenere code){ //////////!!!!!!!!!!! A modifier
@@ -218,13 +231,6 @@ class MyDslGenerator implements IGenerator {
    		fe.exp5.compile();
    		fe.exp6.compile();
    		fe.com7.compile(codeForEach);
-   }
-   
-   def compile(Exprs exps){
-   		exps.exprS.compile();
-   		for(Expr v :exps.exprS2){
-   			 v.compile();
-   		}
    }
    
    def int compile(Expr ex){
