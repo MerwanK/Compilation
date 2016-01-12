@@ -2,7 +2,7 @@ fonction p:
 read X
 %
 while X do
-  Y := X;
+  nop;
  od
 %
 write Y

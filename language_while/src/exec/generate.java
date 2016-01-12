@@ -23,7 +23,7 @@ public class generate
 		String pathHelp = "src/whpp_help.txt";
 		//String fichierSource = args[0];
 		String fichierSource = "src/exec/Test1.wh";
-		String fichierDest = fichierSource + ".py";
+		String fichierDest = fichierSource.replaceAll(".wh",".py");
 		
 		PrintStream output = new PrintStream(new File(fichierDest));
 		
@@ -34,7 +34,7 @@ public class generate
 			{
 			    System.out.println(line);
 			}
-		br.close();	
+			br.close();	
 		}
 		
 
@@ -53,7 +53,7 @@ public class generate
 		{
 			MyDslGenerator generator = new MyDslGenerator();
 			generator.generationCode3Adresses(fichierSource);
-			output.print("import mabite.py \n \n");
+			output.print("import BinTrees \n");
 			output.print(TroisAddVersPython.codePython(generator.getCodeGenere(), generator.getTableSymbole()));
 		}
 	}
