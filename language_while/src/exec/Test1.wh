@@ -1,8 +1,6 @@
 fonction p:
 read X
 %
-while X do
-  nop;
- od
+nop;
 %
 write Y
