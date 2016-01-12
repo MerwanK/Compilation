@@ -1,6 +1,6 @@
 fonction p:
 read X
 %
-nop;
+	nop
 %
 write Y

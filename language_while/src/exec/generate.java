@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.xtext.example.mydsl.generator.MyDslGenerator;
 import backEnd.TroisAddVersPython;
-import tableSymboles.SymbolsTable;
 
 
 public class generate 
@@ -23,7 +22,7 @@ public class generate
 		String pathHelp = "src/whpp_help.txt";
 		//String fichierSource = args[0];
 		String fichierSource = "src/exec/Test1.wh";
-		String fichierDest = fichierSource.replaceAll(".wh",".py");;
+		String fichierDest = fichierSource.replaceAll(".wh",".py");
 		
 		System.out.println(fichierSource);
 		System.out.println(fichierDest);
