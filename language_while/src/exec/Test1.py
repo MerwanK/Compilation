@@ -1,5 +1,5 @@
 import BinTrees 
 
-def p (ArbreBin var0) :
+def f1 (var0) :
 	pass
 	return var1
