@@ -158,24 +158,7 @@ class MyDslGenerator implements IGenerator {
   	 	av.exp.compile(code);
   	 	av.var1.compile(code);
     }
-//   aff   
-//   aff a:=b
-//  (aff,r0,b, )
-//  (aff, a, r0,)
 
-//   aff a:=b
-//   aff b:=a
-//  (aff,r0,b, )
-//	(aff, a, r0,)
-//  (aff,r2,a, )
-//	(aff, b, r2,)
-
-//   aff a;b:=b;a
-//	(aff, r0, r2,)
-//	(aff, r1, a,)
-//	(aff, a, r0,)
-//	(aff, b, r1,)
-   
    def compile(Exprs exps, CodeGenere code){
    		exps.exprS.compile();
    		var int tmp = compteurRegistre;
@@ -249,7 +232,8 @@ class MyDslGenerator implements IGenerator {
    			
    		}
    		if(es.variable != null){
-   			tableSymboles.setVariable(fonctionEnCours,es.variable);	
+   			tableSymboles.setVariable(fonctionEnCours,es.variable);
+   				
    		}
    		if(es.symbole != null){
    			tableSymboles.setSymbol(es.symbole);

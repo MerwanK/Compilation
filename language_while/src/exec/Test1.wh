@@ -1,8 +1,21 @@
 fonction p:
 read X
 %
-while X do
-  nop;
- od
+  A:=B
+%
+write Y
+
+fonction p1:
+read X
+%
+  A:=B;
+  B:=A
+%
+write Y
+
+fonction p2:
+read X
+%
+  A,B:=B,A
 %
 write Y

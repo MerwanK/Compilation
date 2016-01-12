@@ -42,7 +42,7 @@ public class CodeGenere {
 
 	//Permet d'ajouter le quadruplet d'une affectation
 	public void addAff(String elemG, String elemD){
-		Quadruplet elem = new Quadruplet(new Operateur("Aff"),elemG,elemD,"");
+		Quadruplet elem = new Quadruplet(new Operateur("aff"),elemG,elemD,"");
 		listQuadruplet.add(elem);
 	}
 
@@ -73,6 +73,48 @@ public class CodeGenere {
 
 	//Permet d'ajouter le quadruplet d'un else
 	public void addElse(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un nil
+	public void addNil(){
+		Quadruplet elem = new Quadruplet(new Operateur("nil"),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addVariable(String registre, String nomVar){
+		Quadruplet elem = new Quadruplet(new Operateur("var"),registre,nomVar,"");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addSymbole(String registre, String nomSym){
+		Quadruplet elem = new Quadruplet(new Operateur("sym"),registre,nomSym,"");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addCons(String registre, String branche1, String branche2){
+		Quadruplet elem = new Quadruplet(new Operateur("cons"),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addListe(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addHead(String cond, CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un else
+	public void addTail(String cond, CodeGenere codeG){
 		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
 		listQuadruplet.add(elem);
 	}

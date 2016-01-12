@@ -71,7 +71,13 @@ public class SymbolsTable {
 	}
 
 	public String getVarLocal(String key, String nomFonction){
-		return tableFunctions.get(nomFonction).getValueLocalVars(key);
+		String res = tableFunctions.get(nomFonction).getValueLocalVars(key);
+		if (res != null){
+			return res;
+		}
+		else{
+			return key;
+		}
 	}
 
 	public String getVarGlobal(String key){

@@ -91,7 +91,7 @@ public class TroisAddVersPython {
 			Iterator<Quadruplet> it = listQuadruplet.iterator();
 			Quadruplet currentQuadruplet = it.next();	
 			while(currentQuadruplet.getOperateur().getOperateur()=="read"){
-				res += "ArbreBin " +traducteurVar(currentQuadruplet.getElement1(),nomFonction,table);
+				res += traducteurVar(currentQuadruplet.getElement1(),nomFonction,table);
 				Quadruplet nextQuadruplet = it.next();	
 				if (nextQuadruplet.getOperateur().getOperateur()=="read"){
 					res +=", ";
@@ -109,6 +109,10 @@ public class TroisAddVersPython {
 			res = "pass\n";
 			break; 
 
+		case "aff"	   : 
+			res = traducteurVar(quadruplet.getElement1(), nomFonction, table) + "=" + traducteurVar(quadruplet.getElement2(), nomFonction, table) + "\n";
+			break;
+			
 		case "while"   : 
 			res = "while expr\n";
 			break;
