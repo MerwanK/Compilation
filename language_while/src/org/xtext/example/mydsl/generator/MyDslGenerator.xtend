@@ -56,7 +56,15 @@ class MyDslGenerator implements IGenerator {
 	private int compteurRegistre;
 	private int compteurCond;
 	 
-	def public CodeGenere generationCode3Adresses(String entree){
+	def public CodeGenere getCodeGenere(){
+	 	return codeG;
+	 	}
+	
+	def public SymbolsTable getTableSymbole(){
+	 	return tableSymboles;
+	 	}
+	 	 	
+	def public void generationCode3Adresses(String entree){
 		tableSymboles = new SymbolsTable();
 		codeG = new CodeGenere();
 		compteurCond = 0;
@@ -68,7 +76,6 @@ class MyDslGenerator implements IGenerator {
 		EcoreUtil.resolveAll(xtextResource);
   		for(p: xtextResource.allContents.toIterable.filter(Programme))
 			p.compile();
-  		return codeG;
 	}
 	
 	//!!!!!!!!!!!!! NE PAS OUBLIEZ DE REMETTRE LES INIT DANS L'EXECUTABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -93,9 +100,9 @@ class MyDslGenerator implements IGenerator {
    			f.compile();
    		}
    		return codeG.toString();
-   }
+    }
    
-   def compile(Fonction f){ 
+    def compile(Fonction f){ 
 		fonctionEnCours = f.symbole;
 		tableSymboles.putFunction(f.symbole);
 		codeFonction = new CodeGenere();
@@ -152,11 +159,35 @@ class MyDslGenerator implements IGenerator {
    		}	
    	}
    
-   def compile(AffectVar av, CodeGenere code){///////////////!!!!!!!!!!! A modif
-  	 	av.var1.compile();
+    def compile(AffectVar av, CodeGenere code){///////////////!!!!!!!!!!! A modif
   	 	av.exp.compile();
+  	 	av.var1.compile();
   	 	code.addAff("A","B");//truc bidon
-   }
+  }
+//   aff   
+//   aff a:=b
+//	(aff, r0, a,)
+//   (aff,a,b, )
+
+//   aff a:=b
+//   aff b:=a
+//	(aff, r0, a,)
+//   (aff,a,b, )
+//	(aff, r1, b,)
+//   (aff,b,a, )
+//   aff a;b:=b;a
+//	(aff, r0, a,)
+//	(aff, r1, b,)
+//   (aff,a,b, )
+//   (aff,b,a, )
+
+   def compile(Vars v){
+   		tableSymboles.setVariable(fonctionEnCours,v.var2);
+   		incrementeurRegistre();
+   		for(String va :v.var3){
+   			tableSymboles.setVariable(fonctionEnCours,va);
+   		}
+   }  
    
    def compile(While w, CodeGenere code){ //////////!!!!!!!!!!! A modifier
    		val CodeGenere codeWhile = new CodeGenere(); 
@@ -187,14 +218,6 @@ class MyDslGenerator implements IGenerator {
    		fe.exp5.compile();
    		fe.exp6.compile();
    		fe.com7.compile(codeForEach);
-   }
-   
-   def compile(Vars v){
-   		tableSymboles.setVariable(fonctionEnCours,v.var2);
-   		incrementeurRegistre();
-   		for(String va :v.var3){
-   			tableSymboles.setVariable(fonctionEnCours,va);
-   		}
    }
    
    def compile(Exprs exps){
