@@ -2,6 +2,7 @@ package tableSymboles;
 
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class ParamVarFunction {
 
@@ -22,7 +23,7 @@ public class ParamVarFunction {
 		nbParamIn = 0;
 		nbParamOut = 0;
 		compteur = 0;
-		LocalVars = new HashMap<String, String>();
+		LocalVars = new LinkedHashMap<String, String>();
 	}
 
 	/**

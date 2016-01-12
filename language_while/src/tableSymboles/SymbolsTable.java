@@ -2,6 +2,7 @@ package tableSymboles;
 
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class SymbolsTable {
 
@@ -21,8 +22,8 @@ public class SymbolsTable {
 	 */
 
 	public SymbolsTable(){
-		tableFunctions = new HashMap<String, ParamVarFunction>();
-		tableSymbols = new HashMap<String, String>();
+		tableFunctions = new LinkedHashMap<String, ParamVarFunction>();
+		tableSymbols = new LinkedHashMap<String, String>();
 		compteur = 0;
 	}
 
