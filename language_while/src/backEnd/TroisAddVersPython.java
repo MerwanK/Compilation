@@ -70,7 +70,8 @@ public class TroisAddVersPython {
 				nomF = currentQuadruplet.getOperateur().getNom();
 			}
 			if(currentQuadruplet.getOperateur().getOperateur()=="expr"){
-				res += ""; // Reprendre ICI MAGGLE !!!!!!!!!!!!!!!!!
+				res += currentQuadruplet.getElement1() + " = " + traducteurExpr(currentQuadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,tableSymboles) + "\n";
+
 			}
 			else{
 				res += traducteur(currentQuadruplet,tableSymboles,nomF);
@@ -114,7 +115,7 @@ public class TroisAddVersPython {
 			break; 
 
 		case "aff"	   : 
-			res = traducteurVar(quadruplet.getElement1(), nomFonction, table) + "=" + traducteurVar(quadruplet.getElement2(), nomFonction, table) + "\n";
+			res = traducteurVar(quadruplet.getElement1(), nomFonction, table) + " = " + traducteurVar(quadruplet.getElement2(), nomFonction, table) + "\n";
 			break;
 
 		case "while"   : 
@@ -127,6 +128,69 @@ public class TroisAddVersPython {
 		return res;
 	}
 
+	public static String traducteurVar(String varWhile, String nomFonction, SymbolsTable table){
+		String varPython = "";
+		char firstChar = varWhile.charAt(0);
+		if(firstChar >= 'a' && firstChar <= 'z')
+			varPython = table.getVarGlobal(varWhile);
+		else 
+			varPython = table.getVarLocal(varWhile, nomFonction);
+		return varPython;
+	}
+
+	public static String traducteurExpr(Quadruplet quadruplet, String nomFonction, SymbolsTable table){	
+		String res = "";
+
+		switch (quadruplet.getOperateur().getOperateur()) 
+		{ 
+		case "var"	   : 
+			res = traducteurVar(quadruplet.getElement2(),nomFonction,table);
+			break; 
+
+		case "sym"	   : 
+			res = traducteurVar(quadruplet.getElement2(), nomFonction, table);
+			break;
+
+		case "nil"	   : 
+			res = "BinTrees.BinTrees()";
+			break;
+
+		case "cons"   : 
+			List<Quadruplet> currentList = quadruplet.getOperateur().getCodeGenere().getListQuadruplet();
+			Iterator<Quadruplet> it = currentList.iterator(); 
+
+			Quadruplet currentQuadruplet = it.next();
+			Quadruplet nextQuadruplet = it.next();
+			while(it.hasNext()){
+				res += "BinTrees.BinTrees(«cons»," + traducteurExpr(currentQuadruplet,nomFonction,table) + "," ;
+				currentQuadruplet = nextQuadruplet;
+				nextQuadruplet = it.next();
+			}
+			res += "BinTrees.BinTrees(«cons»," + traducteurExpr(currentQuadruplet,nomFonction,table) + "," + traducteurExpr(nextQuadruplet,nomFonction,table) + ")";
+			int nbParenthese = quadruplet.getOperateur().getCodeGenere().getListQuadruplet().size() - 2;
+			for(int i=0;i<nbParenthese;i++){
+				res += ")";
+			}
+			break;
+
+		case "list"   : 
+			res = "while expr\n";
+			break;	
+
+		case "tl"   : 
+			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getLeftChild()";
+			break;
+
+		case "hd"   : 
+			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getRightChild()";
+			break;
+
+		default		   : 
+			break;
+		}
+		return res;
+	}
+	
 	public static String indent(String code){
 		String res = "\t";
 		int i=0;
@@ -141,13 +205,4 @@ public class TroisAddVersPython {
 		return res + "\n";
 	}
 
-	public static String traducteurVar(String varWhile, String nomFonction, SymbolsTable table){
-		String varPython = "";
-		char firstChar = varWhile.charAt(0);
-		if(firstChar >= 'a' && firstChar <= 'z')
-			varPython = table.getVarGlobal(varWhile);
-		else 
-			varPython = table.getVarLocal(varWhile, nomFonction);
-		return varPython;
-	}
 }

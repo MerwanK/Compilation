@@ -1,0 +1,9 @@
+fonction f1:
+read A,B
+%
+ A:=(cons A B (cons C D))
+%
+write C
+
+
+
