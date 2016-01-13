@@ -69,11 +69,15 @@ public class TroisAddVersPython {
 			if(currentQuadruplet.getOperateur().getOperateur()=="fonction"){
 				nomF = currentQuadruplet.getOperateur().getNom();
 			}
-			res += traducteur(currentQuadruplet,tableSymboles,nomF);
+			if(currentQuadruplet.getOperateur().getOperateur()=="expr"){
+				res += ""; // Reprendre ICI MAGGLE !!!!!!!!!!!!!!!!!
+			}
+			else{
+				res += traducteur(currentQuadruplet,tableSymboles,nomF);
+				if(currentQuadruplet.isSousCode()){
 
-			if(currentQuadruplet.isSousCode()){
-
-				res += indent(codePython(currentQuadruplet.getOperateur().getCodeGenere(),tableSymboles,niveau+1,nomF));
+					res += indent(codePython(currentQuadruplet.getOperateur().getCodeGenere(),tableSymboles,niveau+1,nomF));
+				}
 			}
 		}
 		return res;
@@ -112,7 +116,7 @@ public class TroisAddVersPython {
 		case "aff"	   : 
 			res = traducteurVar(quadruplet.getElement1(), nomFonction, table) + "=" + traducteurVar(quadruplet.getElement2(), nomFonction, table) + "\n";
 			break;
-			
+
 		case "while"   : 
 			res = "while expr\n";
 			break;
