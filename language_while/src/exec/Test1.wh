@@ -1,3 +1,17 @@
+fonction f:
+read A
+%
+	A:=B	
+%
+write C
+
+fonction f0:
+read A,B
+%
+ A:=nil
+%
+write C
+
 fonction f1:
 read A,B
 %
@@ -5,5 +19,49 @@ read A,B
 %
 write C
 
+fonction f2:
+read A,B
+%
+ A:=(hd(cons A B (cons C D)))
+%
+write C
 
+fonction f3:
+read A,B
+%
+ A:=(list A B C)
+%
+write C
 
+fonction f4:
+read A,B
+%
+ A:=(list A B (cons C D))
+%
+write C
+
+fonction f5:
+read A
+%
+ while A do nop od
+%
+write A
+
+fonction f6:
+read A
+%
+ while A do
+ 	for B do
+ 		for C do
+ 			 nop od od od 
+%
+write A
+
+fonction f7:
+read A
+%
+ while A do
+ 	if (cons nil nil) then nop else nop fi
+ od 
+%
+write A

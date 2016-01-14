@@ -46,6 +46,10 @@ public class ParamVarFunction {
 	public String getValueLocalVars(String nameVarLocal){
 		return LocalVars.get(nameVarLocal);
 	}
+	
+	public HashMap<String,String> getMapVarLocal(){
+		return LocalVars;
+	}
 
 	/**
 	 * 
