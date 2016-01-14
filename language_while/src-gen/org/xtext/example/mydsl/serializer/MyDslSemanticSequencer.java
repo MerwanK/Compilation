@@ -36,6 +36,7 @@ import org.xtext.example.mydsl.myDsl.Hd;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.Input;
 import org.xtext.example.mydsl.myDsl.LExpr;
+import org.xtext.example.mydsl.myDsl.LExpr2;
 import org.xtext.example.mydsl.myDsl.Liste;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -115,6 +116,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.LEXPR:
 				sequence_LExpr(context, (LExpr) semanticObject); 
+				return; 
+			case MyDslPackage.LEXPR2:
+				sequence_LExpr2(context, (LExpr2) semanticObject); 
 				return; 
 			case MyDslPackage.LISTE:
 				sequence_Liste(context, (Liste) semanticObject); 
@@ -394,6 +398,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     expLe2+=Expr+
+	 */
+	protected void sequence_LExpr2(EObject context, LExpr2 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     expLe+=Expr+
 	 */
 	protected void sequence_LExpr(EObject context, LExpr semanticObject) {
@@ -453,7 +466,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (p=SYM le5=LExpr)
+	 *     (p=SYM le5=LExpr2)
 	 */
 	protected void sequence_SymboleEx(EObject context, SymboleEx semanticObject) {
 		if(errorAcceptor != null) {
@@ -465,7 +478,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSymboleExAccess().getPSYMTerminalRuleCall_1_0(), semanticObject.getP());
-		feeder.accept(grammarAccess.getSymboleExAccess().getLe5LExprParserRuleCall_2_0(), semanticObject.getLe5());
+		feeder.accept(grammarAccess.getSymboleExAccess().getLe5LExpr2ParserRuleCall_2_0(), semanticObject.getLe5());
 		feeder.finish();
 	}
 	

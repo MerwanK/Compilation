@@ -660,11 +660,11 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_VAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2404:10: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2404:12: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2454:10: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2454:12: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF
             {
             matchRange('A','Z'); 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2404:21: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2454:21: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -714,11 +714,11 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_SYM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2406:10: ( 'a' .. 'z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2406:12: 'a' .. 'z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2456:10: ( 'a' .. 'z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2456:12: 'a' .. 'z' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* RULE_CONF
             {
             matchRange('a','z'); 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2406:21: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2456:21: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -768,10 +768,10 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_CONF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:11: ( ( ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+ )* ( '?' | '!' )? )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:13: ( ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+ )* ( '?' | '!' )?
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:11: ( ( ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+ )* ( '?' | '!' )? )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:13: ( ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+ )* ( '?' | '!' )?
             {
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:13: ( ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+ )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:13: ( ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+ )*
             loop5:
             do {
                 int alt5=2;
@@ -784,9 +784,9 @@ public class InternalMyDslLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:14: ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+
+            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:14: ( '-' | '+' | '.' | '/' | '_' | '&' | '->' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+
             	    {
-            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:14: ( '-' | '+' | '.' | '/' | '_' | '&' | '->' )
+            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:14: ( '-' | '+' | '.' | '/' | '_' | '&' | '->' )
             	    int alt3=7;
             	    switch ( input.LA(1) ) {
             	    case '-':
@@ -841,49 +841,49 @@ public class InternalMyDslLexer extends Lexer {
 
             	    switch (alt3) {
             	        case 1 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:15: '-'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:15: '-'
             	            {
             	            match('-'); 
 
             	            }
             	            break;
             	        case 2 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:19: '+'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:19: '+'
             	            {
             	            match('+'); 
 
             	            }
             	            break;
             	        case 3 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:23: '.'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:23: '.'
             	            {
             	            match('.'); 
 
             	            }
             	            break;
             	        case 4 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:27: '/'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:27: '/'
             	            {
             	            match('/'); 
 
             	            }
             	            break;
             	        case 5 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:31: '_'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:31: '_'
             	            {
             	            match('_'); 
 
             	            }
             	            break;
             	        case 6 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:35: '&'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:35: '&'
             	            {
             	            match('&'); 
 
             	            }
             	            break;
             	        case 7 :
-            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:39: '->'
+            	            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:39: '->'
             	            {
             	            match("->"); 
 
@@ -893,7 +893,7 @@ public class InternalMyDslLexer extends Lexer {
 
             	    }
 
-            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:45: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+
+            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:45: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )+
             	    int cnt4=0;
             	    loop4:
             	    do {
@@ -940,7 +940,7 @@ public class InternalMyDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2408:77: ( '?' | '!' )?
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2458:77: ( '?' | '!' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -982,8 +982,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_PARAG;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2410:12: ( '(' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2410:14: '('
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2460:12: ( '(' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2460:14: '('
             {
             match('('); 
 
@@ -1002,8 +1002,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_PARAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2412:12: ( ')' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2412:14: ')'
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2462:12: ( ')' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2462:14: ')'
             {
             match(')'); 
 
@@ -1022,8 +1022,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_SP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2414:9: ( ' ' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2414:11: ' '
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2464:9: ( ' ' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2464:11: ' '
             {
             match(' '); 
 
@@ -1042,8 +1042,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_CR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2416:9: ( '\\n' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2416:11: '\\n'
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2466:9: ( '\\n' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2466:11: '\\n'
             {
             match('\n'); 
 
@@ -1062,8 +1062,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_TAB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2418:10: ( '\\t' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2418:12: '\\t'
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2468:10: ( '\\t' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2468:12: '\\t'
             {
             match('\t'); 
 
@@ -1082,8 +1082,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_LF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2420:9: ( '\\r' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2420:11: '\\r'
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2470:9: ( '\\r' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2470:11: '\\r'
             {
             match('\r'); 
 
@@ -1102,10 +1102,10 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2422:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2422:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2472:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2472:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2422:11: ( '^' )?
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2472:11: ( '^' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1114,7 +1114,7 @@ public class InternalMyDslLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2422:11: '^'
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2472:11: '^'
                     {
                     match('^'); 
 
@@ -1132,7 +1132,7 @@ public class InternalMyDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2422:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2472:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop8:
             do {
                 int alt8=2;
@@ -1181,10 +1181,10 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2424:10: ( ( '0' .. '9' )+ )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2424:12: ( '0' .. '9' )+
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2474:10: ( ( '0' .. '9' )+ )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2474:12: ( '0' .. '9' )+
             {
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2424:12: ( '0' .. '9' )+
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2474:12: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -1198,7 +1198,7 @@ public class InternalMyDslLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2424:13: '0' .. '9'
+            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2474:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1230,10 +1230,10 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1251,10 +1251,10 @@ public class InternalMyDslLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -1270,7 +1270,7 @@ public class InternalMyDslLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:21: '\\\\' .
+                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1278,7 +1278,7 @@ public class InternalMyDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1303,10 +1303,10 @@ public class InternalMyDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -1322,7 +1322,7 @@ public class InternalMyDslLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:54: '\\\\' .
+                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1330,7 +1330,7 @@ public class InternalMyDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2426:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2476:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1373,12 +1373,12 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2428:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2428:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2478:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2478:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2428:24: ( options {greedy=false; } : . )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2478:24: ( options {greedy=false; } : . )*
             loop13:
             do {
                 int alt13=2;
@@ -1403,7 +1403,7 @@ public class InternalMyDslLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2428:52: .
+            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2478:52: .
             	    {
             	    matchAny(); 
 
@@ -1433,12 +1433,12 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -1451,7 +1451,7 @@ public class InternalMyDslLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1471,7 +1471,7 @@ public class InternalMyDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:40: ( ( '\\r' )? '\\n' )?
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:40: ( ( '\\r' )? '\\n' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1480,9 +1480,9 @@ public class InternalMyDslLexer extends Lexer {
             }
             switch (alt16) {
                 case 1 :
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:41: ( '\\r' )? '\\n'
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:41: ( '\\r' )? '\\n'
                     {
-                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:41: ( '\\r' )?
+                    // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:41: ( '\\r' )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -1491,7 +1491,7 @@ public class InternalMyDslLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2430:41: '\\r'
+                            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2480:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1523,10 +1523,10 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2432:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2432:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2482:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2482:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2432:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2482:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt17=0;
             loop17:
             do {
@@ -1580,8 +1580,8 @@ public class InternalMyDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2434:16: ( . )
-            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2434:18: .
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2484:16: ( . )
+            // ../language_while/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2484:18: .
             {
             matchAny(); 
 

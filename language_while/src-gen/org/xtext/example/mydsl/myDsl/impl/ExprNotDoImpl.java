@@ -21,10 +21,10 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprNotDoImpl#getExpEq2 <em>Exp Eq2</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

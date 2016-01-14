@@ -956,14 +956,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPSYMTerminalRuleCall_1_0 = (RuleCall)cPAssignment_1.eContents().get(0);
 		private final Assignment cLe5Assignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cLe5LExprParserRuleCall_2_0 = (RuleCall)cLe5Assignment_2.eContents().get(0);
+		private final RuleCall cLe5LExpr2ParserRuleCall_2_0 = (RuleCall)cLe5Assignment_2.eContents().get(0);
 		private final RuleCall cPARADTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//SymboleEx:
-		//	PARAG p=SYM le5=LExpr PARAD;
+		//	PARAG p=SYM le5=LExpr2 PARAD;
 		@Override public ParserRule getRule() { return rule; }
 
-		//PARAG p=SYM le5=LExpr PARAD
+		//PARAG p=SYM le5=LExpr2 PARAD
 		public Group getGroup() { return cGroup; }
 
 		//PARAG
@@ -975,11 +975,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//SYM
 		public RuleCall getPSYMTerminalRuleCall_1_0() { return cPSYMTerminalRuleCall_1_0; }
 
-		//le5=LExpr
+		//le5=LExpr2
 		public Assignment getLe5Assignment_2() { return cLe5Assignment_2; }
 
-		//LExpr
-		public RuleCall getLe5LExprParserRuleCall_2_0() { return cLe5LExprParserRuleCall_2_0; }
+		//LExpr2
+		public RuleCall getLe5LExpr2ParserRuleCall_2_0() { return cLe5LExpr2ParserRuleCall_2_0; }
 
 		//PARAD
 		public RuleCall getPARADTerminalRuleCall_3() { return cPARADTerminalRuleCall_3; }
@@ -1007,6 +1007,30 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Expr
 		public RuleCall getExpLeExprParserRuleCall_1_0() { return cExpLeExprParserRuleCall_1_0; }
+	}
+
+	public class LExpr2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LExpr2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cExpLe2Assignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpLe2ExprParserRuleCall_1_0 = (RuleCall)cExpLe2Assignment_1.eContents().get(0);
+		
+		//LExpr2:
+		//	(LC expLe2+=Expr)+;
+		@Override public ParserRule getRule() { return rule; }
+
+		//(LC expLe2+=Expr)+
+		public Group getGroup() { return cGroup; }
+
+		//LC
+		public RuleCall getLCParserRuleCall_0() { return cLCParserRuleCall_0; }
+
+		//expLe2+=Expr
+		public Assignment getExpLe2Assignment_1() { return cExpLe2Assignment_1; }
+
+		//Expr
+		public RuleCall getExpLe2ExprParserRuleCall_1_0() { return cExpLe2ExprParserRuleCall_1_0; }
 	}
 
 	public class ExprAndElements extends AbstractParserRuleElementFinder {
@@ -1284,6 +1308,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TlElements pTl;
 	private final SymboleExElements pSymboleEx;
 	private final LExprElements pLExpr;
+	private final LExpr2Elements pLExpr2;
 	private final ExprAndElements pExprAnd;
 	private final ExprOrElements pExprOr;
 	private final ExprNotElements pExprNot;
@@ -1332,6 +1357,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTl = new TlElements();
 		this.pSymboleEx = new SymboleExElements();
 		this.pLExpr = new LExprElements();
+		this.pLExpr2 = new LExpr2Elements();
 		this.pExprAnd = new ExprAndElements();
 		this.pExprOr = new ExprOrElements();
 		this.pExprNot = new ExprNotElements();
@@ -1581,7 +1607,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SymboleEx:
-	//	PARAG p=SYM le5=LExpr PARAD;
+	//	PARAG p=SYM le5=LExpr2 PARAD;
 	public SymboleExElements getSymboleExAccess() {
 		return pSymboleEx;
 	}
@@ -1598,6 +1624,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLExprRule() {
 		return getLExprAccess().getRule();
+	}
+
+	//LExpr2:
+	//	(LC expLe2+=Expr)+;
+	public LExpr2Elements getLExpr2Access() {
+		return pLExpr2;
+	}
+	
+	public ParserRule getLExpr2Rule() {
+		return getLExpr2Access().getRule();
 	}
 
 	//ExprAnd:

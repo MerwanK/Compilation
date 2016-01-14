@@ -4,7 +4,7 @@
     editorDirectory="/language_while.editor/src" modelPluginID="language_while" forceOverwrite="true"
     modelName="MyDsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="language_while.edit"
-    editorPluginID="language_while.editor" runtimeVersion="2.10">
+    editorPluginID="language_while.editor" runtimeVersion="2.11">
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="wh" ecorePackage="MyDsl.ecore#/">
     <genClasses ecoreClass="MyDsl.ecore#//Model">
@@ -101,6 +101,9 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//LExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LExpr/expLe"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LExpr2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LExpr2/expLe2"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ExprAnd">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ExprAnd/expO"/>

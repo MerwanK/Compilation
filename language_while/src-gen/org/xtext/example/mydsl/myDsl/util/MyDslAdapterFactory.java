@@ -185,6 +185,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createLExprAdapter();
       }
       @Override
+      public Adapter caseLExpr2(LExpr2 object)
+      {
+        return createLExpr2Adapter();
+      }
+      @Override
       public Adapter caseExprAnd(ExprAnd object)
       {
         return createExprAndAdapter();
@@ -562,6 +567,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LExpr2 <em>LExpr2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LExpr2
+   * @generated
+   */
+  public Adapter createLExpr2Adapter()
   {
     return null;
   }

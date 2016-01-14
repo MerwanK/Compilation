@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.myDsl.LExpr;
+import org.xtext.example.mydsl.myDsl.LExpr2;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.SymboleEx;
 
@@ -21,11 +21,11 @@ import org.xtext.example.mydsl.myDsl.SymboleEx;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.SymboleExImpl#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.SymboleExImpl#getLe5 <em>Le5</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -59,7 +59,7 @@ public class SymboleExImpl extends MinimalEObjectImpl.Container implements Symbo
    * @generated
    * @ordered
    */
-  protected LExpr le5;
+  protected LExpr2 le5;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,7 +110,7 @@ public class SymboleExImpl extends MinimalEObjectImpl.Container implements Symbo
    * <!-- end-user-doc -->
    * @generated
    */
-  public LExpr getLe5()
+  public LExpr2 getLe5()
   {
     return le5;
   }
@@ -120,9 +120,9 @@ public class SymboleExImpl extends MinimalEObjectImpl.Container implements Symbo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLe5(LExpr newLe5, NotificationChain msgs)
+  public NotificationChain basicSetLe5(LExpr2 newLe5, NotificationChain msgs)
   {
-    LExpr oldLe5 = le5;
+    LExpr2 oldLe5 = le5;
     le5 = newLe5;
     if (eNotificationRequired())
     {
@@ -137,7 +137,7 @@ public class SymboleExImpl extends MinimalEObjectImpl.Container implements Symbo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLe5(LExpr newLe5)
+  public void setLe5(LExpr2 newLe5)
   {
     if (newLe5 != le5)
     {
@@ -201,7 +201,7 @@ public class SymboleExImpl extends MinimalEObjectImpl.Container implements Symbo
         setP((String)newValue);
         return;
       case MyDslPackage.SYMBOLE_EX__LE5:
-        setLe5((LExpr)newValue);
+        setLe5((LExpr2)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +221,7 @@ public class SymboleExImpl extends MinimalEObjectImpl.Container implements Symbo
         setP(P_EDEFAULT);
         return;
       case MyDslPackage.SYMBOLE_EX__LE5:
-        setLe5((LExpr)null);
+        setLe5((LExpr2)null);
         return;
     }
     super.eUnset(featureID);

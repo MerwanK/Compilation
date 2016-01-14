@@ -40,6 +40,7 @@ import org.xtext.example.mydsl.MyDslStandaloneSetup
 import org.eclipse.emf.common.util.URI
 import tableSymboles.SymbolsTable
 import code3adresses.CodeGenere
+import org.xtext.example.mydsl.myDsl.LExpr2
 
 /* Last */
 /**
@@ -55,8 +56,6 @@ class MyDslGenerator implements IGenerator {
 	private CodeGenere codeFonction;
 	private int compteurRegistre;
 	private int compteurCond;
-	private boolean inCall;
-	private int inConsList;
 	 
 	def public CodeGenere getCodeGenere(){
 	 	return codeG;
@@ -71,8 +70,6 @@ class MyDslGenerator implements IGenerator {
 		codeG = new CodeGenere();
 		compteurCond = 0;
 		compteurRegistre = 0;
-		inCall = false;
-		inConsList = 0;
 		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
 		val resourceSet = injector.getInstance(XtextResourceSet);
 		val uri = URI.createURI(entree);
@@ -88,8 +85,6 @@ class MyDslGenerator implements IGenerator {
 		codeG = new CodeGenere();
 		compteurCond = 0;
 		compteurRegistre = 0;
-		inCall = false;
-		inConsList = 0;
 		for(p: resource.allContents.toIterable.filter(Programme)){
 			fsa.generateFile("sketuve.xxx",p.compile()); 
 		}
@@ -239,6 +234,11 @@ class MyDslGenerator implements IGenerator {
    		fe.com7.compile(codeForEach);
    }
    
+   def compile(LExpr a, CodeGenere code){
+   for(Expr v: a.expLe)
+   		v.compile(code); 
+   }
+   
    def int compile(Expr ex, CodeGenere code){
    		if(ex.expA != null){
    	 		ex.expA.compile(code);
@@ -304,9 +304,17 @@ class MyDslGenerator implements IGenerator {
    
    def compile(SymboleEx sex, CodeGenere code){
    	   	val CodeGenere codeCall = new CodeGenere;
-   	   	inCall = true;
-   		sex.le5.compile(code);
+   		sex.le5.compile(codeCall);
    		code.addCall(codeCall,sex.p);
+   }
+   
+	def compile(LExpr2 b, CodeGenere code){
+   		for(Expr v: b.expLe2){
+   			val CodeGenere codeExpr = new CodeGenere;
+   			v.compile(codeExpr);
+   			code.addExpr(codeExpr,"R"+compteurRegistre);
+   			compteurRegistre++; 
+   		}
    }
    
    def compile(ExprAnd ea, CodeGenere code){
@@ -345,11 +353,7 @@ class MyDslGenerator implements IGenerator {
 		eeq.expS2.compile(code); 
 		eeq.expR.compile(code);
    }
-   
-   def compile(LExpr a, CodeGenere code){
-   for(Expr v: a.expLe)
-   		v.compile(code); 
-   }
+
 
    
 }

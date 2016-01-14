@@ -934,6 +934,34 @@ public interface MyDslPackage extends EPackage
   int LEXPR_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LExpr2Impl <em>LExpr2</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LExpr2Impl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLExpr2()
+   * @generated
+   */
+  int LEXPR2 = 22;
+
+  /**
+   * The feature id for the '<em><b>Exp Le2</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEXPR2__EXP_LE2 = 0;
+
+  /**
+   * The number of structural features of the '<em>LExpr2</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEXPR2_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprAndImpl <em>Expr And</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -941,7 +969,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprAnd()
    * @generated
    */
-  int EXPR_AND = 22;
+  int EXPR_AND = 23;
 
   /**
    * The feature id for the '<em><b>Exp O</b></em>' containment reference.
@@ -978,7 +1006,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprOr()
    * @generated
    */
-  int EXPR_OR = 23;
+  int EXPR_OR = 24;
 
   /**
    * The feature id for the '<em><b>Exp N</b></em>' containment reference.
@@ -1015,7 +1043,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNot()
    * @generated
    */
-  int EXPR_NOT = 24;
+  int EXPR_NOT = 25;
 
   /**
    * The feature id for the '<em><b>Expr Not Not</b></em>' containment reference.
@@ -1052,7 +1080,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNotNot()
    * @generated
    */
-  int EXPR_NOT_NOT = 25;
+  int EXPR_NOT_NOT = 26;
 
   /**
    * The feature id for the '<em><b>Exp Eq1</b></em>' containment reference.
@@ -1080,7 +1108,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprNotDo()
    * @generated
    */
-  int EXPR_NOT_DO = 26;
+  int EXPR_NOT_DO = 27;
 
   /**
    * The feature id for the '<em><b>Exp Eq2</b></em>' containment reference.
@@ -1108,7 +1136,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExprEq()
    * @generated
    */
-  int EXPR_EQ = 27;
+  int EXPR_EQ = 28;
 
   /**
    * The feature id for the '<em><b>Exp S1</b></em>' containment reference.
@@ -1927,6 +1955,27 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getLExpr_ExpLe();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LExpr2 <em>LExpr2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>LExpr2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LExpr2
+   * @generated
+   */
+  EClass getLExpr2();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LExpr2#getExpLe2 <em>Exp Le2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Exp Le2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LExpr2#getExpLe2()
+   * @see #getLExpr2()
+   * @generated
+   */
+  EReference getLExpr2_ExpLe2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ExprAnd <em>Expr And</em>}'.
@@ -2759,6 +2808,24 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference LEXPR__EXP_LE = eINSTANCE.getLExpr_ExpLe();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LExpr2Impl <em>LExpr2</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LExpr2Impl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLExpr2()
+     * @generated
+     */
+    EClass LEXPR2 = eINSTANCE.getLExpr2();
+
+    /**
+     * The meta object literal for the '<em><b>Exp Le2</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LEXPR2__EXP_LE2 = eINSTANCE.getLExpr2_ExpLe2();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExprAndImpl <em>Expr And</em>}' class.

@@ -1868,9 +1868,9 @@ ruleSymboleEx returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSymboleExAccess().getLe5LExprParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getSymboleExAccess().getLe5LExpr2ParserRuleCall_2_0()); 
 	    }
-		lv_le5_2_0=ruleLExpr		{
+		lv_le5_2_0=ruleLExpr2		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSymboleExRule());
 	        }
@@ -1878,7 +1878,7 @@ ruleSymboleEx returns [EObject current=null]
        			$current, 
        			"le5",
         		lv_le5_2_0, 
-        		"LExpr");
+        		"LExpr2");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1932,6 +1932,56 @@ ruleLC
        			$current, 
        			"expLe",
         		lv_expLe_1_0, 
+        		"Expr");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))+
+;
+
+
+
+
+
+// Entry rule entryRuleLExpr2
+entryRuleLExpr2 returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLExpr2Rule()); }
+	 iv_ruleLExpr2=ruleLExpr2 
+	 { $current=$iv_ruleLExpr2.current; } 
+	 EOF 
+;
+
+// Rule LExpr2
+ruleLExpr2 returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getLExpr2Access().getLCParserRuleCall_0()); 
+    }
+ruleLC
+    { 
+        afterParserOrEnumRuleCall();
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLExpr2Access().getExpLe2ExprParserRuleCall_1_0()); 
+	    }
+		lv_expLe2_1_0=ruleExpr		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLExpr2Rule());
+	        }
+       		add(
+       			$current, 
+       			"expLe2",
+        		lv_expLe2_1_0, 
         		"Expr");
 	        afterParserOrEnumRuleCall();
 	    }

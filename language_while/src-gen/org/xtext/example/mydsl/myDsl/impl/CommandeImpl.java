@@ -25,6 +25,7 @@ import org.xtext.example.mydsl.myDsl.While;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getNop <em>Nop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getAffectVar <em>Affect Var</em>}</li>
@@ -33,7 +34,6 @@ import org.xtext.example.mydsl.myDsl.While;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getIfC <em>If C</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandeImpl#getForeachC <em>Foreach C</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

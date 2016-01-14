@@ -95,11 +95,14 @@ Tl :
 ;
 
 SymboleEx:
-	(PARAG p=SYM le5=LExpr PARAD)
+	(PARAG p=SYM le5=LExpr2 PARAD)
 ;
 
 LExpr :
 	(LC expLe+=Expr)+;
+
+LExpr2 :
+	(LC expLe2+=Expr)+;
 	
 ExprAnd :
 	expO=ExprOr (LC "and" LC expO2+=ExprOr)*;

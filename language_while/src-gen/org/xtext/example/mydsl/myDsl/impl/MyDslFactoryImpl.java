@@ -86,6 +86,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.TL: return createTl();
       case MyDslPackage.SYMBOLE_EX: return createSymboleEx();
       case MyDslPackage.LEXPR: return createLExpr();
+      case MyDslPackage.LEXPR2: return createLExpr2();
       case MyDslPackage.EXPR_AND: return createExprAnd();
       case MyDslPackage.EXPR_OR: return createExprOr();
       case MyDslPackage.EXPR_NOT: return createExprNot();
@@ -337,6 +338,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     LExprImpl lExpr = new LExprImpl();
     return lExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LExpr2 createLExpr2()
+  {
+    LExpr2Impl lExpr2 = new LExpr2Impl();
+    return lExpr2;
   }
 
   /**

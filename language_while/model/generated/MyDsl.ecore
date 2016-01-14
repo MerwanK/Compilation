@@ -114,10 +114,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SymboleEx">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="p" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="le5" eType="#//LExpr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="le5" eType="#//LExpr2"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expLe" upperBound="-1"
+        eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LExpr2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expLe2" upperBound="-1"
         eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExprAnd">

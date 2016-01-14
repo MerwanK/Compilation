@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Fonction#getSymbole <em>Symbole</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Fonction#getIn <em>In</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Fonction#getCom <em>Com</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Fonction#getOut <em>Out</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFonction()
  * @model

@@ -29,6 +29,7 @@ import org.xtext.example.mydsl.myDsl.Hd;
 import org.xtext.example.mydsl.myDsl.If;
 import org.xtext.example.mydsl.myDsl.Input;
 import org.xtext.example.mydsl.myDsl.LExpr;
+import org.xtext.example.mydsl.myDsl.LExpr2;
 import org.xtext.example.mydsl.myDsl.Liste;
 import org.xtext.example.mydsl.myDsl.Model;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
@@ -201,6 +202,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass lExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass lExpr2EClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1042,6 +1050,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getLExpr2()
+  {
+    return lExpr2EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLExpr2_ExpLe2()
+  {
+    return (EReference)lExpr2EClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExprAnd()
   {
     return exprAndEClass;
@@ -1332,6 +1360,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     lExprEClass = createEClass(LEXPR);
     createEReference(lExprEClass, LEXPR__EXP_LE);
 
+    lExpr2EClass = createEClass(LEXPR2);
+    createEReference(lExpr2EClass, LEXPR2__EXP_LE2);
+
     exprAndEClass = createEClass(EXPR_AND);
     createEReference(exprAndEClass, EXPR_AND__EXP_O);
     createEReference(exprAndEClass, EXPR_AND__EXP_O2);
@@ -1477,10 +1508,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(symboleExEClass, SymboleEx.class, "SymboleEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSymboleEx_P(), ecorePackage.getEString(), "p", null, 0, 1, SymboleEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSymboleEx_Le5(), this.getLExpr(), null, "le5", null, 0, 1, SymboleEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSymboleEx_Le5(), this.getLExpr2(), null, "le5", null, 0, 1, SymboleEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lExprEClass, LExpr.class, "LExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLExpr_ExpLe(), this.getExpr(), null, "expLe", null, 0, -1, LExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(lExpr2EClass, LExpr2.class, "LExpr2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLExpr2_ExpLe2(), this.getExpr(), null, "expLe2", null, 0, -1, LExpr2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprAndEClass, ExprAnd.class, "ExprAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExprAnd_ExpO(), this.getExprOr(), null, "expO", null, 0, 1, ExprAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

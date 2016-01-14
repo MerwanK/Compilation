@@ -70,6 +70,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTlAccess().getGroup(), "rule__Tl__Group__0");
 					put(grammarAccess.getSymboleExAccess().getGroup(), "rule__SymboleEx__Group__0");
 					put(grammarAccess.getLExprAccess().getGroup(), "rule__LExpr__Group__0");
+					put(grammarAccess.getLExpr2Access().getGroup(), "rule__LExpr2__Group__0");
 					put(grammarAccess.getExprAndAccess().getGroup(), "rule__ExprAnd__Group__0");
 					put(grammarAccess.getExprAndAccess().getGroup_1(), "rule__ExprAnd__Group_1__0");
 					put(grammarAccess.getExprOrAccess().getGroup(), "rule__ExprOr__Group__0");
@@ -129,6 +130,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSymboleExAccess().getPAssignment_1(), "rule__SymboleEx__PAssignment_1");
 					put(grammarAccess.getSymboleExAccess().getLe5Assignment_2(), "rule__SymboleEx__Le5Assignment_2");
 					put(grammarAccess.getLExprAccess().getExpLeAssignment_1(), "rule__LExpr__ExpLeAssignment_1");
+					put(grammarAccess.getLExpr2Access().getExpLe2Assignment_1(), "rule__LExpr2__ExpLe2Assignment_1");
 					put(grammarAccess.getExprAndAccess().getExpOAssignment_0(), "rule__ExprAnd__ExpOAssignment_0");
 					put(grammarAccess.getExprAndAccess().getExpO2Assignment_1_3(), "rule__ExprAnd__ExpO2Assignment_1_3");
 					put(grammarAccess.getExprOrAccess().getExpNAssignment_0(), "rule__ExprOr__ExpNAssignment_0");

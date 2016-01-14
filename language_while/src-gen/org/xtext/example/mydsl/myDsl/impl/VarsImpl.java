@@ -24,11 +24,11 @@ import org.xtext.example.mydsl.myDsl.Vars;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.VarsImpl#getVar2 <em>Var2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.VarsImpl#getVar3 <em>Var3</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

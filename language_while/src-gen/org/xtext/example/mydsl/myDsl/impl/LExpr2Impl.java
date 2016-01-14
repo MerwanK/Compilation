@@ -17,40 +17,40 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.myDsl.Expr;
-import org.xtext.example.mydsl.myDsl.LExpr;
+import org.xtext.example.mydsl.myDsl.LExpr2;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>LExpr</b></em>'.
+ * An implementation of the model object '<em><b>LExpr2</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.LExprImpl#getExpLe <em>Exp Le</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.LExpr2Impl#getExpLe2 <em>Exp Le2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
+public class LExpr2Impl extends MinimalEObjectImpl.Container implements LExpr2
 {
   /**
-   * The cached value of the '{@link #getExpLe() <em>Exp Le</em>}' containment reference list.
+   * The cached value of the '{@link #getExpLe2() <em>Exp Le2</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpLe()
+   * @see #getExpLe2()
    * @generated
    * @ordered
    */
-  protected EList<Expr> expLe;
+  protected EList<Expr> expLe2;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LExprImpl()
+  protected LExpr2Impl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
   @Override
   protected EClass eStaticClass()
   {
-    return MyDslPackage.Literals.LEXPR;
+    return MyDslPackage.Literals.LEXPR2;
   }
 
   /**
@@ -71,13 +71,13 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expr> getExpLe()
+  public EList<Expr> getExpLe2()
   {
-    if (expLe == null)
+    if (expLe2 == null)
     {
-      expLe = new EObjectContainmentEList<Expr>(Expr.class, this, MyDslPackage.LEXPR__EXP_LE);
+      expLe2 = new EObjectContainmentEList<Expr>(Expr.class, this, MyDslPackage.LEXPR2__EXP_LE2);
     }
-    return expLe;
+    return expLe2;
   }
 
   /**
@@ -90,8 +90,8 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
   {
     switch (featureID)
     {
-      case MyDslPackage.LEXPR__EXP_LE:
-        return ((InternalEList<?>)getExpLe()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.LEXPR2__EXP_LE2:
+        return ((InternalEList<?>)getExpLe2()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +106,8 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
   {
     switch (featureID)
     {
-      case MyDslPackage.LEXPR__EXP_LE:
-        return getExpLe();
+      case MyDslPackage.LEXPR2__EXP_LE2:
+        return getExpLe2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +123,9 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
   {
     switch (featureID)
     {
-      case MyDslPackage.LEXPR__EXP_LE:
-        getExpLe().clear();
-        getExpLe().addAll((Collection<? extends Expr>)newValue);
+      case MyDslPackage.LEXPR2__EXP_LE2:
+        getExpLe2().clear();
+        getExpLe2().addAll((Collection<? extends Expr>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +141,8 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
   {
     switch (featureID)
     {
-      case MyDslPackage.LEXPR__EXP_LE:
-        getExpLe().clear();
+      case MyDslPackage.LEXPR2__EXP_LE2:
+        getExpLe2().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +158,10 @@ public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
   {
     switch (featureID)
     {
-      case MyDslPackage.LEXPR__EXP_LE:
-        return expLe != null && !expLe.isEmpty();
+      case MyDslPackage.LEXPR2__EXP_LE2:
+        return expLe2 != null && !expLe2.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //LExprImpl
+} //LExpr2Impl

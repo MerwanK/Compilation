@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.SymboleEx#getP <em>P</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.SymboleEx#getLe5 <em>Le5</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getSymboleEx()
  * @model
@@ -58,12 +58,12 @@ public interface SymboleEx extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Le5</em>' containment reference.
-   * @see #setLe5(LExpr)
+   * @see #setLe5(LExpr2)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getSymboleEx_Le5()
    * @model containment="true"
    * @generated
    */
-  LExpr getLe5();
+  LExpr2 getLe5();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.SymboleEx#getLe5 <em>Le5</em>}' containment reference.
@@ -73,6 +73,6 @@ public interface SymboleEx extends EObject
    * @see #getLe5()
    * @generated
    */
-  void setLe5(LExpr value);
+  void setLe5(LExpr2 value);
 
 } // SymboleEx

@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.For#getExp3 <em>Exp3</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.For#getCom4 <em>Com4</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor()
  * @model

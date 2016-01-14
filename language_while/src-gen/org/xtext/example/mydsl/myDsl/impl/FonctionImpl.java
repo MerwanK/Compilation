@@ -23,13 +23,13 @@ import org.xtext.example.mydsl.myDsl.Output;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FonctionImpl#getSymbole <em>Symbole</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FonctionImpl#getIn <em>In</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FonctionImpl#getCom <em>Com</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.FonctionImpl#getOut <em>Out</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

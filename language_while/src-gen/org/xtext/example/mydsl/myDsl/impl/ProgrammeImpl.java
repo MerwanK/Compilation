@@ -26,10 +26,10 @@ import org.xtext.example.mydsl.myDsl.Programme;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ProgrammeImpl#getFonct <em>Fonct</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

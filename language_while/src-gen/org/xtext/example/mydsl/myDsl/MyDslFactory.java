@@ -221,6 +221,15 @@ public interface MyDslFactory extends EFactory
   LExpr createLExpr();
 
   /**
+   * Returns a new object of class '<em>LExpr2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>LExpr2</em>'.
+   * @generated
+   */
+  LExpr2 createLExpr2();
+
+  /**
    * Returns a new object of class '<em>Expr And</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -5,8 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.swing.text.StyledEditorKit.ItalicAction;
+
 import code3adresses.CodeGenere;
 import code3adresses.Quadruplet;
+import tableSymboles.ParamVarFunction;
 import tableSymboles.SymbolsTable;
 
 public class TroisAddVersPython {
@@ -75,13 +78,18 @@ public class TroisAddVersPython {
 			if(currentQuadruplet.getOperateur().getOperateur()=="expr"){
 				res += currentQuadruplet.getElement1() + " = " + traducteurExpr(currentQuadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,tableSymboles) + "\n";
 			}
-			else{
-				res += traducteur(currentQuadruplet,tableSymboles,nomF,compteurFor);
-				if(currentQuadruplet.getOperateur().getOperateur()=="for")
-					compteurFor++;
-				if(currentQuadruplet.isSousCode()){
+			else {
+				if(currentQuadruplet.getOperateur().getOperateur()=="call"){
+					traducteurCall(currentQuadruplet,nomF,tableSymboles);
+				}
+				else{
+					res += traducteur(currentQuadruplet,tableSymboles,nomF,compteurFor);
+					if(currentQuadruplet.getOperateur().getOperateur()=="for")
+						compteurFor++;
+					if(currentQuadruplet.isSousCode()){
 
-					res += indent(codePython(currentQuadruplet.getOperateur().getCodeGenere(),tableSymboles,niveau+1,nomF,compteurFor));
+						res += indent(codePython(currentQuadruplet.getOperateur().getCodeGenere(),tableSymboles,niveau+1,nomF,compteurFor));
+					}
 				}
 			}
 		}
@@ -128,15 +136,15 @@ public class TroisAddVersPython {
 		case "while"	: 
 			res = "while " + quadruplet.getOperateur().getNom() + ".isNotNil()" +":\n";
 			break;
-			
+
 		case "for"		: 
 			res = "for i"+compteurFor+ " in range(0, " + quadruplet.getOperateur().getNom() + ".countFor()):\n";
 			break;
-		
+
 		case "if"		:
 			res = "if " + quadruplet.getOperateur().getNom() + ".isNotNil():\n";
 			break;
-			
+
 		case "else"		:
 			res = "else:\n";
 			break;
@@ -217,15 +225,39 @@ public class TroisAddVersPython {
 		case "hd"   : 
 			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getRightChild()";
 			break;
-
+			
+		case "call"  :
+			res = traducteurCall(quadruplet, nomFonction, table);
 		default		   : 
 			break;
 		}
 		return res;
 	}
 	
+	public static String traducteurCall(Quadruplet quadruplet, String nomFonction, SymbolsTable table){	
+		String res = "";
+		ParamVarFunction tableFonction = table.getFunction(quadruplet.getElement2());
+		CodeGenere codeCall = quadruplet.getOperateur().getCodeGenere();
+		if(tableFonction!=null && tableFonction.getNbParamIn()==codeCall.getListQuadruplet().size() && tableFonction.getNbParamOut()==1 ){
+			res += quadruplet.getElement2() + "(";
+			
+			Iterator<Quadruplet> it = codeCall.getListQuadruplet().iterator();	
+			while(it.hasNext()){
+				Quadruplet currentQuadruplet = it.next();
+				res += traducteurExpr(currentQuadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0), nomFonction, table);
+				if (it.hasNext()){
+					res +=", ";
+				}
+			}
+			res += ")";
+		}
+		else 
+			res = "BinTrees.BinTrees()";
+		return res;
+	}
+
 	public static String initVarLocal(String nomFonction, List<String> listParam, SymbolsTable table){
-		
+
 		String res = "";
 		Set<String> listVarLocal = table.getFunction(nomFonction).getMapVarLocal().keySet();
 		Iterator<String> it = listVarLocal.iterator();
@@ -244,7 +276,7 @@ public class TroisAddVersPython {
 		}
 		return res;
 	}
-	
+
 	public static String indent(String code){
 		String res = "\t";
 		int i=0;

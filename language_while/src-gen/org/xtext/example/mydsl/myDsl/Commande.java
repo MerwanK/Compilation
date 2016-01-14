@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getNop <em>Nop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getAffectVar <em>Affect Var</em>}</li>
@@ -19,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getIfC <em>If C</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Commande#getForeachC <em>Foreach C</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommande()
  * @model

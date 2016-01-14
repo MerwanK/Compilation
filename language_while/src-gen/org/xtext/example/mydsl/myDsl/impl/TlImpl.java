@@ -21,10 +21,10 @@ import org.xtext.example.mydsl.myDsl.Tl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TlImpl#getLe4 <em>Le4</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

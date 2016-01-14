@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Foreach#getExp5 <em>Exp5</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Foreach#getExp6 <em>Exp6</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Foreach#getCom7 <em>Com7</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getForeach()
  * @model
