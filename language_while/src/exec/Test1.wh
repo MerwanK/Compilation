@@ -1,13 +1,13 @@
 fonction p:
-read X
+read X,Y
 %
 	nop
 %
 write Y
 fonction d:
-read X
+read A,B,C
 %
 	nop
 %
-write Y
+write B
 

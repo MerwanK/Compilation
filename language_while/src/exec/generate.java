@@ -10,6 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
 import org.xtext.example.mydsl.generator.MyDslGenerator;
+
 import backEnd.TroisAddVersPython;
 import tableSymboles.ParamVarFunction;
 
@@ -23,9 +24,21 @@ public class generate
 		String fichierSource = "src/exec/Test1.wh";
 		String fichierDest = fichierSource.replaceAll(".wh",".py");
 		int mainstart = 0;
+		int mainbody = 0;
+		int nbarg = 0;
+		int inc = 0;
 		
+		String lastfunc =null;
+		String tempcache = null;
 		String cache1 = null;
 		String cache2 = null;
+		String cache3 = null;
+		
+		MyDslGenerator generator = new MyDslGenerator();
+		
+		LinkedHashMap<String, ParamVarFunction> temp = null;
+		Entry<String, ParamVarFunction> tempentry = null;
+		Iterator<Entry<String, ParamVarFunction>> it = null;
 		
 		System.out.println(fichierSource);
 		System.out.println(fichierDest);
@@ -42,37 +55,53 @@ public class generate
 		br.close();	
 		}
 		
-		MyDslGenerator generator = new MyDslGenerator();
+		
 		generator.generationCode3Adresses(fichierSource);
-		String tempcache = TroisAddVersPython.codePython(generator.getCodeGenere(), generator.getTableSymbole()).toString();
-			
-		LinkedHashMap<String, ParamVarFunction> temp = generator.getTableSymbole().getfuncmap();
-		Entry<String, ParamVarFunction> tempentry = null;
-		Iterator<Entry<String, ParamVarFunction>> it = temp.entrySet().iterator();
+		tempcache = TroisAddVersPython.codePython(generator.getCodeGenere(), generator.getTableSymbole()).toString();
+		temp = generator.getTableSymbole().getfuncmap();
+		it = temp.entrySet().iterator();
 			
 		while(it.hasNext())
 		{
 			tempentry = it.next();
 		}
 			
-		String lastfunc = tempentry.getKey();
+		lastfunc = tempentry.getKey();
 		
 		mainstart = tempcache.lastIndexOf("def ", tempcache.length());
+		mainbody = tempcache.lastIndexOf(":\n", tempcache.length());
 		
 		System.out.println(mainstart);
 		
 		cache1 = tempcache.substring(0, mainstart);
-		cache2 = tempcache.substring(mainstart, tempcache.length());
-		cache2 = cache2.replaceAll("return","print");
+		cache2 = tempcache.substring(mainstart, mainbody);
+		cache3 = tempcache.substring(mainbody, tempcache.length());
+		cache3 = cache3.replaceAll("return","print");
+		
+		nbarg = generator.getTableSymbole().getFunction(lastfunc).getNbParamIn();
 			
-		output.print("import BinTrees,os,sys \n\narg = []\nfor index in range(len(sys.argv)):\n\targ.append(translate(sys.argv[index]))\n");
+		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(translate(sys.argv[index]))\n\n");
+		output.print("while(len(narg) < nbarg):\n\tnarg.append()\n");
 		output.print(cache1);
 		output.print(cache2);
+		output.print(cache3);
 		//output.print(tempcache.replaceAll("def "+lastfunc+" \\([a-z0-9]*\\) :", lastfunc+" :"));
-		output.print("\nif __name__ == '__main__':\n\t"+lastfunc+"()");
+		output.print("\nif __name__ == '__main__':\n\t"+lastfunc+"(");
+		while (inc != nbarg)
+		{
+			output.print("narg["+inc+"]");
+			inc++;
+			if(inc!=nbarg)
+			{
+				output.print(", ");
+			}
+			else
+			{
+				output.print(")");
+			}
+		}
 		
-			
-			
+		output.close();
 	}
 	
 }
