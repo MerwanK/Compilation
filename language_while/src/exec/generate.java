@@ -76,11 +76,11 @@ public class generate
 		cache1 = tempcache.substring(0, mainstart);
 		cache2 = tempcache.substring(mainstart, mainbody);
 		cache3 = tempcache.substring(mainbody, tempcache.length());
-		cache3 = cache3.replaceAll("return (.*)\n","BinTrees.printTree\\($1\\)\n"); //TODO
+		cache3 = cache3.replaceAll("return (.*)\n","print BinTrees.TreeToString\\($1\\)\n"); //TODO
 		
 		nbarg = generator.getTableSymbole().getFunction(lastfunc).getNbParamIn();
 			
-		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.stringToTree(sys.argv[index]))\n\n");
+		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.texttoTree(sys.argv[index+1]))\n\n");
 		output.print("while(len(narg) < nbarg):\n\tnarg.append(BinTrees.BinTrees())\n");
 		output.print(cache1);
 		output.print(cache2);

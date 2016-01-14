@@ -5,16 +5,16 @@ nbarg = 3
 narg = []
 
 for index in range(len(sys.argv)-1):
-	narg.append(BinTrees.BinTrees.stringToTree(sys.argv[index]))
+	narg.append(BinTrees.texttoTree(sys.argv[index]))
 
 while(len(narg) < nbarg):
 	narg.append(BinTrees.BinTrees())
 
-def p (var0, var1) :
+def p(var0, var1):
 	pass
 	return var1
 
-def d (var0, var1, var2) :
+def d(var0, var1, var2):
 	pass
 	BinTrees.printTree(var1)
 
