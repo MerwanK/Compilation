@@ -1,7 +1,5 @@
 package tableSymboles;
 
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class SymbolsTable {
@@ -10,10 +8,10 @@ public class SymbolsTable {
 	 * Attributes
 	 */
 
-	private HashMap<String, ParamVarFunction> tableFunctions; 	// Une map avec pour clé le nom de la fonction 
+	private LinkedHashMap<String, ParamVarFunction> tableFunctions; 	// Une map avec pour clé le nom de la fonction 
 	// et pour valeur un ensemble d'infos la concernant (cf. classe ParamVarFunction).
 
-	private HashMap<String, String> tableSymbols; 	// Une map avec pour clé le nom de la fonction associée à cette table des symboles 
+	private LinkedHashMap<String, String> tableSymbols; 	// Une map avec pour clé le nom de la fonction associée à cette table des symboles 
 	// et pour valeur une autre map avec pour clé cette fois le nom du symbole et pour valeur ce que vaut ce symbole.
 
 	private int compteur;
@@ -120,6 +118,11 @@ public class SymbolsTable {
 		String res = "";
 		res = tableFunctions.toString()+ "\n" + tableSymbols.toString() ;
 		return res;
+	}
+	
+	public LinkedHashMap<String, ParamVarFunction> getfuncmap()
+	{
+		return tableFunctions;
 	}
 
 
