@@ -20,8 +20,8 @@ public class generate
 
 	public static void main(String[] args) throws IOException 
 	{
-		//String fichierSource = args[0];
-		String fichierSource = "src/exec/Test1.wh";
+		String fichierSource = args[0];
+		//String fichierSource = "src/exec/Test1.wh";
 		String fichierDest = fichierSource.replaceAll(".wh",".py");
 		int mainstart = 0;
 		int mainbody = 0;
@@ -40,8 +40,8 @@ public class generate
 		Entry<String, ParamVarFunction> tempentry = null;
 		Iterator<Entry<String, ParamVarFunction>> it = null;
 		
-		System.out.println(fichierSource);
-		System.out.println(fichierDest);
+		//System.out.println(fichierSource);
+		//System.out.println(fichierDest);
 		
 		PrintStream output = new PrintStream(new File(fichierDest));
 		
@@ -50,7 +50,7 @@ public class generate
 			String line = null;
 			while ((line = br.readLine()) != null) 
 			{
-			    System.out.println(line);
+			    //System.out.println(line);
 			}
 		br.close();	
 		}
@@ -71,21 +71,20 @@ public class generate
 		mainstart = tempcache.lastIndexOf("def ", tempcache.length());
 		mainbody = tempcache.lastIndexOf(":\n", tempcache.length());
 		
-		System.out.println(mainstart);
+		//System.out.println(mainstart);
 		
 		cache1 = tempcache.substring(0, mainstart);
 		cache2 = tempcache.substring(mainstart, mainbody);
 		cache3 = tempcache.substring(mainbody, tempcache.length());
-		cache3 = cache3.replaceAll("return","print");
+		cache3 = cache3.replaceAll("return (.*)\n","print BinTrees.TreeToString\\($1\\)\n"); //TODO
 		
 		nbarg = generator.getTableSymbole().getFunction(lastfunc).getNbParamIn();
 			
-		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(translate(sys.argv[index]))\n\n");
-		output.print("while(len(narg) < nbarg):\n\tnarg.append()\n");
+		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.texttoTree(sys.argv[index+1]))\n\n");
+		output.print("while(len(narg) < nbarg):\n\tnarg.append(BinTrees.BinTrees())\n");
 		output.print(cache1);
 		output.print(cache2);
 		output.print(cache3);
-		//output.print(tempcache.replaceAll("def "+lastfunc+" \\([a-z0-9]*\\) :", lastfunc+" :"));
 		output.print("\nif __name__ == '__main__':\n\t"+lastfunc+"(");
 		while (inc != nbarg)
 		{

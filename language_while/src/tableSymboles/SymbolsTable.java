@@ -82,6 +82,11 @@ public class SymbolsTable {
 	public String getVarGlobal(String key){
 		return tableSymbols.get(key);
 	}
+	
+	public LinkedHashMap<String, String> getMapVarGlob(){
+		return tableSymbols;
+	}
+	
 	// A voir si nécessaire de pouvoir changer de nom de fonction ?? (pareil pour var et symb)
 
 	/**
