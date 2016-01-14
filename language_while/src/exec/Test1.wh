@@ -1,0 +1,12 @@
+fonction p:
+read X
+%
+	nop
+%
+write Y
+fonction d:
+read X
+%
+	nop
+%
+write Y
