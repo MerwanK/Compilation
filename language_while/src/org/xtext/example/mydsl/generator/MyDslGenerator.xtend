@@ -55,6 +55,8 @@ class MyDslGenerator implements IGenerator {
 	private CodeGenere codeFonction;
 	private int compteurRegistre;
 	private int compteurCond;
+	private boolean inCall;
+	private int inConsList;
 	 
 	def public CodeGenere getCodeGenere(){
 	 	return codeG;
@@ -69,6 +71,8 @@ class MyDslGenerator implements IGenerator {
 		codeG = new CodeGenere();
 		compteurCond = 0;
 		compteurRegistre = 0;
+		inCall = false;
+		inConsList = 0;
 		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration();
 		val resourceSet = injector.getInstance(XtextResourceSet);
 		val uri = URI.createURI(entree);
@@ -84,6 +88,8 @@ class MyDslGenerator implements IGenerator {
 		codeG = new CodeGenere();
 		compteurCond = 0;
 		compteurRegistre = 0;
+		inCall = false;
+		inConsList = 0;
 		for(p: resource.allContents.toIterable.filter(Programme)){
 			fsa.generateFile("sketuve.xxx",p.compile()); 
 		}
@@ -163,12 +169,12 @@ class MyDslGenerator implements IGenerator {
    	    val CodeGenere codeExpr = new CodeGenere;
    		exps.exprS.compile(codeExpr);
    		var int tmp = compteurRegistre;
-   		code.addExpr(codeExpr,"R"+compteurRegistre);//voir partie de droite pour les expr!!!!!! 
+   		code.addExpr(codeExpr,"R"+compteurRegistre); 
    		compteurRegistre++;
    		for(Expr v :exps.exprS2){
    			 val CodeGenere codeExprs = new CodeGenere;
    			 v.compile(codeExpr);
-   			 code.addExpr(codeExprs,"R"+compteurRegistre);//voir partie de droite pour les expr!!!!!! 
+   			 code.addExpr(codeExprs,"R"+compteurRegistre);
    			 compteurRegistre++;
    		}
    		compteurRegistre = tmp;
@@ -187,31 +193,42 @@ class MyDslGenerator implements IGenerator {
    		compteurRegistre = tmp;
    }  
    
-   def compile(While w, CodeGenere code){ //////////!!!!!!!!!!! A modifier
+   def compile(While w, CodeGenere code){ 
    		val CodeGenere codeWhile = new CodeGenere(); 
    		val CodeGenere codeExpr = new CodeGenere();
+   		var int tmp = compteurRegistre;
+   		compteurRegistre++;
    		w.exp2.compile(codeExpr);
+   		code.addExpr(codeExpr,"R"+tmp);
    		w.com3.compile(codeWhile);
-   		code.addWhile("expr"+compteurCond,codeWhile);
-   		compteurCond++;
+   		code.addWhile("R"+tmp,codeWhile);
    }
       
-   def compile(For f, CodeGenere code){ ////////////!!!!!!!!!!!! A modif
-   		val CodeGenere codeFor = new CodeGenere();
+   def compile(For f, CodeGenere code){ 
+   		val CodeGenere codeFor = new CodeGenere(); 
    		val CodeGenere codeExpr = new CodeGenere();
+   		var int tmp = compteurRegistre;
+   		compteurRegistre++;
    		f.exp3.compile(codeExpr);
+   		code.addExpr(codeExpr,"R"+tmp);
    		f.com4.compile(codeFor);
-   		code.addFor("expr"+compteurCond,codeFonction);
-   		compteurCond++;
+   		code.addFor("R"+tmp,codeFor);
    }
    
    def compile(If ifc, CodeGenere code){/////////////!!!!!!!!!!!!!!!!!!!!!!!!!! Muavais codage du IF
    		val CodeGenere codeIf = new CodeGenere();
+   		val CodeGenere codeElse = new CodeGenere();
    		val CodeGenere codeExpr = new CodeGenere();
+   		var int tmp = compteurRegistre;
+   		compteurRegistre++;
    		ifc.exp4.compile(codeExpr);
-   		code.addIf("expr"+compteurCond,codeFonction);
+   		code.addExpr(codeExpr,"R"+tmp);
    		ifc.com5.compile(codeIf);
-   		ifc.com6.compile(codeIf);
+   		code.addIf("R"+tmp,codeIf);
+   		if(ifc.com6 != null){
+   			ifc.com6.compile(codeElse);
+   			code.addElse(codeElse);	
+   		}
    }
    
    def compile(Foreach fe, CodeGenere code){/////////////!!!!!!!!!!!! La on fait rien du tout
@@ -286,7 +303,10 @@ class MyDslGenerator implements IGenerator {
    }
    
    def compile(SymboleEx sex, CodeGenere code){
+   	   	val CodeGenere codeCall = new CodeGenere;
+   	   	inCall = true;
    		sex.le5.compile(code);
+   		code.addCall(codeCall,sex.p);
    }
    
    def compile(ExprAnd ea, CodeGenere code){

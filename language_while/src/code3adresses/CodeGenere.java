@@ -58,7 +58,6 @@ public class CodeGenere {
 		listQuadruplet.add(elem);
 	}
 
-
 	//Permet d'ajouter le quadruplet d'un foreach
 	public void addForeach(String cond, CodeGenere codeG){
 		Quadruplet elem = new Quadruplet(new Operateur("foreach",cond,codeG),"","","");
@@ -72,8 +71,8 @@ public class CodeGenere {
 	}	
 
 	//Permet d'ajouter le quadruplet d'un else
-	public void addElse(String cond, CodeGenere codeG){
-		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
+	public void addElse(CodeGenere codeG){
+		Quadruplet elem = new Quadruplet(new Operateur("else","",codeG),"","","");
 		listQuadruplet.add(elem);
 	}
 
@@ -107,23 +106,29 @@ public class CodeGenere {
 		listQuadruplet.add(elem);
 	}
 
-	//Permet d'ajouter le quadruplet d'un else
+	//Permet d'ajouter le quadruplet d'un list
 	public void addList(CodeGenere code){
 		Quadruplet elem = new Quadruplet(new Operateur("list","",code),"","","");
 		listQuadruplet.add(elem);
 	}
 
-	//Permet d'ajouter le quadruplet d'un else
+	//Permet d'ajouter le quadruplet d'un head
 	public void addHead(CodeGenere code){
 		Quadruplet elem = new Quadruplet(new Operateur("hd","",code),"","","");
 		listQuadruplet.add(elem);
 	}
 
-	//Permet d'ajouter le quadruplet d'un else
+	//Permet d'ajouter le quadruplet d'un tail
 	public void addTail(CodeGenere code){
 		Quadruplet elem = new Quadruplet(new Operateur("tl","",code),"","","");
 		listQuadruplet.add(elem);
 	}
+	
+	//Permet d'ajouter le quadruplet d'un call
+		public void addCall(CodeGenere code, String nomFonction){
+			Quadruplet elem = new Quadruplet(new Operateur("call","",code),"",nomFonction,"");
+			listQuadruplet.add(elem);
+		}
 
 	public String toString(){
 		String res = "";

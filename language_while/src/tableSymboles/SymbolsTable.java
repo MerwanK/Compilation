@@ -1,7 +1,5 @@
 package tableSymboles;
 
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class SymbolsTable {
