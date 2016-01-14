@@ -160,13 +160,15 @@ class MyDslGenerator implements IGenerator {
     }
 
    def compile(Exprs exps, CodeGenere code){
-   		exps.exprS.compile();
+   	    val CodeGenere codeExpr = new CodeGenere;
+   		exps.exprS.compile(codeExpr);
    		var int tmp = compteurRegistre;
-   		code.addAff("R"+compteurRegistre,"R");//voir partie de droite pour les expr!!!!!! 
+   		code.addExpr(codeExpr,"R"+compteurRegistre);//voir partie de droite pour les expr!!!!!! 
    		compteurRegistre++;
    		for(Expr v :exps.exprS2){
-   			 v.compile();
-   			 code.addAff("R"+compteurRegistre,"R");//voir partie de droite pour les expr!!!!!! 
+   			 val CodeGenere codeExprs = new CodeGenere;
+   			 v.compile(codeExpr);
+   			 code.addExpr(codeExprs,"R"+compteurRegistre);//voir partie de droite pour les expr!!!!!! 
    			 compteurRegistre++;
    		}
    		compteurRegistre = tmp;
@@ -187,7 +189,8 @@ class MyDslGenerator implements IGenerator {
    
    def compile(While w, CodeGenere code){ //////////!!!!!!!!!!! A modifier
    		val CodeGenere codeWhile = new CodeGenere(); 
-   		w.exp2.compile();
+   		val CodeGenere codeExpr = new CodeGenere();
+   		w.exp2.compile(codeExpr);
    		w.com3.compile(codeWhile);
    		code.addWhile("expr"+compteurCond,codeWhile);
    		compteurCond++;
@@ -195,7 +198,8 @@ class MyDslGenerator implements IGenerator {
       
    def compile(For f, CodeGenere code){ ////////////!!!!!!!!!!!! A modif
    		val CodeGenere codeFor = new CodeGenere();
-   		f.exp3.compile();
+   		val CodeGenere codeExpr = new CodeGenere();
+   		f.exp3.compile(codeExpr);
    		f.com4.compile(codeFor);
    		code.addFor("expr"+compteurCond,codeFonction);
    		compteurCond++;
@@ -203,7 +207,8 @@ class MyDslGenerator implements IGenerator {
    
    def compile(If ifc, CodeGenere code){/////////////!!!!!!!!!!!!!!!!!!!!!!!!!! Muavais codage du IF
    		val CodeGenere codeIf = new CodeGenere();
-   		ifc.exp4.compile();
+   		val CodeGenere codeExpr = new CodeGenere();
+   		ifc.exp4.compile(codeExpr);
    		code.addIf("expr"+compteurCond,codeFonction);
    		ifc.com5.compile(codeIf);
    		ifc.com6.compile(codeIf);
@@ -211,110 +216,119 @@ class MyDslGenerator implements IGenerator {
    
    def compile(Foreach fe, CodeGenere code){/////////////!!!!!!!!!!!! La on fait rien du tout
    		val CodeGenere codeForEach = new CodeGenere;
-   		fe.exp5.compile();
-   		fe.exp6.compile();
+   		val CodeGenere codeExpr = new CodeGenere;
+   		fe.exp5.compile(codeExpr);
+   		fe.exp6.compile(codeExpr);
    		fe.com7.compile(codeForEach);
    }
    
-   def int compile(Expr ex){
+   def int compile(Expr ex, CodeGenere code){
    		if(ex.expA != null){
-   	 		ex.expA.compile();
+   	 		ex.expA.compile(code);
    		}
   		if(ex.expS != null){
-   			ex.expS.compile();  
+   			ex.expS.compile(code);  
    		}
    		return 0;
-   		
    	}
    
-   def compile(ExprSimple es){
+   def compile(ExprSimple es, CodeGenere code){
    		if(es.vide != null){
-   			
+   			code.addNil();
    		}
    		if(es.variable != null){
    			tableSymboles.setVariable(fonctionEnCours,es.variable);
-   				
+    		code.addVariable(es.variable);		
    		}
    		if(es.symbole != null){
    			tableSymboles.setSymbol(es.symbole);
+   			code.addSymbole(es.symbole);
    		}
    		if(es.cons != null){
-   			es.cons.compile();
+   			val CodeGenere codeCons = new CodeGenere;
+   			es.cons.compile(codeCons);
+   			code.addCons(codeCons);
    		}
    		if(es.liste != null){
-   			es.liste.compile();
+   			val CodeGenere codeList = new CodeGenere;
+   			es.liste.compile(codeList);
+   			code.addList(codeList);
    		}
    		if(es.hd != null){
-   			es.hd.compile();
+   			val CodeGenere codeHead = new CodeGenere;
+   			es.hd.compile(codeHead);
+   			code.addHead(codeHead);
    		}
    		if(es.tl != null){
-   			es.tl.compile();
+   			val CodeGenere codeTail = new CodeGenere;
+   			es.tl.compile(codeTail);
+   			code.addTail(codeTail);
    		}
    		if(es.symbolEx != null){
-   			es.symbolEx.compile();
+   			es.symbolEx.compile(code); //Ignorer pour l'instant
    		}
    }
    
-   def compile(Cons ce){
-   		ce.le1.compile();
+   def compile(Cons ce, CodeGenere code){
+   		ce.le1.compile(code);
    }
    
-   def compile(Liste lie){
-   		lie.le2.compile();
+   def compile(Liste lie, CodeGenere code){
+   		lie.le2.compile(code);
    }
    
-   def compile(Hd h){
-   		h.le3.compile();
+   def compile(Hd h, CodeGenere code){
+   		h.le3.compile(code);
    }
    
-   def compile(Tl t){
-   		t.le4.compile();
+   def compile(Tl t, CodeGenere code){
+   		t.le4.compile(code);
    }
    
-   def compile(SymboleEx sex){
-   		sex.le5.compile();
+   def compile(SymboleEx sex, CodeGenere code){
+   		sex.le5.compile(code);
    }
    
-   def compile(ExprAnd ea){
-   		ea.expO.compile();
+   def compile(ExprAnd ea, CodeGenere code){
+   		ea.expO.compile(code);
    		for(ExprOr v :ea.expO2){
-   			v.compile();
+   			v.compile(code);
    		}
    }
    
-   def compile(ExprOr eo){
-   		eo.expN.compile();
+   def compile(ExprOr eo, CodeGenere code){
+   		eo.expN.compile(code);
    		for(ExprNot v:eo.expN2){
-   			v.compile();
+   			v.compile(code);
    		}
    }
    
-   def compile(ExprNot en){
+   def compile(ExprNot en, CodeGenere code){
 		if(en.exprNotNot != null){
-			en.exprNotNot.compile();
+			en.exprNotNot.compile(code);
 		}
 		if(en.exprNotDo != null){
-			en.exprNotDo.compile();
+			en.exprNotDo.compile(code);
 		}
 	}
 	
-   def compile(ExprNotNot enn){
-   		enn.expEq1.compile();
+   def compile(ExprNotNot enn, CodeGenere code){
+   		enn.expEq1.compile(code);
    }
    	
-   def compile(ExprNotDo end){
-   		end.expEq2.compile();
+   def compile(ExprNotDo end, CodeGenere code){
+   		end.expEq2.compile(code);
    }
    
-   def compile(ExprEq eeq){
-		eeq.expS1.compile();
-		eeq.expS2.compile(); 
-		eeq.expR.compile();
+   def compile(ExprEq eeq, CodeGenere code){
+		eeq.expS1.compile(code);
+		eeq.expS2.compile(code); 
+		eeq.expR.compile(code);
    }
    
-   def compile(LExpr a){
+   def compile(LExpr a, CodeGenere code){
    for(Expr v: a.expLe)
-   		v.compile(); 
+   		v.compile(code); 
    }
 
    

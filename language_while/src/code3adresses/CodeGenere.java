@@ -77,45 +77,51 @@ public class CodeGenere {
 		listQuadruplet.add(elem);
 	}
 
+	//Permet d'ajouter le quadruplet d'un expr
+	public void addExpr(CodeGenere codeG, String registre){
+		Quadruplet elem = new Quadruplet(new Operateur("expr","",codeG),registre,"","");
+		listQuadruplet.add(elem);
+	}
+
 	//Permet d'ajouter le quadruplet d'un nil
 	public void addNil(){
 		Quadruplet elem = new Quadruplet(new Operateur("nil"),"","","");
 		listQuadruplet.add(elem);
 	}
 
-	//Permet d'ajouter le quadruplet d'un else
-	public void addVariable(String registre, String nomVar){
-		Quadruplet elem = new Quadruplet(new Operateur("var"),registre,nomVar,"");
+	//Permet d'ajouter le quadruplet d'un Var
+	public void addVariable(String nomVar){
+		Quadruplet elem = new Quadruplet(new Operateur("var"),"",nomVar,"");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un Sym
+	public void addSymbole(String nomSym){
+		Quadruplet elem = new Quadruplet(new Operateur("sym"),"",nomSym,"");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un Cons
+	public void addCons(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("cons","",code),"","","");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un else
-	public void addSymbole(String registre, String nomSym){
-		Quadruplet elem = new Quadruplet(new Operateur("sym"),registre,nomSym,"");
+	public void addList(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("list","",code),"","","");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un else
-	public void addCons(String registre, String branche1, String branche2){
-		Quadruplet elem = new Quadruplet(new Operateur("cons"),"","","");
+	public void addHead(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("hd","",code),"","","");
 		listQuadruplet.add(elem);
 	}
 
 	//Permet d'ajouter le quadruplet d'un else
-	public void addListe(String cond, CodeGenere codeG){
-		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
-		listQuadruplet.add(elem);
-	}
-
-	//Permet d'ajouter le quadruplet d'un else
-	public void addHead(String cond, CodeGenere codeG){
-		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
-		listQuadruplet.add(elem);
-	}
-
-	//Permet d'ajouter le quadruplet d'un else
-	public void addTail(String cond, CodeGenere codeG){
-		Quadruplet elem = new Quadruplet(new Operateur("else",cond,codeG),"","","");
+	public void addTail(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("tl","",code),"","","");
 		listQuadruplet.add(elem);
 	}
 

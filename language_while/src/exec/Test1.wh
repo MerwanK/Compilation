@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fonction p:
 read X
 %
@@ -10,3 +11,14 @@ read X
 	nop
 %
 write Y
+=======
+fonction f1:
+read A,B
+%
+ A:=(cons A B (cons C D))
+%
+write C
+
+
+
+>>>>>>> branch 'TableDesSymboles' of https://github.com/MerwanK/Compilation.git
