@@ -80,7 +80,7 @@ public class generate
 		
 		nbarg = generator.getTableSymbole().getFunction(lastfunc).getNbParamIn();
 			
-		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.BinTrees.stringToTree(sys.argv[index]))\n\n");
+		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.stringToTree(sys.argv[index]))\n\n");
 		output.print("while(len(narg) < nbarg):\n\tnarg.append(BinTrees.BinTrees())\n");
 		output.print(cache1);
 		output.print(cache2);
