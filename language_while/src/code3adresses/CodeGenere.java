@@ -123,12 +123,36 @@ public class CodeGenere {
 		Quadruplet elem = new Quadruplet(new Operateur("tl","",code),"","","");
 		listQuadruplet.add(elem);
 	}
-	
+
 	//Permet d'ajouter le quadruplet d'un call
-		public void addCall(CodeGenere code, String nomFonction){
-			Quadruplet elem = new Quadruplet(new Operateur("call","",code),"",nomFonction,"");
-			listQuadruplet.add(elem);
-		}
+	public void addCall(CodeGenere code, String nomFonction){
+		Quadruplet elem = new Quadruplet(new Operateur("call","",code),"",nomFonction,"");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un égalité
+	public void addEq(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("eq","",code),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un and
+	public void addAnd(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("and","",code),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un or
+	public void addOr(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("or","",code),"","","");
+		listQuadruplet.add(elem);
+	}
+
+	//Permet d'ajouter le quadruplet d'un not
+	public void addNot(CodeGenere code){
+		Quadruplet elem = new Quadruplet(new Operateur("not","",code),"","","");
+		listQuadruplet.add(elem);
+	}
 
 	public String toString(){
 		String res = "";

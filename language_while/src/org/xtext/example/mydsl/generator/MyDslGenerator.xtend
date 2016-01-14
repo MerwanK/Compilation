@@ -41,6 +41,7 @@ import org.eclipse.emf.common.util.URI
 import tableSymboles.SymbolsTable
 import code3adresses.CodeGenere
 import org.xtext.example.mydsl.myDsl.LExpr2
+import java.util.Iterator
 
 /* Last */
 /**
@@ -282,7 +283,7 @@ class MyDslGenerator implements IGenerator {
    			code.addTail(codeTail);
    		}
    		if(es.symbolEx != null){
-   			es.symbolEx.compile(code); //Ignorer pour l'instant
+   			es.symbolEx.compile(code); 
    		}
    }
    
@@ -318,10 +319,28 @@ class MyDslGenerator implements IGenerator {
    }
    
    def compile(ExprAnd ea, CodeGenere code){
-   		ea.expO.compile(code);
-   		for(ExprOr v :ea.expO2){
-   			v.compile(code);
+   		if(ea.expO2!=null){
+   			var CodeGenere codeAnd = new CodeGenere;
+   			code.addAnd(codeAnd);
+   			ea.expO.compile(codeAnd);
+   			var Iterator<ExprOr> it = ea.expO2.iterator();
+   			while(it.hasNext()){
+   					var current = it.next();
+   					if(!it.hasNext()){
+   						current.compile(codeAnd);
+   					}
+   					else{
+   						var CodeGenere codeAnd2 = new CodeGenere;
+   						codeAnd.addAnd(codeAnd2);
+   						current.compile(codeAnd2);
+   						codeAnd = codeAnd2;	
+   					} 					
+   			}
    		}
+   		else{ 
+   			ea.expO.compile(code);
+   		}
+   		
    }
    
    def compile(ExprOr eo, CodeGenere code){
