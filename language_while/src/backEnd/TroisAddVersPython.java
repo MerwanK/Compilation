@@ -224,7 +224,7 @@ public class TroisAddVersPython {
 					estUnParam = true;
 			}
 			if(!estUnParam){
-				res += "\t" + traducteurVar(current, nomFonction, table) + " = BinTree.BinTree()" + "\n";
+				res += "\t" + traducteurVar(current, nomFonction, table) + " = BinTrees.BinTrees()" + "\n";
 			}
 		}
 		return res;
