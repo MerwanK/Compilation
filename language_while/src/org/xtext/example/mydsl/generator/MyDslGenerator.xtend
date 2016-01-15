@@ -41,7 +41,6 @@ import org.eclipse.emf.common.util.URI
 import tableSymboles.SymbolsTable
 import code3adresses.CodeGenere
 import org.xtext.example.mydsl.myDsl.LExpr2
-import java.util.Iterator
 
 /* Last */
 /**
@@ -80,7 +79,6 @@ class MyDslGenerator implements IGenerator {
 			p.compile();
 	}
 	
-	//!!!!!!!!!!!!! NE PAS OUBLIEZ DE REMETTRE LES INIT DANS L'EXECUTABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	override void doGenerate(Resource resource, IFileSystemAccess fsa){
 		tableSymboles = new SymbolsTable();
 		codeG = new CodeGenere();
@@ -319,35 +317,31 @@ class MyDslGenerator implements IGenerator {
    }
    
    def compile(ExprAnd ea, CodeGenere code){
-   		if(ea.expO2!=null){
-   			var CodeGenere codeAnd = new CodeGenere;
-   			code.addAnd(codeAnd);
-   			ea.expO.compile(codeAnd);
-   			var Iterator<ExprOr> it = ea.expO2.iterator();
-   			while(it.hasNext()){
-   					var current = it.next();
-   					if(!it.hasNext()){
-   						current.compile(codeAnd);
-   					}
-   					else{
-   						var CodeGenere codeAnd2 = new CodeGenere;
-   						codeAnd.addAnd(codeAnd2);
-   						current.compile(codeAnd2);
-   						codeAnd = codeAnd2;	
-   					} 					
-   			}
-   		}
-   		else{ 
+   		var CodeGenere codeAnd = new CodeGenere;
+   		if(ea.expO2 == null){
    			ea.expO.compile(code);
    		}
-   		
+   		else{
+   			ea.expO.compile(codeAnd);
+   			for(ExprOr v:ea.expO2){
+   				v.compile(codeAnd);
+   				code.addAnd(codeAnd);
+   	    	}    
+   	    }
    }
    
    def compile(ExprOr eo, CodeGenere code){
-   		eo.expN.compile(code);
-   		for(ExprNot v:eo.expN2){
-   			v.compile(code);
+   		var CodeGenere codeOr = new CodeGenere;
+   		if(eo.expN2 == null){
+   			eo.expN.compile(code);
    		}
+   		else{
+   			eo.expN.compile(codeOr);
+   			for(ExprNot v:eo.expN2){
+   				v.compile(codeOr);
+   				code.addOr(codeOr);
+   	    	}    
+   	    }
    }
    
    def compile(ExprNot en, CodeGenere code){
@@ -360,7 +354,9 @@ class MyDslGenerator implements IGenerator {
 	}
 	
    def compile(ExprNotNot enn, CodeGenere code){
-   		enn.expEq1.compile(code);
+   		var CodeGenere codeNot = new CodeGenere;
+   		enn.expEq1.compile(codeNot);
+   		code.addNot(codeNot);
    }
    	
    def compile(ExprNotDo end, CodeGenere code){
@@ -368,9 +364,16 @@ class MyDslGenerator implements IGenerator {
    }
    
    def compile(ExprEq eeq, CodeGenere code){
-		eeq.expS1.compile(code);
-		eeq.expS2.compile(code); 
-		eeq.expR.compile(code);
+		if(eeq.expR == null){
+			var CodeGenere codeEq = new CodeGenere;
+			eeq.expS1.compile(codeEq);
+			eeq.expS2.compile(codeEq); 
+			code.addEq(codeEq);
+		}
+		else{
+			eeq.expR.compile(code);	
+		}
+		
    }
 
 
