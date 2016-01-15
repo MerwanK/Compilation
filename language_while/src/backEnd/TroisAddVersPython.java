@@ -172,11 +172,11 @@ public class TroisAddVersPython {
 			break;
 
 		case "tl"   : 
-			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getLeftChild()";
+			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getRightChild()";
 			break;
 
 		case "hd"   : 
-			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getRightChild()";
+			res = traducteurExpr(quadruplet.getOperateur().getCodeGenere().getListQuadruplet().get(0),nomFonction,table) + ".getLeftChild()";
 			break;
 			
 		case "call"  :
