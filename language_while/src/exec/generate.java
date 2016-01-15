@@ -29,7 +29,8 @@ public class generate
 		int nbarg = 0;
 		int inc = 0;
 		
-		String lastfunc =null;
+		String symbname = null;
+		String lastfunc = null;
 		String tempcache = null;
 		String cache1 = null;
 		String cache2 = null;
@@ -96,8 +97,8 @@ public class generate
 			
 			while (itglob.hasNext())
 			{
-	
-				output.print(itglob.next().getValue()+" = BinTrees.BinTrees()\n");
+				symbname = itglob.next().getValue();
+				output.print(symbname+" = BinTrees.BinTrees(\"symb\",\""+symbname+"\")\n");
 				
 				if (!itglob.hasNext())
 				{
