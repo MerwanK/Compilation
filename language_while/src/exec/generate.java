@@ -21,8 +21,8 @@ public class generate
 
 	public static void main(String[] args) throws IOException 
 	{
-		String fichierSource = args[0];
-		//String fichierSource = "src/exec/Test1.wh";
+		//String fichierSource = args[0];
+		String fichierSource = "src/exec/Test1.wh";
 		String fichierDest = fichierSource.replaceAll(".wh",".py");
 		int mainstart = 0;
 		int mainbody = 0;

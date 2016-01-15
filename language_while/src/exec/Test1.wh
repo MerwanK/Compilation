@@ -1,12 +1,7 @@
-fonction p:
+
+fonction f4:
 read X,Y
 %
-	nop
+	X,Y:=Y,X
 %
-write Y
-fonction d:
-read A,B,C
-%
-	nop:=testsym
-%
-write A,B,C
+write X,Y
