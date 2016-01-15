@@ -1,0 +1,19 @@
+--------------HELP generate(While -> python)-------------
+
+[SYNOPSIS]: generate SOURCEFILE [OPTIONS]
+
+[DESCRIPTION]: Ce programme permet d'effectuer une compilation sur un 
+fichier "WHILE" source pour le transformer en code executable python
+
+[OPTIONS]: [-help] --> Affiche cette aide
+
+[BUGS]:
+
+[SEE ALSO]: Le lien vers le github de notre groupe --> 
+	    https://github.com/MerwanK/Compilation
+
+[AUTHORS]: Chef de projet: Jordan Bachelin
+	   Responsable test: Maxime Servais
+	   Developpeurs: Merwan Kaf
+			 Jeremy Delvinquier
+		         Pierre LeCorre
