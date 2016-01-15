@@ -4,59 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
-import javax.swing.text.StyledEditorKit.ItalicAction;
-
 import code3adresses.CodeGenere;
 import code3adresses.Quadruplet;
 import tableSymboles.ParamVarFunction;
 import tableSymboles.SymbolsTable;
 
 public class TroisAddVersPython {
-
-	public static void main (String [] arg){
-		SymbolsTable table = new SymbolsTable();
-		table.putFunction("f1");
-		table.setInVariable("f1", "A");
-		table.setInVariable("f1", "B");
-		table.setOutVariable("f1", "B");
-		table.putFunction("f2");
-		table.setInVariable("f2", "A");
-		table.setInVariable("f2", "B");
-		table.setOutVariable("f2", "B");
-		CodeGenere code = new CodeGenere();
-		CodeGenere codeF = new CodeGenere();
-		CodeGenere codeW = new CodeGenere();
-		CodeGenere codeW1 = new CodeGenere();
-		CodeGenere codeW2 = new CodeGenere();
-		codeF.addRead("A");
-		codeF.addRead("B");
-		codeW2.addNop();
-		codeW1.addWhile("expr",codeW2);
-		codeW1.addNop();
-		codeW.addWhile("expr",codeW1);
-		codeW.addNop();
-		codeF.addWhile("expr",codeW);
-		codeF.addWrite("B");
-		code.addFonction("f1", codeF);
-		CodeGenere codeF1 = new CodeGenere();
-		CodeGenere codeW0 = new CodeGenere();
-		CodeGenere codeW11 = new CodeGenere();
-		CodeGenere codeW22 = new CodeGenere();
-		codeF1.addRead("A");
-		codeF1.addRead("B");
-		codeW22.addNop();
-		codeW11.addWhile("expr",codeW2);
-		codeW11.addNop();
-		codeW0.addWhile("expr",codeW1);
-		codeW0.addNop();
-		codeF1.addWhile("expr",codeW);
-		codeF1.addWrite("B");
-		code.addFonction("f2", codeF);
-
-		System.out.println(codePython(code,table));
-	}
-
 	public static String codePython(CodeGenere code, SymbolsTable tableSymboles){
 		int niveau = 0;
 		String nomFonction = "";
@@ -271,7 +224,7 @@ public class TroisAddVersPython {
 					estUnParam = true;
 			}
 			if(!estUnParam){
-				res += "\t" + traducteurVar(current, nomFonction, table) + " = BinTree.BinTree()" + "\n";
+				res += "\t" + traducteurVar(current, nomFonction, table) + " = BinTrees.BinTrees()" + "\n";
 			}
 		}
 		return res;
