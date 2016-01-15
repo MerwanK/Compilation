@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
+import java.util.Scanner;
 
 import org.xtext.example.mydsl.generator.MyDslGenerator;
 
@@ -36,6 +37,7 @@ public class generate
 		
 		MyDslGenerator generator = new MyDslGenerator();
 		
+		LinkedHashMap<String, String> varglob = null;
 		LinkedHashMap<String, ParamVarFunction> temp = null;
 		Entry<String, ParamVarFunction> tempentry = null;
 		Iterator<Entry<String, ParamVarFunction>> it = null;
@@ -43,64 +45,97 @@ public class generate
 		//System.out.println(fichierSource);
 		//System.out.println(fichierDest);
 		
-		PrintStream output = new PrintStream(new File(fichierDest));
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(fichierSource))) 
+		if (args[0].equals("-help"))
 		{
-			String line = null;
-			while ((line = br.readLine()) != null) 
-			{
-			    //System.out.println(line);
+			Scanner scanner=new Scanner(generate.class.getResourceAsStream("/exec/help.txt"));
+			while (scanner.hasNextLine()) {
+				String line = scanner.nextLine();
+				System.out.println(line);
 			}
-		br.close();	
+			scanner.close();
 		}
 		
-		
-		generator.generationCode3Adresses(fichierSource);
-		tempcache = TroisAddVersPython.codePython(generator.getCodeGenere(), generator.getTableSymbole()).toString();
-		temp = generator.getTableSymbole().getfuncmap();
-		it = temp.entrySet().iterator();
-			
-		while(it.hasNext())
+		else
 		{
-			tempentry = it.next();
-		}
+		
+			PrintStream output = new PrintStream(new File(fichierDest));
 			
-		lastfunc = tempentry.getKey();
-		
-		mainstart = tempcache.lastIndexOf("def ", tempcache.length());
-		mainbody = tempcache.lastIndexOf(":\n", tempcache.length());
-		
-		//System.out.println(mainstart);
-		
-		cache1 = tempcache.substring(0, mainstart);
-		cache2 = tempcache.substring(mainstart, mainbody);
-		cache3 = tempcache.substring(mainbody, tempcache.length());
-		cache3 = cache3.replaceAll("return (.*)\n","print BinTrees.TreeToString\\($1\\)\n"); //TODO
-		
-		nbarg = generator.getTableSymbole().getFunction(lastfunc).getNbParamIn();
+			try (BufferedReader br = new BufferedReader(new FileReader(fichierSource))) 
+			{
+				String line = null;
+				while ((line = br.readLine()) != null) 
+				{
+				    System.out.println(line);
+				}
+			br.close();	
+			}
 			
-		output.print("import BinTrees,os,sys \n\nnbarg = "+nbarg+"\n\nnarg = []\n\nfor index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.texttoTree(sys.argv[index+1]))\n\n");
-		output.print("while(len(narg) < nbarg):\n\tnarg.append(BinTrees.BinTrees())\n");
-		output.print(cache1);
-		output.print(cache2);
-		output.print(cache3);
-		output.print("\nif __name__ == '__main__':\n\t"+lastfunc+"(");
-		while (inc != nbarg)
-		{
-			output.print("narg["+inc+"]");
-			inc++;
-			if(inc!=nbarg)
+			
+			generator.generationCode3Adresses(fichierSource);
+			tempcache = TroisAddVersPython.codePython(generator.getCodeGenere(), generator.getTableSymbole()).toString();
+			temp = generator.getTableSymbole().getfuncmap();
+			it = temp.entrySet().iterator();
+				
+			while(it.hasNext())
 			{
-				output.print(", ");
+				tempentry = it.next();
 			}
-			else
+				
+			lastfunc = tempentry.getKey();
+			
+			mainstart = tempcache.lastIndexOf("def ", tempcache.length());
+			mainbody = tempcache.lastIndexOf(":\n", tempcache.length());
+			
+			//System.out.println(mainstart);
+			
+			output.print("import BinTrees,sys \n\n");
+			
+			varglob = generator.getTableSymbole().getMapVarGlob();
+			
+			Iterator<Entry<String, String>> itglob = varglob.entrySet().iterator();
+			
+			while (itglob.hasNext())
 			{
-				output.print(")");
+	
+				output.print(itglob.next().getValue()+" = BinTrees.BinTrees()\n");
+				
+				if (!itglob.hasNext())
+				{
+					output.print("\n");
+				}
 			}
+			
+			cache1 = tempcache.substring(0, mainstart);
+			cache2 = tempcache.substring(mainstart, mainbody);
+			cache3 = tempcache.substring(mainbody, tempcache.length());
+			cache3 = cache3.replaceAll("return (.*)\n","print BinTrees.TreeToString\\($1\\)\n");
+			
+			nbarg = generator.getTableSymbole().getFunction(lastfunc).getNbParamIn();
+			
+			output.print("nbarg = "+nbarg+"\n\nnarg = []\n\n");
+			output.print("if (len(sys.argv)-1) > nbarg:\n\tprint(\"Too many arguments\")\n\tsys.exit(1)\n\n");
+			output.print("for index in range(len(sys.argv)-1):\n\tnarg.append(BinTrees.texttoTree(sys.argv[index+1]))\n\n");
+			output.print("while(len(narg) < nbarg):\n\tnarg.append(BinTrees.BinTrees())\n");
+			output.print(cache1);
+			output.print(cache2);
+			output.print(cache3);
+			output.print("\nif __name__ == '__main__':\n\t"+lastfunc+"(");
+			while (inc != nbarg)
+			{
+				output.print("narg["+inc+"]");
+				inc++;
+				if(inc!=nbarg)
+				{
+					output.print(", ");
+				}
+				else
+				{
+					output.print(")");
+				}
+			}
+			
+			output.close();
 		}
-		
-		output.close();
 	}
 	
 }
