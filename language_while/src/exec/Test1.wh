@@ -7,6 +7,6 @@ write Y
 fonction d:
 read A,B,C
 %
-	nop
+	nop:=testsym
 %
 write A,B,C
