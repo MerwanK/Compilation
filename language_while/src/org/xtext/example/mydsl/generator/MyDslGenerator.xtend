@@ -191,18 +191,18 @@ class MyDslGenerator implements IGenerator {
    		val CodeGenere codeWhile = new CodeGenere(); 
    		val CodeGenere codeExpr = new CodeGenere();
    		var int tmp = compteurRegistre;
-   		compteurRegistre++;
+   		//compteurRegistre++;
    		w.exp2.compile(codeExpr);
    		code.addExpr(codeExpr,"R"+tmp);
    		w.com3.compile(codeWhile);
    		code.addWhile("R"+tmp,codeWhile);
-   }
+  	}
       
    def compile(For f, CodeGenere code){ 
    		val CodeGenere codeFor = new CodeGenere(); 
    		val CodeGenere codeExpr = new CodeGenere();
    		var int tmp = compteurRegistre;
-   		compteurRegistre++;
+   		//compteurRegistre++;
    		f.exp3.compile(codeExpr);
    		code.addExpr(codeExpr,"R"+tmp);
    		f.com4.compile(codeFor);
@@ -214,7 +214,6 @@ class MyDslGenerator implements IGenerator {
    		val CodeGenere codeElse = new CodeGenere();
    		val CodeGenere codeExpr = new CodeGenere();
    		var int tmp = compteurRegistre;
-   		compteurRegistre++;
    		ifc.exp4.compile(codeExpr);
    		code.addExpr(codeExpr,"R"+tmp);
    		ifc.com5.compile(codeIf);
